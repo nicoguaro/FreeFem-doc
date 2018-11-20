@@ -1,0 +1,3145 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Algorithms & Optimization - FreeFem++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#conjugate-gradientgmres" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="FreeFem++" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                FreeFem++
+              </span>
+              <span class="md-header-nav__topic">
+                Algorithms & Optimization
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Documentation" class="md-tabs__link md-tabs__link--active">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../reference/" title="Language References" class="md-tabs__link">
+          Language References
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" title="Examples" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../models/" title="Models" class="md-tabs__link">
+          Models
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="FreeFem++" class="md-nav__button md-logo">
+      
+        <img src="../../images/favicon.png" width="48" height="48">
+      
+    </a>
+    FreeFem++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/contributing/" title="How to contribute?" class="md-nav__link">
+      How to contribute?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/citation/" title="Citation" class="md-nav__link">
+      Citation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/authors/" title="Authors" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Notations/" title="Some Notations" class="md-nav__link">
+      Some Notations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MeshGeneration/" title="Mesh Generation" class="md-nav__link">
+      Mesh Generation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FiniteElement/" title="Finite Element" class="md-nav__link">
+      Finite Element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Algorithms & Optimization
+      </label>
+    
+    <a href="./" title="Algorithms & Optimization" class="md-nav__link md-nav__link--active">
+      Algorithms & Optimization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-gradientgmres" title="Conjugate Gradient/GMRES" class="md-nav__link">
+    Conjugate Gradient/GMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms-for-unconstrained-optimization" title="Algorithms for Unconstrained Optimization" class="md-nav__link">
+    Algorithms for Unconstrained Optimization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-of-usage-for-bfgs-or-cmaes" title="Example of usage for BFGS or CMAES" class="md-nav__link">
+    Example of usage for BFGS or CMAES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipopt" title="IPOPT" class="md-nav__link">
+    IPOPT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-description-of-the-algorithm" title="Short description of the algorithm" class="md-nav__link">
+    Short description of the algorithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipopt-in-freefem" title="IPOPT in FreeFem++" class="md-nav__link">
+    IPOPT in FreeFem++
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-short-examples-using-ipopt" title="Some short examples using IPOPT" class="md-nav__link">
+    Some short examples using IPOPT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d-constrained-minimum-surface-with-ipopt" title="3D constrained minimum surface with IPOPT" class="md-nav__link">
+    3D constrained minimum surface with IPOPT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#area-and-volume-expressions" title="Area and volume expressions" class="md-nav__link">
+    Area and volume expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivatives" title="Derivatives" class="md-nav__link">
+    Derivatives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-and-its-script" title="The problem and its script" class="md-nav__link">
+    The problem and its script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nlopt-optimizers" title="The nlOpt optimizers" class="md-nav__link">
+    The nlOpt optimizers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimization-with-mpi" title="Optimization with MPI" class="md-nav__link">
+    Optimization with MPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Parallelization/" title="Parallelization" class="md-nav__link">
+      Parallelization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Developers/" title="Developers" class="md-nav__link">
+      Developers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Language References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Language References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/GlobalVariables/" title="Global variables" class="md-nav__link">
+      Global variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/QuadratureFormulae/" title="Quadrature formulae" class="md-nav__link">
+      Quadrature formulae
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/IO/" title="I/O" class="md-nav__link">
+      I/O
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/ExternalLibraries/" title="External libraries" class="md-nav__link">
+      External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Poisson/" title="Poisson's equation" class="md-nav__link">
+      Poisson's equation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/EquationsClassification/" title="Classification of the equations" class="md-nav__link">
+      Classification of the equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Membrane/" title="Membrane" class="md-nav__link">
+      Membrane
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatExchanger/" title="Heat Exchanger" class="md-nav__link">
+      Heat Exchanger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Acoustics/" title="Acoustics" class="md-nav__link">
+      Acoustics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ThermalConduction/" title="Thermal Conduction" class="md-nav__link">
+      Thermal Conduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FanBlade/" title="Irrotational Fan Blade Flow and Thermal effects" class="md-nav__link">
+      Irrotational Fan Blade Flow and Thermal effects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/RotatingHill/" title="Pure convection, The rotating hill" class="md-nav__link">
+      Pure convection, The rotating hill
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Elasticity/" title="The system of elasticity" class="md-nav__link">
+      The system of elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Stokes/" title="The system of Stokes for fluids" class="md-nav__link">
+      The system of Stokes for fluids
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesProjection/" title="A projection Algorithm for the Navier-Stokes equations" class="md-nav__link">
+      A projection Algorithm for the Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesNewton/" title="Newton method for the steady Navier-Stokes equations" class="md-nav__link">
+      Newton method for the steady Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ALargeFluidProblem/" title="A large fluid problem" class="md-nav__link">
+      A large fluid problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ComplexNumbers/" title="An example with complex numbers" class="md-nav__link">
+      An example with complex numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/OptimalControl/" title="Optimal control" class="md-nav__link">
+      Optimal control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FlowWithShocks/" title="A flow with shocks" class="md-nav__link">
+      A flow with shocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatEquationOptimization/" title="Time dependent schema optimization for heat equations" class="md-nav__link">
+      Time dependent schema optimization for heat equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TimeDependentStokes/" title="A transient Stokes solver in matrix form" class="md-nav__link">
+      A transient Stokes solver in matrix form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/WifiPropagation/" title="Wifi Propagation" class="md-nav__link">
+      Wifi Propagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/MatlabOctavePlot/" title="Matlab / Octave Plots" class="md-nav__link">
+      Matlab / Octave Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/StaticProblems/" title="Static problems" class="md-nav__link">
+      Static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/Elasticity/" title="Elasticity" class="md-nav__link">
+      Elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NonLinearStaticProblems/" title="Non-linear static problems" class="md-nav__link">
+      Non-linear static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/EigenValueProblems/" title="Eigenvalue problems" class="md-nav__link">
+      Eigenvalue problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/EvolutionProblems/" title="Evolution problems" class="md-nav__link">
+      Evolution problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NavierStokesEquations/" title="Navier-Stokes equations" class="md-nav__link">
+      Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/VariationalInequality/" title="Variational inequality" class="md-nav__link">
+      Variational inequality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/DomainDecomposition/" title="Domain decomposition" class="md-nav__link">
+      Domain decomposition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-nav__link">
+      Fluid-Structure coupled problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/TransmissionProblem/" title="Transmission problem" class="md-nav__link">
+      Transmission problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/FreeBoundaryProblem/" title="Free boundary problem" class="md-nav__link">
+      Free boundary problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NonLinearElasticity/" title="Non-linear elasticity" class="md-nav__link">
+      Non-linear elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/CompressibleNeoHookeanMaterials/" title="Compressible Neo-Hookean materials" class="md-nav__link">
+      Compressible Neo-Hookean materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/WhisperingGalleryModes/" title="Whispering gallery modes" class="md-nav__link">
+      Whispering gallery modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-gradientgmres" title="Conjugate Gradient/GMRES" class="md-nav__link">
+    Conjugate Gradient/GMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms-for-unconstrained-optimization" title="Algorithms for Unconstrained Optimization" class="md-nav__link">
+    Algorithms for Unconstrained Optimization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-of-usage-for-bfgs-or-cmaes" title="Example of usage for BFGS or CMAES" class="md-nav__link">
+    Example of usage for BFGS or CMAES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipopt" title="IPOPT" class="md-nav__link">
+    IPOPT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-description-of-the-algorithm" title="Short description of the algorithm" class="md-nav__link">
+    Short description of the algorithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipopt-in-freefem" title="IPOPT in FreeFem++" class="md-nav__link">
+    IPOPT in FreeFem++
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-short-examples-using-ipopt" title="Some short examples using IPOPT" class="md-nav__link">
+    Some short examples using IPOPT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d-constrained-minimum-surface-with-ipopt" title="3D constrained minimum surface with IPOPT" class="md-nav__link">
+    3D constrained minimum surface with IPOPT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#area-and-volume-expressions" title="Area and volume expressions" class="md-nav__link">
+    Area and volume expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivatives" title="Derivatives" class="md-nav__link">
+    Derivatives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-and-its-script" title="The problem and its script" class="md-nav__link">
+    The problem and its script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nlopt-optimizers" title="The nlOpt optimizers" class="md-nav__link">
+    The nlOpt optimizers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimization-with-mpi" title="Optimization with MPI" class="md-nav__link">
+    Optimization with MPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FreeFem/FreeFem-doc/edit/master/docs/documentation/AlgorithmsOptimization.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Algorithms & Optimization</h1>
+                
+                <div>
+<div class="MathJax_Preview">\newcommand{\MyInt}[2]{\displaystyle{\int_{#1} #2 } }</div>
+<script type="math/tex; mode=display">\newcommand{\MyInt}[2]{\displaystyle{\int_{#1} #2 } }</script>
+</div>
+<h2 id="conjugate-gradientgmres">Conjugate Gradient/GMRES<a class="headerlink" href="#conjugate-gradientgmres" title="Permanent link">#</a></h2>
+<p>Suppose we want to solve the Euler problem (here <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> has nothing to do with the reserved variable for the first coordinate in FreeFem++): find $ x\in \R^n $ such that</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+\label{eqn:dJ=0}
+\nabla J(x) = \left(\frac{\p J}{\p x_i} (\mathbf{x})\right) = 0
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\label{eqn:dJ=0}
+\nabla J(x) = \left(\frac{\p J}{\p x_i} (\mathbf{x})\right) = 0
+\end{equation}</script>
+</div>
+<p>where $ J$ is a function (to minimize for example) from $ \R^n$ to $ \R$.</p>
+<p>If the function is convex we can use the conjugate gradient algorithm to solve the problem, and we just need the function (named <code class="codehilite">dJ</code> for example) which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, so the parameters are the name of that function with prototype <code class="codehilite">func real[int] dJ(real[int] &amp;xx);</code> which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, and a vector <code class="codehilite">x</code> of type (of course the number 20 can be changed) <code class="codehilite">real[int] x(20);</code> to initialize the process and get the result.</p>
+<p>Given an initial value <span><span class="MathJax_Preview">\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}^{(0)}</script></span>, a maximum number <span><span class="MathJax_Preview">i_{\max}</span><script type="math/tex">i_{\max}</script></span> of iterations, and an error tolerance <span><span class="MathJax_Preview">0&lt;\epsilon&lt;1</span><script type="math/tex">0<\epsilon<1</script></span>:</p>
+<p>Put <span><span class="MathJax_Preview">\mathbf{x}=\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}=\mathbf{x}^{(0)}</script></span> and write</p>
+<div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=epsilon, stop=stopfunc);
+</pre></div>
+
+<p>will give the solution of <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> of <span><span class="MathJax_Preview">\nabla J(\mathbf{x})=0</span><script type="math/tex">\nabla J(\mathbf{x})=0</script></span>. We can omit parameters <code class="codehilite">precon, nbiter, eps, stop</code>. Here <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the preconditioner whose default is the identity matrix.</p>
+<p>The stopping test is</p>
+<div>
+<div class="MathJax_Preview">
+\| \nabla J(\mathbf{x})\|_P\le \epsilon\| \nabla J(\mathbf{x}^{(0)})\|_P
+</div>
+<script type="math/tex; mode=display">
+\| \nabla J(\mathbf{x})\|_P\le \epsilon\| \nabla J(\mathbf{x}^{(0)})\|_P
+</script>
+</div>
+<!--- __ --->
+
+<p>Writing the minus value in <code class="codehilite">eps=</code>, i.e.,</p>
+<div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=-epsilon);
+</pre></div>
+
+<p>We can use the stopping test :</p>
+<div>
+<div class="MathJax_Preview">
+\| \nabla J(\mathbf{x})\|_P^2\le \epsilon
+</div>
+<script type="math/tex; mode=display">
+\| \nabla J(\mathbf{x})\|_P^2\le \epsilon
+</script>
+</div>
+<!--- __ --->
+
+<p>The parameters of these three functions are:</p>
+<ul>
+<li>
+<p><code class="codehilite">nbiter=</code> set the number of iteration (by default 100)</p>
+</li>
+<li>
+<p><code class="codehilite">precon=</code> set the preconditioner function (<code class="codehilite">P</code> for example) by default it is the identity, note the prototype is <code class="codehilite">func real[int] P(real[int] &amp;x)</code>.</p>
+</li>
+<li>
+<p><code class="codehilite">eps=</code> set the value of the stop test <span><span class="MathJax_Preview">\varepsilon</span><script type="math/tex">\varepsilon</script></span> (<span><span class="MathJax_Preview">=10^{-6}</span><script type="math/tex">=10^{-6}</script></span> by default) if positive then relative test <span><span class="MathJax_Preview">||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P</span><script type="math/tex">||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P</script></span>, otherwise the absolute test is <span><span class="MathJax_Preview">||\nabla J(x)||_P^2\leq |\varepsilon|</span><script type="math/tex">||\nabla J(x)||_P^2\leq |\varepsilon|</script></span>.</p>
+</li>
+</ul>
+<!--- __ --->
+
+<ul>
+<li><code class="codehilite">veps=</code> set and return the value of the stop test, if positive, then relative test is <span><span class="MathJax_Preview">||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P</span><script type="math/tex">||\nabla J(x)||_P\leq \varepsilon||\nabla J(x_0)||_P</script></span>, otherwise the absolute test is <span><span class="MathJax_Preview">||\nabla J(x)||_P^2\leq |\varepsilon|</span><script type="math/tex">||\nabla J(x)||_P^2\leq |\varepsilon|</script></span>. The return value is minus the real stop test (remark: it is useful in loop).</li>
+</ul>
+<!--- __ --->
+
+<ul>
+<li>
+<p><code class="codehilite">stop=</code> <code class="codehilite">stopfunc</code> add your test function to stop before the <code class="codehilite">eps</code> criterion. The prototype for the function <code class="codehilite">stopfunc</code> is</p>
+<div class="codehilite"><pre><span></span> func bool stopfunc(int iter, real[int] u, real[int] g)
+</pre></div>
+
+<p>where <code class="codehilite">u</code> is the current solution, and <code class="codehilite">g</code>, the current gradient, is not preconditioned.</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title"><a href="../examples/#Algorithms">Algorithms.edp</a></p>
+<p>For a given function <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>, let us find the minimizer <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> of the function</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray*}
+J(u) &amp;=&amp; \frac{1}{2}\int_{\Omega} f(|\nabla u|^2) - \int_{\Omega} u b \\
+f(x) &amp;=&amp; ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}{(1+x)^2}
+\end{eqnarray*}</div>
+<script type="math/tex; mode=display">\begin{eqnarray*}
+J(u) &=& \frac{1}{2}\int_{\Omega} f(|\nabla u|^2) - \int_{\Omega} u b \\
+f(x) &=& ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}{(1+x)^2}
+\end{eqnarray*}</script>
+</div>
+<p>under the boundary condition <span><span class="MathJax_Preview">u=0</span><script type="math/tex">u=0</script></span> on <span><span class="MathJax_Preview">\p\Omega</span><script type="math/tex">\p\Omega</script></span>.</p>
+<div class="codehilite"><pre><span></span>fespace Ph(Th, P0);
+Ph alpha; //store df(|nabla u|^2)
+
+// The functionn J
+//J(u) = 1/2 int_Omega f(|nabla u|^2) - int_Omega u b
+func real J (real[int] &amp; u){
+    Vh w;
+    w[] = u;
+    real r = int2d(Th)(0.5*f(dx(w)*dx(w) + dy(w)*dy(w)) - b*w);
+    cout &lt;&lt; &quot;J(u) = &quot; &lt;&lt; r &lt;&lt; &quot; &quot; &lt;&lt; u.min &lt;&lt; &quot; &quot; &lt;&lt; u.max &lt;&lt; endl;
+    return r;
+}
+
+// The gradiant of J
+func real[int] dJ (real[int] &amp; u){
+    Vh w;
+    w[] = u;
+    alpha = df(dx(w)*dx(w) + dy(w)*dy(w));
+    varf au (uh, vh)
+        = int2d(Th)(
+              alpha*(dx(w)*dx(vh) + dy(w)*dy(vh))
+            - b*vh
+        )
+        + on(1, 2, 3, 4, uh=0)
+        ;
+
+    u = au(0, Vh);
+    return u; //warning: no return of local array
+}
+</pre></div>
+
+<p>We also want to construct a preconditioner <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> with solving the problem:</p>
+<p>find <span><span class="MathJax_Preview">u_h \in V_{0h}</span><script type="math/tex">u_h \in V_{0h}</script></span> such that :
+<script type="math/tex; mode=display">
+\forall v_h \in V_{0h}, \quad \int_\Omega \alpha \nabla u_h . \nabla v_h = \int_\Omega b v_h
+</script>
+where $ \alpha=f'(|\nabla u|^2)$.</p>
+<div class="codehilite"><pre><span></span>alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+varf alap (uh, vh)
+    = int2d(Th)(
+          alpha*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
+    )
+    + on(1, 2, 3, 4, uh=0)
+    ;
+
+varf amass(uh, vh)
+    = int2d(Th)(
+          uh*vh
+    )
+    + on(1, 2, 3, 4, uh=0)
+    ;
+
+matrix Amass = amass(Vh, Vh, solver=CG);
+matrix Alap= alap(Vh, Vh, solver=Cholesky, factorize=1);
+
+// Preconditionner
+func real[int] C(real[int] &amp; u){
+    real[int] w = u;
+    u = Alap^-1*w;
+    return u; //warning: no return of local array variable
+}
+</pre></div>
+
+<p>To solve the problem, we make 10 iterations of the conjugate gradient,
+recompute the preconditioner and restart the conjugate gradient:</p>
+<div class="codehilite"><pre><span></span>int conv=0;
+for(int i = 0; i &lt; 20; i++){
+    conv = NLCG(dJ, u[], nbiter=10, precon=C, veps=eps, verbosity=5);
+    if (conv) break;
+
+    alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+    Alap = alap(Vh, Vh, solver=Cholesky, factorize=1);
+    cout &lt;&lt; &quot;Restart with new preconditionner &quot; &lt;&lt; conv &lt;&lt; &quot;, eps =&quot; &lt;&lt; eps &lt;&lt; endl;
+}
+
+// Plot
+plot (u, wait=true, cmm=&quot;solution with NLCG&quot;);
+</pre></div>
+
+</div>
+<p>For a given symmetric positive matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, consider the quadratic form</p>
+<div>
+<div class="MathJax_Preview">
+J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}
+</div>
+<script type="math/tex; mode=display">
+J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}
+</script>
+</div>
+<p>then <span><span class="MathJax_Preview">J(\mathbf{x})</span><script type="math/tex">J(\mathbf{x})</script></span> is minimized by the solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> of <span><span class="MathJax_Preview">A\mathbf{x}=\mathbf{b}</span><script type="math/tex">A\mathbf{x}=\mathbf{b}</script></span>. In this case, we can use the function <code class="codehilite">AffineCG</code></p>
+<div class="codehilite"><pre><span></span>AffineCG(A, x, precon=M, nbiter=imax, eps=±epsilon, stop=stp);
+</pre></div>
+
+<p>If <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is not symmetric, we can use GMRES(Generalized Minimum Residual) algorithm by</p>
+<div class="codehilite"><pre><span></span>AffineGMRES(A, x, precon=M, nbiter=imax, eps=±epsilon);
+</pre></div>
+
+<p>Also, we can use the non-linear version of GMRES algorithm
+(the function <span><span class="MathJax_Preview">J</span><script type="math/tex">J</script></span> is just convex)</p>
+<div class="codehilite"><pre><span></span>AffineGMRES(dJ, x, precon=M, nbiter=imax, eps=±epsilon);
+</pre></div>
+
+<p>For the details of these algorithms, refer to <a href="#PIRONNEAU1998">PIRONNEAU1998</a>, Chapter IV, 1.3.</p>
+<h2 id="algorithms-for-unconstrained-optimization">Algorithms for Unconstrained Optimization<a class="headerlink" href="#algorithms-for-unconstrained-optimization" title="Permanent link">#</a></h2>
+<p>Two algorithms of COOOL package are interfaced with the Newton Raphson method (called <code class="codehilite">Newton</code>) and the <code class="codehilite">BFGS</code> method. These two are directly available in FreeFem (no dynamical link to load). Be careful with these algorithms, because their implementation uses full matrices. We also provide several optimization algorithms from the <a href="https://nlopt.readthedocs.io/en/latest/">NLopt library</a> as well as an interface for Hansen's implementation of CMAES (a MPI version of this one is also available).</p>
+<h3 id="example-of-usage-for-bfgs-or-cmaes">Example of usage for BFGS or CMAES<a class="headerlink" href="#example-of-usage-for-bfgs-or-cmaes" title="Permanent link">#</a></h3>
+<div class="admonition example">
+<p class="admonition-title">BFGS</p>
+<div class="codehilite"><pre><span></span>real[int] b(10), u(10);
+
+//J
+func real J (real[int] &amp; u){
+    real s = 0;
+    for (int i = 0; i &lt; u.n; i++)
+        s += (i+1)*u[i]*u[i]*0.5 - b[i]*u[i];
+    if (debugJ)
+        cout &lt;&lt; &quot;J = &quot; &lt;&lt; s &lt;&lt; &quot;, u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; endl;
+    return s;
+}
+
+//the gradiant of J (this is a affine version (the RHS is in)
+func real[int] DJ (real[int] &amp;u){
+    for (int i = 0; i &lt; u.n; i++)
+        u[i] = (i+1)*u[i];
+    if (debugdJ)
+        cout &lt;&lt; &quot;dJ: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+    u -= b;
+    if (debugdJ)
+        cout &lt;&lt; &quot;dJ-b: u = &quot; &lt;&lt; u[0] &lt;&lt; &quot; &quot; &lt;&lt; u[1] &lt;&lt; &quot; &quot; &lt;&lt; u[2] &lt;&lt; endl;
+    return u; //return of global variable ok
+}
+
+b=1;
+u=2;
+BFGS(J, DJ, u, eps=1.e-6, nbiter=20, nbiterline=20);
+cout &lt;&lt; &quot;BFGS: J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
+</pre></div>
+
+</div>
+<p>It is almost the same a using the CMA evolution strategy except, that since it is a derivative free optimizer, the <code class="codehilite">dJ</code> argument is omitted and there are some other named parameters to control the behavior of the algorithm. With the same objective function as above, an example of utilization would be (see <a href="../examples/#cmaes-varational-inequality">CMAES Variational inequality</a> for a complete example):</p>
+<div class="codehilite"><pre><span></span>load &quot;ff-cmaes&quot;
+//define J, u, ...
+real min = cmaes(J, u, stopTolFun=1e-6, stopMaxIter=3000);
+cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
+</pre></div>
+
+<p>This algorithm works with a normal multivariate distribution in the parameters space and tries to adapt its covariance matrix using the information provided by the successive function evaluations (see <a href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a> for more details). Therefore, some specific parameters can be passed to control the starting distribution, size of the sample generations, etc... Named parameters for this are the following :</p>
+<ul>
+<li>
+<p><code class="codehilite">seed=</code> Seed for random number generator (<code class="codehilite">val</code> is an integer). No specified value will lead to a clock based seed initialization.</p>
+</li>
+<li>
+<p><code class="codehilite">initialStdDev=</code> Value for the standard deviations of the initial covariance matrix ( <code class="codehilite">val</code> is a real). If the value <span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> is passed, the initial covariance matrix will be set to <span><span class="MathJax_Preview">\sigma I</span><script type="math/tex">\sigma I</script></span>. The expected initial distance between initial <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> and the <span><span class="MathJax_Preview">argmin</span><script type="math/tex">argmin</script></span> should be roughly initialStdDev. Default is 0.3.</p>
+</li>
+<li>
+<p><code class="codehilite">initialStdDevs=</code> Same as above except that the argument is an array allowing to set a value of the initial standard deviation for each parameter. Entries differing by several orders of magnitude should be avoided (if it can't be, try rescaling the problem).</p>
+</li>
+<li>
+<p><code class="codehilite">stopTolFun=</code> Stops the algorithm if function value differences are smaller than the passed one, default is <span><span class="MathJax_Preview">10^{-12}</span><script type="math/tex">10^{-12}</script></span>.</p>
+</li>
+<li>
+<p><code class="codehilite">stopTolFunHist=</code> Stops the algorithm if function value differences from the best values are smaller than the passed one, default is 0 (unused).</p>
+</li>
+<li>
+<p><code class="codehilite">stopTolX=</code> Stopping criteria is triggered if step sizes in the parameters space are
+ smaller than this real value, default is 0.</p>
+</li>
+<li>
+<p><code class="codehilite">stopTolXFactor=</code> Stopping criteria is triggered when the standard deviation increases more than this value. The default value is <span><span class="MathJax_Preview">10^{3}</span><script type="math/tex">10^{3}</script></span>.</p>
+</li>
+<li>
+<p><code class="codehilite">stopMaxFunEval=</code> Stops the algorithm when <code class="codehilite">stopMaxFunEval</code> function evaluations have been done. Set to <span><span class="MathJax_Preview">900(n+3)^{2}</span><script type="math/tex">900(n+3)^{2}</script></span> by default, where <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is the parameters space dimension.</p>
+</li>
+<li>
+<p><code class="codehilite">stopMaxIter=</code> Integer stopping the search when <code class="codehilite">stopMaxIter</code> generations have been sampled. Unused by default.</p>
+</li>
+<li>
+<p><code class="codehilite">popsize=</code> Integer value used to change the sample size. The default value is <span><span class="MathJax_Preview">4+ \lfloor 3\ln (n) \rfloor</span><script type="math/tex">4+ \lfloor 3\ln (n) \rfloor</script></span>. Increasing the population size usually improves the global search capabilities at the cost of, at most, a linear reduction of the convergence speed with respect to <code class="codehilite">popsize</code>.</p>
+</li>
+<li>
+<p><code class="codehilite">paramFile=</code> This <code class="codehilite">string</code> type parameter allows the user to pass all the parameters using an extern file, as in Hansen's original code. More parameters related to the CMA-ES algorithm can be changed with this file. Note that the parameters passed to the CMAES function in the <strong><code>FreeFem++</code></strong> script will be ignored if an input parameters file is given.</p>
+</li>
+</ul>
+<h2 id="ipopt">IPOPT<a class="headerlink" href="#ipopt" title="Permanent link">#</a></h2>
+<p>The <code class="codehilite">ff-Ipopt</code> package is an interface for the <a href="https://projects.coin-or.org/Ipopt">IPOPT</a> <a href="#WÄCHTER2006">WÄCHTER2006</a> optimizer. IPOPT is a software library for large scale, non-linear, constrained optimization. It implements a primal-dual interior point method along with filter method based line searches.</p>
+<p>IPOPT needs a direct sparse symmetric linear solver. If your version of <strong><code>FreeFem++</code></strong> has been compiled with the <code class="codehilite">--enable-downlad</code> tag, it will automatically be linked with a sequential version of MUMPS. An alternative to MUMPS would be to download the HSL subroutines (see <a href="http://www.coin-or.org/Ipopt/documentation/node16.html">Compiling and Installing the Java Interface JIPOPT
+</a>) and place them in the <code class="codehilite">/ipopt/Ipopt-3.10.2/ThirdParty/HSL</code> directory of the <strong><code>FreeFem++</code></strong> downloads folder before compiling.</p>
+<h3 id="short-description-of-the-algorithm">Short description of the algorithm<a class="headerlink" href="#short-description-of-the-algorithm" title="Permanent link">#</a></h3>
+<p>In this section, we give a very brief glimpse at the underlying mathematics of IPOPT. For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult <a href="#FORSGREN2002">FORSGREN2002</a>, or <a href="#WÄCHTER2006">WÄCHTER2006</a> for more IPOPT specific elements. IPOPT is designed to perform optimization for both equality and inequality constrained problems. However, nonlinear inequalities are rearranged before the beginning of the optimization process in order to restrict the panel of nonlinear constraints to those of the equality kind. Each nonlinear inequality is transformed into a pair of simple bound inequalities and nonlinear equality constraints by the introduction of as many slack variables as is needed : <span><span class="MathJax_Preview">c_{i}(x)\leq 0</span><script type="math/tex">c_{i}(x)\leq 0</script></span> becomes <span><span class="MathJax_Preview">c_{i}(x) + s_{i} = 0</span><script type="math/tex">c_{i}(x) + s_{i} = 0</script></span> and <span><span class="MathJax_Preview">s_{i}\leq 0</span><script type="math/tex">s_{i}\leq 0</script></span>, where <span><span class="MathJax_Preview">s_{i}</span><script type="math/tex">s_{i}</script></span> is added to the initial variables of the problems <span><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span>. Thus, for convenience, we will assume that the minimization problem does not contain any nonlinear inequality constraint. It means that, given a function <span><span class="MathJax_Preview">f:\mathbb{R}^{n}\mapsto\mathbb{R}</span><script type="math/tex">f:\mathbb{R}^{n}\mapsto\mathbb{R}</script></span>, we want to find :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{minimproblem}
+\begin{array} {c}
+x_{0} = \underset{x\in V}{\operatorname{argmin}} f(x) \\
+\mathrm{with}\ V = \left\lbrace x\in\R^{n}\ \vert\ c(x)= 0 \ \text{and}\ x_{l}\leq x\leq x_{u}\right\rbrace
+\end{array}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{minimproblem}
+\begin{array} {c}
+x_{0} = \underset{x\in V}{\operatorname{argmin}} f(x) \\
+\mathrm{with}\ V = \left\lbrace x\in\R^{n}\ \vert\ c(x)= 0 \ \text{and}\ x_{l}\leq x\leq x_{u}\right\rbrace
+\end{array}
+\end{equation}</script>
+</div>
+<p>Where <span><span class="MathJax_Preview">c:\R^{n}\rightarrow\R^{m}</span><script type="math/tex">c:\R^{n}\rightarrow\R^{m}</script></span> and <span><span class="MathJax_Preview">x_{l},x_{u}\in\R^{n}</span><script type="math/tex">x_{l},x_{u}\in\R^{n}</script></span> and inequalities hold componentwise.
+The <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> function as well as the constraints <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> should be twice-continuously differentiable.</p>
+<p>As a barrier method, interior points algorithms try to find a Karush-Kuhn-Tucker point for \eqref{minimproblem} by solving a sequence of problems, unconstrained with respect to the inequality constraints, of the form :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{barrier}
+\mathrm{for\ a\ given\ }\mu &gt; 0,\ \mathrm{find}\ x_{\mu} = \underset{x\in\R^{n}\ \vert\ c(x)=0}{\operatorname{argmin}}\ B(x,\mu)
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{barrier}
+\mathrm{for\ a\ given\ }\mu > 0,\ \mathrm{find}\ x_{\mu} = \underset{x\in\R^{n}\ \vert\ c(x)=0}{\operatorname{argmin}}\ B(x,\mu)
+\end{equation}</script>
+</div>
+<p>Where <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> is a positive real number and
+<script type="math/tex; mode=display">
+B(x,\mu) = f(x) - \displaystyle{\mu\sum_{i=1}^{n} \ln (x_{u,i}-x_{i})} - \displaystyle{\mu\sum_{i=1}^{m} \ln(x_{i}-x_{l,i})}
+</script>
+</p>
+<p>The remaining equality constraints are handled with the usual Lagrange multipliers method. If the sequence of barrier parameters <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> converge to 0, intuition suggests that the sequence of minimizers of \eqref{barrier} converge to a local constrained minimizer of \eqref{minimproblem}. For a given <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span>, \eqref{barrier} is solved by finding <span><span class="MathJax_Preview">(x_{\mu},\lambda_{\mu})\in\R^{n}\times\R^{m}</span><script type="math/tex">(x_{\mu},\lambda_{\mu})\in\R^{n}\times\R^{m}</script></span> such that :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+\begin{array}{rcl}
+    \nabla B(x_{\mu},\mu) + \displaystyle{\sum_{i=1}^{m}\lambda_{\mu,i}\nabla c_{i}(x_{\mu})}= \nabla B(x_{\mu},\mu) + J_{c}(x_{\mu})^{T}\lambda_{\mu}&amp;= 0\\
+    c(x_{\mu}) &amp;= 0
+\end{array}
+\label{muproblem}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\begin{array}{rcl}
+    \nabla B(x_{\mu},\mu) + \displaystyle{\sum_{i=1}^{m}\lambda_{\mu,i}\nabla c_{i}(x_{\mu})}= \nabla B(x_{\mu},\mu) + J_{c}(x_{\mu})^{T}\lambda_{\mu}&= 0\\
+    c(x_{\mu}) &= 0
+\end{array}
+\label{muproblem}
+\end{equation}</script>
+</div>
+<p>The derivations for <span><span class="MathJax_Preview">\nabla B</span><script type="math/tex">\nabla B</script></span> only holds for the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> variables, so that :</p>
+<div>
+<div class="MathJax_Preview">
+\nabla B(x,\mu) = \nabla f(x) + \left(\begin{matrix}\mu/(x_{u,1}-x_{1}) \\ \vdots \\ \mu/(x_{u,n}-x_{n})\end{matrix}\right) - \left(\begin{matrix}\mu/(x_{1}-x_{l,1}) \\ \vdots \\ \mu/(x_{n}-x_{l,n})\end{matrix}\right)
+</div>
+<script type="math/tex; mode=display">
+\nabla B(x,\mu) = \nabla f(x) + \left(\begin{matrix}\mu/(x_{u,1}-x_{1}) \\ \vdots \\ \mu/(x_{u,n}-x_{n})\end{matrix}\right) - \left(\begin{matrix}\mu/(x_{1}-x_{l,1}) \\ \vdots \\ \mu/(x_{n}-x_{l,n})\end{matrix}\right)
+</script>
+</div>
+<p>If we respectively call <span><span class="MathJax_Preview">z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x_{u,n}-x_{n})\right)</span><script type="math/tex">z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x_{u,n}-x_{n})\right)</script></span> and <span><span class="MathJax_Preview">z_{l}(x,\mu)</span><script type="math/tex">z_{l}(x,\mu)</script></span> the other vector appearing in the above equation, then the optimum <span><span class="MathJax_Preview">(x_{\mu},\lambda_{\mu})</span><script type="math/tex">(x_{\mu},\lambda_{\mu})</script></span>
+satisfies :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{muproblemlambda}
+\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{muproblemlambda}
+\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0
+\end{equation}</script>
+</div>
+<p>In this equation, the <span><span class="MathJax_Preview">z_l</span><script type="math/tex">z_l</script></span> and <span><span class="MathJax_Preview">z_u</span><script type="math/tex">z_u</script></span> vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when <span><span class="MathJax_Preview">\mu\rightarrow 0</span><script type="math/tex">\mu\rightarrow 0</script></span>, they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see <a href="#FORSGREN2002">FORSGREN2002</a>).</p>
+<p>Equation \eqref{muproblemlambda} is solved by performing a Newton method in order to find a solution of \eqref{muproblem} for each of the decreasing values of <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span>. Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see <a href="#FORSGREN2002">FORSGREN2002</a> for details about them. In the most classic IP algorithms, the Newton method is directly applied to \eqref{muproblem}. This is in most case inefficient due to frequent computation of infeasible points. These difficulties are avoided in Primal-Dual interior point methods where \eqref{muproblem} is transformed into an extended system where <span><span class="MathJax_Preview">z_u</span><script type="math/tex">z_u</script></span> and <span><span class="MathJax_Preview">z_l</span><script type="math/tex">z_l</script></span> are treated as unknowns and the barrier problems are finding <span><span class="MathJax_Preview">(x,\lambda,z_u,z_l)\in\R^n\times\R^m\times\R^n\times\R^n</span><script type="math/tex">(x,\lambda,z_u,z_l)\in\R^n\times\R^m\times\R^n\times\R^n</script></span> such that :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{PrimalDualIPBarrierProblem}
+\left\lbrace\begin{array}{rcl}
+\nabla f(x) + J_{c}(x)^{T}\lambda+ z_{u} - z_{l} &amp; = &amp; 0 \\
+c(x) &amp; = &amp; 0 \\
+(X_u - X) z_u - \mu e &amp; = &amp; 0 \\
+(X - X_l) z_l - \mu e &amp; = &amp; 0
+\end{array}\right.
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{PrimalDualIPBarrierProblem}
+\left\lbrace\begin{array}{rcl}
+\nabla f(x) + J_{c}(x)^{T}\lambda+ z_{u} - z_{l} & = & 0 \\
+c(x) & = & 0 \\
+(X_u - X) z_u - \mu e & = & 0 \\
+(X - X_l) z_l - \mu e & = & 0
+\end{array}\right.
+\end{equation}</script>
+</div>
+<p>Where if <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> is a vector of <span><span class="MathJax_Preview">\R^n</span><script type="math/tex">\R^n</script></span>, <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> denotes the diagonal matrix <span><span class="MathJax_Preview">A=(a_i \delta_{ij})_{1\leq i,j\leq n}</span><script type="math/tex">A=(a_i \delta_{ij})_{1\leq i,j\leq n}</script></span> and <span><span class="MathJax_Preview">e\in\R^{n} = (1,1,\dots,1)</span><script type="math/tex">e\in\R^{n} = (1,1,\dots,1)</script></span>. Solving this nonlinear system by the Newton method is known as being the <em>primal-dual</em> interior point method. Here again, more details are available in <a href="#FORSGREN2002">FORSGREN2002</a>. Most actual implementations introduce features in order to globalize the convergence capability of the method, essentially by adding some line-search steps to the Newton algorithm, or by using trust regions. For the purpose of IPOPT, this is achieved by a <em>filter line search</em> methods, the details of which can be found in <a href="#"></a>.</p>
+<p><span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span> missing ref</p>
+<p>More IPOPT specific features or implementation details can be found in <a href="#WÄCHTER2006">WÄCHTER2006</a>. We will just retain that IPOPT is a smart Newton method for solving constrained optimization problems, with global convergence capabilities due to a robust line search method (in the sense that the algorithm will converge no matter the initializer). Due to the underlying Newton method, the optimization process requires expressions of all derivatives up to the order 2 of the fitness function as well as those of the constraints. For problems whose Hessian matrices are difficult to compute or lead to high dimensional dense matrices, it is possible to use a BFGS approximation of these objects at the cost of a much slower convergence rate.</p>
+<h3 id="ipopt-in-freefem">IPOPT in <strong><code>FreeFem++</code></strong><a class="headerlink" href="#ipopt-in-freefem" title="Permanent link">#</a></h3>
+<p>Calling the IPOPT optimizer in a <strong><code>FreeFem++</code></strong> script is done with the <code class="codehilite">IPOPT</code> function included in the <code class="codehilite">ff-Ipopt</code> dynamic library. IPOPT is designed to solve constrained minimization problems in the form :</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{r l}
+    \mathrm{find} &amp; x_{0} = \underset{x\in\R^{n}}{\operatorname{argmin}} f(x) \\
+    \mathrm{s.t.} &amp; \left\lbrace
+        \begin{array}{l r}
+            \forall i\leq n,\ x_{i}^{\mathrm{lb}}\leq x_{i}\leq x_{i}^{\mathrm{ub}} &amp; \mathrm{\ (simple\ bounds)} \\
+            \forall i\leq m,\ c_{i}^{\mathrm{lb}}\leq c_{i}(x)\leq c_{i}^{\mathrm{ub}} &amp; \mathrm{(constraints\ functions)}
+        \end{array}
+        \right.
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{r l}
+    \mathrm{find} & x_{0} = \underset{x\in\R^{n}}{\operatorname{argmin}} f(x) \\
+    \mathrm{s.t.} & \left\lbrace
+        \begin{array}{l r}
+            \forall i\leq n,\ x_{i}^{\mathrm{lb}}\leq x_{i}\leq x_{i}^{\mathrm{ub}} & \mathrm{\ (simple\ bounds)} \\
+            \forall i\leq m,\ c_{i}^{\mathrm{lb}}\leq c_{i}(x)\leq c_{i}^{\mathrm{ub}} & \mathrm{(constraints\ functions)}
+        \end{array}
+        \right.
+\end{array}
+</script>
+</div>
+<p>Where <span><span class="MathJax_Preview">\mathrm{ub}</span><script type="math/tex">\mathrm{ub}</script></span> and <span><span class="MathJax_Preview">\mathrm{lb}</span><script type="math/tex">\mathrm{lb}</script></span> stand for "upper bound" and "lower bound". If for some <span><span class="MathJax_Preview">i, 1\leq i\leq m</span><script type="math/tex">i, 1\leq i\leq m</script></span> we have <span><span class="MathJax_Preview">c_{i}^{\mathrm{lb}} = c_{i}^{\mathrm{ub}}</span><script type="math/tex">c_{i}^{\mathrm{lb}} = c_{i}^{\mathrm{ub}}</script></span>, it means that <span><span class="MathJax_Preview">c_{i}</span><script type="math/tex">c_{i}</script></span> is an equality constraint, and an inequality one if <span><span class="MathJax_Preview">c_{i}^{\mathrm{lb}} &lt; c_{i}^{\mathrm{ub}}</span><script type="math/tex">c_{i}^{\mathrm{lb}} < c_{i}^{\mathrm{ub}}</script></span>.</p>
+<p>There are different ways to pass the fitness function and constraints. The more general one is to define the functions using the keyword <code class="codehilite">func</code>. Any returned matrix must be a sparse one (type <code class="codehilite">matrix</code>, not a <code class="codehilite">real[int,int]</code>) :</p>
+<div class="codehilite"><pre><span></span>func real J (real[int] &amp;X) {...} //Fitness Function, returns a scalar
+func real[int] gradJ (real[int] &amp;X) {...} //Gradient is a vector
+
+func real[int] C (real[int] &amp;X) {...} //Constraints
+func matrix jacC (real[int] &amp;X) {...} //Constraints Jacobian
+</pre></div>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the current version of FreeFem++, returning a <code class="codehilite">matrix</code> object that is local to a function block leads to undefined results. For each sparse matrix returning function you define, an extern matrix object has to be declared, whose associated function will overwrite and return on each call. Here is an example for <code class="codehilite">jacC</code> :</p>
+<div class="codehilite"><pre><span></span>matrix jacCBuffer; //just declare, no need to define yet
+func matrix jacC (real[int] &amp;X){
+    ...//fill jacCBuffer
+    return jacCBuffer;
+}
+</pre></div>
+
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>IPOPT requires the structure of each matrix at the initialization of the algorithm. Some errors may occur if the matrices are not constant and are built with the <code class="codehilite">matrix A = [I,J,C]</code> syntax, or with an intermediary full matrix (<code class="codehilite">real[int,int]</code>), because any null coefficient is discarded during the construction of the sparse matrix. It is also the case when making matrices linear combinations, for which any zero coefficient will result in the suppression of the matrix from the combination. Some controls are available to avoid such problems. Check the named parameter descriptions (<code class="codehilite">checkindex</code>, <code class="codehilite">structhess</code> and <code class="codehilite">structjac</code> can help). We strongly advice to use <code class="codehilite">varf</code> as much as possible for the matrix forging.</p>
+</div>
+<p>The Hessian returning function is somewhat different because it has to be the Hessian of the Lagrangian function :</p>
+<div>
+<div class="MathJax_Preview">
+(x,\sigma_{f},\lambda)\mapsto\sigma_{f}\nabla^{2}f(x)+\displaystyle{\sum_{i=1}^{m}\lambda_{i}\nabla^{2}c_{i}(x)}\ \mathrm{ where }\ \lambda\in\R^{m}\ \mathrm{ and }\ \sigma\in\R
+</div>
+<script type="math/tex; mode=display">
+(x,\sigma_{f},\lambda)\mapsto\sigma_{f}\nabla^{2}f(x)+\displaystyle{\sum_{i=1}^{m}\lambda_{i}\nabla^{2}c_{i}(x)}\ \mathrm{ where }\ \lambda\in\R^{m}\ \mathrm{ and }\ \sigma\in\R
+</script>
+</div>
+<p>Your Hessian function should then have the following prototype :</p>
+<div class="codehilite"><pre><span></span>matrix hessianLBuffer; //Just to keep it in mind
+func matrix hessianL (real[int] &amp;X, real sigma, real[int] &amp;lambda){...}
+</pre></div>
+
+<p>If the constraints functions are all affine, or if there are only simple bound constraints, or no constraint at all, the Lagrangian Hessian is equal to the fitness function Hessian, one can then omit the <code class="codehilite">sigma</code> and <code class="codehilite">lambda</code> parameters :</p>
+<div class="codehilite"><pre><span></span>matrix hessianJBuffer;
+func matrix hessianJ (real[int] &amp;X){...} //Hessian prototype when constraints are affine
+</pre></div>
+
+<p>When these functions are defined, IPOPT is called this way :</p>
+<div class="codehilite"><pre><span></span>real[int] Xi = ... ; //starting point
+IPOPT(J, gradJ, hessianL, C, jacC, Xi, /*some named parameters*/);
+</pre></div>
+
+<p>If the Hessian is omitted, the interface will tell IPOPT to use the (L)BFGS approximation (it can also be enabled with a named parameter, see further). Simple bound or unconstrained problems do not require the constraints part, so the following expressions are valid :</p>
+<div class="codehilite"><pre><span></span>IPOPT(J, gradJ, C, jacC, Xi, ... ); //IPOPT with BFGS
+IPOPT(J, gradJ, hessianJ, Xi, ... ); //Newton IPOPT without constraints
+IPOPT(J, gradJ, Xi, ... ); //BFGS, no constraints
+</pre></div>
+
+<p>Simple bounds are passed using the <code class="codehilite">lb</code> and <code class="codehilite">ub</code> named parameters, while constraint bounds are passed with the <code class="codehilite">clb</code> and <code class="codehilite">cub</code> ones. Unboundedness in some directions can be achieved by using the <span><span class="MathJax_Preview">1e^{19}</span><script type="math/tex">1e^{19}</script></span> and <span><span class="MathJax_Preview">-1e^{19}</span><script type="math/tex">-1e^{19}</script></span> values that IPOPT recognizes as <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span> and <span><span class="MathJax_Preview">-\infty</span><script type="math/tex">-\infty</script></span> :</p>
+<div class="codehilite"><pre><span></span>real[int] xlb(n), xub(n), clb(m), cub(m);
+//fill the arrays...
+IPOPT(J, gradJ, hessianL, C, jacC, Xi, lb=xlb, ub=xub, clb=clb, cub=cub, /*some other named parameters*/);
+</pre></div>
+
+<p><strong>P2 fitness function and affine constraints function :</strong> In the case where the fitness function or constraints function can be expressed respectively in the following forms :</p>
+<div>
+<div class="MathJax_Preview">
+\begin{array}{c c}
+    \forall x\in\R^{n},\ f(x) = \frac{1}{2}\left\langle Ax,x \right\rangle + \left\langle b,x\right\rangle &amp; (A,b)\in\mathcal{M}_{n,n}(\R)\times\R^{n} \\
+    \mathrm{or} ,\ C(x) = Ax + b &amp; (A,b)\in\mathcal{M}_{n,m}(\R)\times\R^{m}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{c c}
+    \forall x\in\R^{n},\ f(x) = \frac{1}{2}\left\langle Ax,x \right\rangle + \left\langle b,x\right\rangle & (A,b)\in\mathcal{M}_{n,n}(\R)\times\R^{n} \\
+    \mathrm{or} ,\ C(x) = Ax + b & (A,b)\in\mathcal{M}_{n,m}(\R)\times\R^{m}
+\end{array}
+</script>
+</div>
+<p>where <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> are constant, it is possible to directly pass the <span><span class="MathJax_Preview">(A,b)</span><script type="math/tex">(A,b)</script></span> pair instead of defining 3 (or 2) functions. It also indicates to IPOPT that some objects are constant and that they have to be evaluated only once, thus avoiding multiple copies of the same matrix. The syntax is :</p>
+<div class="codehilite"><pre><span></span>// Affine constraints with &quot;standard&quot; fitness function
+matrix A = ... ; //linear part of the constraints
+real[int] b = ... ; //constant part of constraints
+IPOPT(J, gradJ, hessianJ, [A, b], Xi, /*bounds and named parameters*/);
+//[b, A] would work as well.
+</pre></div>
+
+<p>Note that if you define the constraints in this way, they don't contribute to the Hessian, so the Hessian should only take one <code class="codehilite">real[int]</code> as an argument.</p>
+<div class="codehilite"><pre><span></span>// Affine constraints and P2 fitness func
+matrix A = ... ; //bilinear form matrix
+real[int] b = ... ; //linear contribution to f
+matrix Ac = ... ; //linear part of the constraints
+real[int] bc = ... ; //constant part of constraints
+IPOPT([A, b], [Ac, bc], Xi, /*bounds and named parameters*/);
+</pre></div>
+
+<p>If both objective and constraint functions are given this way, it automatically activates the IPOPT <code class="codehilite">mehrotra_algorithm</code> option (better for linear and quadratic programming according to the documentation). Otherwise, this option can only be set through the option file (see the named parameters section).</p>
+<p>A false case is the one of defining <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> in this manner while using standard functions for the constraints :</p>
+<div class="codehilite"><pre><span></span>matrix A = ... ; //bilinear form matrix
+real[int] b = ... ; //linear contribution to f
+func real[int] C(real[int] &amp;X){...} //constraints
+func matrix jacC(real[int] &amp;X){...} //constraints Jacobian
+IPOPT([A, b], C, jacC, Xi, /*bounds and named parameters*/);
+</pre></div>
+
+<p>Indeed, when passing <code class="codehilite">[A, b]</code> in order to define <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, the Lagrangian Hessian is automatically built and has the constant <span><span class="MathJax_Preview">x \mapsto A</span><script type="math/tex">x \mapsto A</script></span> function, with no way to add possible constraint contributions, leading to incorrect second order derivatives. So, a problem should be defined like that in only two cases:</p>
+<ol>
+<li>constraints are nonlinear but you want to use the BFGS mode (then add <code class="codehilite">bfgs=1</code> to the named parameter),</li>
+<li>constraints are affine, but in this case, compatible to pass in the same way</li>
+</ol>
+<p>Here are some other valid definitions of the problem (cases when <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is a pure quadratic or linear form, or <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> a pure linear function, etc...) :</p>
+<div class="codehilite"><pre><span></span>// Pure quadratic f - A is a matrix
+IPOPT(A, /*constraints arguments*/, Xi, /*bound and named parameters*/);
+// Pure linear f - b is a real[int]
+IPOPT(b, /*constraints arguments*/, Xi, /*bound and named parameters*/);
+// Linear constraints - Ac is a matrix
+IPOPT(/*fitness function arguments*/, Ac, Xi, /*bound and named parameters*/);
+</pre></div>
+
+<p><strong>Returned Value :</strong> The <code class="codehilite">IPOPT</code> function returns an error code of type <code class="codehilite">int</code>. A zero value is obtained when the algorithm succeeds and positive values reflect the fact that IPOPT encounters minor troubles. Negative values reveal more problematic cases. The associated IPOPT return tags are listed in the table below. The <a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT pdf documentation</a> provides a more accurate description of these return statuses :</p>
+<table>
+<thead>
+<tr>
+<th align="left">Success</th>
+<th align="left">Failures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">0 <code class="codehilite">Solve_Succeeded</code><br>1 <code class="codehilite">Solved_To_Acceptable_Level</code><br>2 <code class="codehilite">Infeasible_Problem_Detected</code><br>3 <code class="codehilite">Search_Direction_Becomes_Too_Small</code><br>4 <code class="codehilite">Diverging_Iterates</code><br>5 <code class="codehilite">User_Requested_Stop</code><br>6 <code class="codehilite">Feasible_Point_Found</code></td>
+<td align="left">-1 <code class="codehilite">Maximum_Iterations_Exceeded</code><br>-2 <code class="codehilite">Restoration_Failed</code><br>-3 <code class="codehilite">Error_In_Step_Computation</code><br>-4 <code class="codehilite">Maximum_CpuTime_Exceeded</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Problem definition issues</th>
+<th align="left">Critical errors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-10 <code class="codehilite">Not_Enough_Degrees_Of_Freedom</code><br>-11 <code class="codehilite">Invalid_Problem_Definition</code><br>-12 <code class="codehilite">Invalid_Option</code><br>-13 <code class="codehilite">Invalid_Number_Detected</code></td>
+<td align="left">-100 <code class="codehilite">Unrecoverable_Exception</code><br>-101 <code class="codehilite">NonIpopt_Exception_Thrown</code><br>-102 <code class="codehilite">Insufficient_Memory</code><br>-199 <code class="codehilite">Internal_Error</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Named Parameters :</strong> The available named parameters in this interface are those we thought to be the most subject to variations from one optimization to another, plus a few that are interface specific. Though, as one could see at <a href="http://www.coin-or.org/Ipopt/documentation/node59.html">IPOPT Linear solver</a>, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior. These parameters can still be controlled by placing an option file in the execution directory. Note that <a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT's pdf documentation</a> may provides more information than the previously mentioned online version for certain parameters. The in-script available parameters are:</p>
+<ul>
+<li>
+<p><code class="codehilite">lb</code>, <code class="codehilite">ub</code> : <code class="codehilite">real[int]</code> for lower and upper simple bounds upon the search variables must be of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> (search space dimension). If two components of the same index in these arrays are equal then the corresponding search variable is fixed. By default IPOPT will remove any fixed variable from the optimization process and always use the fixed value when calling functions. It can be changed using the <code class="codehilite">fixedvar</code> parameter.</p>
+</li>
+<li>
+<p><code class="codehilite">clb</code>, <code class="codehilite">cub</code> : <code class="codehilite">real[int]</code> of size <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> (number of constraints) for lower and upper constraints bounds. Equality between two components of the same index <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in <code class="codehilite">clb</code> and <code class="codehilite">cub</code> reflect an equality constraint.</p>
+</li>
+<li>
+<p><code class="codehilite">structjacc</code> : To pass the greatest possible structure (indexes of non null coefficients) of the constraint Jacobians under the form <code class="codehilite">[I,J]</code> where <code class="codehilite">I</code> and <code class="codehilite">J</code> are two integer arrays. If not defined, the structure of the constraint Jacobians, evaluated in <code class="codehilite">Xi</code>, is used (no issue if the Jacobian is constant or always defined with the same <code class="codehilite">varf</code>, hazardous if it is with a triplet array or if a full matrix is involved).</p>
+</li>
+<li>
+<p><code class="codehilite">structhess</code> : Same as above but for the Hessian function (unused if <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is P2 or less and constraints are affine). Here again, keep in mind that it is the Hessian of the Lagrangian function (which is equal to the Hessian of <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> only if constraints are affine). If no structure is given with this parameter, the Lagrangian Hessian is evaluated on the starting point, with <span><span class="MathJax_Preview">\sigma=1</span><script type="math/tex">\sigma=1</script></span> and <span><span class="MathJax_Preview">\lambda = (1,1,\dots,1)</span><script type="math/tex">\lambda = (1,1,\dots,1)</script></span> (it is safe if all the constraints and fitness function Hessians are constant or build with <code class="codehilite">varf</code>, and here again it is less reliable if built with a triplet array or a full matrix).</p>
+</li>
+<li>
+<p><code class="codehilite">checkindex</code> : A <code class="codehilite">bool</code> that triggers a dichotomic index search when matrices are copied from <strong><code>FreeFem++</code></strong> functions to IPOPT arrays. It is used to avoid wrong index matching when some null coefficients are removed from the matrices by <strong><code>FreeFem++</code></strong>. It will not solve the problems arising when a too small structure has been given at the initialization of the algorithm. Enabled by default (except in cases where all matrices are obviously constant).</p>
+</li>
+<li>
+<p><code class="codehilite">warmstart</code> : If set to <code class="codehilite">true</code>, the constraints dual variables <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>, and simple bound dual variables are initialized with the values of the arrays passed to <code class="codehilite">lm</code>, <code class="codehilite">lz</code> and <code class="codehilite">uz</code> named parameters (see below).</p>
+</li>
+<li>
+<p><code class="codehilite">lm</code> : <code class="codehilite">real[int]</code> of size <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>, which is used to get the final values of the constraints dual variables <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> and/or initialize them in case of a warm start (the passed array is also updated to the last dual variables values at the end of the algorithm).</p>
+</li>
+<li>
+<p><code class="codehilite">lz</code>, <code class="codehilite">uz</code> : <code class="codehilite">real[int]</code> of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> to get the final values and/or initialize (in case of a warm start) the dual variables associated to simple bounds.</p>
+</li>
+<li>
+<p><code class="codehilite">tol</code> : <code class="codehilite">real</code>, convergence tolerance for the algorithm, the default value is <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span>.</p>
+</li>
+<li>
+<p><code class="codehilite">maxiter</code> : <code class="codehilite">int</code>, maximum number of iterations with 3000 as default value.</p>
+</li>
+<li>
+<p><code class="codehilite">maxcputime</code> : <code class="codehilite">real</code> value, maximum runtime duration. Default is <span><span class="MathJax_Preview">10^{6}</span><script type="math/tex">10^{6}</script></span> (almost 11 and a half days).</p>
+</li>
+<li>
+<p><code class="codehilite">bfgs</code> : <code class="codehilite">bool</code> enabling or not the (low-storage) BFGS approximation of the Lagrangian Hessian. It is set to false by default, unless there is no way to compute the Hessian with the functions that have been passed to IPOPT.</p>
+</li>
+<li>
+<p><code class="codehilite">derivativetest</code> : Used to perform a comparison of the derivatives given to IPOPT with finite differences computation. The possible <code class="codehilite">string</code> values are : <code class="codehilite">&quot;none&quot;</code> (default), <code class="codehilite">&quot;first-order&quot;</code>, <code class="codehilite">&quot;second-order&quot;</code> and <code class="codehilite">&quot;only-second-order&quot;</code>. The associated derivative error tolerance can be changed via the option file. One should not care about any error given by it before having tried, and failed, to perform a first optimization.</p>
+</li>
+<li>
+<p><code class="codehilite">dth</code> : Perturbation parameter for the derivative test computations with finite differences. Set by default to <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span>.</p>
+</li>
+<li>
+<p><code class="codehilite">dttol</code> : Tolerance value for the derivative test error detection (default value unknown yet, maybe <span><span class="MathJax_Preview">10^{-5}</span><script type="math/tex">10^{-5}</script></span>).</p>
+</li>
+<li>
+<p><code class="codehilite">optfile</code> : <code class="codehilite">string</code> parameter to specify the IPOPT option file name. IPOPT will look for a <code class="codehilite">ipopt.opt</code> file by default. Options set in the file will overwrite those defined in the <strong><code>FreeFem++</code></strong> script.</p>
+</li>
+<li>
+<p><code class="codehilite">printlevel</code> : An <code class="codehilite">int</code> to control IPOPT output print level, set to 5 by default, the possible values are from 0 to 12. A description of the output information is available in the <a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">PDF documentation</a> of IPOPT.</p>
+</li>
+<li>
+<p><code class="codehilite">fixedvar</code> : <code class="codehilite">string</code> for the definition of simple bound equality constraints treatment : use <code class="codehilite">&quot;make_parameter&quot;</code> (default value) to simply remove them from the optimization process (the functions will always be evaluated with the fixed value for those variables), <code class="codehilite">&quot;make_constraint&quot;</code> to treat them as any other constraint or <code class="codehilite">&quot;relax_bounds&quot;</code> to relax fixing bound constraints.</p>
+</li>
+<li>
+<p><code class="codehilite">mustrategy</code> : a <code class="codehilite">string</code> to choose the update strategy for the barrier parameter <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span>. The two possible tags are <code class="codehilite">&quot;monotone&quot;</code>, to use the monotone (Fiacco-McCormick) strategy, or <code class="codehilite">&quot;adaptive&quot;</code> (default setting).</p>
+</li>
+<li>
+<p><code class="codehilite">muinit</code> : <code class="codehilite">real</code> positive value for the barrier parameter initialization. It is only relevant when <code class="codehilite">mustrategy</code> has been set to <code class="codehilite">monotone</code>.</p>
+</li>
+<li>
+<p><code class="codehilite">pivtol</code> : <code class="codehilite">real</code> value to set the pivot tolerance for the linear solver. A smaller number pivots for sparsity, a larger number pivots for stability. The value has to be in the <span><span class="MathJax_Preview">[0,1]</span><script type="math/tex">[0,1]</script></span> interval and is set to <span><span class="MathJax_Preview">10^{-6}</span><script type="math/tex">10^{-6}</script></span> by default.</p>
+</li>
+<li>
+<p><code class="codehilite">brf</code> : Bound relax factor: before starting the optimization, the bounds given by the user are relaxed. This option sets the factor for this relaxation. If it is set to zero, then the bound relaxation is disabled. This <code class="codehilite">real</code> has to be positive and its default value is <span><span class="MathJax_Preview">10^{-8}</span><script type="math/tex">10^{-8}</script></span>.</p>
+</li>
+<li>
+<p><code class="codehilite">objvalue</code> : An identifier to a <code class="codehilite">real</code> type variable to get the last value of the objective function (best value in case of success).</p>
+</li>
+<li>
+<p><code class="codehilite">mumin</code> : minimum value for the barrier parameter <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span>, a <code class="codehilite">real</code> with <span><span class="MathJax_Preview">10^{-11}</span><script type="math/tex">10^{-11}</script></span> as default value.</p>
+</li>
+<li>
+<p><code class="codehilite">linesearch</code> : A boolean which disables the line search when set to <code class="codehilite">false</code>. The line search is activated by default. When disabled, the method becomes a standard Newton algorithm instead of a primal-dual system. The global convergence is then no longer assured, meaning that many initializers could lead to diverging iterates. But on the other hand, it can be useful when trying to catch a precise local minimum without having some out of control process making the iterate caught by some other near optimum.</p>
+</li>
+</ul>
+<h2 id="some-short-examples-using-ipopt">Some short examples using IPOPT<a class="headerlink" href="#some-short-examples-using-ipopt" title="Permanent link">#</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Ipopt variational inequality</p>
+<p>A very simple example consisting of, given two functions $f $ and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> (defined on <span><span class="MathJax_Preview">\Omega\subset\R^{2}</span><script type="math/tex">\Omega\subset\R^{2}</script></span>), minimizing $J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ $, with <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> almost everywhere :</p>
+<div class="codehilite"><pre><span></span>// Solve
+//- Delta u = f
+//u &lt; g
+//u = 0 on Gamma
+load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nn = 20;
+func f = 1.; //rhs function
+real r = 0.03, s = 0.1;
+func g = r - r/2*exp(-0.5*(square(x-0.5) + square(y-0.5))/square(s));
+
+// Mesh
+mesh Th = square(nn, nn);
+
+// Fespace
+fespace Vh(Th, P2);
+Vh u = 0;
+Vh lb = -1.e19;
+Vh ub = g;
+
+// Macro
+macro Grad(u) [dx(u), dy(u)] //
+
+// Problem
+varf vP (u, v)
+    = int2d(Th)(
+          Grad(u)&#39;*Grad(v)
+    )
+    - int2d(Th)(
+          f*v
+    )
+    ;
+</pre></div>
+
+<p>Here we build the matrix and second member associated to the function to fully and finally minimize it. The <code class="codehilite">[A,b]</code> syntax for the fitness function is then used to pass it to IPOPT.</p>
+<div class="codehilite"><pre><span></span>matrix A = vP(Vh, Vh, solver=CG);
+real[int] b = vP(0, Vh);
+</pre></div>
+
+<p>We use simple bounds to impose the boundary condition <span><span class="MathJax_Preview">u=0</span><script type="math/tex">u=0</script></span> on <span><span class="MathJax_Preview">\partial\Omega</span><script type="math/tex">\partial\Omega</script></span>, as well as the <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> condition.</p>
+<div class="codehilite"><pre><span></span>varf vGamma (u, v) = on(1, 2, 3, 4, u=1);
+real[int] onGamma = vGamma(0, Vh);
+
+//warning: the boundary conditions are given with lb and ub on border
+ub[] = onGamma ? 0. : ub[];
+lb[] = onGamma ? 0. : lb[];
+
+// Solve
+IPOPT([A, b], u[], lb=lb[], ub=ub[]);
+
+// Plot
+plot(u);
+</pre></div>
+
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ipopt variational inequality 2</p>
+<p>Let <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> be a domain of <span><span class="MathJax_Preview">\mathbb{R}^{2}</span><script type="math/tex">\mathbb{R}^{2}</script></span>. <span><span class="MathJax_Preview">f_{1}, f_{2}\in L^{2}(\Omega)</span><script type="math/tex">f_{1}, f_{2}\in L^{2}(\Omega)</script></span> and <span><span class="MathJax_Preview">g_{1}, g_{2} \in L^{2}(\partial\Omega)</span><script type="math/tex">g_{1}, g_{2} \in L^{2}(\partial\Omega)</script></span> four given functions with <span><span class="MathJax_Preview">g_{1}\leq g_{2}</span><script type="math/tex">g_{1}\leq g_{2}</script></span> almost everywhere.
+We define the space :</p>
+<div>
+<div class="MathJax_Preview">
+V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace
+</div>
+<script type="math/tex; mode=display">
+V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace
+</script>
+</div>
+<p>as well as the function <span><span class="MathJax_Preview">J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}</span><script type="math/tex">J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}</script></span>:</p>
+<div>
+<div class="MathJax_Preview">
+J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}
+</div>
+<script type="math/tex; mode=display">
+J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}
+</script>
+</div>
+<p>The problem entails finding (numerically) two functions <span><span class="MathJax_Preview">(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})</span><script type="math/tex">(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})</script></span>.</p>
+<div class="codehilite"><pre><span></span>load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nn = 10;
+func f1 = 10;//right hand side
+func f2 = -15;
+func g1 = -0.1;//Boundary condition functions
+func g2 = 0.1;
+
+// Mesh
+mesh Th = square(nn, nn);
+
+// Fespace
+fespace Vh(Th, [P1, P1]);
+Vh [uz, uz2] = [1, 1];
+Vh [lz, lz2] = [1, 1];
+Vh [u1, u2] = [0, 0]; //starting point
+
+fespace Wh(Th, [P1]);
+Wh lm=1.;
+
+// Macro
+macro Grad(u) [dx(u), dy(u)] //
+
+// Loop
+int iter=0;
+while (++iter){
+    // Problem
+    varf vP ([u1, u2], [v1, v2])
+        = int2d(Th)(
+              Grad(u1)&#39;*Grad(v1)
+            + Grad(u2)&#39;*Grad(v2)
+        )
+        - int2d(Th)(
+              f1*v1
+            + f2*v2
+        )
+        ;
+
+    matrix A = vP(Vh, Vh); //fitness function matrix
+    real[int] b = vP(0, Vh); //and linear form
+
+    int[int] II1 = [0], II2 = [1];//Constraints matrix
+    matrix C1 = interpolate (Wh, Vh, U2Vc=II1);
+    matrix C2 = interpolate (Wh, Vh, U2Vc=II2);
+    matrix CC = -1*C1 + C2; // u2 - u1 &gt;0
+    Wh cl = 0; //constraints lower bounds (no upper bounds)
+
+    //Boundary conditions
+    varf vGamma ([u1, u2], [v1, v2]) = on(1, 2, 3, 4, u1=1, u2=1);
+    real[int] onGamma = vGamma(0, Vh);
+    Vh [ub1, ub2] = [g1, g2];
+    Vh [lb1, lb2] = [g1, g2];
+    ub1[] = onGamma ? ub1[] : 1e19; //Unbounded in interior
+    lb1[] = onGamma ? lb1[] : -1e19;
+
+    Vh [uzi, uzi2] = [uz, uz2], [lzi, lzi2] = [lz, lz2];
+    Wh lmi = lm;
+    Vh [ui1, ui2] = [u1, u2];
+
+    // Solve
+    IPOPT([b, A], CC, ui1[], lb=lb1[], clb=cl[], ub=ub1[], warmstart=iter&gt;1, uz=uzi[], lz=lzi[], lm=lmi[]);
+
+    // Plot
+    plot(ui1, ui2, wait=true, nbiso=60, dim=3);
+
+    if(iter &gt; 1) break;
+
+    // Mesh adpatation
+    Th = adaptmesh(Th, [ui1, ui2], err=0.004, nbvx=100000);
+    [uz, uz2] = [uzi, uzi2];
+    [lz, lz2] = [lzi, lzi2];
+    [u1, u2] = [ui1, ui2];
+    lm = lmi;
+}
+</pre></div>
+
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig1">Fig. 1</a>: Numerical Approximation of the Variational Inequality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="VarIneqFill" src="../images/VarIneqFill.jpg" /></td>
+</tr>
+<tr>
+<td align="center"><img alt="VarIneqIso" src="../images/VarIneqIso.jpg" /></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+</div>
+<h2 id="3d-constrained-minimum-surface-with-ipopt">3D constrained minimum surface with IPOPT<a class="headerlink" href="#3d-constrained-minimum-surface-with-ipopt" title="Permanent link">#</a></h2>
+<h3 id="area-and-volume-expressions">Area and volume expressions<a class="headerlink" href="#area-and-volume-expressions" title="Permanent link">#</a></h3>
+<p>This example is aimed at numerically solving some constrained minimum surface problems with the IPOPT algorithm. We restrain to <span><span class="MathJax_Preview">C^{k}</span><script type="math/tex">C^{k}</script></span> (<span><span class="MathJax_Preview">k\geq 1</span><script type="math/tex">k\geq 1</script></span>), closed, spherically parametrizable surfaces, i.e. surfaces <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> such that :</p>
+<div>
+<div class="MathJax_Preview">
+\exists \rho \in C^{k}([0,2\pi ]\times[0,\pi] ) \vert
+S = \left\lbrace
+X = \left(
+\begin{array} {c}
+ \rho(\theta,\phi) \\
+ 0 \\
+ 0
+\end{array}
+\right)
+, (\theta,\phi) \in [0,2\pi ]\times[0,\pi]
+ \right\rbrace
+</div>
+<script type="math/tex; mode=display">
+\exists \rho \in C^{k}([0,2\pi ]\times[0,\pi] ) \vert
+S = \left\lbrace
+X = \left(
+\begin{array} {c}
+ \rho(\theta,\phi) \\
+ 0 \\
+ 0
+\end{array}
+\right)
+, (\theta,\phi) \in [0,2\pi ]\times[0,\pi]
+ \right\rbrace
+</script>
+</div>
+<p>Where the components are expressed in the spherical coordinate system. Let's call <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> the <span><span class="MathJax_Preview">[0,2\pi ]\times[0,\pi]</span><script type="math/tex">[0,2\pi ]\times[0,\pi]</script></span> angular parameters set. In order to exclude self crossing and opened shapes, the following assumptions upon <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> are made :</p>
+<div>
+<div class="MathJax_Preview">
+\rho \geq 0\ \ \mathrm{and}\ \ \forall \phi, \rho(0,\phi) = \rho(2\pi,\phi)
+</div>
+<script type="math/tex; mode=display">
+\rho \geq 0\ \ \mathrm{and}\ \ \forall \phi, \rho(0,\phi) = \rho(2\pi,\phi)
+</script>
+</div>
+<p>For a given function <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> the first fundamental form (the metric) of the defined surface has the following matrix representation :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msfff}
+G =
+\left(
+\begin{array}{c c}
+    \rho^{2}\sin^{2}(\phi) + (\partial_{\theta}\rho)^{2} &amp;\partial_{\theta}\rho\partial_{\phi}\rho \\
+    \partial_{\theta}\rho\partial_{\phi}\rho &amp; \rho^{2} + (\partial_{\phi}\rho)^{2} \\
+\end{array}
+\right)
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msfff}
+G =
+\left(
+\begin{array}{c c}
+    \rho^{2}\sin^{2}(\phi) + (\partial_{\theta}\rho)^{2} &\partial_{\theta}\rho\partial_{\phi}\rho \\
+    \partial_{\theta}\rho\partial_{\phi}\rho & \rho^{2} + (\partial_{\phi}\rho)^{2} \\
+\end{array}
+\right)
+\end{equation}</script>
+</div>
+<p>This metric is used to express the area of the surface. Let <span><span class="MathJax_Preview">g=\det(G)</span><script type="math/tex">g=\det(G)</script></span>, then we have :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msarea}
+    \begin{array}{ll}
+        \mathcal{A}(\rho) &amp;= \MyInt{\Omega}{\left\| \partial_{\theta} X \wedge \partial_{\phi} X \right\|} =\MyInt{\Omega}{\sqrt{g}}\\
+            &amp;=\MyInt{\Omega}{\sqrt{ \rho^{2}(\partial_{\theta}\rho)^{2} + \rho^{4}\sin^{2}(\phi) + \rho^{2}(\partial_{\phi}\rho)^{2}\sin^{2}(\phi)}d\theta d\phi}
+    \end{array}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msarea}
+    \begin{array}{ll}
+        \mathcal{A}(\rho) &= \MyInt{\Omega}{\left\| \partial_{\theta} X \wedge \partial_{\phi} X \right\|} =\MyInt{\Omega}{\sqrt{g}}\\
+            &=\MyInt{\Omega}{\sqrt{ \rho^{2}(\partial_{\theta}\rho)^{2} + \rho^{4}\sin^{2}(\phi) + \rho^{2}(\partial_{\phi}\rho)^{2}\sin^{2}(\phi)}d\theta d\phi}
+    \end{array}
+\end{equation}</script>
+</div>
+<p>The volume of the space enclosed within the shape is easier to express :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msvolume}
+    \mathcal{V}(\rho)
+    = \MyInt{\Omega}{\int_{0}^{\rho(\theta,\phi)} r^{2}\sin(\phi) dr d\theta d\phi}
+    = \frac{1}{3}\MyInt{\Omega}{\rho^{3} \sin(\phi) d\theta d\phi}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msvolume}
+    \mathcal{V}(\rho)
+    = \MyInt{\Omega}{\int_{0}^{\rho(\theta,\phi)} r^{2}\sin(\phi) dr d\theta d\phi}
+    = \frac{1}{3}\MyInt{\Omega}{\rho^{3} \sin(\phi) d\theta d\phi}
+\end{equation}</script>
+</div>
+<h3 id="derivatives">Derivatives<a class="headerlink" href="#derivatives" title="Permanent link">#</a></h3>
+<p>In order to use a Newton based interior point optimization algorithm, one must be able to evaluate the derivatives of <span><span class="MathJax_Preview">\mathcal{A}</span><script type="math/tex">\mathcal{A}</script></span> and <span><span class="MathJax_Preview">\mathcal{V}</span><script type="math/tex">\mathcal{V}</script></span> with respect to <span><span class="MathJax_Preview">rho</span><script type="math/tex">rho</script></span>. Concerning the area, we have the following result :</p>
+<div>
+<div class="MathJax_Preview">
+\forall v\in C^{1}(\Omega) \ , \ \langle d\mathcal{A}(\rho),v\rangle
+= \MyInt{\Omega}{\frac{1}{2} \frac{ d\bar{g}(\rho)(v)}{\sqrt{g}}d\theta d\phi }
+</div>
+<script type="math/tex; mode=display">
+\forall v\in C^{1}(\Omega) \ , \ \langle d\mathcal{A}(\rho),v\rangle
+= \MyInt{\Omega}{\frac{1}{2} \frac{ d\bar{g}(\rho)(v)}{\sqrt{g}}d\theta d\phi }
+</script>
+</div>
+<p>Where <span><span class="MathJax_Preview">\bar{g}</span><script type="math/tex">\bar{g}</script></span> is the application mapping the <span><span class="MathJax_Preview">(\theta,\phi) \mapsto g(\theta,\phi)</span><script type="math/tex">(\theta,\phi) \mapsto g(\theta,\phi)</script></span> scalar field to <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>. This leads to the following expression, easy to transpose in a freefem script using :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msdarea}
+    \begin{array}{r c l}
+        \forall v\in C^{1}(\Omega)&amp; &amp;\\
+        \langle d\mathcal{A}(\rho),v\rangle &amp;=&amp; \MyInt{\Omega}{ \left(2\rho^{3}\sin^{2}(\phi) + \rho(\partial_{\theta}\rho)^{2} + \rho(\partial_{\phi}\rho)^{2}\sin^{2}(\phi) \right) v} \\
+        &amp; &amp; +\MyInt{\Omega}{\ \rho^{2}\partial_{\theta}\rho\partial_{\theta} v\ + \ \rho^{2}\partial_{\phi}\rho\sin^{2}(\phi)\partial_{\phi} v }
+    \end{array}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msdarea}
+    \begin{array}{r c l}
+        \forall v\in C^{1}(\Omega)& &\\
+        \langle d\mathcal{A}(\rho),v\rangle &=& \MyInt{\Omega}{ \left(2\rho^{3}\sin^{2}(\phi) + \rho(\partial_{\theta}\rho)^{2} + \rho(\partial_{\phi}\rho)^{2}\sin^{2}(\phi) \right) v} \\
+        & & +\MyInt{\Omega}{\ \rho^{2}\partial_{\theta}\rho\partial_{\theta} v\ + \ \rho^{2}\partial_{\phi}\rho\sin^{2}(\phi)\partial_{\phi} v }
+    \end{array}
+\end{equation}</script>
+</div>
+<p>With a similar approach, one can derive an expression for second order derivatives. However, comporting no specific difficulties, the detailed calculus are tedious, the result is that
+these derivatives can be written using a <span><span class="MathJax_Preview">3\times 3</span><script type="math/tex">3\times 3</script></span> matrix <span><span class="MathJax_Preview">\mathbf{B}</span><script type="math/tex">\mathbf{B}</script></span> whose coefficients are expressed in term of <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> and its derivatives with respect to <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> and <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span>, such that :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msd2area}
+    \forall (w,v)\in C^{1}(\Omega)\ ,\ d^{2}\mathcal{A}(\rho)(w,v) = \MyInt{\Omega}
+    {
+        \left(\begin{array}{c c c} w &amp; \partial_{\theta} w &amp; \partial_{\phi} w \end{array}\right)
+        \mathbf{B}
+    }   \left( \begin{array}{c} v \\ \partial_{\theta} v \\ \partial_{\phi} v \end{array} \right) d\theta d\phi
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msd2area}
+    \forall (w,v)\in C^{1}(\Omega)\ ,\ d^{2}\mathcal{A}(\rho)(w,v) = \MyInt{\Omega}
+    {
+        \left(\begin{array}{c c c} w & \partial_{\theta} w & \partial_{\phi} w \end{array}\right)
+        \mathbf{B}
+    }   \left( \begin{array}{c} v \\ \partial_{\theta} v \\ \partial_{\phi} v \end{array} \right) d\theta d\phi
+\end{equation}</script>
+</div>
+<p>Deriving the volume function derivatives is again an easier task. We immediately get the following expressions :</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}\label{msdvolume}
+    \begin{array}{r c l}
+        \forall v\ ,\ \langle d\mathcal{V}(\rho),v\rangle &amp; = &amp; \MyInt{\Omega}{\rho^{2}\sin(\phi)v\ d\theta d\phi} \\
+        \forall w,v\ , d^{2}\mathcal{V}(\rho)(w,v) &amp; = &amp; \MyInt{\Omega}{2\rho\sin(\phi)wv\ d\theta d\phi}
+    \end{array}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}\label{msdvolume}
+    \begin{array}{r c l}
+        \forall v\ ,\ \langle d\mathcal{V}(\rho),v\rangle & = & \MyInt{\Omega}{\rho^{2}\sin(\phi)v\ d\theta d\phi} \\
+        \forall w,v\ , d^{2}\mathcal{V}(\rho)(w,v) & = & \MyInt{\Omega}{2\rho\sin(\phi)wv\ d\theta d\phi}
+    \end{array}
+\end{equation}</script>
+</div>
+<h3 id="the-problem-and-its-script">The problem and its script<a class="headerlink" href="#the-problem-and-its-script" title="Permanent link">#</a></h3>
+<p>The whole code is available in <a href="../examples/#ipopt-minimum-surface-volume">IPOPT minimum surface &amp; volume example</a>. We propose to solve the following problem :</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Given a positive function <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span> piecewise continuous, and a scalar <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}} &gt; \mathcal{V}(\rho_{\mathrm{object}})</span><script type="math/tex">\mathcal{V}_{\mathrm{max}} > \mathcal{V}(\rho_{\mathrm{object}})</script></span>, find <span><span class="MathJax_Preview">\rho_{0}</span><script type="math/tex">\rho_{0}</script></span> such that :</p>
+<div>
+<div class="MathJax_Preview">
+\rho_{0} = \underset{\rho\in C^{1}(\Omega)}{\operatorname{argmin}}\ \mathcal{A}(\rho)\ ,\ \mathrm{s.t.}\ \rho_{0}\geq\rho_{\mathrm{object}} \ \mathrm{and\ } \mathcal{V}(\rho_{0})\leq \mathcal{V}_{\mathrm{max}}
+</div>
+<script type="math/tex; mode=display">
+\rho_{0} = \underset{\rho\in C^{1}(\Omega)}{\operatorname{argmin}}\ \mathcal{A}(\rho)\ ,\ \mathrm{s.t.}\ \rho_{0}\geq\rho_{\mathrm{object}} \ \mathrm{and\ } \mathcal{V}(\rho_{0})\leq \mathcal{V}_{\mathrm{max}}
+</script>
+</div>
+<p>If <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span> is the spherical parametrization of the surface of a 3-dimensional object (domain) <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span>, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span> is close to <span><span class="MathJax_Preview">\mathcal{V}(\rho_{\mathrm{object}})</span><script type="math/tex">\mathcal{V}(\rho_{\mathrm{object}})</script></span>, so should be <span><span class="MathJax_Preview">\rho_{0}</span><script type="math/tex">\rho_{0}</script></span> and <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span>. With higher values of <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span>, <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> should be closer to the unconstrained minimum surface surrounding <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span> which is obtained as soon as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</script></span> (sufficient but not necessary).</p>
+<p>It also could be interesting to solve the same problem with the constraint <span><span class="MathJax_Preview">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</script></span> which leads to a sphere when $\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3} $ and moves toward the solution of the unconstrained problem as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}_{\mathrm{min}}</script></span> decreases.</p>
+<p>We start by meshing the domain <span><span class="MathJax_Preview">[0,2\pi ]\times\ [0,\pi ]</span><script type="math/tex">[0,2\pi ]\times\ [0,\pi ]</script></span>, then a periodic P1 finite elements space is defined.</p>
+<div class="codehilite"><pre><span></span>load &quot;msh3&quot;;
+load &quot;medit&quot;;
+load &quot;ff-Ipopt&quot;;
+
+// Parameters
+int nadapt = 3;
+real alpha = 0.9;
+int np = 30;
+real regtest;
+int shapeswitch = 1;
+real sigma = 2*pi/40.;
+real treshold = 0.1;
+real e = 0.1;
+real r0 = 0.25;
+real rr = 2-r0;
+real E = 1./(e*e);
+real RR = 1./(rr*rr);
+
+// Mesh
+mesh Th = square(2*np, np, [2*pi*x, pi*y]);
+
+// Fespace
+fespace Vh(Th, P1, periodic=[[2, y], [4, y]]);
+//Initial shape definition
+//outside of the mesh adaptation loop to initialize with the previous optimial shape found on further iterations
+Vh startshape = 5;
+</pre></div>
+
+<p>We create some finite element functions whose underlying arrays will be used to store the values of dual variables associated to all the constraints in order to reinitialize the algorithm with it in the case where we use mesh adaptation. Doing so, the algorithm will almost restart at the accuracy level it reached before mesh adaptation, thus saving many iterations.</p>
+<div class="codehilite"><pre><span></span>Vh uz = 1., lz = 1.;
+rreal[int] lm = [1];
+</pre></div>
+
+<p>Then, follows the mesh adaptation loop, and a rendering function, <code class="codehilite">Plot3D</code>, using 3D mesh to display the shape it is passed with <code class="codehilite">medit</code> (the <code class="codehilite">movemesh23</code> procedure often crashes when called with ragged shapes).</p>
+<div class="codehilite"><pre><span></span>for(int kkk = 0; kkk &lt; nadapt; ++kkk){
+    int iter=0;
+    func sin2 = square(sin(y));
+
+    // A function which transform Th in 3d mesh (r=rho)
+    //a point (theta,phi) of Th becomes ( r(theta,phi)*cos(theta)*sin(phi) , r(theta,phi)*sin(theta)*sin(phi) , r(theta,phi)*cos(phi) )
+    //then displays the resulting mesh with medit
+    func int Plot3D (real[int] &amp;rho, string cmm, bool ffplot){
+        Vh rhoo;
+        rhoo[] = rho;
+        //mesh sTh = square(np, np/2, [2*pi*x, pi*y]);
+        //fespace sVh(sTh, P1);
+        //Vh rhoplot = rhoo;
+        try{
+            mesh3 Sphere = movemesh23(Th, transfo=[rhoo(x,y)*cos(x)*sin(y), rhoo(x,y)*sin(x)*sin(y), rhoo(x,y)*cos(y)]);
+            if(ffplot)
+                plot(Sphere);
+            else
+                medit(cmm, Sphere);
+        }
+        catch(...){
+            cout &lt;&lt; &quot;PLOT ERROR&quot; &lt;&lt; endl;
+        }
+        return 1;
+    }
+</pre></div>
+
+<p>Here are the functions related to the area computation and its shape derivative, according to equations \eqref{msarea} and \eqref{msdarea}:</p>
+<div class="codehilite"><pre><span></span>// Surface computation
+//Maybe is it possible to use movemesh23 to have the surface function less complicated
+//However, it would not simplify the gradient and the hessian
+func real Area (real[int] &amp;X){
+    Vh rho;
+    rho[] = X;
+    Vh rho2 = square(rho);
+    Vh rho4 = square(rho2);
+    real res = int2d(Th)(sqrt(rho4*sin2 + rho2*square(dx(rho)) + rho2*sin2*square(dy(rho))));
+    ++iter;
+    if(1)
+        plot(rho, value=true, fill=true, cmm=&quot;rho(theta,phi) on [0,2pi]x[0,pi] - S=&quot;+res, dim=3);
+    else
+        Plot3D(rho[], &quot;shape_evolution&quot;, 1);
+    return res;
+}
+
+func real[int] GradArea (real[int] &amp;X){
+    Vh rho, rho2;
+    rho[] = X;
+    rho2[] = square(X);
+    Vh sqrtPsi, alpha;
+    {
+        Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+        sqrtPsi = sqrt(rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+        alpha = 2.*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+    }
+    varf dArea (u, v)
+        = int2d(Th)(
+            1./sqrtPsi * (alpha*v + rho2*dx(rho)*dx(v) + rho2*dy(rho)*sin2*dy(v))
+        )
+        ;
+
+    real[int] grad = dArea(0, Vh);
+    return grad;
+}
+</pre></div>
+
+<p>The function returning the hessian of the area for a given shape is a bit blurry, thus we won't show here all of equation \eqref{msd2area} coefficients definition, they can be found in the <code class="codehilite">edp</code> file.</p>
+<div class="codehilite"><pre><span></span>matrix hessianA;
+func matrix HessianArea (real[int] &amp;X){
+    Vh rho, rho2;
+    rho[] = X;
+    rho2 = square(rho);
+    Vh sqrtPsi, sqrtPsi3, C00, C01, C02, C11, C12, C22, A;
+    {
+        Vh C0, C1, C2;
+        Vh dxrho2 = dx(rho)*dx(rho), dyrho2 = dy(rho)*dy(rho);
+        sqrtPsi = sqrt( rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2);
+        sqrtPsi3 = (rho2*rho2*sin2 + rho2*dxrho2 + rho2*dyrho2*sin2)*sqrtPsi;
+        C0 = 2*rho2*rho*sin2 + rho*dxrho2 + rho*dyrho2*sin2;
+        C1 = rho2*dx(rho);
+        C2 = rho2*sin2*dy(rho);
+        C00 = square(C0);
+        C01 = C0*C1;
+        C02 = C0*C2;
+        C11 = square(C1);
+        C12 = C1*C2;
+        C22 = square(C2);
+        A = 6.*rho2*sin2 + dxrho2 + dyrho2*sin2;
+    }
+    varf d2Area (w, v)
+        =int2d(Th)(
+            1./sqrtPsi * (
+                  A*w*v
+                + 2*rho*dx(rho)*dx(w)*v
+                + 2*rho*dx(rho)*w*dx(v)
+                + 2*rho*dy(rho)*sin2*dy(w)*v
+                + 2*rho*dy(rho)*sin2*w*dy(v)
+                + rho2*dx(w)*dx(v)
+                + rho2*sin2*dy(w)*dy(v)
+            )
+            + 1./sqrtPsi3 * (
+                  C00*w*v
+                + C01*dx(w)*v
+                + C01*w*dx(v)
+                + C02*dy(w)*v
+                + C02*w*dy(v)
+                + C11*dx(w)*dx(v)
+                + C12*dx(w)*dy(v)
+                + C12*dy(w)*dx(v)
+                + C22*dy(w)*dy(v)
+            )
+        )
+        ;
+    hessianA = d2Area(Vh, Vh);
+    return hessianA;
+}
+</pre></div>
+
+<p>And the volume related functions :</p>
+<div class="codehilite"><pre><span></span>// Volume computation
+func real Volume (real[int] &amp;X){
+    Vh rho;
+    rho[] = X;
+    Vh rho3 = rho*rho*rho;
+    real res = 1./3.*int2d(Th)(rho3*sin(y));
+    return res;
+}
+
+func real[int] GradVolume (real[int] &amp;X){
+    Vh rho;
+    rho[] = X;
+    varf dVolume(u, v) = int2d(Th)(rho*rho*sin(y)*v);
+    real[int] grad = dVolume(0, Vh);
+    return grad;
+}
+matrix hessianV;
+func matrix HessianVolume(real[int] &amp;X){
+    Vh rho;
+    rho[] = X;
+    varf d2Volume(w, v) = int2d(Th)(2*rho*sin(y)*v*w);
+    hessianV = d2Volume(Vh, Vh);
+    return hessianV;
+}
+</pre></div>
+
+<p>If we want to use the volume as a constraint function we must wrap it and its derivatives in some <strong><code>FreeFem++</code></strong> functions returning the appropriate types. It is not done in the above functions in cases where one wants to use it as a fitness function. The lagrangian hessian also has to be wrapped since the Volume is not linear with respect to <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, it has some non-null second order derivatives.</p>
+<div class="codehilite"><pre><span></span>func real[int] ipVolume (real[int] &amp;X){ real[int] vol = [Volume(X)]; return vol; }
+matrix mdV;
+func matrix ipGradVolume (real[int] &amp;X) { real[int,int] dvol(1,Vh.ndof); dvol(0,:) = GradVolume(X); mdV = dvol; return mdV; }
+matrix HLagrangian;
+func matrix ipHessianLag (real[int] &amp;X, real objfact, real[int] &amp;lambda){
+    HLagrangian = objfact*HessianArea(X) + lambda[0]*HessianVolume(X);
+    return HLagrangian;
+}
+</pre></div>
+
+<p>The <code class="codehilite">ipGradVolume</code> function could pose some troubles during the optimization process because the gradient vector is transformed in a sparse matrix, so any null coefficient will be discarded. Here we create the IPOPT structure manually and use the <code class="codehilite">checkindex</code> named-parameter to avoid bad indexing during copies. This gradient is actually dense, there is no reason for some components to be constantly zero :</p>
+<div class="codehilite"><pre><span></span>int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
+gvi = 0;
+</pre></div>
+
+<p>These two arrays will be passed to IPOPT with <code class="codehilite">structjacc=[gvi,gvj]</code>. The last remaining things are the bound definitions. The simple lower bound must be equal to the components of the P1 projection of <span><span class="MathJax_Preview">\rho_{object}</span><script type="math/tex">\rho_{object}</script></span>. And we choose <span><span class="MathJax_Preview">\alpha\in [0,1]</span><script type="math/tex">\alpha\in [0,1]</script></span> to set <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span> to <span><span class="MathJax_Preview">(1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</span><script type="math/tex">(1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</script></span> :</p>
+<!--- __ --->
+
+<div class="codehilite"><pre><span></span>func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
+func disc2 = sqrt(1./(RR+(E-RR)*cos(x)*cos(x)*sin2));
+
+if(1){
+    lb = r0;
+    for (int q = 0; q &lt; 5; ++q){
+        func f = rr*Gaussian(x, y, 2*q*pi/5., pi/3.);
+        func g = rr*Gaussian(x, y, 2*q*pi/5.+pi/5., 2.*pi/3.);
+        lb = max(max(lb, f), g);
+    }
+    lb = max(lb, rr*Gaussian(x, y, 2*pi, pi/3));
+}
+lb = max(lb, max(disc1, disc2));
+real Vobj = Volume(lb[]);
+real Vnvc = 4./3.*pi*pow(lb[].linfty,3);
+
+if(1)
+    Plot3D(lb[], &quot;object_inside&quot;, 1);
+real[int] clb = 0., cub = [(1-alpha)*Vobj + alpha*Vnvc];
+</pre></div>
+
+<p>Calling IPOPT :</p>
+<div class="codehilite"><pre><span></span>int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
+        rc[], ub=ub[], lb=lb[], clb=clb, cub=cub, checkindex=1, maxiter=kkk&lt;nadapt-1 ? 40:150,
+        warmstart=kkk, lm=lm, uz=uz[], lz=lz[], tol=0.00001, structjacc=[gvi,gvj]);
+cout &lt;&lt; &quot;IPOPT: res =&quot; &lt;&lt; res &lt;&lt; endl ;
+
+// Plot
+Plot3D(rc[], &quot;Shape_at_&quot;+kkk, 1);
+Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
+</pre></div>
+
+<p>Finally, before closing the mesh adaptation loop, we have to perform the said adaptation. The mesh is adaptated with respect to the <span><span class="MathJax_Preview">X=(\rho,0,0)</span><script type="math/tex">X=(\rho,0,0)</script></span> (in spherical coordinates) vector field, not directly with respect to <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, otherwise the true curvature of the 3D-shape would not be well taken into account.</p>
+<div class="codehilite"><pre><span></span>if (kkk &lt; nadapt-1){
+    Th = adaptmesh(Th, rc*cos(x)*sin(y), rc*sin(x)*sin(y), rc*cos(y),
+        nbvx=50000, periodic=[[2, y], [4, y]]);
+    plot(Th, wait=true);
+    startshape = rc;
+    uz = uz;
+    lz = lz;
+}
+</pre></div>
+
+<p>Here are some pictures of the resulting surfaces obtained for decreasing values of <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> (and a slightly more complicated object than two orthogonal discs). We return to the enclosed object when <span><span class="MathJax_Preview">\alpha=0</span><script type="math/tex">\alpha=0</script></span> :</p>
+<p><center>
+<img alt="minsurf3D" src="../images/minsurf3D.jpg" />
+</center></p>
+</div>
+<h2 id="the-nlopt-optimizers">The nlOpt optimizers<a class="headerlink" href="#the-nlopt-optimizers" title="Permanent link">#</a></h2>
+<p>The <code class="codehilite">ff-NLopt</code> package provides a <strong><code>FreeFem++</code></strong> interface to the free/open-source library for nonlinear optimization, easing the use of several different free optimization (constrained or not) routines available online along with the PDE solver. All the algorithms are well documented in <a href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>, therefore no exhaustive information concerning their mathematical specificities will be found here and we will focus on the way they are used in a <strong><code>FreeFem++</code></strong> script. If needing detailed information about these algorithms, visit the website where a description of each of them is given, as well as many bibliographical links.</p>
+<p>Most of the gradient based algorithms of NLopt uses a full matrix approximation of the Hessian, so if you're planning to solve a large scale problem, use the IPOPT optimizer which definitely surpass them.</p>
+<p>All the NLopt features are identified that way:</p>
+<div class="codehilite"><pre><span></span>load &quot;ff-NLopt&quot;
+//define J, u, and maybe grad(J), some constraints etc...
+real min = nloptXXXXXX(J, u, //Unavoidable part
+    grad=&lt;name of grad(J)&gt;, //if needed
+    lb= //Lower bounds array
+    ub= //Upper bounds array
+    ... //Some optional arguments:
+    //Constraints functions names,
+    //Stopping criteria,
+    //Algorithm specific parameters,
+    //Etc...
+);
+</pre></div>
+
+<p><code class="codehilite">XXXXXX</code> refers to the algorithm tag (not necessarily 6 characters long). <code class="codehilite">u</code> is the starting position (a <code class="codehilite">real[int]</code> type array) which will be overwritten by the algorithm, the value at the end being the found <span><span class="MathJax_Preview">argmin</span><script type="math/tex">argmin</script></span>. And as usual, <code class="codehilite">J</code> is a function taking a <code class="codehilite">real[int]</code> type array as argument and returning a <code class="codehilite">real</code>. <code class="codehilite">grad</code>, <code class="codehilite">lb</code> and <code class="codehilite">ub</code> are "half-optional" arguments, in the sense that they are obligatory for some routines but not all.</p>
+<p>The possible optionally named parameters are the following, note that they are not used by all algorithms (some do not support constraints, or a type of constraints, some are gradient-based and others are derivative free, etc...). One can refer to the table after the parameters description to check which are the named parameters supported by a specific algorithm. Using an unsupported parameter will not stop the compiler work, seldom breaks runtime, and will just be ignored. When it is obvious you are missing a routine, you will get a warning message at runtime (for example if you pass a gradient to a derivative free algorithm, or set the population of a non-genetic one, etc...). In the following description, <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> stands for the dimension of the search space.</p>
+<p><strong>Half-optional parameters :</strong></p>
+<ul>
+<li>
+<p><code class="codehilite">grad=</code> The name of the function which computes the gradient of the cost function (prototype should be <code class="codehilite">real[int]</code> <span><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> <code class="codehilite">real[int]</code>, both argument and result should have the size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>). This is needed as soon as a gradient-based method is involved, which is ignored if defined in a derivative free context.</p>
+</li>
+<li>
+<p><code class="codehilite">lb</code>/<code class="codehilite">ub</code> = Lower and upper bounds arrays ( <code class="codehilite">real[int]</code> type) of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>. Used to define the bounds within which the search variable is allowed to move. Needed for some algorithms, optional, or unsupported for others.</p>
+</li>
+<li>
+<p><code class="codehilite">subOpt</code> : Only enabled for the Augmented Lagrangian and MLSL methods who need a sub-optimizer in order to work. Just pass the tag of the desired local algorithm with a <code class="codehilite">string</code>.</p>
+</li>
+</ul>
+<p><strong>Constraints related parameters (optional - unused if not specified):</strong></p>
+<ul>
+<li>
+<p><code class="codehilite">IConst</code>/<code class="codehilite">EConst</code> : Allows to pass the name of a function implementing some inequality (resp. equality) constraints on the search space. The function type must be <code class="codehilite">real[int]</code> <span><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> <code class="codehilite">real[int]</code> where the size of the returned array is equal to the number of constraints (of the same type - it means that all of the constraints are computed in one vectorial function). In order to mix inequality and equality constraints in a same minimization attempt, two vectorial functions have to be defined and passed. See example \eqref{varineqex} for more details about how these constraints have to be implemented.</p>
+</li>
+<li>
+<p><code class="codehilite">gradIConst</code>/<code class="codehilite">gradEConst</code> : Use to provide the inequality (resp. equality) constraints gradient. These are <code class="codehilite">real[int]</code> <span><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> <code class="codehilite">real[int,int]</code> type functions. Assuming we have defined a constraint function (either inequality or equality) with <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> constraints, the size of the matrix returned by its associated gradient must be <span><span class="MathJax_Preview">p\times n</span><script type="math/tex">p\times n</script></span> (the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-th line of the matrix is the gradient of the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-th constraint). It is needed in a gradient-based context as soon as an inequality or equality constraint function is passed to the optimizer and ignored in all other cases.</p>
+</li>
+<li>
+<p><code class="codehilite">tolIConst</code>/<code class="codehilite">tolEConst</code> : Tolerance values for each constraint. This is an array of size equal to the number of inequality (resp. equality) constraints. Default value is set to <span><span class="MathJax_Preview">10^{-12}</span><script type="math/tex">10^{-12}</script></span> for each constraint of any type.</p>
+</li>
+</ul>
+<p><strong>Stopping criteria :</strong></p>
+<ul>
+<li>
+<p><code class="codehilite">stopFuncValue</code> : Makes the algorithm end when the objective function reaches this <code class="codehilite">real</code> value.</p>
+</li>
+<li>
+<p><code class="codehilite">stopRelXTol</code> : Stops the algorithm when the relative moves in each direction of the search space is smaller than this <code class="codehilite">real</code> value.</p>
+</li>
+<li>
+<p><code class="codehilite">stopAbsXTol</code> : Stops the algorithm when the moves in each direction of the search space is smaller than the corresponding value in this <code class="codehilite">real[int]</code> array.</p>
+</li>
+<li>
+<p><code class="codehilite">stopRelFTol</code> : Stops the algorithm when the relative variation of the objective function is smaller than this <code class="codehilite">real</code> value.</p>
+</li>
+<li>
+<p><code class="codehilite">stopAbsFTol</code> : Stops the algorithm when the variation of the objective function is smaller than this <code class="codehilite">real</code> value.</p>
+</li>
+<li>
+<p><code class="codehilite">stopMaxFEval</code> : Stops the algorithm when the number of fitness evaluations reaches this <code class="codehilite">integer</code> value.</p>
+</li>
+<li>
+<p><code class="codehilite">stopTime</code> : Stops the algorithm when the optimization time in seconds exceeds this <code class="codehilite">real</code> value. This is not a strict maximum: the time may exceed it slightly, depending upon the algorithm and on how slow your function evaluation is.</p>
+<p>Note that when an AUGLAG or MLSL method is used, the meta-algorithm and the sub-algorithm may have different termination criteria. Thus, for algorithms of this kind, the following named parameters has been defined (just adding the SO prefix - for Sub-Optimizer) to set the ending condition of the sub-algorithm (the meta one uses the ones above): <code class="codehilite">SOStopFuncValue</code>, <code class="codehilite">SOStopRelXTol</code>, and so on... If these are not used, the sub-optimizer will use those of the master routine.</p>
+</li>
+</ul>
+<p><strong>Other named parameters :</strong></p>
+<ul>
+<li>
+<p><code class="codehilite">popSize</code> : <code class="codehilite">integer</code> used to change the size of the sample for stochastic search methods. Default value is a peculiar heuristic to the chosen algorithm.</p>
+</li>
+<li>
+<p><code class="codehilite">SOPopSize</code> : Same as above, but when the stochastic search is passed to a meta-algorithm.</p>
+</li>
+<li>
+<p><code class="codehilite">nGradStored</code> : The number (<code class="codehilite">integer</code> type) of gradients to "remember" from previous optimization steps: increasing this increases the memory requirements but may speed convergence. It is set to a heuristic value by default. If used with AUGLAG or MLSL, it will only affect the given subsidiary algorithm.</p>
+</li>
+</ul>
+<p>The following table sums up the main characteristics of each algorithm, providing the more important information about which features are supported by which algorithm and what are the unavoidable arguments they need. More details can be found in <a href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>.</p>
+<p><center>
+<img alt="nlopttab" src="../images/nlopttab.png" />
+</center></p>
+<div class="admonition example">
+<p class="admonition-title">Variational inequality</p>
+<p>\label{varineqex}
+Let <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> be a domain of <span><span class="MathJax_Preview">\mathbb{R}^{2}</span><script type="math/tex">\mathbb{R}^{2}</script></span>, <span><span class="MathJax_Preview">f_{1}, f_{2}\in L^{2}(\Omega)</span><script type="math/tex">f_{1}, f_{2}\in L^{2}(\Omega)</script></span> and <span><span class="MathJax_Preview">g_{1}, g_{2} \in L^{2}(\partial\Omega)</span><script type="math/tex">g_{1}, g_{2} \in L^{2}(\partial\Omega)</script></span> four given functions with <span><span class="MathJax_Preview">g_{1}\leq g_{2}</span><script type="math/tex">g_{1}\leq g_{2}</script></span> almost everywhere.</p>
+<p>We define the space :
+<script type="math/tex; mode=display">
+V = \left\lbrace (v_{1},v_{2})\in H^{1}(\Omega)^{2} ; v_{1}\vert_{\partial\Omega}=g_{1}, v_{2}\vert_{\partial\Omega}=g_{2}, v_{1}\leq v_{2}\ \mathrm{a.e.}\ \right\rbrace
+</script>
+as well as the function <span><span class="MathJax_Preview">J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}</span><script type="math/tex">J:H^{1}(\Omega)^{2}\longrightarrow \mathbb{R}</script></span>:
+<script type="math/tex; mode=display">
+J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2} - \int_{\Omega} f_{1}v_{1} + \frac{1}{2}\int_{\Omega}\vert\nabla v_{2}\vert^{2} - \int_{\Omega} f_{2}v_{2}}
+</script>
+The problem consists in finding (numerically) two functions $(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2}) $.</p>
+<p>This can be interpreted as finding <span><span class="MathJax_Preview">u_{1}, u_{2}</span><script type="math/tex">u_{1}, u_{2}</script></span> as close as possible (in a certain sense) to the solutions of the Laplace equation with respectively <span><span class="MathJax_Preview">f_{1}, f_{2}</span><script type="math/tex">f_{1}, f_{2}</script></span> second members
+ and <span><span class="MathJax_Preview">g_{1}, g_{2}</span><script type="math/tex">g_{1}, g_{2}</script></span> Dirichlet boundary conditions with the <span><span class="MathJax_Preview">u_{1}\leq u_{2}</span><script type="math/tex">u_{1}\leq u_{2}</script></span> almost everywhere constraint.</p>
+<p>Here is the corresponding script to treat this variational inequality problem with one of the NLOpt algorithms.</p>
+<div class="codehilite"><pre><span></span>//A brief script to demonstrate how to use the freefemm interfaced nlopt routines
+//The problem consist in solving a simple variational inequality using one of the
+//optimization algorithm of nlopt. We restart the algorithlm a few times after
+//performing some mesh adaptation to get a more precise output
+
+load &quot;ff-NLopt&quot;
+
+// Parameters
+int kas = 3; //choose of the algorithm
+int NN = 10;
+func f1 = 1.;
+func f2 = -1.;
+func g1 = 0.;
+func g2 = 0.1;
+int iter = 0;
+int nadapt = 2;
+real starttol = 1e-6;
+real bctol = 6.e-12;
+
+// Mesh
+mesh Th = square(NN, NN);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh oldu1, oldu2;
+
+// Adaptation loop
+for (int al = 0; al &lt; nadapt; ++al){
+    varf BVF (v, w) = int2d(Th)(0.5*dx(v)*dx(w) + 0.5*dy(v)*dy(w));
+    varf LVF1 (v, w) = int2d(Th)(f1*w);
+    varf LVF2 (v, w) = int2d(Th)(f2*w);
+    matrix A = BVF(Vh, Vh);
+    real[int] b1 = LVF1(0, Vh), b2 = LVF2(0, Vh);
+
+    varf Vbord (v, w) = on(1, 2, 3, 4, v=1);
+
+    Vh In, Bord;
+    Bord[] = Vbord(0, Vh, tgv=1);
+    In[] = Bord[] ? 0:1;
+    Vh gh1 = Bord*g1, gh2 = Bord*g2;
+
+    func real J (real[int] &amp;X){
+        Vh u1, u2;
+        u1[] = X(0:Vh.ndof-1);
+        u2[] = X(Vh.ndof:2*Vh.ndof-1);
+        iter++;
+        real[int] Au1 = A*u1[], Au2 = A*u2[];
+        Au1 -= b1;
+        Au2 -= b2;
+        real val = u1[]&#39;*Au1 + u2[]&#39;*Au2;
+        if (iter%10 == 9)
+            plot(u1, u2, nbiso=30, fill=1, dim=3, cmm=&quot;adapt level &quot;+al+&quot; - iteration &quot;+iter+&quot; - J = &quot;+val, value=1);
+        return val;
+    }
+
+    varf dBFV (v, w) = int2d(Th)(dx(v)*dx(w)+dy(v)*dy(w));
+    matrix dA = dBFV(Vh, Vh);
+    func real[int] dJ (real[int] &amp;X){
+        Vh u1, u2;
+        u1[] = X(0:Vh.ndof-1);
+        u2[] = X(Vh.ndof:2*Vh.ndof-1);
+
+        real[int] grad1 = dA*u1[], grad2 = dA*u2[];
+        grad1 -= b1;
+        grad2 -= b2;
+        real[int] Grad(X.n);
+        Grad(0:Vh.ndof-1) = grad1;
+        Grad(Vh.ndof:2*Vh.ndof-1) = grad2;
+        return Grad;
+    }
+
+    func real[int] IneqC (real[int] &amp;X){
+        real[int] constraints(Vh.ndof);
+        for (int i = 0; i &lt; Vh.ndof; ++i) constraints[i] = X[i] - X[i+Vh.ndof];
+        return constraints;
+    }
+
+    func real[int,int] dIneqC (real[int] &amp;X){
+        real[int, int] dconst(Vh.ndof, 2*Vh.ndof);
+        dconst = 0;
+        for(int i = 0; i &lt; Vh.ndof; ++i){
+            dconst(i, i) = 1.;
+            dconst(i, i+Vh.ndof) = -1.;
+        }
+        return dconst;
+    }
+
+    real[int] BordIndex(Th.nbe); //Indexes of border d.f.
+    {
+        int k = 0;
+        for (int i = 0; i &lt; Bord.n; ++i) if (Bord[][i]){ BordIndex[k] = i; ++k; }
+    }
+
+    func real[int] BC (real[int] &amp;X){
+        real[int] bc(2*Th.nbe);
+        for (int i = 0; i &lt; Th.nbe; ++i){
+            int I = BordIndex[i];
+            bc[i] = X[I] - gh1[][I];
+            bc[i+Th.nbe] = X[I+Th.nv] - gh2[][I];
+        }
+        return bc;
+    }
+
+    func real[int, int] dBC(real[int] &amp;X){
+        real[int, int] dbc(2*Th.nbe,2*Th.nv);
+        dbc = 0.;
+        for (int i = 0; i &lt; Th.nbe; ++i){
+            int I = BordIndex[i];
+            dbc(i, I) = 1.;
+            dbc(i+Th.nbe, I+Th.nv) = 1.;
+        }
+        return dbc;
+    }
+
+    real[int] start(2*Vh.ndof), up(2*Vh.ndof), lo(2*Vh.ndof);
+
+    if (al == 0){
+        start(0:Vh.ndof-1) = 0.;
+        start(Vh.ndof:2*Vh.ndof-1) = 0.01;
+    }
+    else{
+        start(0:Vh.ndof-1) = oldu1[];
+        start(Vh.ndof:2*Vh.ndof-1) = oldu2[];
+    }
+
+    up = 1000000;
+    lo = -1000000;
+    for (int i = 0; i &lt; Vh.ndof; ++i){
+        if (Bord[][i]){
+            up[i] = gh1[][i] + bctol;
+            lo[i] = gh1[][i] - bctol;
+            up[i+Vh.ndof] = gh2[][i] + bctol;
+            lo[i+Vh.ndof] = gh2[][i] - bctol;
+        }
+    }
+
+    real mini = 1e100;
+    if (kas == 1)
+        mini = nloptAUGLAG(J, start, grad=dJ, lb=lo,
+            ub=up, IConst=IneqC, gradIConst=dIneqC,
+            subOpt=&quot;LBFGS&quot;, stopMaxFEval=10000, stopAbsFTol=starttol);
+    else if (kas == 2)
+        mini = nloptMMA(J, start, grad=dJ, lb=lo, ub=up, stopMaxFEval=10000, stopAbsFTol=starttol);
+    else if (kas == 3)
+        mini = nloptAUGLAG(J, start, grad=dJ, IConst=IneqC,
+            gradIConst=dIneqC, EConst=BC, gradEConst=dBC,
+            subOpt=&quot;LBFGS&quot;, stopMaxFEval=200, stopRelXTol=1e-2);
+    else if (kas == 4)
+        mini = nloptSLSQP(J, start, grad=dJ, IConst=IneqC,
+            gradIConst=dIneqC, EConst=BC, gradEConst=dBC,
+            stopMaxFEval=10000, stopAbsFTol=starttol);
+    Vh best1, best2;
+    best1[] = start(0:Vh.ndof-1);
+    best2[] = start(Vh.ndof:2*Vh.ndof-1);
+
+    Th = adaptmesh(Th, best1, best2);
+    oldu1 = best1;
+    oldu2 = best2;
+}
+</pre></div>
+
+</div>
+<h2 id="optimization-with-mpi">Optimization with MPI<a class="headerlink" href="#optimization-with-mpi" title="Permanent link">#</a></h2>
+<p>The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm). Somehow, we provide a parallel version of the CMA-ES algorithm. The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> times without any dependence at all, these <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> calculus are then equally distributed to each process. Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the <a href="../examples/cmaes-mpi-variational-inequality">CMAES MPI variational inequality example</a>):</p>
+<div class="codehilite"><pre><span></span>load &quot;mpi-cmaes&quot;
+... // Define J, u and all here
+real min = cmaesMPI(J, u, stopTolFun=1e-6, stopMaxIter=3000);
+cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
+</pre></div>
+
+<p>If the population size is not changed using the <code class="codehilite">popsize</code> parameter, it will use the heuristic value slightly changed to be equal to the closest greatest multiple of the size of the communicator used by the optimizer. The <strong><code>FreeFem++</code></strong> <code class="codehilite">mpicommworld</code> is used by default. The user can specify his own MPI communicator with the named parameter <code class="codehilite">comm=</code>, see the MPI section of this manual for more information about communicators in <strong><code>FreeFem++</code></strong>.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<p><a name="PIRONNEAU1998">[PIRONNEAU1998]</a> PIRONNEAU, Olivier et LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.</p>
+<p><a name="WÄCHTER2006">[WÄCHTER2006]</a> WÄCHTER, Andreas et BIEGLER, Lorenz T. On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 2006, vol. 106, no 1, p. 25-57.</p>
+<p><a name="FORSGREN2002">[FORSGREN2002]</a> FORSGREN, Anders, GILL, Philip E., et WRIGHT, Margaret H. Interior methods for nonlinear optimization. SIAM review, 2002, vol. 44, no 4, p. 525-597.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Visualization/" title="Visualization" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Visualization
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Parallelization/" title="Parallelization" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Parallelization
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/FreeFem/FreeFem-doc" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

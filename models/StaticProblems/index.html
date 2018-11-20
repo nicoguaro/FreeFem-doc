@@ -1,0 +1,2801 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Static problems - FreeFem++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#soap-film" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="FreeFem++" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                FreeFem++
+              </span>
+              <span class="md-header-nav__topic">
+                Static problems
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../documentation/" title="Documentation" class="md-tabs__link">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../reference/" title="Language References" class="md-tabs__link">
+          Language References
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" title="Examples" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Models" class="md-tabs__link md-tabs__link--active">
+          Models
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="FreeFem++" class="md-nav__button md-logo">
+      
+        <img src="../../images/favicon.png" width="48" height="48">
+      
+    </a>
+    FreeFem++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/contributing/" title="How to contribute?" class="md-nav__link">
+      How to contribute?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/citation/" title="Citation" class="md-nav__link">
+      Citation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/authors/" title="Authors" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Notations/" title="Some Notations" class="md-nav__link">
+      Some Notations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/MeshGeneration/" title="Mesh Generation" class="md-nav__link">
+      Mesh Generation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/FiniteElement/" title="Finite Element" class="md-nav__link">
+      Finite Element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/AlgorithmsOptimization/" title="Algorithms & Optimization" class="md-nav__link">
+      Algorithms & Optimization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Parallelization/" title="Parallelization" class="md-nav__link">
+      Parallelization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Developers/" title="Developers" class="md-nav__link">
+      Developers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Language References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Language References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/GlobalVariables/" title="Global variables" class="md-nav__link">
+      Global variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/QuadratureFormulae/" title="Quadrature formulae" class="md-nav__link">
+      Quadrature formulae
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/IO/" title="I/O" class="md-nav__link">
+      I/O
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/ExternalLibraries/" title="External libraries" class="md-nav__link">
+      External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Poisson/" title="Poisson's equation" class="md-nav__link">
+      Poisson's equation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/EquationsClassification/" title="Classification of the equations" class="md-nav__link">
+      Classification of the equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Membrane/" title="Membrane" class="md-nav__link">
+      Membrane
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatExchanger/" title="Heat Exchanger" class="md-nav__link">
+      Heat Exchanger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Acoustics/" title="Acoustics" class="md-nav__link">
+      Acoustics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ThermalConduction/" title="Thermal Conduction" class="md-nav__link">
+      Thermal Conduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FanBlade/" title="Irrotational Fan Blade Flow and Thermal effects" class="md-nav__link">
+      Irrotational Fan Blade Flow and Thermal effects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/RotatingHill/" title="Pure convection, The rotating hill" class="md-nav__link">
+      Pure convection, The rotating hill
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Elasticity/" title="The system of elasticity" class="md-nav__link">
+      The system of elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Stokes/" title="The system of Stokes for fluids" class="md-nav__link">
+      The system of Stokes for fluids
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesProjection/" title="A projection Algorithm for the Navier-Stokes equations" class="md-nav__link">
+      A projection Algorithm for the Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesNewton/" title="Newton method for the steady Navier-Stokes equations" class="md-nav__link">
+      Newton method for the steady Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ALargeFluidProblem/" title="A large fluid problem" class="md-nav__link">
+      A large fluid problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ComplexNumbers/" title="An example with complex numbers" class="md-nav__link">
+      An example with complex numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/OptimalControl/" title="Optimal control" class="md-nav__link">
+      Optimal control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FlowWithShocks/" title="A flow with shocks" class="md-nav__link">
+      A flow with shocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatEquationOptimization/" title="Time dependent schema optimization for heat equations" class="md-nav__link">
+      Time dependent schema optimization for heat equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TimeDependentStokes/" title="A transient Stokes solver in matrix form" class="md-nav__link">
+      A transient Stokes solver in matrix form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/WifiPropagation/" title="Wifi Propagation" class="md-nav__link">
+      Wifi Propagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/MatlabOctavePlot/" title="Matlab / Octave Plots" class="md-nav__link">
+      Matlab / Octave Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Static problems
+      </label>
+    
+    <a href="./" title="Static problems" class="md-nav__link md-nav__link--active">
+      Static problems
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soap-film" title="Soap Film" class="md-nav__link">
+    Soap Film
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrostatics" title="Electrostatics" class="md-nav__link">
+    Electrostatics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aerodynamics" title="Aerodynamics" class="md-nav__link">
+    Aerodynamics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-estimation" title="Error estimation" class="md-nav__link">
+    Error estimation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#periodic-boundary-conditions" title="Periodic Boundary Conditions" class="md-nav__link">
+    Periodic Boundary Conditions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poisson-problems-with-mixed-boundary-condition" title="Poisson Problems with mixed boundary condition" class="md-nav__link">
+    Poisson Problems with mixed boundary condition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poisson-with-mixed-finite-element" title="Poisson with mixed finite element" class="md-nav__link">
+    Poisson with mixed finite element
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-adaptation-and-residual-error-indicator" title="Metric Adaptation and residual error indicator" class="md-nav__link">
+    Metric Adaptation and residual error indicator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptation-using-residual-error-indicator" title="Adaptation using residual error indicator" class="md-nav__link">
+    Adaptation using residual error indicator
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Elasticity/" title="Elasticity" class="md-nav__link">
+      Elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearStaticProblems/" title="Non-linear static problems" class="md-nav__link">
+      Non-linear static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EigenValueProblems/" title="Eigenvalue problems" class="md-nav__link">
+      Eigenvalue problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EvolutionProblems/" title="Evolution problems" class="md-nav__link">
+      Evolution problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NavierStokesEquations/" title="Navier-Stokes equations" class="md-nav__link">
+      Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VariationalInequality/" title="Variational inequality" class="md-nav__link">
+      Variational inequality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DomainDecomposition/" title="Domain decomposition" class="md-nav__link">
+      Domain decomposition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-nav__link">
+      Fluid-Structure coupled problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TransmissionProblem/" title="Transmission problem" class="md-nav__link">
+      Transmission problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FreeBoundaryProblem/" title="Free boundary problem" class="md-nav__link">
+      Free boundary problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearElasticity/" title="Non-linear elasticity" class="md-nav__link">
+      Non-linear elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CompressibleNeoHookeanMaterials/" title="Compressible Neo-Hookean materials" class="md-nav__link">
+      Compressible Neo-Hookean materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WhisperingGalleryModes/" title="Whispering gallery modes" class="md-nav__link">
+      Whispering gallery modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soap-film" title="Soap Film" class="md-nav__link">
+    Soap Film
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrostatics" title="Electrostatics" class="md-nav__link">
+    Electrostatics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aerodynamics" title="Aerodynamics" class="md-nav__link">
+    Aerodynamics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-estimation" title="Error estimation" class="md-nav__link">
+    Error estimation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#periodic-boundary-conditions" title="Periodic Boundary Conditions" class="md-nav__link">
+    Periodic Boundary Conditions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poisson-problems-with-mixed-boundary-condition" title="Poisson Problems with mixed boundary condition" class="md-nav__link">
+    Poisson Problems with mixed boundary condition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poisson-with-mixed-finite-element" title="Poisson with mixed finite element" class="md-nav__link">
+    Poisson with mixed finite element
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-adaptation-and-residual-error-indicator" title="Metric Adaptation and residual error indicator" class="md-nav__link">
+    Metric Adaptation and residual error indicator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptation-using-residual-error-indicator" title="Adaptation using residual error indicator" class="md-nav__link">
+    Adaptation using residual error indicator
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FreeFem/FreeFem-doc/edit/master/docs/models/StaticProblems.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Static problems</h1>
+                
+                <h2 id="soap-film">Soap Film<a class="headerlink" href="#soap-film" title="Permanent link">#</a></h2>
+<p>Our starting point here will be the mathematical model to find the shape of <strong>soap film</strong> which is glued to the ring on the <span><span class="MathJax_Preview">xy-</span><script type="math/tex">xy-</script></span>plane</p>
+<div>
+<div class="MathJax_Preview">\begin{equation*}
+C=\{(x,y);\;x=\cos t,\,y=\sin t,\,0\leq t\leq 2\pi \}.
+\end{equation*}</div>
+<script type="math/tex; mode=display">\begin{equation*}
+C=\{(x,y);\;x=\cos t,\,y=\sin t,\,0\leq t\leq 2\pi \}.
+\end{equation*}</script>
+</div>
+<p>We assume the shape of the film is described by the graph <span><span class="MathJax_Preview">(x,y,u(x,y))</span><script type="math/tex">(x,y,u(x,y))</script></span> of the vertical displacement <span><span class="MathJax_Preview">u(x,y)\, (x^2+y^2&lt;1)</span><script type="math/tex">u(x,y)\, (x^2+y^2<1)</script></span> under a vertical pressure <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> in terms of force per unit area and an initial tension <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> in terms of force per unit length.</p>
+<p>Consider the "small plane" ABCD, A:<span><span class="MathJax_Preview">(x,y,u(x,y))</span><script type="math/tex">(x,y,u(x,y))</script></span>, B:<span><span class="MathJax_Preview">(x,y,u(x+\delta x,y))</span><script type="math/tex">(x,y,u(x+\delta x,y))</script></span>, C:<span><span class="MathJax_Preview">(x,y,u(x+\delta x,y+\delta y))</span><script type="math/tex">(x,y,u(x+\delta x,y+\delta y))</script></span> and D:<span><span class="MathJax_Preview">(x,y,u(x,y+\delta y))</span><script type="math/tex">(x,y,u(x,y+\delta y))</script></span>.</p>
+<p>Denote by <span><span class="MathJax_Preview">\vec{n}(x,y)=(n_x(x,y),n_y(x,y),n_z(x,y))</span><script type="math/tex">\vec{n}(x,y)=(n_x(x,y),n_y(x,y),n_z(x,y))</script></span> the normal vector of the surface <span><span class="MathJax_Preview">z=u(x,y)</span><script type="math/tex">z=u(x,y)</script></span>. We see that the vertical force due to the tension <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> acting along the edge AD is <span><span class="MathJax_Preview">-\mu n_x(x,y)\delta y</span><script type="math/tex">-\mu n_x(x,y)\delta y</script></span> and the the vertical force acting along the edge AD is</p>
+<div>
+<div class="MathJax_Preview">
+\mu n_x(x+\delta x,y)\delta y\simeq \mu\left(n_x(x,y)
++\frac{\p n_x}{\p x}\delta x\right)(x,y)\delta y.
+</div>
+<script type="math/tex; mode=display">
+\mu n_x(x+\delta x,y)\delta y\simeq \mu\left(n_x(x,y)
++\frac{\p n_x}{\p x}\delta x\right)(x,y)\delta y.
+</script>
+</div>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="htbp" src="../images/StaticProblems_SoapFilm.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Similarly, for the edges AB and DC we have</p>
+<div>
+<div class="MathJax_Preview">
+-\mu n_y(x,y)\delta x,\qquad
+\mu\left(n_y(x,y)+\p n_y/\p y\right)(x,y)\delta x.
+</div>
+<script type="math/tex; mode=display">
+-\mu n_y(x,y)\delta x,\qquad
+\mu\left(n_y(x,y)+\p n_y/\p y\right)(x,y)\delta x.
+</script>
+</div>
+<p>The force in the vertical direction on the surface ABCD due to the tension <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> is given by</p>
+<div>
+<div class="MathJax_Preview">
+\mu\left(\p n_x/\p x\right)\delta x\delta y+T\left(\p n_y/\p y\right)\delta y\delta x.
+</div>
+<script type="math/tex; mode=display">
+\mu\left(\p n_x/\p x\right)\delta x\delta y+T\left(\p n_y/\p y\right)\delta y\delta x.
+</script>
+</div>
+<p>Assuming small displacements, we have</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray*}
+\nu_x&amp;=&amp;(\p u/\p x)/\sqrt{1+(\p u/\p x)^2+(\p u/\p y)^2}\simeq \p u/\p x,\\
+\nu_y&amp;=&amp;(\p u/\p y)/\sqrt{1+(\p u/\p x)^2+(\p u/\p y)^2}\simeq \p u/\p y.
+\end{eqnarray*}</div>
+<script type="math/tex; mode=display">\begin{eqnarray*}
+\nu_x&=&(\p u/\p x)/\sqrt{1+(\p u/\p x)^2+(\p u/\p y)^2}\simeq \p u/\p x,\\
+\nu_y&=&(\p u/\p y)/\sqrt{1+(\p u/\p x)^2+(\p u/\p y)^2}\simeq \p u/\p y.
+\end{eqnarray*}</script>
+</div>
+<p>Letting <span><span class="MathJax_Preview">\delta x\to dx,\, \delta y\to dy</span><script type="math/tex">\delta x\to dx,\, \delta y\to dy</script></span>, we have the equilibrium of the vertical displacement of soap film on ABCD by <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\mu dx dy\p^2 u/\p x^2 + \mu dx dy\p^2 u/\p y^2
++ p dx dy = 0.
+</div>
+<script type="math/tex; mode=display">
+\mu dx dy\p^2 u/\p x^2 + \mu dx dy\p^2 u/\p y^2
++ p dx dy = 0.
+</script>
+</div>
+<p>Using the Laplace operator <span><span class="MathJax_Preview">\Delta = \p^2 /\p x^2 + \p^2 /\p y^2</span><script type="math/tex">\Delta = \p^2 /\p x^2 + \p^2 /\p y^2</script></span>, we can find the virtual displacement write the following</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+-\Delta u = f\quad \mbox{in }\Omega
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+-\Delta u = f\quad \mbox{in }\Omega
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">f=p/\mu</span><script type="math/tex">f=p/\mu</script></span>, <span><span class="MathJax_Preview">\Omega =\{(x,y);\;x^{2}+y^{2}&lt;1\}</span><script type="math/tex">\Omega =\{(x,y);\;x^{2}+y^{2}<1\}</script></span>.</p>
+<p><a href="../tutorials/Poisson">Poisson's equation</a> appears also in <strong>electrostatics</strong> taking the form of $f=\rho /\epsilon $ where $\rho $ is the charge density, $\epsilon $ the dielectric constant and <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> is named as electrostatic potential.</p>
+<p>The soap film is glued to the ring <span><span class="MathJax_Preview">% \p \Omega =C</span><script type="math/tex">% \p \Omega =C</script></span>, then we have the boundary condition</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+u=0\quad \mbox{on }\p \Omega
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+u=0\quad \mbox{on }\p \Omega
+\end{equation}</script>
+</div>
+<p>If the force is gravity, for simplify, we assume that <span><span class="MathJax_Preview">f=-1</span><script type="math/tex">f=-1</script></span>.</p>
+<div class="codehilite"><pre><span></span>// Parameters
+int nn = 50;
+func f = -1;
+func ue = (x^2+y^2-1)/4; //ue: exact solution
+
+// Mesh
+border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
+mesh disk = buildmesh(a(nn));
+plot(disk);
+
+// Fespace
+fespace femp1(disk, P1);
+femp1 u, v;
+
+// Problem
+problem laplace (u, v)
+    = int2d(disk)( //bilinear form
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    - int2d(disk)( //linear form
+          f*v
+    )
+    + on(1, u=0) //boundary condition
+    ;
+
+// Solve
+laplace;
+
+// Plot
+plot (u, value=true, wait=true);
+
+// Error
+femp1 err = u - ue;
+plot(err, value=true, wait=true);
+
+cout &lt;&lt; &quot;error L2 = &quot; &lt;&lt; sqrt( int2d(disk)(err^2) )&lt;&lt; endl;
+cout &lt;&lt; &quot;error H10 = &quot; &lt;&lt; sqrt( int2d(disk)((dx(u)-x/2)^2) + int2d(disk)((dy(u)-y/2)^2) )&lt;&lt; endl;
+
+/// Re-run with a mesh adaptation ///
+
+// Mesh adaptation
+disk = adaptmesh(disk, u, err=0.01);
+plot(disk, wait=true);
+
+// Solve
+laplace;
+plot (u, value=true, wait=true);
+
+// Error
+err = u - ue; //become FE-function on adapted mesh
+plot(err, value=true, wait=true);
+
+cout &lt;&lt; &quot;error L2 = &quot; &lt;&lt; sqrt( int2d(disk)(err^2) )&lt;&lt; endl;
+cout &lt;&lt; &quot;error H10 = &quot; &lt;&lt; sqrt( int2d(disk)((dx(u)-x/2)^2) + int2d(disk)((dy(u)-y/2)^2) )&lt;&lt; endl;
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig1">Fig. 1</a>: isovalue of <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span></th>
+<th align="center"><a name="Fig2">Fig 2</a>: A side view of <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="SoapFilmSol" src="../images/StaticProblems_SoapFilmSol.png" /></td>
+<td align="center"><img alt="SoapFilm3D" src="../images/StaticProblems_SoapFilm3D.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>In the 37th line, the <span><span class="MathJax_Preview">L^2</span><script type="math/tex">L^2</script></span>-error estimation between the exact solution <span><span class="MathJax_Preview">u_e</span><script type="math/tex">u_e</script></span>,
+<script type="math/tex; mode=display">
+\|u_h - u_e\|_{0,\Omega}=\left(\int_{\Omega}|u_h-u_e|^2\, \d x\d y\right)^{1/2}
+</script>
+and in the following line, the <span><span class="MathJax_Preview">H^1</span><script type="math/tex">H^1</script></span>-error seminorm estimation
+<script type="math/tex; mode=display">
+|u_h - u_e|_{1,\Omega}=\left(\int_{\Omega}|\nabla u_h-\nabla u_e|^2\, \d x\d y\right)^{1/2}
+</script>
+are done on the initial mesh. The results are <span><span class="MathJax_Preview">\|u_h - u_e\|_{0,\Omega}=0.000384045,\, |u_h - u_e|_{1,\Omega}=0.0375506</span><script type="math/tex">\|u_h - u_e\|_{0,\Omega}=0.000384045,\, |u_h - u_e|_{1,\Omega}=0.0375506</script></span>.</p>
+<p>After the adaptation, we have <span><span class="MathJax_Preview">\|u_h - u_e\|_{0,\Omega}=0.000109043,\, |u_h - u_e|_{1,\Omega}=0.0188411</span><script type="math/tex">\|u_h - u_e\|_{0,\Omega}=0.000109043,\, |u_h - u_e|_{1,\Omega}=0.0188411</script></span>. So the numerical solution is improved by adaptation of mesh.</p>
+<h2 id="electrostatics">Electrostatics<a class="headerlink" href="#electrostatics" title="Permanent link">#</a></h2>
+<p>We assume that there is no current and a time independent charge distribution. Then the electric field <span><span class="MathJax_Preview">\mathbf{E}</span><script type="math/tex">\mathbf{E}</script></span> satisfies</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    \mathrm{div}\mathbf{E} &amp;=&amp; \rho/\epsilon\\
+    \mathrm{curl}\mathbf{E} &amp;=&amp; 0
+    \label{eqn::Maxwell}
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    \mathrm{div}\mathbf{E} &=& \rho/\epsilon\\
+    \mathrm{curl}\mathbf{E} &=& 0
+    \label{eqn::Maxwell}
+\end{eqnarray}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> is the charge density and <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> is called the permittivity of free space.</p>
+<p>From the equation \eqref{eqn::Maxwell} We can introduce the electrostatic potential such that <span><span class="MathJax_Preview">\mathbf{E}=-\nabla \phi</span><script type="math/tex">\mathbf{E}=-\nabla \phi</script></span>. Then we have Poisson's equation <span><span class="MathJax_Preview">-\Delta \phi=f</span><script type="math/tex">-\Delta \phi=f</script></span>, <span><span class="MathJax_Preview">f=-\rho/\epsilon</span><script type="math/tex">f=-\rho/\epsilon</script></span>.</p>
+<p>We now obtain the equipotential line which is the level curve of <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span>, when there are no charges except conductors <span><span class="MathJax_Preview">\{C_i\}_{1,\cdots,K}</span><script type="math/tex">\{C_i\}_{1,\cdots,K}</script></span>. Let us assume <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> conductors <span><span class="MathJax_Preview">C_1,\cdots,C_K</span><script type="math/tex">C_1,\cdots,C_K</script></span> within an enclosure <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span>.</p>
+<p>Each one is held at an electrostatic potential <span><span class="MathJax_Preview">\varphi_i</span><script type="math/tex">\varphi_i</script></span>. We assume that the enclosure <span><span class="MathJax_Preview">C0</span><script type="math/tex">C0</script></span> is held at potential 0. In order to know <span><span class="MathJax_Preview">\varphi(x)</span><script type="math/tex">\varphi(x)</script></span> at any point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> of the domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, we must solve</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+-\Delta \varphi =0\quad \textrm{ in }\Omega ,
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+-\Delta \varphi =0\quad \textrm{ in }\Omega ,
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the interior of <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> minus the conductors <span><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>, and <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> is the boundary of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, that is <span><span class="MathJax_Preview">\sum_{i=0}^N C_i</span><script type="math/tex">\sum_{i=0}^N C_i</script></span>.</p>
+<p>Here <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is any function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> equal to <span><span class="MathJax_Preview">\varphi_i</span><script type="math/tex">\varphi_i</script></span> on <span><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span> and to 0 on <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span>. The boundary equation is a reduced form for:</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+\varphi =\varphi_{i}\;\text{on }C_{i},\;i=1...N,\varphi =0\;\text{on }C_{0}.
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\varphi =\varphi_{i}\;\text{on }C_{i},\;i=1...N,\varphi =0\;\text{on }C_{0}.
+\end{equation}</script>
+</div>
+<p>First we give the geometrical informations; <span><span class="MathJax_Preview">C_0=\{(x,y);\; x^2+y^2=5^2\}</span><script type="math/tex">C_0=\{(x,y);\; x^2+y^2=5^2\}</script></span>, <span><span class="MathJax_Preview">C_1=\{(x,y):\;\frac{1}{0.3^2}(x-2)^2+\frac{1}{3^2}y^2=1\}</span><script type="math/tex">C_1=\{(x,y):\;\frac{1}{0.3^2}(x-2)^2+\frac{1}{3^2}y^2=1\}</script></span>, <span><span class="MathJax_Preview">C_2=\{(x,y):\; \frac{1}{0.3^2}(x+2)^2+\frac{1}{3^2}y^2=1\}</span><script type="math/tex">C_2=\{(x,y):\; \frac{1}{0.3^2}(x+2)^2+\frac{1}{3^2}y^2=1\}</script></span>.</p>
+<p>Let <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> be the disk enclosed by <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> with the elliptical holes enclosed by <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> and <span><span class="MathJax_Preview">C_2</span><script type="math/tex">C_2</script></span>. Note that <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> is described counterclockwise, whereas the elliptical holes are described clockwise, because the boundary must be oriented so that the computational domain is to its left.</p>
+<div class="codehilite"><pre><span></span>// Mesh
+border C0(t=0, 2*pi){x=5*cos(t); y=5*sin(t);}
+border C1(t=0, 2*pi){x=2+0.3*cos(t); y=3*sin(t);}
+border C2(t=0, 2*pi){x=-2+0.3*cos(t); y=3*sin(t);}
+
+mesh Th = buildmesh(C0(60) + C1(-50) + C2(-50));
+plot(Th);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh uh, vh;
+
+// Problem
+problem Electro (uh, vh)
+    = int2d(Th)( //bilinear
+          dx(uh)*dx(vh)
+        + dy(uh)*dy(vh)
+    )
+    + on(C0, uh=0) //boundary condition on C_0
+    + on(C1, uh=1) //+1 volt on C_1
+    + on(C2, uh=-1) //-1 volt on C_2
+    ;
+
+// Solve
+Electro;
+plot(uh);
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig3">Fig. 3</a>: Disk with two elliptical holes</th>
+<th align="center">Fig. 9.4: Equipotential lines, where <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> is located in right hand side</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="ElectrostaticsMesh" src="../images/StaticProblems_ElectrostaticsMesh.png" /></td>
+<td align="center"><img alt="Electrostatics" src="../images/StaticProblems_Electrostatics.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="aerodynamics">Aerodynamics<a class="headerlink" href="#aerodynamics" title="Permanent link">#</a></h2>
+<p>Let us consider a wing profile <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> in a uniform flow. Infinity will be represented by a large circle <span><span class="MathJax_Preview">\Gamma_{\infty}</span><script type="math/tex">\Gamma_{\infty}</script></span>. As previously, we must solve</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+\Delta \varphi=0\quad\textrm{in }\Omega,
+\quad \varphi|_S=c,\quad
+\varphi|_{\Gamma_{\infty}}=u_{\infty 1x}-u_{\infty2x}
+\label{eqn:NACA-5-5}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\Delta \varphi=0\quad\textrm{in }\Omega,
+\quad \varphi|_S=c,\quad
+\varphi|_{\Gamma_{\infty}}=u_{\infty 1x}-u_{\infty2x}
+\label{eqn:NACA-5-5}
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the area occupied by the fluid, <span><span class="MathJax_Preview">u_{\infty}</span><script type="math/tex">u_{\infty}</script></span> is the air speed at infinity, <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> is a constant to be determined so that <span><span class="MathJax_Preview">\p_n\varphi</span><script type="math/tex">\p_n\varphi</script></span> is continuous at the trailing edge <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> of <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> (so-called Kutta-Joukowski condition). Lift is proportional to <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span>.</p>
+<p>To find <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> we use a superposition method. As all equations in \eqref{eqn:NACA-5-5} are linear, the solution <span><span class="MathJax_Preview">\varphi_c</span><script type="math/tex">\varphi_c</script></span> is a linear function of <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span></p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+\varphi_c = \varphi_0 + c\varphi_1,
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\varphi_c = \varphi_0 + c\varphi_1,
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\varphi_0</span><script type="math/tex">\varphi_0</script></span> is a solution of \eqref{eqn:NACA-5-5} with <span><span class="MathJax_Preview">c = 0</span><script type="math/tex">c = 0</script></span> and <span><span class="MathJax_Preview">\varphi_1</span><script type="math/tex">\varphi_1</script></span> is a solution with <span><span class="MathJax_Preview">c = 1</span><script type="math/tex">c = 1</script></span> and zero speed at infinity.</p>
+<p>With these two fields computed, we shall determine <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> by requiring the continuity of <span><span class="MathJax_Preview">\p \varphi /\p n</span><script type="math/tex">\p \varphi /\p n</script></span> at the trailing edge. An equation for the upper surface of a NACA0012 (this is a classical wing profile in aerodynamics; the rear of the wing is called the trailing edge) is:</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+ y = 0.17735\sqrt{x} - 0.075597x - 0.212836x^2 +
+0.17363x^3 - 0.06254x^4.
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+ y = 0.17735\sqrt{x} - 0.075597x - 0.212836x^2 +
+0.17363x^3 - 0.06254x^4.
+\end{equation}</script>
+</div>
+<p>Taking an incidence angle <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> such that <span><span class="MathJax_Preview">\tan \alpha = 0.1</span><script type="math/tex">\tan \alpha = 0.1</script></span>, we must solve</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+-\Delta\varphi = 0\qquad \textrm{in }\Omega, \qquad
+\varphi|_{\Gamma_1} = y - 0.1x,\quad \varphi |_{\Gamma_2} = c,
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+-\Delta\varphi = 0\qquad \textrm{in }\Omega, \qquad
+\varphi|_{\Gamma_1} = y - 0.1x,\quad \varphi |_{\Gamma_2} = c,
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Gamma_2</span><script type="math/tex">\Gamma_2</script></span> is the wing profile and <span><span class="MathJax_Preview">\Gamma_1</span><script type="math/tex">\Gamma_1</script></span> is an approximation of infinity. One finds <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> by solving:</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+-\Delta\varphi_0 = 0 ~~\textrm{in }\Omega,\qquad
+\varphi_0|_{\Gamma_1} = y - 0.1x, \quad \varphi_0|_{\Gamma_2} = 0,\\
+-\Delta\varphi_1 = 0 ~~\textrm{in }\Omega, \qquad
+\varphi_1|_{\Gamma_1} = 0, \quad \varphi_1|_{\Gamma_2} = 1.
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+-\Delta\varphi_0 = 0 ~~\textrm{in }\Omega,\qquad
+\varphi_0|_{\Gamma_1} = y - 0.1x, \quad \varphi_0|_{\Gamma_2} = 0,\\
+-\Delta\varphi_1 = 0 ~~\textrm{in }\Omega, \qquad
+\varphi_1|_{\Gamma_1} = 0, \quad \varphi_1|_{\Gamma_2} = 1.
+\end{eqnarray}</script>
+</div>
+<p>The solution <span><span class="MathJax_Preview">\varphi = \varphi_0+c\varphi_1</span><script type="math/tex">\varphi = \varphi_0+c\varphi_1</script></span> allows us to find <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> by writing that <span><span class="MathJax_Preview">\p_n\varphi</span><script type="math/tex">\p_n\varphi</script></span> has no jump at the trailing edge <span><span class="MathJax_Preview">P = (1, 0)</span><script type="math/tex">P = (1, 0)</script></span>.</p>
+<p>We have <span><span class="MathJax_Preview">\p n\varphi -(\varphi (P^+)-\varphi (P))/\delta</span><script type="math/tex">\p n\varphi -(\varphi (P^+)-\varphi (P))/\delta</script></span> where <span><span class="MathJax_Preview">P^+</span><script type="math/tex">P^+</script></span> is the point just above <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> in the direction normal to the profile at a distance <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>. Thus the jump of <span><span class="MathJax_Preview">\p_n\varphi</span><script type="math/tex">\p_n\varphi</script></span> is <span><span class="MathJax_Preview">(\varphi_0|_{P^+} +c(\varphi_1|_{P^+} -1))+(\varphi_0|_{P^-} +c(\varphi_1|_{P^-} -1))</span><script type="math/tex">(\varphi_0|_{P^+} +c(\varphi_1|_{P^+} -1))+(\varphi_0|_{P^-} +c(\varphi_1|_{P^-} -1))</script></span> divided by <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> because the normal changes sign between the lower and upper surfaces. Thus</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+c = -\frac{\varphi_0|_{P^+} + \varphi_0|_{P^-}}
+{(\varphi_1|_{P^+} + \varphi_1|_{P^-} - 2)} ,
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+c = -\frac{\varphi_0|_{P^+} + \varphi_0|_{P^-}}
+{(\varphi_1|_{P^+} + \varphi_1|_{P^-} - 2)} ,
+\end{equation}</script>
+</div>
+<p>which can be programmed as:</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+c = -\frac{\varphi_0(0.99, 0.01) + \varphi_0(0.99,-0.01)}
+{(\varphi_1(0.99, 0.01) + \varphi_1(0.99,-0.01) - 2)} .
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+c = -\frac{\varphi_0(0.99, 0.01) + \varphi_0(0.99,-0.01)}
+{(\varphi_1(0.99, 0.01) + \varphi_1(0.99,-0.01) - 2)} .
+\end{equation}</script>
+</div>
+<div class="codehilite"><pre><span></span>// Mesh
+border a(t=0, 2*pi){x=5*cos(t); y=5*sin(t);}
+border upper(t=0, 1) {
+    x=t;
+    y=0.17735*sqrt(t)-0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4);
+}
+border lower(t=1, 0) {
+x=t;
+y=-(0.17735*sqrt(t) - 0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4));
+}
+border c(t=0, 2*pi){x=0.8*cos(t)+0.5; y=0.8*sin(t);}
+
+mesh Zoom = buildmesh(c(30) + upper(35) + lower(35));
+mesh Th = buildmesh(a(30) + upper(35) + lower(35));
+
+// Fespace
+fespace Vh(Th, P2);
+Vh psi0, psi1, vh;
+
+fespace ZVh(Zoom, P2);
+
+// Problem
+solve Joukowski0(psi0, vh)
+    = int2d(Th)(
+          dx(psi0)*dx(vh)
+        + dy(psi0)*dy(vh)
+    )
+    + on(a, psi0=y-0.1*x)
+    + on(upper, lower, psi0=0)
+    ;
+
+plot(psi0);
+
+solve Joukowski1(psi1,vh)
+    = int2d(Th)(
+          dx(psi1)*dx(vh)
+        + dy(psi1)*dy(vh)
+    )
+    + on(a, psi1=0)
+    + on(upper, lower, psi1=1);
+
+plot(psi1);
+
+//continuity of pressure at trailing edge
+real beta = psi0(0.99,0.01) + psi0(0.99,-0.01);
+beta = -beta / (psi1(0.99,0.01) + psi1(0.99,-0.01)-2);
+
+Vh psi = beta*psi1 + psi0;
+plot(psi);
+
+ZVh Zpsi = psi;
+plot(Zpsi, bw=true);
+
+ZVh cp = -dx(psi)^2 - dy(psi)^2;
+plot(cp);
+
+ZVh Zcp = cp;
+plot(Zcp, nbiso=40);
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig5">Fig. 5</a>: isovalue of <span><span class="MathJax_Preview">cp = -(\p_x\psi)^2 - (\p_y\psi)^2</span><script type="math/tex">cp = -(\p_x\psi)^2 - (\p_y\psi)^2</script></span></th>
+<th align="center"><a name="Fig6">Fig. 6</a>: Zooming of <span><span class="MathJax_Preview">cp</span><script type="math/tex">cp</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Aerodynamics1" src="../images/StaticProblems_Aerodynamics1.png" /></td>
+<td align="center"><img alt="Aerodynamics2" src="../images/StaticProblems_Aerodynamics2.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-estimation">Error estimation<a class="headerlink" href="#error-estimation" title="Permanent link">#</a></h2>
+<p>There are famous estimation between the numerical result <span><span class="MathJax_Preview">u_h</span><script type="math/tex">u_h</script></span> and the exact solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> of the <a href="../tutorials/Poisson">Poisson's problem</a>:</p>
+<p>If triangulations <span><span class="MathJax_Preview">\{\mathcal{T}_h\}_{h\downarrow 0}</span><script type="math/tex">\{\mathcal{T}_h\}_{h\downarrow 0}</script></span> is regular (see <a href="../documentation/MeshGeneration/#regular-triangulation-htriangle">Regular Triangulation</a>), then we have the estimates</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    |\nabla u - \nabla u_h|_{0,\Omega} &amp;\le&amp; C_1h \label{eqn::ErrorEstimatation1}\\
+    \|u - u_h\|_{0,\Omega} &amp;\le&amp; C_2h^2 \label{eqn::ErrorEstimatation2}
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    |\nabla u - \nabla u_h|_{0,\Omega} &\le& C_1h \label{eqn::ErrorEstimatation1}\\
+    \|u - u_h\|_{0,\Omega} &\le& C_2h^2 \label{eqn::ErrorEstimatation2}
+\end{eqnarray}</script>
+</div>
+<p>with constants <span><span class="MathJax_Preview">C_1,\, C_2</span><script type="math/tex">C_1,\, C_2</script></span> independent of <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>, if <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> is in <span><span class="MathJax_Preview">H^2(\Omega)</span><script type="math/tex">H^2(\Omega)</script></span>. It is known that <span><span class="MathJax_Preview">u\in H^2(\Omega)</span><script type="math/tex">u\in H^2(\Omega)</script></span> if <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is convex.</p>
+<p>In this section we check \eqref{eqn::ErrorEstimatation1} and \eqref{eqn::ErrorEstimatation2}. We will pick up numericall error if we use the numerical derivative, so we will use the following for \eqref{eqn::ErrorEstimatation1}.</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray*}
+\int_{\Omega}|\nabla u - \nabla u_h|^2\, \d x\d y
+&amp;=&amp;\int_{\Omega}\nabla u\cdot \nabla(u - 2u_h)\, \d x\d y+
+\int_{\Omega}\nabla u_h\cdot \nabla u_h\, \d x\d y\\
+&amp;=&amp;\int_{\Omega}f(u-2u_h)\, \d x\d y+\int_{\Omega}fu_h\, \d x\d y
+\end{eqnarray*}</div>
+<script type="math/tex; mode=display">\begin{eqnarray*}
+\int_{\Omega}|\nabla u - \nabla u_h|^2\, \d x\d y
+&=&\int_{\Omega}\nabla u\cdot \nabla(u - 2u_h)\, \d x\d y+
+\int_{\Omega}\nabla u_h\cdot \nabla u_h\, \d x\d y\\
+&=&\int_{\Omega}f(u-2u_h)\, \d x\d y+\int_{\Omega}fu_h\, \d x\d y
+\end{eqnarray*}</script>
+</div>
+<p>The constants <span><span class="MathJax_Preview">C_1,\, C_2</span><script type="math/tex">C_1,\, C_2</script></span> are depend on <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> and <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, so we will find them by FreeFem++.</p>
+<p>In general, we cannot get the solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> as a elementary functions even if spetical functions are added. Instead of the exact solution, here we use the approximate solution <span><span class="MathJax_Preview">u_0</span><script type="math/tex">u_0</script></span> in <span><span class="MathJax_Preview">V_h(\mathcal{T}_h,P_2),\, h\sim 0</span><script type="math/tex">V_h(\mathcal{T}_h,P_2),\, h\sim 0</script></span>.</p>
+<div class="codehilite"><pre><span></span>// Parameters
+func f = x*y;
+
+//Mesh
+mesh Th0 = square(100, 100);
+
+// Fespace
+fespace V0h(Th0, P2);
+V0h u0, v0;
+
+// Problem
+solve Poisson0 (u0, v0)
+    = int2d(Th0)(
+          dx(u0)*dx(v0)
+        + dy(u0)*dy(v0)
+    )
+    - int2d(Th0)(
+          f*v0
+    )
+    + on(1, 2, 3, 4, u0=0)
+    ;
+plot(u0);
+
+// Error loop
+real[int] errL2(10), errH1(10);
+for (int i = 1; i &lt;= 10; i++){
+    // Mesh
+    mesh Th = square(5+i*3,5+i*3);
+
+    // Fespace
+    fespace Vh(Th, P1);
+    Vh u, v;
+    fespace Ph(Th, P0);
+    Ph h = hTriangle; //get the size of all triangles
+
+    // Problem
+    solve Poisson (u, v)
+        = int2d(Th)(
+              dx(u)*dx(v)
+            + dy(u)*dy(v)
+        )
+        - int2d(Th)(
+              f*v
+        )
+        + on(1, 2, 3, 4, u=0)
+        ;
+
+    // Error
+    V0h uu = u; //interpolate solution on first mesh
+    errL2[i-1] = sqrt( int2d(Th0)((uu - u0)^2) )/h[].max^2;
+    errH1[i-1] = sqrt( int2d(Th0)(f*(u0 - 2*uu + uu)) )/h[].max;
+}
+
+// Display
+cout &lt;&lt; &quot;C1 = &quot; &lt;&lt; errL2.max &lt;&lt; &quot;(&quot;&lt;&lt;errL2.min&lt;&lt;&quot;)&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;C2 = &quot; &lt;&lt; errH1.max &lt;&lt; &quot;(&quot;&lt;&lt;errH1.min&lt;&lt;&quot;)&quot; &lt;&lt; endl;
+</pre></div>
+
+<p>We can guess that <span><span class="MathJax_Preview">C_1=0.0179253(0.0173266)</span><script type="math/tex">C_1=0.0179253(0.0173266)</script></span> and <span><span class="MathJax_Preview">C_2=0.0729566(0.0707543)</span><script type="math/tex">C_2=0.0729566(0.0707543)</script></span>, where the numbers inside the parentheses
+are minimum in calculation.</p>
+<h2 id="periodic-boundary-conditions">Periodic Boundary Conditions<a class="headerlink" href="#periodic-boundary-conditions" title="Permanent link">#</a></h2>
+<p>We now solve the Poisson equation
+<script type="math/tex; mode=display"> -\Delta u = sin(x+\pi/4.)*cos(y+\pi/4.)</script>
+on the square <span><span class="MathJax_Preview">]0,2\pi[^2</span><script type="math/tex">]0,2\pi[^2</script></span> under bi-periodic boundary condition <span><span class="MathJax_Preview">u(0,y)=u(2\pi,y)</span><script type="math/tex">u(0,y)=u(2\pi,y)</script></span> for all <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> and <span><span class="MathJax_Preview">u(x,0)=u(x,2\pi)</span><script type="math/tex">u(x,0)=u(x,2\pi)</script></span> for all <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
+<p>These boundary conditions are achieved from the definition of the periodic finite element space.</p>
+<div class="codehilite"><pre><span></span>// Parameters
+func f = sin(x+pi/4.)*cos(y+pi/4.); //right hand side
+
+// Mesh
+mesh Th = square(10, 10, [2*x*pi, 2*y*pi]);
+
+// Fespace
+//defined the fespace with periodic condition
+//label: 2 and 4 are left and right side with y the curve abscissa
+//       1 and 2 are bottom and upper side with x the curve abscissa
+fespace Vh(Th, P2, periodic=[[2, y], [4, y], [1, x], [3, x]]);
+Vh uh, vh;
+
+// Problem
+problem laplace (uh, vh)
+    = int2d(Th)(
+          dx(uh)*dx(vh)
+        + dy(uh)*dy(vh)
+    )
+    + int2d(Th)(
+        - f*vh
+    )
+    ;
+
+// Solve
+laplace;
+
+// Plot
+plot(uh, value=true);
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig7">Fig. 7</a>: The isovalue of solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> with periodic boundary condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="PeriodicBoundaryConditions" src="../images/StaticProblems_PeriodicBoundaryConditions.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>The periodic condition does not necessarily require parallel boundaries. The following example give such example.</p>
+<div class="admonition example">
+<p class="admonition-title">Periodic boundary conditions - non-parallel boundaries</p>
+<div class="codehilite"><pre><span></span>// Parameters
+int n = 10;
+real r = 0.25;
+real r2 = 1.732;
+func f = (y+x+1)*(y+x-1)*(y-x+1)*(y-x-1);
+
+// Mesh
+border a(t=0, 1){x=-t+1; y=t; label=1;};
+border b(t=0, 1){x=-t; y=1-t; label=2;};
+border c(t=0, 1){x=t-1; y=-t; label=3;};
+border d(t=0, 1){x=t; y=-1+t; label=4;};
+border e(t=0, 2*pi){x=r*cos(t); y=-r*sin(t); label=0;};
+mesh Th = buildmesh(a(n) + b(n) + c(n) + d(n) + e(n));
+plot(Th, wait=true);
+
+// Fespace
+//warning for periodic condition:
+//side a and c
+//on side a (label 1) $ x \in [0,1] $ or $ x-y\in [-1,1] $
+//on side c (label 3) $ x \in [-1,0]$ or $ x-y\in[-1,1] $
+//so the common abscissa can be respectively $x$ and $x+1$
+//or you can can try curviline abscissa $x-y$ and $x-y$
+//1 first way
+//fespace Vh(Th, P2, periodic=[[2, 1+x], [4, x], [1, x], [3, 1+x]]);
+//2 second way
+fespace Vh(Th, P2, periodic=[[2, x+y], [4, x+y], [1, x-y], [3, x-y]]);
+Vh uh, vh;
+
+// Problem
+real intf = int2d(Th)(f);
+real mTh = int2d(Th)(1);
+real k =  intf / mTh;
+problem laplace (uh, vh)
+    = int2d(Th)(
+          dx(uh)*dx(vh)
+        + dy(uh)*dy(vh)
+        )
+    + int2d(Th)(
+          (k-f)*vh
+    )
+    ;
+
+// Solve
+laplace;
+
+// Plot
+plot(uh, wait=true);
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig8">Fig. 8</a>: The isovalue of solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> for <span><span class="MathJax_Preview">\Delta u = ((y+x)^{2}+1)((y-x)^{2}+1) - k</span><script type="math/tex">\Delta u = ((y+x)^{2}+1)((y-x)^{2}+1) - k</script></span>, in <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> and <span><span class="MathJax_Preview">\p_{n} u =0</span><script type="math/tex">\p_{n} u =0</script></span> on hole, and with two periodic boundary condition on external border</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="PeriodicBoundaryConditions2" src="../images/StaticProblems_PeriodicBoundaryConditions2.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An other example with no equal border, just to see if the code works.</p>
+<div class="admonition example">
+<p class="admonition-title">Periodic boundary conditions - non-equal border</p>
+<div class="codehilite"><pre><span></span>// Macro
+//irregular boundary condition to build border AB
+macro LINEBORDER(A, B, lab)
+    border A#B(t=0,1){
+        real t1=1.-t;
+        x=A#x*t1+B#x*t;
+        y=A#y*t1+B#y*t;
+        label=lab;
+} //EOM
+// compute ||AB|| A=(ax,ay) et B =(bx,by)
+macro dist(ax, ay, bx, by) sqrt(square((ax)-(bx)) + square((ay)-(by))) //EOM
+macro Grad(u) [dx(u), dy(u)] //EOM
+
+// Parameters
+int n = 10;
+real Ax = 0.9, Ay = 1;
+real Bx = 2, By = 1;
+real Cx = 2.5, Cy = 2.5;
+real Dx = 1, Dy = 2;
+real gx = (Ax+Bx+Cx+Dx)/4.;
+real gy = (Ay+By+Cy+Dy)/4.;
+
+// Mesh
+LINEBORDER(A,B,1)
+LINEBORDER(B,C,2)
+LINEBORDER(C,D,3)
+LINEBORDER(D,A,4)
+mesh Th=buildmesh(AB(n)+BC(n)+CD(n)+DA(n),fixedborder=1);
+
+// Fespace
+real l1 = dist(Ax,Ay,Bx,By);
+real l2 = dist(Bx,By,Cx,Cy);
+real l3 = dist(Cx,Cy,Dx,Dy);
+real l4 = dist(Dx,Dy,Ax,Ay);
+func s1 = dist(Ax,Ay,x,y)/l1; //absisse on AB = ||AX||/||AB||
+func s2 = dist(Bx,By,x,y)/l2; //absisse on BC = ||BX||/||BC||
+func s3 = dist(Cx,Cy,x,y)/l3; //absisse on CD = ||CX||/||CD||
+func s4 = dist(Dx,Dy,x,y)/l4; //absisse on DA = ||DX||/||DA||
+verbosity = 6; //to see the abscisse value of the periodic condition
+fespace Vh(Th, P1, periodic=[[1, s1], [3, s3], [2, s2], [4, s4]]);
+verbosity = 1; //reset verbosity
+Vh u, v;
+
+real cc = 0;
+cc = int2d(Th)((x-gx)*(y-gy)-cc)/Th.area;
+cout &lt;&lt; &quot;compatibility = &quot; &lt;&lt; int2d(Th)((x-gx)*(y-gy)-cc) &lt;&lt;endl;
+
+// Problem
+solve Poisson (u, v)
+    = int2d(Th)(
+          Grad(u)&#39;*Grad(v)
+        + 1e-10*u*v
+    )
+    -int2d(Th)(
+          10*v*((x-gx)*(y-gy)-cc)
+    )
+    ;
+
+// Plot
+plot(u, value=true);
+</pre></div>
+
+</div>
+<div class="admonition example">
+<p class="admonition-title">Periodic boundry conditions - Poisson cube-balloon</p>
+<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+load &quot;tetgen&quot;
+load &quot;medit&quot;
+
+// Parameters
+real hs = 0.1; //mesh size on sphere
+int[int] N = [20, 20, 20];
+real [int,int] B = [[-1, 1], [-1, 1], [-1, 1]];
+int [int,int] L = [[1, 2], [3, 4], [5, 6]];
+
+real x0 = 0.3, y0 = 0.4, z0 = 06;
+func f = sin(x*2*pi+x0)*sin(y*2*pi+y0)*sin(z*2*pi+z0);
+
+// Mesh
+bool buildTh = 0;
+mesh3 Th;
+try { //a way to build one time the mesh or read it if the file exist
+    Th = readmesh3(&quot;Th-hex-sph.mesh&quot;);
+}
+catch (...){
+    buildTh = 1;
+}
+
+if (buildTh){
+    include &quot;MeshSurface.idp&quot;
+
+    // Surface Mesh
+    mesh3 ThH = SurfaceHex(N, B, L, 1);
+    mesh3 ThS = Sphere(0.5, hs, 7, 1);
+
+    mesh3 ThHS = ThH + ThS;
+
+    real voltet = (hs^3)/6.;
+    real[int] domain = [0, 0, 0, 1, voltet, 0, 0, 0.7, 2, voltet];
+    Th = tetg(ThHS, switch=&quot;pqaAAYYQ&quot;, nbofregions=2, regionlist=domain);
+
+    savemesh(Th, &quot;Th-hex-sph.mesh&quot;);
+}
+
+// Fespace
+fespace Ph(Th, P0);
+Ph reg = region;
+cout &lt;&lt; &quot; centre = &quot; &lt;&lt; reg(0,0,0) &lt;&lt; endl;
+cout &lt;&lt; &quot; exterieur = &quot; &lt;&lt; reg(0,0,0.7) &lt;&lt; endl;
+
+verbosity = 50;
+fespace Vh(Th, P1, periodic=[[3, x, z], [4, x, z], [1, y, z], [2, y, z], [5, x, y], [6, x, y]]);
+verbosity = 1;
+Vh uh,vh;
+
+// Macro
+macro Grad(u) [dx(u),dy(u),dz(u)] // EOM
+
+// Problem
+problem Poisson (uh, vh)
+    = int3d(Th, 1)(
+          Grad(uh)&#39;*Grad(vh)*100
+    )
+    + int3d(Th, 2)(
+          Grad(uh)&#39;*Grad(vh)*2
+    )
+    + int3d(Th)(
+          vh*f
+    )
+;
+
+// Solve
+Poisson;
+
+// Plot
+plot(uh, wait=true, nbiso=6);
+medit(&quot;uh&quot;, Th, uh);
+</pre></div>
+
+</div>
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig9">Fig. 9</a>: View of the surface isovalue of periodic solution <span><span class="MathJax_Preview">uh</span><script type="math/tex">uh</script></span></th>
+<th align="center"><a name="Fig10">Fig. 10</a>: View a the cut of the solution <span><span class="MathJax_Preview">uh</span><script type="math/tex">uh</script></span> with ffmedit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="PeriodicBoundaryConditionsPoisson1" src="../images/StaticProblems_PeriodicBoundaryConditionsPoisson1.png" /></td>
+<td align="center"><img alt="PeriodicBoundaryConditionsPoisson2" src="../images/StaticProblems_PeriodicBoundaryConditionsPoisson2.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="poisson-problems-with-mixed-boundary-condition">Poisson Problems with mixed boundary condition<a class="headerlink" href="#poisson-problems-with-mixed-boundary-condition" title="Permanent link">#</a></h2>
+<p>Here we consider the Poisson equation with mixed boundary conditions: For given functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>, find <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> such that</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    -\Delta u &amp;=&amp; f &amp; \textrm{ in }\Omega\\
+    u &amp;=&amp; g &amp;\textrm{ on }\Gamma_D\\
+    \p u/\p n &amp;=&amp; 0 &amp;\textrm{ on }\Gamma_N
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    -\Delta u &=& f & \textrm{ in }\Omega\\
+    u &=& g &\textrm{ on }\Gamma_D\\
+    \p u/\p n &=& 0 &\textrm{ on }\Gamma_N
+\end{eqnarray}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Gamma_D</span><script type="math/tex">\Gamma_D</script></span> is a part of the boundary <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> and <span><span class="MathJax_Preview">\Gamma_N=\Gamma\setminus \overline{\Gamma_D}</span><script type="math/tex">\Gamma_N=\Gamma\setminus \overline{\Gamma_D}</script></span>.</p>
+<p>The solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> has the singularity at the points <span><span class="MathJax_Preview">\{\gamma_1,\gamma_2\}=\overline{\Gamma_D}\cap\overline{\Gamma_N}</span><script type="math/tex">\{\gamma_1,\gamma_2\}=\overline{\Gamma_D}\cap\overline{\Gamma_N}</script></span>.</p>
+<p>When <span><span class="MathJax_Preview">\Omega=\{(x,y);\; -1&lt;x&lt;1,\, 0&lt;y&lt;1\}</span><script type="math/tex">\Omega=\{(x,y);\; -1<x<1,\, 0<y<1\}</script></span>, <span><span class="MathJax_Preview">\Gamma_N=\{(x,y);\; -1\le x&lt;0,\, y=0\}</span><script type="math/tex">\Gamma_N=\{(x,y);\; -1\le x<0,\, y=0\}</script></span>, <span><span class="MathJax_Preview">\Gamma_D=\p \Omega\setminus \Gamma_N</span><script type="math/tex">\Gamma_D=\p \Omega\setminus \Gamma_N</script></span>,
+the singularity will appear at <span><span class="MathJax_Preview">\gamma_1=(0,0),\, \gamma_2(-1,0)</span><script type="math/tex">\gamma_1=(0,0),\, \gamma_2(-1,0)</script></span>, and <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> has the expression
+<script type="math/tex; mode=display">
+u=K_iu_S + u_R,\, u_R\in H^2(\textrm{near }\gamma_i),\, i=1,2
+</script>
+with a constants <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span>.</p>
+<p>Here <span><span class="MathJax_Preview">u_S = r_j^{1/2}\sin(\theta_j/2)</span><script type="math/tex">u_S = r_j^{1/2}\sin(\theta_j/2)</script></span> by the local polar coordinate <span><span class="MathJax_Preview">(r_j,\theta_j</span><script type="math/tex">(r_j,\theta_j</script></span> at <span><span class="MathJax_Preview">\gamma_j</span><script type="math/tex">\gamma_j</script></span> such that <span><span class="MathJax_Preview">(r_1,\theta_1)=(r,\theta)</span><script type="math/tex">(r_1,\theta_1)=(r,\theta)</script></span>.</p>
+<p>Instead of polar coordinate system <span><span class="MathJax_Preview">(r,\theta)</span><script type="math/tex">(r,\theta)</script></span>, we use that <span><span class="MathJax_Preview">r=</span><script type="math/tex">r=</script></span><code class="codehilite">sqrt</code>(<span><span class="MathJax_Preview">x^2+y^2</span><script type="math/tex">x^2+y^2</script></span>) and <span><span class="MathJax_Preview">\theta =</span><script type="math/tex">\theta =</script></span><code class="codehilite">atan2</code>(<span><span class="MathJax_Preview">y,x</span><script type="math/tex">y,x</script></span>) in FreeFem++.</p>
+<p>Assume that <span><span class="MathJax_Preview">f=-2\times 30(x^2+y^2)</span><script type="math/tex">f=-2\times 30(x^2+y^2)</script></span> and <span><span class="MathJax_Preview">g=u_e=10(x^2+y^2)^{1/4}\sin\left([\tan^{-1}(y/x)]/2\right)+30(x^2y^2)</span><script type="math/tex">g=u_e=10(x^2+y^2)^{1/4}\sin\left([\tan^{-1}(y/x)]/2\right)+30(x^2y^2)</script></span>, where <span><span class="MathJax_Preview">u_e</span><script type="math/tex">u_e</script></span>S is the exact solution.</p>
+<div class="codehilite"><pre><span></span>// Parameters
+func f = -2*30*(x^2+y^2); //given function
+//the singular term of the solution is K*us (K: constant)
+func us = sin(atan2(y,x)/2)*sqrt( sqrt(x^2+y^2) );
+real K = 10.;
+func ue = K*us + 30*(x^2*y^2);
+
+// Mesh
+border N(t=0, 1){x=-1+t; y=0; label=1;};
+border D1(t=0, 1){x=t; y=0; label=2;};
+border D2(t=0, 1){x=1; y=t; label=2;};
+border D3(t=0, 2){x=1-t; y=1; label=2;};
+border D4(t=0, 1){x=-1; y=1-t; label=2;};
+
+mesh T0h = buildmesh(N(10) + D1(10) + D2(10) + D3(20) + D4(10));
+plot(T0h, wait=true);
+
+// Fespace
+fespace V0h(T0h, P1);
+V0h u0, v0;
+
+//Problem
+solve Poisson0 (u0, v0)
+    = int2d(T0h)(
+          dx(u0)*dx(v0)
+        + dy(u0)*dy(v0)
+    )
+    - int2d(T0h)(
+          f*v0
+    )
+    + on(2, u0=ue)
+    ;
+
+// Mesh adaptation by the singular term
+mesh Th = adaptmesh(T0h, us);
+for (int i = 0; i &lt; 5; i++)
+    mesh Th = adaptmesh(Th, us);
+
+// Fespace
+fespace Vh(Th, P1);
+Vh u, v;
+
+// Problem
+solve Poisson (u, v)
+    = int2d(Th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    - int2d(Th)(
+          f*v
+    )
+    + on(2, u=ue)
+    ;
+
+// Plot
+plot(Th);
+plot(u, wait=true);
+
+// Error in H1 norm
+Vh uue = ue;
+real H1e = sqrt( int2d(Th)(dx(uue)^2 + dy(uue)^2 + uue^2) );
+Vh err0 = u0 - ue;
+Vh err = u - ue;
+Vh H1err0 = int2d(Th)(dx(err0)^2 + dy(err0)^2 + err0^2);
+Vh H1err = int2d(Th)(dx(err)^2 + dy(err)^2 + err^2);
+cout &lt;&lt; &quot;Relative error in first mesh = &quot;&lt;&lt; int2d(Th)(H1err0)/H1e &lt;&lt; endl;
+cout &lt;&lt; &quot;Relative error in adaptive mesh = &quot;&lt;&lt; int2d(Th)(H1err)/H1e &lt;&lt; endl;
+</pre></div>
+
+<p>From line 35 to 37, mesh adaptations are done using the base of singular term.</p>
+<p>In line 61, <code class="codehilite">H1e</code>=<span><span class="MathJax_Preview">\|u_e\|_{1,\Omega}</span><script type="math/tex">\|u_e\|_{1,\Omega}</script></span> is calculated.</p>
+<p>In lines 64 and 65, the relative errors are calculated, that is,</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray*}
+\|u^0_h-u_e\|_{1,\Omega}/H1e&amp;=&amp;0.120421\\
+\|u^a_h-u_e\|_{1,\Omega}/H1e&amp;=&amp;0.0150581
+\end{eqnarray*}</div>
+<script type="math/tex; mode=display">\begin{eqnarray*}
+\|u^0_h-u_e\|_{1,\Omega}/H1e&=&0.120421\\
+\|u^a_h-u_e\|_{1,\Omega}/H1e&=&0.0150581
+\end{eqnarray*}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">u^0_h</span><script type="math/tex">u^0_h</script></span> is the numerical solution in <code class="codehilite">T0h</code> and
+<span><span class="MathJax_Preview">u^a_h</span><script type="math/tex">u^a_h</script></span> is <code class="codehilite">u</code> in this program.</p>
+<h2 id="poisson-with-mixed-finite-element">Poisson with mixed finite element<a class="headerlink" href="#poisson-with-mixed-finite-element" title="Permanent link">#</a></h2>
+<p>Here we consider the Poisson equation with mixed boundary value problems:</p>
+<p>For given functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> , <span><span class="MathJax_Preview">g_d</span><script type="math/tex">g_d</script></span>, <span><span class="MathJax_Preview">g_n</span><script type="math/tex">g_n</script></span>, find <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> such that</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    -\Delta p &amp;=&amp; 1 &amp; \textrm{ in }\Omega\\
+    p &amp;=&amp; g_d &amp; \textrm{ on }\Gamma_D\\
+    \p p/\p n &amp;=&amp; g_n &amp; \textrm{ on }\Gamma_N
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    -\Delta p &=& 1 & \textrm{ in }\Omega\\
+    p &=& g_d & \textrm{ on }\Gamma_D\\
+    \p p/\p n &=& g_n & \textrm{ on }\Gamma_N
+\end{eqnarray}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Gamma_D</span><script type="math/tex">\Gamma_D</script></span> is a part of the boundary <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> and <span><span class="MathJax_Preview">\Gamma_N=\Gamma\setminus \overline{\Gamma_D}</span><script type="math/tex">\Gamma_N=\Gamma\setminus \overline{\Gamma_D}</script></span>.</p>
+<p>The mixed formulation is: find <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> and <span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> such that</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    \nabla p + \mathbf{u} &amp;=&amp; \mathbf{0} &amp; \textrm{ in }\Omega\\
+    \nabla. \mathbf{u} &amp;=&amp; f &amp; \textrm{ in }\Omega\\
+    p &amp;=&amp; g_d &amp; \textrm{ on }\Gamma_D\\
+    \p u. n &amp;=&amp; \mathbf{g}_n.n &amp; \textrm{ on }\Gamma_N
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    \nabla p + \mathbf{u} &=& \mathbf{0} & \textrm{ in }\Omega\\
+    \nabla. \mathbf{u} &=& f & \textrm{ in }\Omega\\
+    p &=& g_d & \textrm{ on }\Gamma_D\\
+    \p u. n &=& \mathbf{g}_n.n & \textrm{ on }\Gamma_N
+\end{eqnarray}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\mathbf{g}_n</span><script type="math/tex">\mathbf{g}_n</script></span> is a vector such that <span><span class="MathJax_Preview">\mathbf{g}_n.n = g_n</span><script type="math/tex">\mathbf{g}_n.n = g_n</script></span>.</p>
+<p>The variational formulation is,</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray}
+    \forall \mathbf{v} \in \mathbb{V}_0: &amp; \int_\Omega p \nabla.v + \mathbf{v} \mathbf{v} &amp;= \int_{\Gamma_d} g_d \mathbf{v}.n\\
+    \forall {q} \in \mathbb{P}: &amp; \int_\Omega q \nabla.u &amp;= \int_\Omega q f\nonumber\\
+    &amp; \p u. n &amp;= \mathbf{g}_n.n \quad \textrm{on }\Gamma_N
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
+    \forall \mathbf{v} \in \mathbb{V}_0: & \int_\Omega p \nabla.v + \mathbf{v} \mathbf{v} &= \int_{\Gamma_d} g_d \mathbf{v}.n\\
+    \forall {q} \in \mathbb{P}: & \int_\Omega q \nabla.u &= \int_\Omega q f\nonumber\\
+    & \p u. n &= \mathbf{g}_n.n \quad \textrm{on }\Gamma_N
+\end{eqnarray}</script>
+</div>
+<p>where the functional space are:</p>
+<div>
+<div class="MathJax_Preview">
+\mathbb{P}= L^2(\Omega),
+\qquad\mathbb{V}= H(div)=\{\mathbf{v}\in L^2(\Omega)^2,\nabla.\mathbf{v}\in L^2(\Omega)\}
+</div>
+<script type="math/tex; mode=display">
+\mathbb{P}= L^2(\Omega),
+\qquad\mathbb{V}= H(div)=\{\mathbf{v}\in L^2(\Omega)^2,\nabla.\mathbf{v}\in L^2(\Omega)\}
+</script>
+</div>
+<p>and</p>
+<div>
+<div class="MathJax_Preview">
+\mathbb{V}_0 = \{\mathbf{v}\in \mathbb{V};\quad\mathbf{v}. n = 0 \quad\mathrm{on }\;\;\Gamma_N\}
+</div>
+<script type="math/tex; mode=display">
+\mathbb{V}_0 = \{\mathbf{v}\in \mathbb{V};\quad\mathbf{v}. n = 0 \quad\mathrm{on }\;\;\Gamma_N\}
+</script>
+</div>
+<p>To write the FreeFem++ example, we have just to choose the finites elements spaces.</p>
+<p>Here <span><span class="MathJax_Preview">\mathbb{V}</span><script type="math/tex">\mathbb{V}</script></span> space is discretize with Raviart-Thomas finite element <code class="codehilite">RT0</code> and <span><span class="MathJax_Preview">\mathbb{P}</span><script type="math/tex">\mathbb{P}</script></span> is discretize by constant finite element <code class="codehilite">P0</code>.</p>
+<p><strong>Example 9.10</strong> LaplaceRT.edp</p>
+<div class="codehilite"><pre><span></span>// Parameters
+func gd = 1.;
+func g1n = 1.;
+func g2n = 1.;
+
+// Mesh
+mesh Th = square(10, 10);
+
+// Fespace
+fespace Vh(Th, RT0);
+Vh [u1, u2];
+Vh [v1, v2];
+
+fespace Ph(Th, P0);
+Ph p, q;
+
+// Problem
+problem laplaceMixte ([u1, u2, p], [v1, v2, q], solver=GMRES, eps=1.0e-10, tgv=1e30, dimKrylov=150)
+    = int2d(Th)(
+          p*q*1e-15 //this term is here to be sure
+                    // that all sub matrix are inversible (LU requirement)
+        + u1*v1
+        + u2*v2
+        + p*(dx(v1)+dy(v2))
+        + (dx(u1)+dy(u2))*q
+    )
+    + int2d(Th) (
+          q
+    )
+    - int1d(Th, 1, 2, 3)(
+          gd*(v1*N.x +v2*N.y)
+    )
+    + on(4, u1=g1n, u2=g2n)
+    ;
+
+// Solve
+laplaceMixte;
+
+// Plot
+plot([u1, u2], coef=0.1, wait=true, value=true);
+plot(p, fill=1, wait=true, value=true);
+</pre></div>
+
+<h2 id="metric-adaptation-and-residual-error-indicator">Metric Adaptation and residual error indicator<a class="headerlink" href="#metric-adaptation-and-residual-error-indicator" title="Permanent link">#</a></h2>
+<p>We do metric mesh adaption and compute the classical residual error indicator <span><span class="MathJax_Preview">\eta_{T}</span><script type="math/tex">\eta_{T}</script></span> on the element <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> for the Poisson problem.</p>
+<p>First, we solve the same problem as in a previous example.</p>
+<div class="codehilite"><pre><span></span>// Parameters
+real[int] viso(21);
+for (int i = 0; i &lt; viso.n; i++)
+    viso[i] = 10.^(+(i-16.)/2.);
+real error = 0.01;
+func f = (x-y);
+
+// Mesh
+border ba(t=0, 1.0){x=t; y=0; label=1;}
+border bb(t=0, 0.5){x=1; y=t; label=2;}
+border bc(t=0, 0.5){x=1-t; y=0.5; label=3;}
+border bd(t=0.5, 1){x=0.5; y=t; label=4;}
+border be(t=0.5, 1){x=1-t; y=1; label=5;}
+border bf(t=0.0, 1){x=0; y=1-t; label=6;}
+mesh Th = buildmesh(ba(6) + bb(4) + bc(4) + bd(4) + be(4) + bf(6));
+
+// Fespace
+fespace Vh(Th, P2);
+Vh u, v;
+
+fespace Nh(Th, P0);
+Nh rho;
+
+// Problem
+problem Probem1 (u, v, solver=CG, eps=1.0e-6)
+    = int2d(Th, qforder=5)(
+          u*v*1.0e-10
+        + dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    + int2d(Th, qforder=5)(
+        - f*v
+    )
+    ;
+</pre></div>
+
+<p>Now, the local error indicator <span><span class="MathJax_Preview">\eta_{T}</span><script type="math/tex">\eta_{T}</script></span> is:</p>
+<div>
+<div class="MathJax_Preview">
+\eta_{T} =\left( h_{T}^{2} || f + \Delta u_{{h}} ||_{L^{2}(T)}^{2} +\sum_{e\in \mathcal{E}_{K}} h_{e} \,||\, [ \frac{\p u_{h}}{\p n_{k}}] \,||^{2}_{L^{2}(e)} \right)^{\frac{1}{2}}
+</div>
+<script type="math/tex; mode=display">
+\eta_{T} =\left( h_{T}^{2} || f + \Delta u_{{h}} ||_{L^{2}(T)}^{2} +\sum_{e\in \mathcal{E}_{K}} h_{e} \,||\, [ \frac{\p u_{h}}{\p n_{k}}] \,||^{2}_{L^{2}(e)} \right)^{\frac{1}{2}}
+</script>
+</div>
+<p>where <span><span class="MathJax_Preview">h_{T}</span><script type="math/tex">h_{T}</script></span> is the longest edge of <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>, <span><span class="MathJax_Preview">{\cal E}_T</span><script type="math/tex">{\cal E}_T</script></span> is the set of <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> edge not on <span><span class="MathJax_Preview">\Gamma=\p \Omega</span><script type="math/tex">\Gamma=\p \Omega</script></span>, <span><span class="MathJax_Preview">n_{T}</span><script type="math/tex">n_{T}</script></span> is the outside unit normal to <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span>, <span><span class="MathJax_Preview">h_{e}</span><script type="math/tex">h_{e}</script></span> is the length of edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>, <span><span class="MathJax_Preview">[ g ]</span><script type="math/tex">[ g ]</script></span> is the jump of the function <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> across edge (left value minus right value).</p>
+<p>Of course, we can use a variational form to compute <span><span class="MathJax_Preview">\eta_{T}^{2}</span><script type="math/tex">\eta_{T}^{2}</script></span>, with test function constant function in each triangle.</p>
+<div class="codehilite"><pre><span></span>// Error
+varf indicator2 (uu, chiK)
+    = intalledges(Th)(
+          chiK*lenEdge*square(jump(N.x*dx(u) + N.y*dy(u)))
+    )
+    + int2d(Th)(
+          chiK*square(hTriangle*(f + dxx(u) + dyy(u)))
+    )
+    ;
+
+// Mesh adaptation loop
+for (int i = 0; i &lt; 4; i++){
+    // Solve
+    Probem1;
+    cout &lt;&lt; u[].min &lt;&lt; &quot; &quot; &lt;&lt; u[].max &lt;&lt; endl;
+    plot(u, wait=true);
+
+    // Error
+    rho[] = indicator2(0, Nh);
+    rho = sqrt(rho);
+    cout &lt;&lt; &quot;rho = min &quot; &lt;&lt; rho[].min &lt;&lt; &quot; max=&quot; &lt;&lt; rho[].max &lt;&lt; endl;
+    plot(rho, fill=true, wait=true, cmm=&quot;indicator density&quot;, value=true, viso=viso, nbiso=viso.n);
+
+    // Mesh adaptation
+    plot(Th, wait=true, cmm=&quot;Mesh (before adaptation)&quot;);
+    Th = adaptmesh(Th, [dx(u), dy(u)], err=error, anisomax=1);
+    plot(Th, wait=true, cmm=&quot;Mesh (after adaptation)&quot;);
+    u = u;
+    rho = rho;
+    error = error/2;
+}
+</pre></div>
+
+<p>If the method is correct, we expect to look the graphics by an almost constant function <span><span class="MathJax_Preview">\eta</span><script type="math/tex">\eta</script></span> on your computer as in <a href="#Fig11">Fig. 11</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig11">Fig. 11</a>: Density of the error indicator with isotropic <span><span class="MathJax_Preview">P_{2}</span><script type="math/tex">P_{2}</script></span> metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="MetricAdaptation" src="../images/StaticProblems_MetricAdaptation.png" /></td>
+</tr>
+<tr>
+<td align="center"><img alt="MetricAdaptation2" src="../images/StaticProblems_MetricAdaptation2.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="adaptation-using-residual-error-indicator">Adaptation using residual error indicator<a class="headerlink" href="#adaptation-using-residual-error-indicator" title="Permanent link">#</a></h2>
+<p>In the previous example we compute the error indicator, now we use it, to adapt the mesh. The new mesh size is given by the following formulae:</p>
+<div>
+<div class="MathJax_Preview">
+h_{n+1}(x) = \frac{h_{n}(x)}{f_{n}(\eta_K(x))}
+</div>
+<script type="math/tex; mode=display">
+h_{n+1}(x) = \frac{h_{n}(x)}{f_{n}(\eta_K(x))}
+</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\eta_n(x)</span><script type="math/tex">\eta_n(x)</script></span> is the level of error at point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> given by the local error indicator, <span><span class="MathJax_Preview">h_n</span><script type="math/tex">h_n</script></span> is the previous "mesh size" field, and <span><span class="MathJax_Preview">f_n</span><script type="math/tex">f_n</script></span> is a user function define by <span><span class="MathJax_Preview">f_n = min(3,max(1/3,\eta_n / \eta_n^* ))</span><script type="math/tex">f_n = min(3,max(1/3,\eta_n / \eta_n^* ))</script></span> where $\eta_n^* =mean(\eta_n) c $, and <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> is an user coefficient generally close to one.</p>
+<p>First a macro <code class="codehilite">MeshSizecomputation</code> is defined to get a <span><span class="MathJax_Preview">P_1</span><script type="math/tex">P_1</script></span> mesh size as the average of edge length.</p>
+<div class="codehilite"><pre><span></span>// macro the get the current mesh size parameter
+// in:
+// Th the mesh
+// Vh P1 fespace on Th
+// out :
+// h: the Vh finite element finite set to the current mesh size
+macro MeshSizecomputation (Th, Vh, h)
+{
+    real[int] count(Th.nv);
+    /*mesh size (lenEdge = integral(e) 1 ds)*/
+    varf vmeshsizen (u, v) = intalledges(Th, qfnbpE=1)(v);
+    /*number of edges per vertex*/
+    varf vedgecount (u, v) = intalledges(Th, qfnbpE=1)(v/lenEdge);
+    /*mesh size*/
+    count = vedgecount(0, Vh);
+    h[] = 0.;
+    h[] = vmeshsizen(0, Vh);
+    cout &lt;&lt; &quot;count min = &quot; &lt;&lt; count.min &lt;&lt; &quot; max = &quot; &lt;&lt; count.max &lt;&lt; endl;
+    h[] = h[]./count;
+    cout &lt;&lt; &quot;-- bound meshsize = &quot; &lt;&lt; h[].min &lt;&lt; &quot; &quot; &lt;&lt; h[].max &lt;&lt; endl;
+} //
+</pre></div>
+
+<p>A second macro to re-mesh according to the new mesh size.</p>
+<div class="codehilite"><pre><span></span>// macro to remesh according the de residual indicator
+// in:
+// Th the mesh
+// Ph P0 fespace on Th
+// Vh P1 fespace on Th
+// vindicator the varf to evaluate the indicator
+// coef on etameam
+macro ReMeshIndicator (Th, Ph, Vh, vindicator, coef)
+{
+    Vh h=0;
+    /*evaluate the mesh size*/
+    MeshSizecomputation(Th, Vh, h);
+    Ph etak;
+    etak[] = vindicator(0, Ph);
+    etak[] = sqrt(etak[]);
+    real etastar= coef*(etak[].sum/etak[].n);
+    cout &lt;&lt; &quot;etastar = &quot; &lt;&lt; etastar &lt;&lt; &quot; sum = &quot; &lt;&lt; etak[].sum &lt;&lt; &quot; &quot; &lt;&lt; endl;
+
+    /*etaK is discontinous*/
+    /*we use P1 L2 projection with mass lumping*/
+    Vh fn, sigma;
+    varf veta(unused, v) = int2d(Th)(etak*v);
+    varf vun(unused, v) = int2d(Th)(1*v);
+    fn[] = veta(0, Vh);
+    sigma[] = vun(0, Vh);
+    fn[] = fn[]./ sigma[];
+    fn = max(min(fn/etastar,3.),0.3333);
+
+    /*new mesh size*/
+    h = h / fn;
+    /*build the mesh*/
+    Th = adaptmesh(Th, IsMetric=1, h, splitpbedge=1, nbvx=10000);
+} //
+</pre></div>
+
+<div class="codehilite"><pre><span></span>// Parameters
+real hinit = 0.2; //initial mesh size
+func f=(x-y);
+
+// Mesh
+border ba(t=0, 1.0){x=t; y=0; label=1;}
+border bb(t=0, 0.5){x=1; y=t; label=2;}
+border bc(t=0, 0.5){x=1-t; y=0.5; label=3;}
+border bd(t=0.5, 1){x=0.5; y=t; label=4;}
+border be(t=0.5, 1){x=1-t; y=1; label=5;}
+border bf(t=0.0, 1){x=0; y=1-t; label=6;}
+mesh Th = buildmesh(ba(6) + bb(4) + bc(4) + bd(4) + be(4) + bf(6));
+
+// Fespace
+fespace Vh(Th, P1); //for the mesh size and solution
+Vh h = hinit; //the FE function for the mesh size
+Vh u, v;
+
+fespace Ph(Th, P0); //for the error indicator
+
+//Build a mesh with the given mesh size hinit
+Th = adaptmesh(Th, h, IsMetric=1, splitpbedge=1, nbvx=10000);
+plot(Th, wait=1);
+
+// Problem
+problem Poisson (u, v)
+    = int2d(Th, qforder=5)(
+          u*v*1.0e-10
+        + dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    - int2d(Th, qforder=5)(
+          f*v
+    )
+    ;
+
+ varf indicator2 (unused, chiK)
+    = intalledges(Th)(
+          chiK*lenEdge*square(jump(N.x*dx(u) + N.y*dy(u)))
+    )
+    + int2d(Th)(
+          chiK*square(hTriangle*(f + dxx(u) + dyy(u)))
+    )
+    ;
+
+// Mesh adaptation loop
+for (int i = 0; i &lt; 10; i++){
+    u = u;
+
+    // Solve
+    Poisson;
+    plot(Th, u, wait=true);
+
+    real cc = 0.8;
+    if (i &gt; 5) cc=1;
+    ReMeshIndicator(Th, Ph, Vh, indicator2, cc);
+    plot(Th, wait=true);
+}
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center">Fig. 9.12: The error indicator with isotropic <span><span class="MathJax_Preview">P_{1}</span><script type="math/tex">P_{1}</script></span>, the mesh and isovalue of the solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="AdaptationResidualError" src="../images/StaticProblems_AdaptationResidualError.png" /></td>
+</tr>
+<tr>
+<td align="center"><img alt="AdaptationResidualError2" src="../images/StaticProblems_AdaptationResidualError2.png" /></td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Elasticity/" title="Elasticity" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Elasticity
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/FreeFem/FreeFem-doc" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

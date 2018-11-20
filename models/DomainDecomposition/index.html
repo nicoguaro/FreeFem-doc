@@ -1,0 +1,1852 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Domain decomposition - FreeFem++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#schwarz-overlapping" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="FreeFem++" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                FreeFem++
+              </span>
+              <span class="md-header-nav__topic">
+                Domain decomposition
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../documentation/" title="Documentation" class="md-tabs__link">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../reference/" title="Language References" class="md-tabs__link">
+          Language References
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" title="Examples" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Models" class="md-tabs__link md-tabs__link--active">
+          Models
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="FreeFem++" class="md-nav__button md-logo">
+      
+        <img src="../../images/favicon.png" width="48" height="48">
+      
+    </a>
+    FreeFem++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/contributing/" title="How to contribute?" class="md-nav__link">
+      How to contribute?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/citation/" title="Citation" class="md-nav__link">
+      Citation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/authors/" title="Authors" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Notations/" title="Some Notations" class="md-nav__link">
+      Some Notations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/MeshGeneration/" title="Mesh Generation" class="md-nav__link">
+      Mesh Generation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/FiniteElement/" title="Finite Element" class="md-nav__link">
+      Finite Element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/AlgorithmsOptimization/" title="Algorithms & Optimization" class="md-nav__link">
+      Algorithms & Optimization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Parallelization/" title="Parallelization" class="md-nav__link">
+      Parallelization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Developers/" title="Developers" class="md-nav__link">
+      Developers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Language References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Language References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/GlobalVariables/" title="Global variables" class="md-nav__link">
+      Global variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/QuadratureFormulae/" title="Quadrature formulae" class="md-nav__link">
+      Quadrature formulae
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/IO/" title="I/O" class="md-nav__link">
+      I/O
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/ExternalLibraries/" title="External libraries" class="md-nav__link">
+      External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Poisson/" title="Poisson's equation" class="md-nav__link">
+      Poisson's equation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/EquationsClassification/" title="Classification of the equations" class="md-nav__link">
+      Classification of the equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Membrane/" title="Membrane" class="md-nav__link">
+      Membrane
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatExchanger/" title="Heat Exchanger" class="md-nav__link">
+      Heat Exchanger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Acoustics/" title="Acoustics" class="md-nav__link">
+      Acoustics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ThermalConduction/" title="Thermal Conduction" class="md-nav__link">
+      Thermal Conduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FanBlade/" title="Irrotational Fan Blade Flow and Thermal effects" class="md-nav__link">
+      Irrotational Fan Blade Flow and Thermal effects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/RotatingHill/" title="Pure convection, The rotating hill" class="md-nav__link">
+      Pure convection, The rotating hill
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Elasticity/" title="The system of elasticity" class="md-nav__link">
+      The system of elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Stokes/" title="The system of Stokes for fluids" class="md-nav__link">
+      The system of Stokes for fluids
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesProjection/" title="A projection Algorithm for the Navier-Stokes equations" class="md-nav__link">
+      A projection Algorithm for the Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesNewton/" title="Newton method for the steady Navier-Stokes equations" class="md-nav__link">
+      Newton method for the steady Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ALargeFluidProblem/" title="A large fluid problem" class="md-nav__link">
+      A large fluid problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ComplexNumbers/" title="An example with complex numbers" class="md-nav__link">
+      An example with complex numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/OptimalControl/" title="Optimal control" class="md-nav__link">
+      Optimal control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FlowWithShocks/" title="A flow with shocks" class="md-nav__link">
+      A flow with shocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatEquationOptimization/" title="Time dependent schema optimization for heat equations" class="md-nav__link">
+      Time dependent schema optimization for heat equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TimeDependentStokes/" title="A transient Stokes solver in matrix form" class="md-nav__link">
+      A transient Stokes solver in matrix form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/WifiPropagation/" title="Wifi Propagation" class="md-nav__link">
+      Wifi Propagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/MatlabOctavePlot/" title="Matlab / Octave Plots" class="md-nav__link">
+      Matlab / Octave Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StaticProblems/" title="Static problems" class="md-nav__link">
+      Static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Elasticity/" title="Elasticity" class="md-nav__link">
+      Elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearStaticProblems/" title="Non-linear static problems" class="md-nav__link">
+      Non-linear static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EigenValueProblems/" title="Eigenvalue problems" class="md-nav__link">
+      Eigenvalue problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EvolutionProblems/" title="Evolution problems" class="md-nav__link">
+      Evolution problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NavierStokesEquations/" title="Navier-Stokes equations" class="md-nav__link">
+      Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VariationalInequality/" title="Variational inequality" class="md-nav__link">
+      Variational inequality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Domain decomposition
+      </label>
+    
+    <a href="./" title="Domain decomposition" class="md-nav__link md-nav__link--active">
+      Domain decomposition
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-overlapping" title="Schwarz overlapping" class="md-nav__link">
+    Schwarz overlapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-non-overlapping-scheme" title="Schwarz non overlapping Scheme" class="md-nav__link">
+    Schwarz non overlapping Scheme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-conjuguate-gradient" title="Schwarz conjuguate gradient" class="md-nav__link">
+    Schwarz conjuguate gradient
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-nav__link">
+      Fluid-Structure coupled problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TransmissionProblem/" title="Transmission problem" class="md-nav__link">
+      Transmission problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FreeBoundaryProblem/" title="Free boundary problem" class="md-nav__link">
+      Free boundary problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearElasticity/" title="Non-linear elasticity" class="md-nav__link">
+      Non-linear elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CompressibleNeoHookeanMaterials/" title="Compressible Neo-Hookean materials" class="md-nav__link">
+      Compressible Neo-Hookean materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WhisperingGalleryModes/" title="Whispering gallery modes" class="md-nav__link">
+      Whispering gallery modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-overlapping" title="Schwarz overlapping" class="md-nav__link">
+    Schwarz overlapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-non-overlapping-scheme" title="Schwarz non overlapping Scheme" class="md-nav__link">
+    Schwarz non overlapping Scheme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schwarz-conjuguate-gradient" title="Schwarz conjuguate gradient" class="md-nav__link">
+    Schwarz conjuguate gradient
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FreeFem/FreeFem-doc/edit/master/docs/models/DomainDecomposition.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Domain decomposition</h1>
+                
+                <p>We present three classic examples of domain decomposition technique: first, Schwarz algorithm with overlapping, second Schwarz algorithm without overlapping (also call Shur complement), and last we show to use the conjugate gradient to solve the boundary problem of the Shur complement.</p>
+<h2 id="schwarz-overlapping">Schwarz overlapping<a class="headerlink" href="#schwarz-overlapping" title="Permanent link">#</a></h2>
+<p>To solve</p>
+<div>
+<div class="MathJax_Preview">
+-\Delta u =f,\;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0
+</div>
+<script type="math/tex; mode=display">
+-\Delta u =f,\;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0
+</script>
+</div>
+<!--- __ --->
+
+<p>the Schwarz algorithm runs like this</p>
+<div>
+<div class="MathJax_Preview">\begin{eqnarray*}
+    -\Delta u^{n+1}_1&amp;=&amp;f\;\mbox{in}\;\Omega_1\quad
+    u^{n+1}_1|_{\Gamma_1}=u^n_2\\
+    -\Delta u^{n+1}_2&amp;=&amp;f\;\mbox{in}\;\Omega_2\quad
+    u^{n+1}_2|_{\Gamma_2}=u^n_1
+\end{eqnarray*}</div>
+<script type="math/tex; mode=display">\begin{eqnarray*}
+    -\Delta u^{n+1}_1&=&f\;\mbox{in}\;\Omega_1\quad
+    u^{n+1}_1|_{\Gamma_1}=u^n_2\\
+    -\Delta u^{n+1}_2&=&f\;\mbox{in}\;\Omega_2\quad
+    u^{n+1}_2|_{\Gamma_2}=u^n_1
+\end{eqnarray*}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\Gamma_i</span><script type="math/tex">\Gamma_i</script></span> is the boundary of <span><span class="MathJax_Preview">\Omega_i</span><script type="math/tex">\Omega_i</script></span> and on the condition that <span><span class="MathJax_Preview">\Omega_1\cap\Omega_2\neq\emptyset</span><script type="math/tex">\Omega_1\cap\Omega_2\neq\emptyset</script></span> and that <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span> are zero at iteration 1.</p>
+<p>Here we take <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> to be a quadrangle, <span><span class="MathJax_Preview">\Omega_2</span><script type="math/tex">\Omega_2</script></span> a disk and we apply the algorithm starting from zero.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig25">Fig. 25</a>: The 2 overlapping mesh <code class="codehilite">TH</code> and <code class="codehilite">th</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Schwarz1" src="../images/DomainDecomposition_Schwarz1.png" /></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Schwarz overlapping</p>
+<div class="codehilite"><pre><span></span>// Parameters
+int inside = 2; //inside boundary
+int outside = 1; //outside boundary
+int n = 4;
+
+// Mesh
+border a(t=1, 2){x=t; y=0; label=outside;}
+border b(t=0, 1){x=2; y=t; label=outside;}
+border c(t=2, 0){x=t; y=1; label=outside;}
+border d(t=1, 0){x=1-t; y=t; label=inside;}
+border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
+border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
+mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
+mesh TH = buildmesh(e(5*n) + e1(25*n));
+plot(th, TH, wait=true); //to see the 2 meshes
+
+// Fespace
+fespace vh(th, P1);
+vh u=0, v;
+
+fespace VH(TH, P1);
+VH U, V;
+
+// Problem
+int i = 0;
+problem PB (U, V, init=i, solver=Cholesky)
+    = int2d(TH)(
+          dx(U)*dx(V)
+        + dy(U)*dy(V)
+    )
+    + int2d(TH)(
+        - V
+    )
+    + on(inside, U=u)
+    + on(outside, U=0)
+    ;
+
+problem pb (u, v, init=i, solver=Cholesky)
+    = int2d(th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    + int2d(th)(
+        - v
+    )
+    + on(inside, u=U)
+    + on(outside, u=0)
+    ;
+
+// Calculation loop
+for (i = 0 ; i &lt; 10; i++){
+    // Solve
+    PB;
+    pb;
+
+    // Plot
+    plot(U, u, wait=true);
+}
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig26">Fig. 26</a>: Isovalues of the solution at iteration 0 and iteration 9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Schwarz2" src="../images/DomainDecomposition_Schwarz2.png" /></td>
+</tr>
+<tr>
+<td align="center"><img alt="Schwarz3" src="../images/DomainDecomposition_Schwarz3.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="schwarz-non-overlapping-scheme">Schwarz non overlapping Scheme<a class="headerlink" href="#schwarz-non-overlapping-scheme" title="Permanent link">#</a></h2>
+<p>To solve</p>
+<div>
+<div class="MathJax_Preview">
+-\Delta u =f\;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0
+</div>
+<script type="math/tex; mode=display">
+-\Delta u =f\;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0
+</script>
+</div>
+<!--- __ --->
+
+<p>the Schwarz algorithm for domain decomposition without overlapping runs like this</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig27">Fig. 27</a>: The two none overlapping mesh <code class="codehilite">TH</code> and <code class="codehilite">th</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Schwarz4" src="../images/DomainDecomposition_Schwarz4.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Let introduce <span><span class="MathJax_Preview">\Gamma_i</span><script type="math/tex">\Gamma_i</script></span> is common the boundary of <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> and <span><span class="MathJax_Preview">\Omega_2</span><script type="math/tex">\Omega_2</script></span> and <span><span class="MathJax_Preview">\Gamma_e^i= \p \Omega_i \setminus \Gamma_i</span><script type="math/tex">\Gamma_e^i= \p \Omega_i \setminus \Gamma_i</script></span>.</p>
+<p>The problem find <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> such that <span><span class="MathJax_Preview">(u_1|_{\Gamma_i}=u_2|_{\Gamma_i})</span><script type="math/tex">(u_1|_{\Gamma_i}=u_2|_{\Gamma_i})</script></span> where <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span> is solution of the following Laplace problem:</p>
+<div>
+<div class="MathJax_Preview">
+    -\Delta u_i=f\;\mbox{in}\;\Omega_i\quad
+    u_i|_{\Gamma_i}=\lambda \quad
+    u_i|_{\Gamma_e^i} = 0
+</div>
+<script type="math/tex; mode=display">
+    -\Delta u_i=f\;\mbox{in}\;\Omega_i\quad
+    u_i|_{\Gamma_i}=\lambda \quad
+    u_i|_{\Gamma_e^i} = 0
+</script>
+</div>
+<p>To solve this problem we just make a loop with upgrading <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> with</p>
+<div>
+<div class="MathJax_Preview">
+\lambda = \lambda {\pm} \frac{(u_1-u_2)}{2}
+</div>
+<script type="math/tex; mode=display">
+\lambda = \lambda {\pm} \frac{(u_1-u_2)}{2}
+</script>
+</div>
+<p>where the sign <span><span class="MathJax_Preview">+</span><script type="math/tex">+</script></span> or <span><span class="MathJax_Preview">-</span><script type="math/tex">-</script></span> of <span><span class="MathJax_Preview">{\pm}</span><script type="math/tex">{\pm}</script></span> is choose to have convergence.</p>
+<div class="admonition example">
+<p class="admonition-title">Schwarz non-overlapping</p>
+<div class="codehilite"><pre><span></span>// Parameters
+int inside = 2;
+int outside = 1;
+int n = 4;
+
+// Mesh
+border a(t=1, 2){x=t; y=0; label=outside;};
+border b(t=0, 1){x=2; y=t; label=outside;};
+border c(t=2, 0){x=t; y=1; label=outside;};
+border d(t=1, 0){x=1-t; y=t; label=inside;};
+border e(t=0, 1){x=1-t; y=t; label=inside;};
+border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;};
+mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
+mesh TH = buildmesh(e(5*n) + e1(25*n));
+plot(th, TH, wait=true);
+
+// Fespace
+fespace vh(th, P1);
+vh u=0, v;
+vh lambda=0;
+
+fespace VH(TH, P1);
+VH U, V;
+
+// Problem
+int i = 0;
+problem PB (U, V, init=i, solver=Cholesky)
+    = int2d(TH)(
+          dx(U)*dx(V)
+        + dy(U)*dy(V)
+    )
+    + int2d(TH)(
+        - V
+    )
+    + int1d(TH, inside)(
+          lambda*V
+    )
+    + on(outside, U= 0 )
+    ;
+
+problem pb (u, v, init=i, solver=Cholesky)
+    = int2d(th)(
+          dx(u)*dx(v)
+        + dy(u)*dy(v)
+    )
+    + int2d(th)(
+        - v
+    )
+    + int1d(th, inside)(
+        - lambda*v
+    )
+    + on(outside, u=0)
+    ;
+
+for (i = 0; i &lt; 10; i++){
+    // Solve
+    PB;
+    pb;
+    lambda = lambda - (u-U)/2;
+
+    // Plot
+    plot(U,u,wait=true);
+}
+
+// Plot
+plot(U, u);
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a name="Fig26">Fig. 26</a>: Isovalues of the solution at iteration 0 and iteration 9 without overlapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="Schwarz5" src="../images/DomainDecomposition_Schwarz5.png" /></td>
+</tr>
+<tr>
+<td align="center"><img alt="Schwarz6" src="../images/DomainDecomposition_Schwarz6.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="schwarz-conjuguate-gradient">Schwarz conjuguate gradient<a class="headerlink" href="#schwarz-conjuguate-gradient" title="Permanent link">#</a></h2>
+<p>To solve <span><span class="MathJax_Preview">-\Delta u =f \;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0</span><script type="math/tex">-\Delta u =f \;\mbox{in}\;\Omega=\Omega_1\cup\Omega_2\quad u|_\Gamma=0</script></span> the Schwarz algorithm for domain decomposition without overlapping runs like this</p>
+<!--- __ --->
+
+<p>Let introduce <span><span class="MathJax_Preview">\Gamma_i</span><script type="math/tex">\Gamma_i</script></span> is common the boundary of <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> and <span><span class="MathJax_Preview">\Omega_2</span><script type="math/tex">\Omega_2</script></span> and <span><span class="MathJax_Preview">\Gamma_e^i= \p \Omega_i \setminus \Gamma_i</span><script type="math/tex">\Gamma_e^i= \p \Omega_i \setminus \Gamma_i</script></span>.</p>
+<p>The problem find <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> such that <span><span class="MathJax_Preview">(u_1|_{\Gamma_i}=u_2|_{\Gamma_i})</span><script type="math/tex">(u_1|_{\Gamma_i}=u_2|_{\Gamma_i})</script></span> where <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span> is solution of the following Laplace problem:</p>
+<div>
+<div class="MathJax_Preview">
+-\Delta u_i=f\;\mbox{in}\;\Omega_i\quad
+u_i|_{\Gamma_i}=\lambda \quad
+u_i|_{\Gamma_e^i} = 0
+</div>
+<script type="math/tex; mode=display">
+-\Delta u_i=f\;\mbox{in}\;\Omega_i\quad
+u_i|_{\Gamma_i}=\lambda \quad
+u_i|_{\Gamma_e^i} = 0
+</script>
+</div>
+<p>The version of this example uses the Shur complement. The problem on the border is solved by a conjugate gradient method.</p>
+<div class="admonition example">
+<p class="admonition-title">Schwarz conjugate gradient</p>
+<p>First, we construct the two domains
+<div class="codehilite"><pre><span></span>// Parameters
+int inside = 2;
+int outside = 1;
+int n = 4;
+
+// Mesh
+border Gamma1(t=1, 2){x=t; y=0; label=outside;}
+border Gamma2(t=0, 1){x=2; y=t; label=outside;}
+border Gamma3(t=2, 0){x=t; y=1; label=outside;}
+border GammaInside(t=1, 0){x=1-t; y=t; label=inside;}
+border GammaArc(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
+mesh Th1 = buildmesh(Gamma1(5*n) + Gamma2(5*n) + GammaInside(5*n) + Gamma3(5*n));
+mesh Th2 = buildmesh(GammaInside(-5*n) + GammaArc(25*n));
+plot(Th1, Th2);
+</pre></div></p>
+<p>Now, define the finite element spaces:
+<div class="codehilite"><pre><span></span>// Fespace
+fespace Vh1(Th1, P1);
+Vh1 u1, v1;
+Vh1 lambda;
+Vh1 p=0;
+
+fespace Vh2(Th2,P1);
+Vh2 u2, v2;
+</pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is impossible to define a function just on a part of boundary, so the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function must be defined on the all domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> such as</p>
+<div class="codehilite"><pre><span></span>Vh1 lambda;
+</pre></div>
+
+</div>
+<p>The two Poisson's problems:</p>
+<div class="codehilite"><pre><span></span>problem Pb1 (u1, v1, init=i, solver=Cholesky)
+    = int2d(Th1)(
+          dx(u1)*dx(v1)
+        + dy(u1)*dy(v1)
+    )
+    + int2d(Th1)(
+        - v1
+    )
+    + int1d(Th1, inside)(
+          lambda*v1
+    )
+    + on(outside, u1=0)
+    ;
+
+problem Pb2 (u2, v2, init=i, solver=Cholesky)
+    = int2d(Th2)(
+          dx(u2)*dx(v2)
+        + dy(u2)*dy(v2)
+    )
+    + int2d(Th2)(
+        - v2
+    )
+    + int1d(Th2, inside)(
+        - lambda*v2
+    )
+    + on(outside, u2=0)
+    ;
+</pre></div>
+
+<p>And, we define a border matrix, because the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function is none zero inside the domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span>:</p>
+<div class="codehilite"><pre><span></span>varf b(u2, v2, solver=CG) = int1d(Th1, inside)(u2*v2);
+matrix B = b(Vh1, Vh1, solver=CG);
+</pre></div>
+
+<p>The boundary problem function,</p>
+<div>
+<div class="MathJax_Preview">
+\lambda \longrightarrow \int_{\Gamma_i }(u_1-u_2) v_{1}
+</div>
+<script type="math/tex; mode=display">
+\lambda \longrightarrow \int_{\Gamma_i }(u_1-u_2) v_{1}
+</script>
+</div>
+<div class="codehilite"><pre><span></span>// Boundary problem function
+func real[int] BoundaryProblem (real[int] &amp;l){
+    lambda[] = l; //make FE function form l
+    Pb1;
+    Pb2;
+    i++; //no refactorization i != 0
+    v1 = -(u1-u2);
+    lambda[] = B*v1[];
+    return lambda[];
+}
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The difference between the two notations <code class="codehilite">v1</code> and <code class="codehilite">v1[]</code> is: <code class="codehilite">v1</code> is the finite element function and <code class="codehilite">v1[]</code> is the vector in the canonical basis of the finite element function <code class="codehilite">v1</code>.</p>
+</div>
+<div class="codehilite"><pre><span></span>// Solve
+real cpu=clock();
+LinearCG(BoundaryProblem, p[], eps=1.e-6, nbiter=100);
+//compute the final solution, because CG works with increment
+BoundaryProblem(p[]); //solve again to have right u1, u2
+
+// Display &amp; Plot
+cout &lt;&lt; &quot; -- CPU time schwarz-gc:&quot; &lt;&lt; clock()-cpu &lt;&lt; endl;
+plot(u1, u2);
+</pre></div>
+
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../VariationalInequality/" title="Variational inequality" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Variational inequality
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Fluid-Structure coupled problem
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/FreeFem/FreeFem-doc" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

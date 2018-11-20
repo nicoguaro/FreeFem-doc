@@ -1,0 +1,4961 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Functions - FreeFem++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#abs" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="FreeFem++" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                FreeFem++
+              </span>
+              <span class="md-header-nav__topic">
+                Functions
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../documentation/" title="Documentation" class="md-tabs__link">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Language References" class="md-tabs__link md-tabs__link--active">
+          Language References
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" title="Examples" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../models/" title="Models" class="md-tabs__link">
+          Models
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="FreeFem++" class="md-nav__button md-logo">
+      
+        <img src="../../images/favicon.png" width="48" height="48">
+      
+    </a>
+    FreeFem++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/contributing/" title="How to contribute?" class="md-nav__link">
+      How to contribute?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/citation/" title="Citation" class="md-nav__link">
+      Citation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/authors/" title="Authors" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Notations/" title="Some Notations" class="md-nav__link">
+      Some Notations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/MeshGeneration/" title="Mesh Generation" class="md-nav__link">
+      Mesh Generation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/FiniteElement/" title="Finite Element" class="md-nav__link">
+      Finite Element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/AlgorithmsOptimization/" title="Algorithms & Optimization" class="md-nav__link">
+      Algorithms & Optimization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Parallelization/" title="Parallelization" class="md-nav__link">
+      Parallelization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Developers/" title="Developers" class="md-nav__link">
+      Developers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Language References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Language References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlobalVariables/" title="Global variables" class="md-nav__link">
+      Global variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../QuadratureFormulae/" title="Quadrature formulae" class="md-nav__link">
+      Quadrature formulae
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../IO/" title="I/O" class="md-nav__link">
+      I/O
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Functions
+      </label>
+    
+    <a href="./" title="Functions" class="md-nav__link md-nav__link--active">
+      Functions
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abs" title="abs" class="md-nav__link">
+    abs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acos" title="acos" class="md-nav__link">
+    acos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acosh" title="acosh" class="md-nav__link">
+    acosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptmesh" title="adaptmesh" class="md-nav__link">
+    adaptmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adj" title="adj" class="md-nav__link">
+    adj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinecg" title="AffineCG" class="md-nav__link">
+    AffineCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinegmres" title="AffineGMRES" class="md-nav__link">
+    AffineGMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arg" title="arg" class="md-nav__link">
+    arg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asin" title="asin" class="md-nav__link">
+    asin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asinh" title="asinh" class="md-nav__link">
+    asinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assert" title="assert" class="md-nav__link">
+    assert
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan" title="atan" class="md-nav__link">
+    atan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan2" title="atan2" class="md-nav__link">
+    atan2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atanh" title="atanh" class="md-nav__link">
+    atanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atoi" title="atoi" class="md-nav__link">
+    atoi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atof" title="atof" class="md-nav__link">
+    atof
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bfgs" title="BFGS" class="md-nav__link">
+    BFGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buildmesh" title="buildmesh" class="md-nav__link">
+    buildmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceil" title="ceil" class="md-nav__link">
+    ceil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change" title="change" class="md-nav__link">
+    change
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chi" title="chi" class="md-nav__link">
+    chi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkmovemesh" title="checkmovemesh" class="md-nav__link">
+    checkmovemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clock" title="clock" class="md-nav__link">
+    clock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complexeigenvalue" title="complexEigenValue" class="md-nav__link">
+    complexEigenValue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conj" title="conj" class="md-nav__link">
+    conj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convect" title="convect" class="md-nav__link">
+    convect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copysign" title="copysign" class="md-nav__link">
+    copysign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cos" title="cos" class="md-nav__link">
+    cos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosh" title="cosh" class="md-nav__link">
+    cosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diffnp" title="diffnp" class="md-nav__link">
+    diffnp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diffpos" title="diffpos" class="md-nav__link">
+    diffpos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist" title="dist" class="md-nav__link">
+    dist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dumptable" title="dumptable" class="md-nav__link">
+    dumptable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dx" title="dx" class="md-nav__link">
+    dx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxx" title="dxx" class="md-nav__link">
+    dxx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxy" title="dxy" class="md-nav__link">
+    dxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxz" title="dxz" class="md-nav__link">
+    dxz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dy" title="dy" class="md-nav__link">
+    dy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyx" title="dyx" class="md-nav__link">
+    dyx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyy" title="dyy" class="md-nav__link">
+    dyy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyz" title="dyz" class="md-nav__link">
+    dyz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dz" title="dz" class="md-nav__link">
+    dz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzx" title="dzx" class="md-nav__link">
+    dzx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzy" title="dzy" class="md-nav__link">
+    dzy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzz" title="dzz" class="md-nav__link">
+    dzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigenvalue" title="EigenValue" class="md-nav__link">
+    EigenValue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emptymesh" title="emptymesh" class="md-nav__link">
+    emptymesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erf" title="erf" class="md-nav__link">
+    erf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erfc" title="erfc" class="md-nav__link">
+    erfc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exec" title="exec" class="md-nav__link">
+    exec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit" title="exit" class="md-nav__link">
+    exit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp" title="exp" class="md-nav__link">
+    exp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdim" title="fdim" class="md-nav__link">
+    fdim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor" title="floor" class="md-nav__link">
+    floor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmax" title="fmax" class="md-nav__link">
+    fmax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmin" title="fmin" class="md-nav__link">
+    fmin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmod" title="fmod" class="md-nav__link">
+    fmod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imag" title="imag" class="md-nav__link">
+    imag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int1d" title="int1d" class="md-nav__link">
+    int1d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int2d" title="int2d" class="md-nav__link">
+    int2d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int3d" title="int3d" class="md-nav__link">
+    int3d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intalledges" title="intalledges" class="md-nav__link">
+    intalledges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intallfaces" title="intallfaces" class="md-nav__link">
+    intallfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiff" title="invdiff" class="md-nav__link">
+    invdiff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiffnp" title="invdiffnp" class="md-nav__link">
+    invdiffnp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiffpos" title="invdiffpos" class="md-nav__link">
+    invdiffpos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isinf" title="isInf" class="md-nav__link">
+    isInf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnan" title="isNaN" class="md-nav__link">
+    isNaN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j0" title="j0" class="md-nav__link">
+    j0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j1" title="j1" class="md-nav__link">
+    j1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jn" title="jn" class="md-nav__link">
+    jn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jump" title="jump" class="md-nav__link">
+    jump
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linearcg" title="LinearCG" class="md-nav__link">
+    LinearCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lineargmres" title="LinearGMRES" class="md-nav__link">
+    LinearGMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lgamma" title="lgamma" class="md-nav__link">
+    lgamma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" title="log" class="md-nav__link">
+    log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log10" title="log10" class="md-nav__link">
+    log10
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrint" title="lrint" class="md-nav__link">
+    lrint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lround" title="lround" class="md-nav__link">
+    lround
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max" title="max" class="md-nav__link">
+    max
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min" title="min" class="md-nav__link">
+    min
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movemesh" title="movemesh" class="md-nav__link">
+    movemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nan" title="NaN" class="md-nav__link">
+    NaN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlcg" title="NLCG" class="md-nav__link">
+    NLCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on" title="on" class="md-nav__link">
+    on
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" title="plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polar" title="polar" class="md-nav__link">
+    polar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pow" title="pow" class="md-nav__link">
+    pow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projection" title="projection" class="md-nav__link">
+    projection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randinit" title="randinit" class="md-nav__link">
+    randinit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randint31" title="randint31" class="md-nav__link">
+    randint31
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randint32" title="randint32" class="md-nav__link">
+    randint32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal1" title="randreal1" class="md-nav__link">
+    randreal1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal2" title="randreal2" class="md-nav__link">
+    randreal2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal3" title="randreal3" class="md-nav__link">
+    randreal3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randres53" title="randres53" class="md-nav__link">
+    randres53
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmesh" title="readmesh" class="md-nav__link">
+    readmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmesh3" title="readmesh3" class="md-nav__link">
+    readmesh3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real" title="real" class="md-nav__link">
+    real
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rint" title="rint" class="md-nav__link">
+    rint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" title="round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#savemesh" title="savemesh" class="md-nav__link">
+    savemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" title="set" class="md-nav__link">
+    set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign" title="sign" class="md-nav__link">
+    sign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signbit" title="signbit" class="md-nav__link">
+    signbit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sin" title="sin" class="md-nav__link">
+    sin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinh" title="sinh" class="md-nav__link">
+    sinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" title="sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splitmesh" title="splitmesh" class="md-nav__link">
+    splitmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqrt" title="sqrt" class="md-nav__link">
+    sqrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#square" title="square" class="md-nav__link">
+    square
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap" title="swap" class="md-nav__link">
+    swap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" title="system" class="md-nav__link">
+    system
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tan" title="tan" class="md-nav__link">
+    tan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tanh" title="tanh" class="md-nav__link">
+    tanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tgamma" title="tgamma" class="md-nav__link">
+    tgamma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc" title="trunc" class="md-nav__link">
+    trunc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y0" title="y0" class="md-nav__link">
+    y0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y1" title="y1" class="md-nav__link">
+    y1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yn" title="yn" class="md-nav__link">
+    yn
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ExternalLibraries/" title="External libraries" class="md-nav__link">
+      External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Poisson/" title="Poisson's equation" class="md-nav__link">
+      Poisson's equation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/EquationsClassification/" title="Classification of the equations" class="md-nav__link">
+      Classification of the equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Membrane/" title="Membrane" class="md-nav__link">
+      Membrane
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatExchanger/" title="Heat Exchanger" class="md-nav__link">
+      Heat Exchanger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Acoustics/" title="Acoustics" class="md-nav__link">
+      Acoustics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ThermalConduction/" title="Thermal Conduction" class="md-nav__link">
+      Thermal Conduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FanBlade/" title="Irrotational Fan Blade Flow and Thermal effects" class="md-nav__link">
+      Irrotational Fan Blade Flow and Thermal effects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/RotatingHill/" title="Pure convection, The rotating hill" class="md-nav__link">
+      Pure convection, The rotating hill
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Elasticity/" title="The system of elasticity" class="md-nav__link">
+      The system of elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Stokes/" title="The system of Stokes for fluids" class="md-nav__link">
+      The system of Stokes for fluids
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesProjection/" title="A projection Algorithm for the Navier-Stokes equations" class="md-nav__link">
+      A projection Algorithm for the Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesNewton/" title="Newton method for the steady Navier-Stokes equations" class="md-nav__link">
+      Newton method for the steady Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ALargeFluidProblem/" title="A large fluid problem" class="md-nav__link">
+      A large fluid problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ComplexNumbers/" title="An example with complex numbers" class="md-nav__link">
+      An example with complex numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/OptimalControl/" title="Optimal control" class="md-nav__link">
+      Optimal control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FlowWithShocks/" title="A flow with shocks" class="md-nav__link">
+      A flow with shocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatEquationOptimization/" title="Time dependent schema optimization for heat equations" class="md-nav__link">
+      Time dependent schema optimization for heat equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TimeDependentStokes/" title="A transient Stokes solver in matrix form" class="md-nav__link">
+      A transient Stokes solver in matrix form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/WifiPropagation/" title="Wifi Propagation" class="md-nav__link">
+      Wifi Propagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/MatlabOctavePlot/" title="Matlab / Octave Plots" class="md-nav__link">
+      Matlab / Octave Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/StaticProblems/" title="Static problems" class="md-nav__link">
+      Static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/Elasticity/" title="Elasticity" class="md-nav__link">
+      Elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NonLinearStaticProblems/" title="Non-linear static problems" class="md-nav__link">
+      Non-linear static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/EigenValueProblems/" title="Eigenvalue problems" class="md-nav__link">
+      Eigenvalue problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/EvolutionProblems/" title="Evolution problems" class="md-nav__link">
+      Evolution problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NavierStokesEquations/" title="Navier-Stokes equations" class="md-nav__link">
+      Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/VariationalInequality/" title="Variational inequality" class="md-nav__link">
+      Variational inequality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/DomainDecomposition/" title="Domain decomposition" class="md-nav__link">
+      Domain decomposition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-nav__link">
+      Fluid-Structure coupled problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/TransmissionProblem/" title="Transmission problem" class="md-nav__link">
+      Transmission problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/FreeBoundaryProblem/" title="Free boundary problem" class="md-nav__link">
+      Free boundary problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/NonLinearElasticity/" title="Non-linear elasticity" class="md-nav__link">
+      Non-linear elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/CompressibleNeoHookeanMaterials/" title="Compressible Neo-Hookean materials" class="md-nav__link">
+      Compressible Neo-Hookean materials
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/WhisperingGalleryModes/" title="Whispering gallery modes" class="md-nav__link">
+      Whispering gallery modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../models/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abs" title="abs" class="md-nav__link">
+    abs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acos" title="acos" class="md-nav__link">
+    acos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acosh" title="acosh" class="md-nav__link">
+    acosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptmesh" title="adaptmesh" class="md-nav__link">
+    adaptmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adj" title="adj" class="md-nav__link">
+    adj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinecg" title="AffineCG" class="md-nav__link">
+    AffineCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinegmres" title="AffineGMRES" class="md-nav__link">
+    AffineGMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arg" title="arg" class="md-nav__link">
+    arg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asin" title="asin" class="md-nav__link">
+    asin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asinh" title="asinh" class="md-nav__link">
+    asinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assert" title="assert" class="md-nav__link">
+    assert
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan" title="atan" class="md-nav__link">
+    atan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan2" title="atan2" class="md-nav__link">
+    atan2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atanh" title="atanh" class="md-nav__link">
+    atanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atoi" title="atoi" class="md-nav__link">
+    atoi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atof" title="atof" class="md-nav__link">
+    atof
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bfgs" title="BFGS" class="md-nav__link">
+    BFGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buildmesh" title="buildmesh" class="md-nav__link">
+    buildmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceil" title="ceil" class="md-nav__link">
+    ceil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change" title="change" class="md-nav__link">
+    change
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chi" title="chi" class="md-nav__link">
+    chi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkmovemesh" title="checkmovemesh" class="md-nav__link">
+    checkmovemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clock" title="clock" class="md-nav__link">
+    clock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complexeigenvalue" title="complexEigenValue" class="md-nav__link">
+    complexEigenValue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conj" title="conj" class="md-nav__link">
+    conj
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convect" title="convect" class="md-nav__link">
+    convect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copysign" title="copysign" class="md-nav__link">
+    copysign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cos" title="cos" class="md-nav__link">
+    cos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosh" title="cosh" class="md-nav__link">
+    cosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diffnp" title="diffnp" class="md-nav__link">
+    diffnp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diffpos" title="diffpos" class="md-nav__link">
+    diffpos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dist" title="dist" class="md-nav__link">
+    dist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dumptable" title="dumptable" class="md-nav__link">
+    dumptable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dx" title="dx" class="md-nav__link">
+    dx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxx" title="dxx" class="md-nav__link">
+    dxx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxy" title="dxy" class="md-nav__link">
+    dxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dxz" title="dxz" class="md-nav__link">
+    dxz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dy" title="dy" class="md-nav__link">
+    dy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyx" title="dyx" class="md-nav__link">
+    dyx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyy" title="dyy" class="md-nav__link">
+    dyy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dyz" title="dyz" class="md-nav__link">
+    dyz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dz" title="dz" class="md-nav__link">
+    dz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzx" title="dzx" class="md-nav__link">
+    dzx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzy" title="dzy" class="md-nav__link">
+    dzy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dzz" title="dzz" class="md-nav__link">
+    dzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigenvalue" title="EigenValue" class="md-nav__link">
+    EigenValue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emptymesh" title="emptymesh" class="md-nav__link">
+    emptymesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erf" title="erf" class="md-nav__link">
+    erf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erfc" title="erfc" class="md-nav__link">
+    erfc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exec" title="exec" class="md-nav__link">
+    exec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit" title="exit" class="md-nav__link">
+    exit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp" title="exp" class="md-nav__link">
+    exp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdim" title="fdim" class="md-nav__link">
+    fdim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor" title="floor" class="md-nav__link">
+    floor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmax" title="fmax" class="md-nav__link">
+    fmax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmin" title="fmin" class="md-nav__link">
+    fmin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fmod" title="fmod" class="md-nav__link">
+    fmod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imag" title="imag" class="md-nav__link">
+    imag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int1d" title="int1d" class="md-nav__link">
+    int1d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int2d" title="int2d" class="md-nav__link">
+    int2d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int3d" title="int3d" class="md-nav__link">
+    int3d
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intalledges" title="intalledges" class="md-nav__link">
+    intalledges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intallfaces" title="intallfaces" class="md-nav__link">
+    intallfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiff" title="invdiff" class="md-nav__link">
+    invdiff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiffnp" title="invdiffnp" class="md-nav__link">
+    invdiffnp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invdiffpos" title="invdiffpos" class="md-nav__link">
+    invdiffpos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isinf" title="isInf" class="md-nav__link">
+    isInf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnan" title="isNaN" class="md-nav__link">
+    isNaN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j0" title="j0" class="md-nav__link">
+    j0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j1" title="j1" class="md-nav__link">
+    j1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jn" title="jn" class="md-nav__link">
+    jn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jump" title="jump" class="md-nav__link">
+    jump
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linearcg" title="LinearCG" class="md-nav__link">
+    LinearCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lineargmres" title="LinearGMRES" class="md-nav__link">
+    LinearGMRES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lgamma" title="lgamma" class="md-nav__link">
+    lgamma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" title="log" class="md-nav__link">
+    log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log10" title="log10" class="md-nav__link">
+    log10
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lrint" title="lrint" class="md-nav__link">
+    lrint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lround" title="lround" class="md-nav__link">
+    lround
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max" title="max" class="md-nav__link">
+    max
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min" title="min" class="md-nav__link">
+    min
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movemesh" title="movemesh" class="md-nav__link">
+    movemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nan" title="NaN" class="md-nav__link">
+    NaN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlcg" title="NLCG" class="md-nav__link">
+    NLCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on" title="on" class="md-nav__link">
+    on
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" title="plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polar" title="polar" class="md-nav__link">
+    polar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pow" title="pow" class="md-nav__link">
+    pow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projection" title="projection" class="md-nav__link">
+    projection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randinit" title="randinit" class="md-nav__link">
+    randinit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randint31" title="randint31" class="md-nav__link">
+    randint31
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randint32" title="randint32" class="md-nav__link">
+    randint32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal1" title="randreal1" class="md-nav__link">
+    randreal1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal2" title="randreal2" class="md-nav__link">
+    randreal2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randreal3" title="randreal3" class="md-nav__link">
+    randreal3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randres53" title="randres53" class="md-nav__link">
+    randres53
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmesh" title="readmesh" class="md-nav__link">
+    readmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmesh3" title="readmesh3" class="md-nav__link">
+    readmesh3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real" title="real" class="md-nav__link">
+    real
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rint" title="rint" class="md-nav__link">
+    rint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" title="round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#savemesh" title="savemesh" class="md-nav__link">
+    savemesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" title="set" class="md-nav__link">
+    set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign" title="sign" class="md-nav__link">
+    sign
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signbit" title="signbit" class="md-nav__link">
+    signbit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sin" title="sin" class="md-nav__link">
+    sin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinh" title="sinh" class="md-nav__link">
+    sinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" title="sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splitmesh" title="splitmesh" class="md-nav__link">
+    splitmesh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqrt" title="sqrt" class="md-nav__link">
+    sqrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#square" title="square" class="md-nav__link">
+    square
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap" title="swap" class="md-nav__link">
+    swap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" title="system" class="md-nav__link">
+    system
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tan" title="tan" class="md-nav__link">
+    tan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tanh" title="tanh" class="md-nav__link">
+    tanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tgamma" title="tgamma" class="md-nav__link">
+    tgamma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc" title="trunc" class="md-nav__link">
+    trunc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y0" title="y0" class="md-nav__link">
+    y0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y1" title="y1" class="md-nav__link">
+    y1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yn" title="yn" class="md-nav__link">
+    yn
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FreeFem/FreeFem-doc/edit/master/docs/reference/Functions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Functions</h1>
+                
+                <!--
+## function
+
+wzxhzdk:0
+
+<u>Parameters:</u>
+
+-
+
+<u>Output:</u>
+
+-
+-->
+
+<h2 id="abs">abs<a class="headerlink" href="#abs" title="Permanent link">#</a></h2>
+<p>Return the absolute value.</p>
+<div class="codehilite"><pre><span></span>real a = abs(b);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="acos">acos<a class="headerlink" href="#acos" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\arccos</span><script type="math/tex">\arccos</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = acos(x);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arccos function" src="../images/arccos.svg" /></p>
+<h2 id="acosh">acosh<a class="headerlink" href="#acosh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\DeclareMathOperator\arccosh{arccosh}</span><script type="math/tex">\DeclareMathOperator\arccosh{arccosh}</script></span>
+<span><span class="MathJax_Preview">\arccosh</span><script type="math/tex">\arccosh</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = acosh(x);
+</pre></div></p>
+<div>
+<div class="MathJax_Preview">
+\arccosh(x) = \ln\left(x + \sqrt{x^2-1}\right)
+</div>
+<script type="math/tex; mode=display">
+\arccosh(x) = \ln\left(x + \sqrt{x^2-1}\right)
+</script>
+</div>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arccosh function" src="../images/arccosh.svg" /></p>
+<h2 id="adaptmesh">adaptmesh<a class="headerlink" href="#adaptmesh" title="Permanent link">#</a></h2>
+<p>Mesh adaptation function.
+<div class="codehilite"><pre><span></span>mesh Thnew = adaptmesh(Th, [fx, fy], hmin=HMin, hmax=HMax, err=Err, errg=ErrG, nbvx=NbVx, nbsmooth=NbSmooth, nbjacoby=NbJacoby, ratio=Ratio, omega=Omega, iso=Iso, abserror=AbsError, cutoff=CutOff, verbosity=Verbosity, inquire=Inquire, splitpbedge=SplitPbEdge, maxsubdiv=MaxSubdiv, rescaling=Rescaling, keepbackvertices=KeepBackVertices, IsMetric=isMetric, power=Power, thetamax=ThetaMax, splitin2=SplitIn2, metric=Metric, nomeshgeneration=NoMeshGeneration, periodic=Periodic);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Mesh to refine</li>
+<li><code>[fx, fy]</code> (<code class="codehilite">func</code> or <code class="codehilite">fespace</code> function), scalar or vectorial<br/>
+ Function to follow for the mesh adaptation</li>
+<li><em><code class="codehilite">hmin=</code></em> (<code class="codehilite">real</code>)<br/>
+ Minimum edge size</li>
+<li><em><code class="codehilite">hmax=</code></em> (<code class="codehilite">real</code>)<br/>
+ Maximum edge size</li>
+<li><em><code class="codehilite">err=</code></em> (<code class="codehilite">real</code>)<br/>
+ Error level (P1 interpolation)</li>
+<li><em><code class="codehilite">errg=</code></em> (<code class="codehilite">real</code>)<br/>
+ Relative geometrical error</li>
+<li><em><code class="codehilite">nbvx=</code></em> (<code class="codehilite">int</code>)<br/>
+ Maximum number of vertices</li>
+<li><em><code class="codehilite">nbsmooth=</code></em> (<code class="codehilite">int</code>)<br/>
+ Number of smoothing iterations</li>
+<li><em><code class="codehilite">nbjacoby=</code></em> (<code class="codehilite">int</code>)<br/>
+ Number of iterations for the smoothing procedure</li>
+<li><em><code class="codehilite">ratio=</code></em> (<code class="codehilite">real</code>)<br/>
+ Ratio of the triangles</li>
+<li><em><code class="codehilite">omega=</code></em> (<code class="codehilite">real</code>)<br/>
+ Relaxation parameter for the smoothing procedure</li>
+<li><em><code class="codehilite">iso=</code></em> (<code class="codehilite">bool</code>)<br/>
+ Isotropic adaptation (if true)</li>
+<li><em><code class="codehilite">abserror=</code></em> (<code class="codehilite">bool</code>)<br/>
+ Error (if true) - Relative error (if false)</li>
+<li><em><code class="codehilite">cutoff=</code></em> (<code class="codehilite">real</code>)<br/>
+ Lower limit of the relative error evaluation</li>
+<li><em><code class="codehilite">verbosity=</code></em> (<code class="codehilite">real</code>)<br/>
+ Verbosity level</li>
+<li><em><code class="codehilite">inquire=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, inquire graphically</li>
+<li><em><code class="codehilite">splitpbedge=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, split all internal edges in half</li>
+<li><em><code class="codehilite">maxsubdiv=</code></em> (<code class="codehilite">int</code>)<br/>
+ Bound the maximum subdivisions</li>
+<li><em><code class="codehilite">rescaling=</code></em> (<code class="codehilite">bool</code>)<br/>
+ Rescale the function in [0, 1]</li>
+<li><em><code class="codehilite">keepbackvertices=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, try to keep vertices of the original mesh</li>
+<li><em><code class="codehilite">IsMetric=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, the metric is defined explicitly</li>
+<li><em><code class="codehilite">power=</code></em> (<code class="codehilite">int</code>)<br/>
+ Exponent of the Hessian</li>
+<li><em><code class="codehilite">thetamax=</code></em> (<code class="codehilite">int</code>)<br/>
+ Minimum corner angle (in degree)</li>
+<li><em><code class="codehilite">splitin2=</code></em> (<code class="codehilite">bool</code>)<br/>
+ Split all triangles into 4 sub-triangles if true</li>
+<li><em><code class="codehilite">metric=</code></em> (<code class="codehilite">[real[int], real[int], real[int]]</code>)<br/>
+ Array of 3 real arrays defining the metric</li>
+<li><em><code class="codehilite">nomeshgeneration=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, the mesh is not generated</li>
+<li><em><code class="codehilite">periodic=</code></em> (<code class="codehilite">real[int, int]</code>)<br/>
+ Build an adapted periodic mesh</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Thnew</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)</li>
+</ul>
+<h2 id="adj">adj<a class="headerlink" href="#adj" title="Permanent link">#</a></h2>
+<p>Adjacent triangle of the triangle <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> by the edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>
+<div class="codehilite"><pre><span></span>int T = Th[k].adj(e);
+</pre></div>
+<u>Parameter:</u></p>
+<ul>
+<li><code>e</code> (<code class="codehilite">int</code>)<br/>
+ Edge number</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>T</code> (<code class="codehilite">int</code>)<br/>
+ Triangle number</li>
+</ul>
+<h2 id="affinecg">AffineCG<a class="headerlink" href="#affinecg" title="Permanent link">#</a></h2>
+<p>Affine conjugate gradient solver</p>
+<p>Used to solve a problem like <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span></p>
+<div class="codehilite"><pre><span></span>int Conv = AffineCG(A, x, precon=Precon, nbiter=NbIter, eps=Eps, veps=VEps, stop=Stop);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>A</code> (<code class="codehilite">matrix</code>)<br/>
+ Matrix of the problem <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span></li>
+<li><code>x</code> (<code class="codehilite">real[int]</code>)<br/>
+ Solution vector</li>
+<li><em><code class="codehilite">precon=</code></em> (<code class="codehilite">real[int]</code>)<br/>
+ Preconditionning function</li>
+<li><em><code class="codehilite">nbiter=</code></em> (<code class="codehilite">int</code>)<br/>
+ Maximum number of iterations</li>
+<li><em><code class="codehilite">eps=</code></em> (<code class="codehilite">real</code>)<br/>
+ Convergence criterion<br/>
+ If <span><span class="MathJax_Preview">\varepsilon&gt;0</span><script type="math/tex">\varepsilon>0</script></span>: test <span><span class="MathJax_Preview">||A(x)||_p \leq \epsilon||A(x_0)||_p</span><script type="math/tex">||A(x)||_p \leq \epsilon||A(x_0)||_p</script></span><br/>
+ If <span><span class="MathJax_Preview">\varepsilon&lt;0</span><script type="math/tex">\varepsilon<0</script></span>: test <span><span class="MathJax_Preview">||A(x)||_p^2 \leq |\epsilon|</span><script type="math/tex">||A(x)||_p^2 \leq |\epsilon|</script></span></li>
+<li><em><code class="codehilite">veps=</code></em> (<code class="codehilite">real</code>)<br/>
+ Same as <code>eps</code>, but return <code>-eps</code></li>
+<li><em><code class="codehilite">stop=</code></em> (<code class="codehilite">func</code>)<br/>
+ Convergence criterion as a function<br/>
+ Prototype is <code class="codehilite">func bool StopFunc (int Iter, real[int] U, real[int] g)</code><br/>
+ <code>u</code>: current solution, <code>g</code>: current gradient (not preconditionned)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Conv (int)<br/>
+ 0: converged - !0: not converged</li>
+</ul>
+<h2 id="affinegmres">AffineGMRES<a class="headerlink" href="#affinegmres" title="Permanent link">#</a></h2>
+<p>Affine GMRES solver</p>
+<p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
+<h2 id="arg">arg<a class="headerlink" href="#arg" title="Permanent link">#</a></h2>
+<p>Return the argument of a complex number.</p>
+<div class="codehilite"><pre><span></span>real a = arg(c);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>c</code> (<code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="asin">asin<a class="headerlink" href="#asin" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\arcsin</span><script type="math/tex">\arcsin</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = asin(x);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arcsin function" src="../images/arcsin.svg" /></p>
+<h2 id="asinh">asinh<a class="headerlink" href="#asinh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\DeclareMathOperator\arcsinh{arcsinh}</span><script type="math/tex">\DeclareMathOperator\arcsinh{arcsinh}</script></span>
+<span><span class="MathJax_Preview">\arcsinh</span><script type="math/tex">\arcsinh</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = asinh(x);
+</pre></div></p>
+<div>
+<div class="MathJax_Preview">
+\arcsinh(x) = \ln\left(x + \sqrt{x^2+1}\right)
+</div>
+<script type="math/tex; mode=display">
+\arcsinh(x) = \ln\left(x + \sqrt{x^2+1}\right)
+</script>
+</div>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arcsinh function" src="../images/arcsinh.svg" /></p>
+<h2 id="assert">assert<a class="headerlink" href="#assert" title="Permanent link">#</a></h2>
+<p>Verify a condition is true (same as C), if not the program stops.</p>
+<div class="codehilite"><pre><span></span>assert(x==0)
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li>Bollean condition</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="atan">atan<a class="headerlink" href="#atan" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\arctan</span><script type="math/tex">\arctan</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = atan(x);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arctan function" src="../images/arctan.svg" /></p>
+<h2 id="atan2">atan2<a class="headerlink" href="#atan2" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\displaystyle{\arctan\left(\frac{y}{x}\right)}</span><script type="math/tex">\displaystyle{\arctan\left(\frac{y}{x}\right)}</script></span> function, returning the correct sign for <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>.
+<div class="codehilite"><pre><span></span>real theta = atan2(y, x)
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="atanh">atanh<a class="headerlink" href="#atanh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\DeclareMathOperator\arctanh{arctanh}</span><script type="math/tex">\DeclareMathOperator\arctanh{arctanh}</script></span>
+<span><span class="MathJax_Preview">\arctanh</span><script type="math/tex">\arctanh</script></span> function.
+<div class="codehilite"><pre><span></span>real theta = atanh(x);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="arctanh function" src="../images/arctanh.svg" /></p>
+<h2 id="atoi">atoi<a class="headerlink" href="#atoi" title="Permanent link">#</a></h2>
+<p>Convert a string to an interger.</p>
+<div class="codehilite"><pre><span></span>int a = atoi(s);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>s</code> (<code class="codehilite">string</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="atof">atof<a class="headerlink" href="#atof" title="Permanent link">#</a></h2>
+<p>Convert a string to an real.</p>
+<div class="codehilite"><pre><span></span>real a = atof(s);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>s</code> (<code class="codehilite">string</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="bfgs">BFGS<a class="headerlink" href="#bfgs" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
+<h2 id="buildmesh">buildmesh<a class="headerlink" href="#buildmesh" title="Permanent link">#</a></h2>
+<p>Build a 2D mesh using border elements.
+<div class="codehilite"><pre><span></span>mesh Th = buildmesh(b1(nn) + b2(nn) + b3(nn) + b4(nn), [nbvx=Nbvx], [fixedborder=FixedBorder]);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>b1</code>, <code>b2</code>, <code>b3</code>, <code>b4</code> (<code class="codehilite">border</code>)<br/>
+ Geometry border, <code>b1(nn)</code> mean <code>b1</code> border discretize by <code>nn</code> vertices</li>
+<li><em><code class="codehilite">nbvx=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Maximum number of vertices<br/>
+ Default: 9000</li>
+<li><em><code class="codehilite">fixedborder=</code></em> (<code class="codehilite">bool</code>) <em>[Optional]</em><br/>
+ If true, mesh generator can not change the boundary mesh<br/>
+ Default: <code class="codehilite">false</code>
+ <!--- - _<code class="codehilite">wzxhzdk:1233</code>_ (<code class="codehilite">wzxhzdk:1234</code>) _[Deprecated]_ ---></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Resulting mesh</li>
+</ul>
+<h2 id="ceil">ceil<a class="headerlink" href="#ceil" title="Permanent link">#</a></h2>
+<p>Round fractions up of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.
+<div class="codehilite"><pre><span></span>int c = ceil(x);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>c</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="change">change<a class="headerlink" href="#change" title="Permanent link">#</a></h2>
+<p>Change a property of a mesh.
+<div class="codehilite"><pre><span></span>int[int] L = [0, 1];
+Thnew = change(Th, label=L);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li>
+<p><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Original mesh</p>
+</li>
+<li>
+<p><em><code class="codehilite">label=</code></em> L (<code class="codehilite">int[int]</code>)<br/>
+ Pair of old and new label</p>
+</li>
+<li><em><code class="codehilite">region=</code></em> R (<code class="codehilite">int[int]</code>)<br/>
+ Pair of old and new region</li>
+<li><em><code class="codehilite">flabel=</code></em> l (<code class="codehilite">func int</code>)<br/>
+ Function of int given the new label</li>
+<li><em><code class="codehilite">fregion=</code></em> r (<code class="codehilite">func int</code>)</br>
+ Function of int given the new region</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code class="codehilite">Thnew</code> (<code class="codehilite">mesh</code>)
+ Mesh with changed parameters</li>
+</ul>
+<h2 id="chi">chi<a class="headerlink" href="#chi" title="Permanent link">#</a></h2>
+<p>Characteristic function of a mesh.</p>
+<div class="codehilite"><pre><span></span>int IsInMesh = chi(Th)(x, y);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)</li>
+<li><code>x</code> (<code class="codehilite">real</code>)<br/>
+ Position <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li><code>y</code> (<code class="codehilite">real</code>)
+ Position <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>IsInMesh</code> (<code class="codehilite">int</code>)<br/>
+ 1 if <span><span class="MathJax_Preview">(x,y)\in</span><script type="math/tex">(x,y)\in</script></span> <code>Th</code><br/>
+ 0 if <span><span class="MathJax_Preview">(x,y)\not\in</span><script type="math/tex">(x,y)\not\in</script></span> <code>Th</code></li>
+</ul>
+<h2 id="checkmovemesh">checkmovemesh<a class="headerlink" href="#checkmovemesh" title="Permanent link">#</a></h2>
+<p>Check a <a href="#movemesh"><code class="codehilite">movemesh</code></a> without mesh generation.</p>
+<div class="codehilite"><pre><span></span>real minT = checkmovemesh(Th, [Dx, Dy]);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<p>Same as <a href="#movemesh"><code class="codehilite">movemesh</code></a></p>
+<p><u>Output:</u></p>
+<ul>
+<li><code>minT</code> (<code class="codehilite">real</code>)<br/>
+ Minimum triangle area</li>
+</ul>
+<h2 id="clock">clock<a class="headerlink" href="#clock" title="Permanent link">#</a></h2>
+<p>Get the clock in second.
+<div class="codehilite"><pre><span></span>real t = clock();
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>t</code> (<code class="codehilite">real</code>)<br/>
+ Current CPU time</li>
+</ul>
+<h2 id="complexeigenvalue">complexEigenValue<a class="headerlink" href="#complexeigenvalue" title="Permanent link">#</a></h2>
+<p>Same as <a href="#EigenValue"><code class="codehilite">EigenValue</code></a> for complex problems.</p>
+<h2 id="conj">conj<a class="headerlink" href="#conj" title="Permanent link">#</a></h2>
+<p>Caculate the conjuguate of a complex number.
+<div class="codehilite"><pre><span></span>complex C1 = 1 + 1i;
+complex C2 = conj(C1);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>C1</code> (<code class="codehilite">complex</code>)<br/>
+ Complex number</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>C2</code> (<code class="codehilite">complex</code>)<br/>
+ Conjuguate of C1</li>
+</ul>
+<h2 id="convect">convect<a class="headerlink" href="#convect" title="Permanent link">#</a></h2>
+<p>Characteristics Galerkin method.</p>
+<div class="codehilite"><pre><span></span>real cgm = convect([Ux, Uy], dt, c);
+real cgm = convect([Ux, Uy, Uz], dt, c);
+</pre></div>
+
+<p>Compute <span><span class="MathJax_Preview">c\circ \mathbf{X}</span><script type="math/tex">c\circ \mathbf{X}</script></span> with <span><span class="MathJax_Preview">\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}</span><script type="math/tex">\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}</script></span> and <span><span class="MathJax_Preview">\mathbf{x}_{\tau}</span><script type="math/tex">\mathbf{x}_{\tau}</script></span> is the solution of:
+<script type="math/tex; mode=display">\begin{eqnarray}
+    \dot{\mathbf{x}}_{\tau} &=& \mathbf{u}(\mathbf{x}_{\tau})\\
+    \mathbf{x}_{\tau} &=& \mathbf{x}
+\end{eqnarray}</script>
+</p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>ux</code> (<code class="codehilite">fespace</code> function)<br/>
+ Velocity: <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> component</li>
+<li><code>uy</code> (<code class="codehilite">fespace</code> function)<br/>
+ Velocity: <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> component</li>
+<li><code>uz</code> (<code class="codehilite">fespace</code> function) <strong>3D only</strong><br/>
+ Velocity: <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> component</li>
+<li><code>dt</code> (<code class="codehilite">real</code>)<br/>
+ Time step</li>
+<li><code>c</code> (<code class="codehilite">fespace</code> function)<br/>
+ Function to convect</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>cgm</code> (<code class="codehilite">real</code>)<br/>
+ Result</li>
+</ul>
+<h2 id="copysign">copysign<a class="headerlink" href="#copysign" title="Permanent link">#</a></h2>
+<p>C++ <code class="codehilite"><span class="n">copysign</span></code> function.</p>
+<div class="codehilite"><pre><span></span>real s = copysign(a, b);
+</pre></div>
+
+<h2 id="cos">cos<a class="headerlink" href="#cos" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\cos</span><script type="math/tex">\cos</script></span> function.</p>
+<div class="codehilite"><pre><span></span>real x = cos(theta);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><img alt="cos function" src="../images/cos.svg" /></p>
+<h2 id="cosh">cosh<a class="headerlink" href="#cosh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\cosh</span><script type="math/tex">\cosh</script></span> function.</p>
+<div class="codehilite"><pre><span></span>real x = cosh(theta);
+</pre></div>
+
+<div>
+<div class="MathJax_Preview">
+\cosh(x) = \frac{e^x + e^{-x}}{2}
+</div>
+<script type="math/tex; mode=display">
+\cosh(x) = \frac{e^x + e^{-x}}{2}
+</script>
+</div>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="diffnp">diffnp<a class="headerlink" href="#diffnp" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>diffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? (b-a) : 0;
+</pre></div></p>
+<h2 id="diffpos">diffpos<a class="headerlink" href="#diffpos" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>diffpos(a, b) = max(b-a, 0);
+</pre></div></p>
+<h2 id="dist">dist<a class="headerlink" href="#dist" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>dist(a, b) = sqrt(a^2 + b^2);
+dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
+</pre></div></p>
+<h2 id="dumptable">dumptable<a class="headerlink" href="#dumptable" title="Permanent link">#</a></h2>
+<p>Show all types, operators and functions in <strong><code>FreeFem++</code></strong>.</p>
+<div class="codehilite"><pre><span></span>dumptable(out);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>out</code> (<code class="codehilite"><span class="n">ostream</span></code>)<br/>
+    <code class="codehilite">cout</code> of <code class="codehilite">ofstream</code> file.</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="dx">dx<a class="headerlink" href="#dx" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh up = dx(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial u}{\partial x}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>up</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dxx">dxx<a class="headerlink" href="#dxx" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> double derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dxx(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial x^2}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dxy">dxy<a class="headerlink" href="#dxy" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dxy(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial x\partial y}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dxz">dxz<a class="headerlink" href="#dxz" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">xz</span><script type="math/tex">xz</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dxz(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial x\partial z}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dy">dy<a class="headerlink" href="#dy" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh up = dy(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial u}{\partial y}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dyx">dyx<a class="headerlink" href="#dyx" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">yx</span><script type="math/tex">yx</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dyx(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial y\partial x}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dyy">dyy<a class="headerlink" href="#dyy" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> double derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dyy(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial x^2}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dyz">dyz<a class="headerlink" href="#dyz" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">yz</span><script type="math/tex">yz</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dyz(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial y\partial z}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dz">dz<a class="headerlink" href="#dz" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh up = dz(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial u}{\partial z}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dzx">dzx<a class="headerlink" href="#dzx" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">zx</span><script type="math/tex">zx</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dzx(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial z\partial x}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dzy">dzy<a class="headerlink" href="#dzy" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">zy</span><script type="math/tex">zy</script></span> derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dzy(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial z\partial y}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="dzz">dzz<a class="headerlink" href="#dzz" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> double derivative.</p>
+<p><div class="codehilite"><pre><span></span>Uh upp = dzz(u);
+</pre></div>
+<script type="math/tex; mode=display">
+\frac{\partial^2 u}{\partial z^2}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>upp</code> (<code class="codehilite">fespace</code> function)</li>
+</ul>
+<h2 id="eigenvalue">EigenValue<a class="headerlink" href="#eigenvalue" title="Permanent link">#</a></h2>
+<p>Compute the generalized eigenvalue of <span><span class="MathJax_Preview">Au=\lambda Bu</span><script type="math/tex">Au=\lambda Bu</script></span>.</p>
+<div class="codehilite"><pre><span></span>int Res = EigenValue()
+</pre></div>
+
+<p><span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
+<h2 id="emptymesh">emptymesh<a class="headerlink" href="#emptymesh" title="Permanent link">#</a></h2>
+<p>Build an empty mesh.</p>
+<p>Useful to handle Lagrange multipliers in mixed and Mortar methods.
+<div class="codehilite"><pre><span></span>mesh eTh = emptymesh(Th, ssd);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Mesh to empty</li>
+<li><code>ssd</code> (<code class="codehilite">int[int]</code>)<br/>
+ Pseudo subregion label</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>eTh</code> (<code class="codehilite">mesh</code>)<br/>
+ Empty mesh</li>
+</ul>
+<h2 id="erf">erf<a class="headerlink" href="#erf" title="Permanent link">#</a></h2>
+<p>The error function:
+<script type="math/tex; mode=display">
+erf(x) = \frac{2}{\sqrt{pi}}\int_{0}^{x}{\exp(-t^2)dt}
+</script>
+<div class="codehilite"><pre><span></span>real err = erf(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>err</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="erfc">erfc<a class="headerlink" href="#erfc" title="Permanent link">#</a></h2>
+<p>Complementary of the <a href="#erf">error function</a>:
+<script type="math/tex; mode=display">
+erfc(x) = 1-erf(x)
+</script>
+<div class="codehilite"><pre><span></span>real errc = erfc(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>err</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="exec">exec<a class="headerlink" href="#exec" title="Permanent link">#</a></h2>
+<p>Execute an external command.
+<div class="codehilite"><pre><span></span>int v = exec(command);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>command</code> (<code class="codehilite">string</code>)<br/>
+ Command to execute</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>v</code> (<code class="codehilite">int</code>)<br/>
+ Value returned by the command</li>
+</ul>
+<h2 id="exit">exit<a class="headerlink" href="#exit" title="Permanent link">#</a></h2>
+<p>Exit function, equivalent to <code>return</code>.
+<div class="codehilite"><pre><span></span>exit(N);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>N</code> (<code class="codehilite">int</code>)<br/>
+ Return value</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="exp">exp<a class="headerlink" href="#exp" title="Permanent link">#</a></h2>
+<p>Exponential function.
+<div class="codehilite"><pre><span></span>real a = exp(b);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<h2 id="fdim">fdim<a class="headerlink" href="#fdim" title="Permanent link">#</a></h2>
+<p>Positive difference (<code>cmath</code> function).
+<div class="codehilite"><pre><span></span>real fd = fdim(a, b);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>fd</code> (<code class="codehilite">real</code>)<br/>
+ If <span><span class="MathJax_Preview">x &gt; y</span><script type="math/tex">x > y</script></span>, return <span><span class="MathJax_Preview">x-y</span><script type="math/tex">x-y</script></span><br/>
+ If <span><span class="MathJax_Preview">x \leq y</span><script type="math/tex">x \leq y</script></span>, return <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></li>
+</ul>
+<h2 id="floor">floor<a class="headerlink" href="#floor" title="Permanent link">#</a></h2>
+<p>Floor function.
+<div class="codehilite"><pre><span></span>real a = floor(b);
+</pre></div>
+Return the largest integer value not greater than <code>b</code>.</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="fmax">fmax<a class="headerlink" href="#fmax" title="Permanent link">#</a></h2>
+<p>Maximum (<code>cmath</code> function).
+<div class="codehilite"><pre><span></span>real Max = fmax(a, b);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Max</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="fmin">fmin<a class="headerlink" href="#fmin" title="Permanent link">#</a></h2>
+<p>Minimum (<code>cmath</code> function).
+<div class="codehilite"><pre><span></span>real Min = fmin(a, b);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Min</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="fmod">fmod<a class="headerlink" href="#fmod" title="Permanent link">#</a></h2>
+<p>Remainder of <span><span class="MathJax_Preview">a/b</span><script type="math/tex">a/b</script></span> (<code>cmath</code> function).
+<div class="codehilite"><pre><span></span>real Mod = fmod(a, b);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Min</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Mod</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="imag">imag<a class="headerlink" href="#imag" title="Permanent link">#</a></h2>
+<p>Imaginary part of a complex number.
+<div class="codehilite"><pre><span></span>complex c = 1. + 1i;
+real Im = imag(c);
+</pre></div></p>
+<h2 id="int1d">int1d<a class="headerlink" href="#int1d" title="Permanent link">#</a></h2>
+<p>1D integral.
+<div class="codehilite"><pre><span></span>int1d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Mesh where the integral is calculated</li>
+<li><code>Label</code> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label of the 1D border<br/>
+ Default: all borders of the mesh</li>
+<li><em><code class="codehilite">qfe=</code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature formula, see <a href="QuadratureFormulae/#int1d">quadrature formulae</a></li>
+<li><em><code class="codehilite">qforder=</code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature order, see <a href="QuadratureFormulae/#int1d">quadrature formulae</a></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Depending on the situation:<br/>
+ In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition: Non relevant.<br/>
+ Outside: <code class="codehilite">real</code> (example: <code class="codehilite">real l = int1d(Th, 1)(1.);</code>).</li>
+</ul>
+<div class="admonition warning">
+<p>In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition, the content of <code>int1d</code> must be a linear or bilinear form.</p>
+</div>
+<h2 id="int2d">int2d<a class="headerlink" href="#int2d" title="Permanent link">#</a></h2>
+<p>2D integral.
+<div class="codehilite"><pre><span></span>int2d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+Or
+<div class="codehilite"><pre><span></span>int2d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to:
+ - Calculate integral in 2D simulation
+ - Impose a boundary condition in 3D simulation
+Or outside to calculate a quantity.</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)<br/>
+ Mesh where the integral is calculated</li>
+<li><code>Region</code> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label of the 2D region (2D simulation)<br/>
+ Default: all regions of the mesh</li>
+<li><code>Label</code> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label of the 2D border (3D simulation)<br/>
+ Default: all borders of the mesh</li>
+<li><em><code class="codehilite">qfe=</code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) _[Optional]<br/>
+ Quadrature formula, see <a href="QuadratureFormulae/#int2d">quadrature formulae</a></li>
+<li><em><code class="codehilite">qforder</code>=</em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature order, see <a href="QuadratureFormulae/#int2d">quadrature formulae</a></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Depending on the situation:<br/>
+ In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition: Non relevant.<br/>
+ Outside: <code class="codehilite">real</code> (example: <code class="codehilite">real s = int2d(Th, 1)(1.);</code>).</li>
+</ul>
+<div class="admonition warning">
+<p>In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition, the content of the <code class="codehilite">int2d</code> must be a linear or bilinear form.</p>
+</div>
+<h2 id="int3d">int3d<a class="headerlink" href="#int3d" title="Permanent link">#</a></h2>
+<p>3D integral.
+<div class="codehilite"><pre><span></span>int3d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+    ...
+)
+</pre></div>
+Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to calculate integral in 3D simulation, or outside to calculate a quantity.</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh3</code>)<br/>
+ Mesh where the integral is calculated</li>
+<li><code>Region</code> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label of the 3D region<br/>
+ Default: all regions of the mesh</li>
+<li><em><code class="codehilite">qfe</code>=</em> (<a href="../QuadratureFormulae">quadrature formula</a>) _[Optional]<br/>
+ Quadrature formula, see <a href="QuadratureFormulae/#int3d">quadrature formulae</a></li>
+<li><em><code class="codehilite">qforder=</code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature order, see <a href="QuadratureFormulae/#int3d">quadrature formulae</a></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Depending on the situation:<br/>
+  In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition: Non relevant.<br/>
+  Outside: <code class="codehilite">real</code> (example: <code class="codehilite">real v = int3d(Th, 1)(1.);</code>).</li>
+</ul>
+<div class="admonition warning">
+<p>In a <code class="codehilite">problem</code>, <code class="codehilite">solve</code> or <code class="codehilite">varf</code> definition, the content of the <code class="codehilite">int3d</code> must be a linear or bilinear form.</p>
+</div>
+<h2 id="intalledges">intalledges<a class="headerlink" href="#intalledges" title="Permanent link">#</a></h2>
+<p>Integral on all edges.</p>
+<div class="codehilite"><pre><span></span>intalledges(Th, [Region])(
+    ...
+)
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
+ Mesh where the integral is calculated</li>
+<li><code>Region</code> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label of the region<br/>
+ Default: all regions of the mesh</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Non relevant</li>
+</ul>
+<h2 id="intallfaces">intallfaces<a class="headerlink" href="#intallfaces" title="Permanent link">#</a></h2>
+<p>Intergal on all faces.</p>
+<p>Same as <a href="#intalledges"><code class="codehilite">intalledges</code></a> for <code class="codehilite">mesh3</code>.</p>
+<h2 id="interpolate">interpolate<a class="headerlink" href="#interpolate" title="Permanent link">#</a></h2>
+<p>Interpolation operator from a finite element space to another.</p>
+<div class="codehilite"><pre><span></span>matrix I = interpolate(Wh, Vh, [inside=Inside], [t=T], [op=Op], [U2Vc=U2VC]);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Wh</code> (<code class="codehilite">fespace</code>)<br/>
+ Target finite element space</li>
+<li><code>Vh</code> (<code class="codehilite">fespace</code>)<br/>
+ Original finite element space</li>
+<li><em><code class="codehilite">inside=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, create a zero extension outside the <code>Vh</code> domain</li>
+<li><em><code class="codehilite">t=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, return the transposed matrix</li>
+<li><em><code class="codehilite">op=</code></em> (<code class="codehilite">int</code>)<br/>
+ 0: interpolate the function (default value)<br/>
+ 1: interpolate <span><span class="MathJax_Preview">\partial_x</span><script type="math/tex">\partial_x</script></span>
+ 2: interpolate <span><span class="MathJax_Preview">\partial_y</span><script type="math/tex">\partial_y</script></span>
+ 3: interpolate <span><span class="MathJax_Preview">\partial_z</span><script type="math/tex">\partial_z</script></span></li>
+<li><em><code class="codehilite">U2Vc=</code></em> (<code class="codehilite">int[int]</code>)<br/>
+ Array of the same size of <code>Wh</code> describing which component of <code>Vh</code>is interpolated in <code>Wh</code></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>I</code> (<code class="codehilite">matrix</code>)<br/>
+ Interpolation matrix operator</li>
+</ul>
+<h2 id="invdiff">invdiff<a class="headerlink" href="#invdiff" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>invdif(a, b) = (-abs(a-b) &gt; 10^(-30)) ? 1(/b-a) : 0
+invdif(a, b, e) = (-abs(a-b) &gt; e) ? 1(/b-a) : 0
+</pre></div></p>
+<h2 id="invdiffnp">invdiffnp<a class="headerlink" href="#invdiffnp" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>invdiffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? 1/(b-a) : 0
+</pre></div></p>
+<h2 id="invdiffpos">invdiffpos<a class="headerlink" href="#invdiffpos" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.
+<div class="codehilite"><pre><span></span>invdiffpos(a, b) = (a&lt;b) ? 1./(b-a) : 0
+</pre></div></p>
+<h2 id="isinf">isInf<a class="headerlink" href="#isinf" title="Permanent link">#</a></h2>
+<p>The C++ <code class="codehilite"><span class="n">isInf</span></code> function.</p>
+<div class="codehilite"><pre><span></span>int i = isInf(a);
+</pre></div>
+
+<h2 id="isnan">isNaN<a class="headerlink" href="#isnan" title="Permanent link">#</a></h2>
+<p>The C++ <code class="codehilite"><span class="n">isNan</span></code> function.</p>
+<div class="codehilite"><pre><span></span>int i = isNaN(a);
+</pre></div>
+
+<h2 id="j0">j0<a class="headerlink" href="#j0" title="Permanent link">#</a></h2>
+<p>Bessel function of first kind, order 0.
+<div class="codehilite"><pre><span></span>real b = j0(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="j1">j1<a class="headerlink" href="#j1" title="Permanent link">#</a></h2>
+<p>Bessel function of first kind, order 1.
+<div class="codehilite"><pre><span></span>real b = j1(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="jn">jn<a class="headerlink" href="#jn" title="Permanent link">#</a></h2>
+<p>Bessel function of first kind, order n.
+<div class="codehilite"><pre><span></span>real b = jn(n, x);
+</pre></div>
+<script type="math/tex; mode=display">
+J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>n</code> (<code class="codehilite">int</code>)</li>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="jump">jump<a class="headerlink" href="#jump" title="Permanent link">#</a></h2>
+<p>Jump function across an edge.</p>
+<div class="codehilite"><pre><span></span>intalledges(
+    ... jump(c) ...
+)
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>c</code> (<code class="codehilite">fespace</code> function)<br/>
+ Discontinuous function</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Non relevant</li>
+</ul>
+<h2 id="linearcg">LinearCG<a class="headerlink" href="#linearcg" title="Permanent link">#</a></h2>
+<p>Linear CG solver</p>
+<p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
+<h2 id="lineargmres">LinearGMRES<a class="headerlink" href="#lineargmres" title="Permanent link">#</a></h2>
+<p>Linear GMRES solver</p>
+<p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
+<h2 id="lgamma">lgamma<a class="headerlink" href="#lgamma" title="Permanent link">#</a></h2>
+<p>Natural logarithm of the absolute value of the <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
+<div class="codehilite"><pre><span></span>real lg = lgamma(x);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>lg</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="log">log<a class="headerlink" href="#log" title="Permanent link">#</a></h2>
+<p>Natural logarithm.</p>
+<div class="codehilite"><pre><span></span>real l = log(x);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>l</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Complex value</p>
+<p>For complex value, the <code class="codehilite">log</code> function is defined as:
+<script type="math/tex; mode=display">
+\log(z) = \log(|z|) + i\arg(z)
+</script>
+</p>
+</div>
+<h2 id="log10">log10<a class="headerlink" href="#log10" title="Permanent link">#</a></h2>
+<p>Common logarithm.</p>
+<div class="codehilite"><pre><span></span>real l = log10(x);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>l</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="lrint">lrint<a class="headerlink" href="#lrint" title="Permanent link">#</a></h2>
+<p>Integer value nearest to <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
+<div class="codehilite"><pre><span></span>int l = lrint(a);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>l</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="lround">lround<a class="headerlink" href="#lround" title="Permanent link">#</a></h2>
+<p>Round a value, and return a integer value.</p>
+<div class="codehilite"><pre><span></span>int l = lround(a);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>l</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="max">max<a class="headerlink" href="#max" title="Permanent link">#</a></h2>
+<p>Maximum value of two values.</p>
+<div class="codehilite"><pre><span></span>real m = max(a, b);
+real m = max(a, b, c);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+<li><code>c</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>) <em>[Optional]</em></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="min">min<a class="headerlink" href="#min" title="Permanent link">#</a></h2>
+<p>Minimum value of two values.</p>
+<div class="codehilite"><pre><span></span>real m = min(a, b);
+real m = min(a, b, c);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+<li><code>c</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>) <em>[Optional]</em></li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">int</code> or <code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="movemesh">movemesh<a class="headerlink" href="#movemesh" title="Permanent link">#</a></h2>
+<p>Move a mesh.</p>
+<div class="codehilite"><pre><span></span>mesh MovedTh = movemesh(Th, [Dx, Dy]);
+mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [facemerge=FaceMerge], [ptmerge=PtMerge], [orientation=Orientation]);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code> of <code class="codehilite">mesh3</code>)<br/>
+ Mesh to move</li>
+<li><code>Dx</code> (<code class="codehilite">fespace</code> function)<br/>
+ Displacement along <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li><code>Dy</code> (<code class="codehilite">fespace</code> function)<br/>
+ Displacement along <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></li>
+<li><code>Dz</code> (<code class="codehilite">fespace</code> function) <strong>3D only</strong><br/>
+ Displacement along <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span></li>
+<li><em><code class="codehilite">region=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
+ Set label to tetrahedra</li>
+<li><em><code class="codehilite">label=</code></em> (<code class="codehilite">int[int]</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
+ Set label of faces (see <a href="#change">change</a> for more informations)</li>
+<li><em><code class="codehilite">facemerge=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
+ If equal to 1, some face can be merged during the mesh moving<br/>
+ Default: 1</li>
+<li><em><code class="codehilite">ptmerge=</code></em> (<code class="codehilite">real</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
+ Criteria to define when two points merge</li>
+<li><em><code class="codehilite">orientation=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
+ If equal to 1, allow orientation reverse if tetrahedra is not positive<br/>
+ Default: 1</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>MovedTh</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)<br/>
+ Moved mesh</li>
+</ul>
+<h2 id="nan">NaN<a class="headerlink" href="#nan" title="Permanent link">#</a></h2>
+<p>C++ <code class="codehilite"><span class="n">nan</span></code> function.</p>
+<div class="codehilite"><pre><span></span>real n = NaN([String]);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>String</code> (<code class="codehilite">string</code>)<br/>
+ Default: <code>&quot;&quot;</code></li>
+</ul>
+<h2 id="nlcg">NLCG<a class="headerlink" href="#nlcg" title="Permanent link">#</a></h2>
+<p>Non-linear conjugate gradient.</p>
+<p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
+<h2 id="on">on<a class="headerlink" href="#on" title="Permanent link">#</a></h2>
+<p>Dirichlet condition function.
+<div class="codehilite"><pre><span></span>problem (u, v)
+    ...
+    + on(Label, u=uD)
+    ...
+</pre></div></p>
+<div class="admonition warning">
+<p>Used only in problem, solve and varf</p>
+</div>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Label</code> (<code class="codehilite">int</code> or <code class="codehilite">border</code> in 2D)<br/>
+ Boundary reference where to impose the Dirichlet condition</li>
+<li><code>uD</code> (<code class="codehilite">fespace</code> function, <code class="codehilite">func</code> or <code class="codehilite">real</code> or <code class="codehilite">int</code>)<br/>
+ Dirichlet condition (<code>u</code> is an unknwown of the problem)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>Non relevant</li>
+</ul>
+<h2 id="plot">plot<a class="headerlink" href="#plot" title="Permanent link">#</a></h2>
+<p>Plot meshes and results.</p>
+<div class="codehilite"><pre><span></span>plot([Th], [u], [[Ux, Uy, Uz]], [wait=Wait], [ps=PS], [coef=Coef], [fill=Fill], cmm=[Cmm], [value=Value], [aspectratio=AspectRatio], [bb=Bb], [nbiso=NbIso], [nbarrow=NbArrow], [viso=VIso], [varrow=VArrow], [bw=Bw], [grey=Grey], [hsv=Hsv], [boundary=Boundary], [dim=Dim], [prev=Prev], [WindowIndex=WI]);
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Only one af <code>Th</code>, <code>u</code> or <code>[Ux, Uy]</code> / <code>[Ux, Uy, Uz]</code> is needed for the <code class="codehilite">plot</code> command.</p>
+</div>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)<br/>
+ Mesh to display</li>
+<li><code>u</code> (<code class="codehilite">fespace</code> function)<br/>
+ Scalar <code class="codehilite">fespace</code> function to display</li>
+<li><code>[Ux, Uy]</code> / <code>[Ux, Uy, Uz]</code> (<code class="codehilite">fespace</code> function array)<br/>
+ Vectorial <code class="codehilite">fespace</code> function to display</li>
+<li><code>[Ux, Uy]</code> (<code class="codehilite">[real[int], real[int]]</code>)<br/>
+ Couple a real array to display a curve</li>
+<li><em><code class="codehilite">wait=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, wait before continue</li>
+<li><em><code class="codehilite">ps=</code></em> (<code class="codehilite">string</code>)<br/>
+ Name of the file to save the plot (<code>.ps</code> or <code>.eps format</code>)</li>
+<li><em><code class="codehilite">coef=</code></em> (<code class="codehilite">real</code>)<br/>
+ Arrow size</li>
+<li><em><code class="codehilite">fill=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, fill color between isovalue (usable with scalar <code class="codehilite">fespace</code> function only)</li>
+<li><em><code class="codehilite">cmm=</code></em> (<code class="codehilite">string</code>)<br/>
+ Text comment in the graphic window</li>
+<li><em><code class="codehilite">value=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, show the value scale</li>
+<li><em><code class="codehilite">aspectratio=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, preserve the aspect ratio</li>
+<li><em><code class="codehilite">bb=</code></em> (<code class="codehilite">[real[int], real[int]]</code>)<br/>
+ Specify a bounding box using two corner points</li>
+<li><em><code class="codehilite">nbiso=</code></em> (<code class="codehilite">int</code>)<br/>
+ Number of isovalues</li>
+<li><em><code class="codehilite">nbarrow=</code></em> (<code class="codehilite">int</code>)<br/>
+ Number of color of arrows values</li>
+<li><em><code class="codehilite">viso=</code></em> (<code class="codehilite">real[int]</code>)<br/>
+ Specify an array of isovalues</li>
+<li><em><code class="codehilite">varrow=</code></em> (<code class="codehilite">real[int]</code>)<br/>
+ Specify an array of arrows values color</li>
+<li><em><code class="codehilite">bw=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, the plot is in black and white</li>
+<li><em><code class="codehilite">grey=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, the plot is in grey scale</li>
+<li><em><code class="codehilite">hsv=</code></em> (<code class="codehilite">real[int]</code>)<br/>
+ Array of <span><span class="MathJax_Preview">3\times n</span><script type="math/tex">3\times n</script></span> values defining HSV color model<br/>
+ <span><span class="MathJax_Preview">[h_1, s_1, v_1, ..., h_n, s_n, v_n]</span><script type="math/tex">[h_1, s_1, v_1, ..., h_n, s_n, v_n]</script></span></li>
+<li><em><code class="codehilite">boundary=</code></em> (<code class="codehilite">bool</code>)<br/>
+ If true, display the boundary of the domain</li>
+<li><em><code class="codehilite">dim=</code></em> (<code class="codehilite">int</code>)<br/>
+ Set the dimension of the plot: 2 or 3</li>
+<li><em><code class="codehilite">prev=</code></em> (<code class="codehilite">bool</code>)<br/>
+ Use the graphic state of the previous state</li>
+<li><em><code class="codehilite">WindowIndex=</code></em> (<code class="codehilite">int</code>)<br/>
+ Specify window index for multiple windows graphics</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p>See the <a href="../documentation/Visualization">visualization</a> chapter for in-graphic commands.</p>
+<h2 id="polar">polar<a class="headerlink" href="#polar" title="Permanent link">#</a></h2>
+<p>Polar coordinates.</p>
+<div class="codehilite"><pre><span></span>complex p = polar(a, b);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>p</code> (<code class="codehilite">complex</code>)</li>
+</ul>
+<h2 id="pow">pow<a class="headerlink" href="#pow" title="Permanent link">#</a></h2>
+<p>Power function.
+<div class="codehilite"><pre><span></span>real p = pow(a, b);
+</pre></div>
+<span><span class="MathJax_Preview">p=a^b</span><script type="math/tex">p=a^b</script></span></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>p</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="projection">projection<a class="headerlink" href="#projection" title="Permanent link">#</a></h2>
+<p>Arithmetic useful function.</p>
+<div class="codehilite"><pre><span></span>real p = projection(a, b, x);
+</pre></div>
+
+<p>Projection is equivalent to:</p>
+<div class="codehilite"><pre><span></span>projection(a, b, x) = min(max(a, x), b)*(a &lt; b) + min(max(b, x), a)*(1-(a &lt; b));
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>p</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="randinit">randinit<a class="headerlink" href="#randinit" title="Permanent link">#</a></h2>
+<p>Initialize the state vector by using a seed.</p>
+<div class="codehilite"><pre><span></span>randinit(seed);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>seed</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="randint31">randint31<a class="headerlink" href="#randint31" title="Permanent link">#</a></h2>
+<p>Generate <code class="codehilite"><span class="kt">unsigned</span> <span class="kt">int</span></code> (31 bits) random number.</p>
+<div class="codehilite"><pre><span></span>int r = randint31();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="randint32">randint32<a class="headerlink" href="#randint32" title="Permanent link">#</a></h2>
+<p>Generate <code class="codehilite"><span class="kt">unsigned</span> <span class="kt">int</span></code> (32 bits) random number.</p>
+<div class="codehilite"><pre><span></span>int r = randint32();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="randreal1">randreal1<a class="headerlink" href="#randreal1" title="Permanent link">#</a></h2>
+<p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span> (32 bits).</p>
+<div class="codehilite"><pre><span></span>real r = randreal1();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="randreal2">randreal2<a class="headerlink" href="#randreal2" title="Permanent link">#</a></h2>
+<p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1)</span><script type="math/tex">[0, 1)</script></span> (32 bits).</p>
+<div class="codehilite"><pre><span></span>real r = randreal2();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="randreal3">randreal3<a class="headerlink" href="#randreal3" title="Permanent link">#</a></h2>
+<p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">(0, 1)</span><script type="math/tex">(0, 1)</script></span> (32 bits).</p>
+<div class="codehilite"><pre><span></span>real r = randreal3();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="randres53">randres53<a class="headerlink" href="#randres53" title="Permanent link">#</a></h2>
+<p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1)</span><script type="math/tex">[0, 1)</script></span> (53 bits).</p>
+<div class="codehilite"><pre><span></span>real r = randres53();
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="readmesh">readmesh<a class="headerlink" href="#readmesh" title="Permanent link">#</a></h2>
+<p>Read a 2D mesh file at different formats (see <a href="../documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation</a>).</p>
+<div class="codehilite"><pre><span></span>mesh Th = readmesh(MeshFileName);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>MeshFileName</code> (<code class="codehilite">string</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)</li>
+</ul>
+<h2 id="readmesh3">readmesh3<a class="headerlink" href="#readmesh3" title="Permanent link">#</a></h2>
+<p>Read a 3D mesh file at different formats (see <a href="../documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation</a>).</p>
+<div class="codehilite"><pre><span></span>mesh3 Th = readmesh3(MeshFileName);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>MeshFileName</code> (<code class="codehilite">string</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh3</code>)</li>
+</ul>
+<h2 id="real">real<a class="headerlink" href="#real" title="Permanent link">#</a></h2>
+<p>Return the real part of a complex number.</p>
+<div class="codehilite"><pre><span></span>real r = real(c);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>c</code> (<code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="rint">rint<a class="headerlink" href="#rint" title="Permanent link">#</a></h2>
+<p>Integer value nearest to <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> (real value).</p>
+<div class="codehilite"><pre><span></span>real r = rint(a);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="round">round<a class="headerlink" href="#round" title="Permanent link">#</a></h2>
+<p>Round a value (real value).</p>
+<div class="codehilite"><pre><span></span>real r = round(a);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>r</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="savemesh">savemesh<a class="headerlink" href="#savemesh" title="Permanent link">#</a></h2>
+<p>Save a 2D or 3D mesh in different formats (see <a href="../documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation 2D</a> and <a href="../documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation 3D</a>).</p>
+<div class="codehilite"><pre><span></span>savemesh(Th, MeshFileName);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code> or <code class="codehilite">mesh3</code>)</li>
+<li><code>MeshFileName</code> (<code class="codehilite">string</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="set">set<a class="headerlink" href="#set" title="Permanent link">#</a></h2>
+<p>Set a property to a matrix. See <a href="Types/#matrix">matrix</a>.</p>
+<h2 id="sign">sign<a class="headerlink" href="#sign" title="Permanent link">#</a></h2>
+<p>Sign of a value.</p>
+<div class="codehilite"><pre><span></span>int s = sign(a);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code> or <code class="codehilite">int</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>s</code> (<code class="codehilite">int</code>)</li>
+</ul>
+<h2 id="signbit">signbit<a class="headerlink" href="#signbit" title="Permanent link">#</a></h2>
+<p>C++ <code class="codehilite"><span class="n">signbit</span></code> function</p>
+<div class="codehilite"><pre><span></span>int s = signbit(a);
+</pre></div>
+
+<h2 id="sin">sin<a class="headerlink" href="#sin" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\sin</span><script type="math/tex">\sin</script></span> function.
+<div class="codehilite"><pre><span></span>real x = sin(theta);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
+</ul>
+<p><img alt="sin function" src="../images/sin.svg" /></p>
+<h2 id="sinh">sinh<a class="headerlink" href="#sinh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\sinh</span><script type="math/tex">\sinh</script></span> function.
+<div class="codehilite"><pre><span></span>real x = sinh(theta);
+</pre></div></p>
+<div>
+<div class="MathJax_Preview">
+\sinh(x) = \frac{e^{x} - e^{-x}}{2}
+</div>
+<script type="math/tex; mode=display">
+\sinh(x) = \frac{e^{x} - e^{-x}}{2}
+</script>
+</div>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="sinh function" src="../images/sinh.svg" /></p>
+<h2 id="sort">sort<a class="headerlink" href="#sort" title="Permanent link">#</a></h2>
+<p>Sort two array in parallel</p>
+<div class="codehilite"><pre><span></span>sort(A, B);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>A</code> (<code class="codehilite">real[int]</code>)</li>
+<li><code>B</code> (<code class="codehilite">int[int]</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<p><code>A</code> is sorted in ascending order, <code>B</code> is sorted as <code>A</code>.</p>
+<h2 id="splitmesh">splitmesh<a class="headerlink" href="#splitmesh" title="Permanent link">#</a></h2>
+<p>Split mesh triangles according to a function.</p>
+<div class="codehilite"><pre><span></span>Th = splitmesh(Th0, f);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>Th0</code> (<code class="codehilite">mesh</code>)</li>
+<li><code>f</code> (<code class="codehilite">func</code> or <code class="codehilite">fespace</code> function)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)</li>
+</ul>
+<h2 id="sqrt">sqrt<a class="headerlink" href="#sqrt" title="Permanent link">#</a></h2>
+<p>Square root</p>
+<div class="codehilite"><pre><span></span>real s = sqrt(a);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>s</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="square">square<a class="headerlink" href="#square" title="Permanent link">#</a></h2>
+<p>1.
+ Square of a number.</p>
+<div class="codehilite"><pre><span></span>real S = square(a);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>S</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p>2.
+ Build a structured square mesh.</p>
+<div class="codehilite"><pre><span></span>mesh Th = square(nnX, nnY, [[L*x, H*y]], [flags=Flags]);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>nnX</code> (<code class="codehilite">int</code>)<br/>
+  Discretization along <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li><code>nnY</code> (<code class="codehilite">int</code>)<br/>
+  Discretization along <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></li>
+<li><code>L</code> (<code class="codehilite">real</code>) <em>[Optional]</em><br/>
+  Length along <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li><code>H</code> (<code class="codehilite">real</code>) <em>[Optional]</em><br/>
+  Height along <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></li>
+<li><em><code class="codehilite">flags=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+  Structured mesh type, see <a href="../documentation/MeshGeneration/#square">Mesh Generation chapter</a> for more informations</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)</li>
+</ul>
+<h2 id="swap">swap<a class="headerlink" href="#swap" title="Permanent link">#</a></h2>
+<p>Swap values.</p>
+<div class="codehilite"><pre><span></span>swap(a, b);
+</pre></div>
+
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>a</code> (<code class="codehilite">real</code>)</li>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="system">system<a class="headerlink" href="#system" title="Permanent link">#</a></h2>
+<p>Execute a system command.</p>
+<div class="codehilite"><pre><span></span>int Res = system(Command);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>Command</code> (<code class="codehilite">string</code>)<br/>
+ System command</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Res</code> (<code class="codehilite">int</code>)<br/>
+ Value returned by the system command</li>
+</ul>
+<p>!!note
+    On Windows, the full path of the command is needed. For example, the execute <code>ls.exe</code>:
+    <div class="codehilite"><pre><span></span>int Res = exec(&quot;C:\\cygwin\\bin\\ls.exe&quot;);
+</pre></div></p>
+<h2 id="tan">tan<a class="headerlink" href="#tan" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\tan</span><script type="math/tex">\tan</script></span> function.
+<div class="codehilite"><pre><span></span>real x = tan(theta);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="tan function" src="../images/tan.svg" /></p>
+<h2 id="tanh">tanh<a class="headerlink" href="#tanh" title="Permanent link">#</a></h2>
+<p><span><span class="MathJax_Preview">\tanh</span><script type="math/tex">\tanh</script></span> function.
+<div class="codehilite"><pre><span></span>real x = tanh(theta);
+</pre></div></p>
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>theta</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><img alt="tanh function" src="../images/tanh.svg" /></p>
+<h2 id="tgamma">tgamma<a class="headerlink" href="#tgamma" title="Permanent link">#</a></h2>
+<p>Calculate the <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
+<div class="codehilite"><pre><span></span>real tg = tgamma(x);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>tg</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="trunc">trunc<a class="headerlink" href="#trunc" title="Permanent link">#</a></h2>
+<p>Split triangle of a mesh.</p>
+<div class="codehilite"><pre><span></span>mesh Th = trunc(Th0, R, [split=Split], [label=Label]);
+</pre></div>
+
+<p><u>Parameter:</u></p>
+<ul>
+<li><code>Th0</code> (<code class="codehilite">mesh</code>)</li>
+<li><code>R</code> (<code class="codehilite">bool</code> or <code class="codehilite">int</code>)<br/>
+ Split triangles where <code>R</code> is true or different of 0</li>
+<li><em><code class="codehilite">split=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Level of splitting<br/>
+ Default: 1</li>
+<li><em><code class="codehilite">label=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
+ Label number of new boundary item<br/>
+ Default: 1</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>Th</code> (<code class="codehilite">mesh</code>)</li>
+</ul>
+<h2 id="y0">y0<a class="headerlink" href="#y0" title="Permanent link">#</a></h2>
+<p>Bessel function of second kind, order 0.
+<div class="codehilite"><pre><span></span>real B = y0(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="y1">y1<a class="headerlink" href="#y1" title="Permanent link">#</a></h2>
+<p>Bessel function of second kind, order 1.
+<div class="codehilite"><pre><span></span>real B = y1(x);
+</pre></div></p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<h2 id="yn">yn<a class="headerlink" href="#yn" title="Permanent link">#</a></h2>
+<p>Bessel function of second kind, order n.
+<div class="codehilite"><pre><span></span>real B = yn(n, x);
+</pre></div>
+<script type="math/tex; mode=display">
+Y_n(x) = \lim_{\lambda\rightarrow n}{\frac{J_{\lambda}(x)\cos(\lambda\pi)-J_{-\lambda}(x)}{\sin(\lambda\pi)}}
+</script>
+</p>
+<p><u>Parameters:</u></p>
+<ul>
+<li><code>n</code> (<code class="codehilite">int</code>)</li>
+<li><code>x</code> (<code class="codehilite">real</code>)</li>
+</ul>
+<p><u>Output:</u></p>
+<ul>
+<li><code>b</code> (<code class="codehilite">real</code>)</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../IO/" title="I/O" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                I/O
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ExternalLibraries/" title="External libraries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                External libraries
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/FreeFem/FreeFem-doc" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

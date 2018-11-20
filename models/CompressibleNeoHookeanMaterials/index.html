@@ -1,0 +1,2191 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Compressible Neo-Hookean materials - FreeFem++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#notation" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="FreeFem++" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                FreeFem++
+              </span>
+              <span class="md-header-nav__topic">
+                Compressible Neo-Hookean materials
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../documentation/" title="Documentation" class="md-tabs__link">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../reference/" title="Language References" class="md-tabs__link">
+          Language References
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/" title="Examples" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Models" class="md-tabs__link md-tabs__link--active">
+          Models
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="FreeFem++" class="md-nav__button md-logo">
+      
+        <img src="../../images/favicon.png" width="48" height="48">
+      
+    </a>
+    FreeFem++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/FreeFem/FreeFem-doc/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      FreeFem++ on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/contributing/" title="How to contribute?" class="md-nav__link">
+      How to contribute?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/citation/" title="Citation" class="md-nav__link">
+      Citation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/authors/" title="Authors" class="md-nav__link">
+      Authors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Notations/" title="Some Notations" class="md-nav__link">
+      Some Notations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/MeshGeneration/" title="Mesh Generation" class="md-nav__link">
+      Mesh Generation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/FiniteElement/" title="Finite Element" class="md-nav__link">
+      Finite Element
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Visualization/" title="Visualization" class="md-nav__link">
+      Visualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/AlgorithmsOptimization/" title="Algorithms & Optimization" class="md-nav__link">
+      Algorithms & Optimization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Parallelization/" title="Parallelization" class="md-nav__link">
+      Parallelization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/Developers/" title="Developers" class="md-nav__link">
+      Developers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../documentation/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Language References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Language References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/GlobalVariables/" title="Global variables" class="md-nav__link">
+      Global variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/QuadratureFormulae/" title="Quadrature formulae" class="md-nav__link">
+      Quadrature formulae
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/IO/" title="I/O" class="md-nav__link">
+      I/O
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/Functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/ExternalLibraries/" title="External libraries" class="md-nav__link">
+      External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Poisson/" title="Poisson's equation" class="md-nav__link">
+      Poisson's equation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/EquationsClassification/" title="Classification of the equations" class="md-nav__link">
+      Classification of the equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Membrane/" title="Membrane" class="md-nav__link">
+      Membrane
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatExchanger/" title="Heat Exchanger" class="md-nav__link">
+      Heat Exchanger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Acoustics/" title="Acoustics" class="md-nav__link">
+      Acoustics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ThermalConduction/" title="Thermal Conduction" class="md-nav__link">
+      Thermal Conduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FanBlade/" title="Irrotational Fan Blade Flow and Thermal effects" class="md-nav__link">
+      Irrotational Fan Blade Flow and Thermal effects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/RotatingHill/" title="Pure convection, The rotating hill" class="md-nav__link">
+      Pure convection, The rotating hill
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Elasticity/" title="The system of elasticity" class="md-nav__link">
+      The system of elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/Stokes/" title="The system of Stokes for fluids" class="md-nav__link">
+      The system of Stokes for fluids
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesProjection/" title="A projection Algorithm for the Navier-Stokes equations" class="md-nav__link">
+      A projection Algorithm for the Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/NavierStokesNewton/" title="Newton method for the steady Navier-Stokes equations" class="md-nav__link">
+      Newton method for the steady Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ALargeFluidProblem/" title="A large fluid problem" class="md-nav__link">
+      A large fluid problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/ComplexNumbers/" title="An example with complex numbers" class="md-nav__link">
+      An example with complex numbers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/OptimalControl/" title="Optimal control" class="md-nav__link">
+      Optimal control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/FlowWithShocks/" title="A flow with shocks" class="md-nav__link">
+      A flow with shocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/HeatEquationOptimization/" title="Time dependent schema optimization for heat equations" class="md-nav__link">
+      Time dependent schema optimization for heat equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TimeDependentStokes/" title="A transient Stokes solver in matrix form" class="md-nav__link">
+      A transient Stokes solver in matrix form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/WifiPropagation/" title="Wifi Propagation" class="md-nav__link">
+      Wifi Propagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/MatlabOctavePlot/" title="Matlab / Octave Plots" class="md-nav__link">
+      Matlab / Octave Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StaticProblems/" title="Static problems" class="md-nav__link">
+      Static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Elasticity/" title="Elasticity" class="md-nav__link">
+      Elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearStaticProblems/" title="Non-linear static problems" class="md-nav__link">
+      Non-linear static problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EigenValueProblems/" title="Eigenvalue problems" class="md-nav__link">
+      Eigenvalue problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EvolutionProblems/" title="Evolution problems" class="md-nav__link">
+      Evolution problems
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NavierStokesEquations/" title="Navier-Stokes equations" class="md-nav__link">
+      Navier-Stokes equations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VariationalInequality/" title="Variational inequality" class="md-nav__link">
+      Variational inequality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DomainDecomposition/" title="Domain decomposition" class="md-nav__link">
+      Domain decomposition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FluidStructureCoupledProblem/" title="Fluid-Structure coupled problem" class="md-nav__link">
+      Fluid-Structure coupled problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TransmissionProblem/" title="Transmission problem" class="md-nav__link">
+      Transmission problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FreeBoundaryProblem/" title="Free boundary problem" class="md-nav__link">
+      Free boundary problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NonLinearElasticity/" title="Non-linear elasticity" class="md-nav__link">
+      Non-linear elasticity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Compressible Neo-Hookean materials
+      </label>
+    
+    <a href="./" title="Compressible Neo-Hookean materials" class="md-nav__link md-nav__link--active">
+      Compressible Neo-Hookean materials
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notation" title="Notation" class="md-nav__link">
+    Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-references" title="Recommended References" class="md-nav__link">
+    Recommended References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-neo-hookean-compressible-material" title="A Neo-Hookean Compressible Material" class="md-nav__link">
+    A Neo-Hookean Compressible Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-approach-to-implementation-in-freefem" title="An Approach to Implementation in FreeFem++" class="md-nav__link">
+    An Approach to Implementation in FreeFem++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WhisperingGalleryModes/" title="Whispering gallery modes" class="md-nav__link">
+      Whispering gallery modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notation" title="Notation" class="md-nav__link">
+    Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-references" title="Recommended References" class="md-nav__link">
+    Recommended References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-neo-hookean-compressible-material" title="A Neo-Hookean Compressible Material" class="md-nav__link">
+    A Neo-Hookean Compressible Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-approach-to-implementation-in-freefem" title="An Approach to Implementation in FreeFem++" class="md-nav__link">
+    An Approach to Implementation in FreeFem++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FreeFem/FreeFem-doc/edit/master/docs/models/CompressibleNeoHookeanMaterials.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Compressible Neo-Hookean materials</h1>
+                
+                <p><em>Written by Alex Sadovsky</em></p>
+<div>
+<div class="MathJax_Preview">
+\def\bR{{\bf R}}
+\def\bP{{\bf P}}
+\def\bZ{{\bf Z}}
+\def\bC{{\bf C}}
+\def\VS{\bR^2}
+\def\SVS{\underline V}
+\def\SO{{\bf SO}}
+\def\Sym{{\bf Sym}}
+\def\qi{{\bf i}}
+\def\qj{{\bf j}}
+\def\qk{{\bf k}}
+\def\ec{\hat{\bf e}}
+\def\xc{\hat{\bf x}}
+\def\bdr{\partial}
+\def\PD{\partial_}
+\def\strain{\underline \epsilon}
+\def\stress{\underline \sigma}
+\def\strainrate{\underline \epsilon^.}
+\def\stressrate{\underline \sigma^.}
+\def\stiff{\; \underline{\underline C}\;}
+\def\comply{\underline{\underline \kappa}\;}
+\def\Id{{\bf I}}
+\def\Div{\nabla \cdot}
+\def\Grad{\mathbf{\nabla}}
+\def\rot{\nabla \times}
+\def\lap{\triangle}
+\def\tr{{\bf tr}\;}
+\def\udH{\underline H}
+\def\refX{\mathbf X}
+\def\Jac{\overline{J}}
+\def\spatx{\mathbf x}
+\def\ani{\overline a}
+\def\mat{\left[\begin{array}}
+\def\tam{\end{array}\right]}
+\def\arr{\left.\begin{array}}
+\def\rra{\end{array}\right\}}
+\def\arl{\left\{\begin{array}}
+\def\lra{\end{array}\right.}
+\def\ar{\begin{array}}
+\def\ra{\end{array}}
+\def\const{\mbox{ const.}}
+\def\eps{\; \epsilon}
+\def\sig{\; \sigma}
+\def\th{\theta}
+\def\sgn{\mbox{sgn}}
+\def\qed{\; Q.E.D.\\}
+\def\ranqe{\end{eqnarray}}
+\def\ol{\overline}
+\def\ul{\underline}
+\def\bB{{\bf B}}
+\def\bC{{\bf C}}
+\def\bD{{\bf D}}
+\def\bE{{\bf E}}
+\def\bF{{\bf F}}
+\def\bK{{\bf K}}
+\def\bP{{\bf P}}
+\def\bS{{\bf S}}
+\def\bT{{\bf T}}
+\def\bsig{{\bf \sigma}}
+</div>
+<script type="math/tex; mode=display">
+\def\bR{{\bf R}}
+\def\bP{{\bf P}}
+\def\bZ{{\bf Z}}
+\def\bC{{\bf C}}
+\def\VS{\bR^2}
+\def\SVS{\underline V}
+\def\SO{{\bf SO}}
+\def\Sym{{\bf Sym}}
+\def\qi{{\bf i}}
+\def\qj{{\bf j}}
+\def\qk{{\bf k}}
+\def\ec{\hat{\bf e}}
+\def\xc{\hat{\bf x}}
+\def\bdr{\partial}
+\def\PD{\partial_}
+\def\strain{\underline \epsilon}
+\def\stress{\underline \sigma}
+\def\strainrate{\underline \epsilon^.}
+\def\stressrate{\underline \sigma^.}
+\def\stiff{\; \underline{\underline C}\;}
+\def\comply{\underline{\underline \kappa}\;}
+\def\Id{{\bf I}}
+\def\Div{\nabla \cdot}
+\def\Grad{\mathbf{\nabla}}
+\def\rot{\nabla \times}
+\def\lap{\triangle}
+\def\tr{{\bf tr}\;}
+\def\udH{\underline H}
+\def\refX{\mathbf X}
+\def\Jac{\overline{J}}
+\def\spatx{\mathbf x}
+\def\ani{\overline a}
+\def\mat{\left[\begin{array}}
+\def\tam{\end{array}\right]}
+\def\arr{\left.\begin{array}}
+\def\rra{\end{array}\right\}}
+\def\arl{\left\{\begin{array}}
+\def\lra{\end{array}\right.}
+\def\ar{\begin{array}}
+\def\ra{\end{array}}
+\def\const{\mbox{ const.}}
+\def\eps{\; \epsilon}
+\def\sig{\; \sigma}
+\def\th{\theta}
+\def\sgn{\mbox{sgn}}
+\def\qed{\; Q.E.D.\\}
+\def\ranqe{\end{eqnarray}}
+\def\ol{\overline}
+\def\ul{\underline}
+\def\bB{{\bf B}}
+\def\bC{{\bf C}}
+\def\bD{{\bf D}}
+\def\bE{{\bf E}}
+\def\bF{{\bf F}}
+\def\bK{{\bf K}}
+\def\bP{{\bf P}}
+\def\bS{{\bf S}}
+\def\bT{{\bf T}}
+\def\bsig{{\bf \sigma}}
+</script>
+</div>
+<h2 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h2>
+<p>In what follows, the symbols <span><span class="MathJax_Preview">\mathbf{u}, \bF, \bB, \bC, \stress</span><script type="math/tex">\mathbf{u}, \bF, \bB, \bC, \stress</script></span> denote, respectively, the displacement field, the deformation gradient, the left Cauchy-Green strain tensor <span><span class="MathJax_Preview">\bB = \bF \bF^T</span><script type="math/tex">\bB = \bF \bF^T</script></span>, the right Cauchy-Green strain tensor <span><span class="MathJax_Preview">\bC =\bF^T \bF</span><script type="math/tex">\bC =\bF^T \bF</script></span>, and the Cauchy stress tensor.</p>
+<p>We also introduce the symbols <span><span class="MathJax_Preview">I_1 := \tr \bC</span><script type="math/tex">I_1 := \tr \bC</script></span> and <span><span class="MathJax_Preview">J := \det\bF</span><script type="math/tex">J := \det\bF</script></span>. Use will be made of the identity
+<script type="math/tex; mode=display">\begin{equation}
+{\PD{}J \over \PD{}\bC} = J \bC^{-1}
+\end{equation}</script>
+</p>
+<p>The symbol <span><span class="MathJax_Preview">\Id</span><script type="math/tex">\Id</script></span> denotes the identity tensor. The symbol <span><span class="MathJax_Preview">\Omega_{0}</span><script type="math/tex">\Omega_{0}</script></span> denotes the reference configuration of the body to be deformed. The unit volume in the reference (resp., deformed) configuration is denoted <span><span class="MathJax_Preview">dV</span><script type="math/tex">dV</script></span> (resp., <span><span class="MathJax_Preview">dV_{0}</span><script type="math/tex">dV_{0}</script></span>); these two are related by
+<script type="math/tex; mode=display">
+dV = J dV_{0},
+</script>
+which allows an integral over <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> involving the Cauchy stress <span><span class="MathJax_Preview">\bT</span><script type="math/tex">\bT</script></span> to be rewritten as an integral of the Kirchhoff stress <span><span class="MathJax_Preview">\kappa = J \bT</span><script type="math/tex">\kappa = J \bT</script></span> over <span><span class="MathJax_Preview">\Omega_{0}</span><script type="math/tex">\Omega_{0}</script></span>.</p>
+<h2 id="recommended-references">Recommended References<a class="headerlink" href="#recommended-references" title="Permanent link">#</a></h2>
+<p>For an exposition of nonlinear elasticity and of the underlying linear- and tensor algebra, see <a href="#OGDEN1984">OGDEN1984</a>. For an advanced mathematical analysis of the Finite Element Method, see <a href="#RAVIART1998">RAVIART1998</a>.</p>
+<h2 id="a-neo-hookean-compressible-material">A Neo-Hookean Compressible Material<a class="headerlink" href="#a-neo-hookean-compressible-material" title="Permanent link">#</a></h2>
+<p><em>Constitutive Theory and Tangent Stress Measures</em></p>
+<p>The strain energy density function is given by
+<script type="math/tex; mode=display">\begin{equation}
+W = {\mu \over 2}(I_1 - \tr \Id - 2 \ln J)
+\end{equation}</script>
+(see <a href="#HORGAN2004">HORGAN2004</a>, formula (12)).</p>
+<p>The corresponding 2nd Piola-Kirchoff stress tensor is given by
+<script type="math/tex; mode=display">\begin{equation}
+\bS_{n} := {\PD{} W \over \PD{}\bE} (\bF_{n})
+=
+\mu (\Id - \bC^{-1})
+\end{equation}</script>
+The Kirchhoff stress, then, is
+<script type="math/tex; mode=display">\begin{equation}
+\kappa
+= \bF \bS \bF^{T}
+= \mu (\bB - \Id)
+\end{equation}</script>
+The tangent Kirchhoff stress tensor at <span><span class="MathJax_Preview">\bF_{n}</span><script type="math/tex">\bF_{n}</script></span> acting on
+$
+\delta \bF_{n+1}
+$ is, consequently,
+<script type="math/tex; mode=display">\begin{equation}
+{\PD{} \kappa \over \PD{} \bF} (\bF_{n}) \delta \bF_{n+1}
+=
+\mu
+\left[
+\bF_{n} (\delta \bF_{n+1})^T
++
+\delta \bF_{n+1} (\bF_{n})^T
+\right]
+\end{equation}</script>
+</p>
+<p><em>The Weak Form of the BVP in the Absence of Body (External) Forces</em></p>
+<p>The <span><span class="MathJax_Preview">\Omega_0</span><script type="math/tex">\Omega_0</script></span> we are considering is an elliptical annulus, whose
+boundary consists of two concentric ellipses (each allowed to be a
+circle as a special case), with the major axes parallel. Let <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> denote the dead stress load (traction) on a portion
+<span><span class="MathJax_Preview">\partial \Omega_0^{t}</span><script type="math/tex">\partial \Omega_0^{t}</script></span> (= the inner ellipse) of the boundary
+<span><span class="MathJax_Preview">\partial \Omega_0</span><script type="math/tex">\partial \Omega_0</script></span>. On the rest of the boundary, we prescribe zero displacement.</p>
+<p>The weak formulation of the boundary value
+problem is
+<script type="math/tex; mode=display">
+\arr{lll}
+0
+& = &
+\int_{\Omega_0}
+\kappa[\bF]
+\:
+:
+\:
+\left\{
+(\Grad \otimes \mathbf{w}) (\bF)^{-1}
+\right\}\\
+& - & \int_{\PD{} \Omega_0^{t}} P \cdot \hat{N}_0\\
+\rra
+</script>
+</p>
+<p>For brevity, in the rest of this section we assume <span><span class="MathJax_Preview">P = 0</span><script type="math/tex">P = 0</script></span>. The provided
+FreeFem++ code, however, does not rely on this assumption and allows
+for a general value and direction of <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>.</p>
+<p>Given a Newton approximation <span><span class="MathJax_Preview">\mathbf{u}_n</span><script type="math/tex">\mathbf{u}_n</script></span> of the displacement field
+<span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> satisfying the BVP, we seek the correction <span><span class="MathJax_Preview">\delta \mathbf{u}_{n+1}</span><script type="math/tex">\delta \mathbf{u}_{n+1}</script></span> to
+obtain a better approximation
+<script type="math/tex; mode=display">
+\mathbf{u}_{n+1} = \mathbf{u}_{n} + \delta \mathbf{u}_{n+1}
+</script>
+by solving the weak formulation
+<script type="math/tex; mode=display">\begin{equation}
+\arr{lll}
+    0 &=& \int_{\Omega_0}\kappa[\bF_{n} + \delta \bF_{n+1}]\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n} + \delta\bF_{n+1})^{-1}\right\}- \int_{\PD{} \Omega_0} P \cdot \hat{N}_0\\
+    &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n} + \delta \bF_{n+1})^{-1}\right\}\\
+    &=& \int_{\Omega_0}\left\{\kappa[\bF_{n}] + {\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w}) (\bF_{n}^{-1} + \bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
+    \\
+    &=& \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})\bF_{n}^{-1}\right\}\\
+    &-& \int_{\Omega_0}\kappa[\bF_{n}]\: :\: \left\{(\Grad \otimes \mathbf{w})(\bF_{n}^{-2} \delta \bF_{n+1})\right\}\\
+    &+& \int_{\Omega_0}\left\{{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]\delta \bF_{n+1}\right\}\: :\: \left\{(\Grad \otimes \mathbf{w})
+\bF_{n}^{-1}
+\right\}
+\\
+\rra
+\quad
+\mbox{for all test functions} \mathbf{w},
+\end{equation}</script>
+where we have taken
+<script type="math/tex; mode=display">
+\delta \bF_{n+1} = \Grad \otimes \delta \mathbf{u}_{n+1}
+</script>
+</p>
+<p>{\bf Note:} Contrary to standard notational use, the symbol <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>
+here bears no variational context. By <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> we mean simply an
+increment in the sense of Newton's Method. The role of a variational virtual displacement here
+is played by <span><span class="MathJax_Preview">\mathbf{w}</span><script type="math/tex">\mathbf{w}</script></span>.</p>
+<h2 id="an-approach-to-implementation-in-freefem">An Approach to Implementation in FreeFem++<a class="headerlink" href="#an-approach-to-implementation-in-freefem" title="Permanent link">#</a></h2>
+<p>Introducing the code-like notation, where a string in <span><span class="MathJax_Preview">&lt; &gt;</span><script type="math/tex">< ></script></span>'s is to be read as one symbol, the individual components of the tensor
+<script type="math/tex; mode=display">\begin{equation}
+<TanK>
+ :=
+{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+\delta \bF_{n+1}
+\end{equation}</script>
+will be implemented as the macros <span><span class="MathJax_Preview">&lt;TanK11&gt;</span><script type="math/tex"><TanK11></script></span>, <span><span class="MathJax_Preview">&lt;TanK12&gt;</span><script type="math/tex"><TanK12></script></span>, ...</p>
+<p>The individual components of the tensor quantities
+<script type="math/tex; mode=display">
+\bD_{1} :=
+\bF_{n} (\delta \bF_{n+1})^T
++
+\delta \bF_{n+1} (\bF_{n})^T,
+</script>
+<script type="math/tex; mode=display">
+\bD_{2} :=
+\bF_{n}^{-T} \delta \bF_{n+1},
+</script>
+<script type="math/tex; mode=display">
+\bD_{3} :=
+(\Grad \otimes \mathbf{w})
+\bF_{n}^{-2} \delta \bF_{n+1},
+</script>
+and
+<script type="math/tex; mode=display">
+\bD_{4} :=
+(\Grad \otimes \mathbf{w})
+\bF_{n}^{-1},
+</script>
+will be implemented as the macros
+<script type="math/tex; mode=display">\begin{equation}
+\arr{l}
+<d1Aux11>, <d1Aux12>, \quad \ldots \quad, <d1Aux22>,\\
+<d2Aux11>, <d2Aux12>, \quad \ldots \quad, <d2Aux22>\\
+<d3Aux11>, <d3Aux12>, \quad \ldots \quad, <d3Aux22>\\
+<d4Aux11>, <d4Aux12>, \quad \ldots \quad, <d4Aux22>\\
+\rra,
+\end{equation}</script>
+respectively.</p>
+<p>In the above notation, the tangent Kirchhoff stress term becomes
+<script type="math/tex; mode=display">\begin{equation}
+{\PD{} \kappa \over \PD{} \bF} (\bF_{n})
+\: \delta \bF_{n+1}
+=
+\mu
+\: \bD_{1}
+\end{equation}</script>
+while the weak BVP formulation acquires the form
+<script type="math/tex; mode=display">\begin{equation}
+\arr{lll}
+0 & = &
+\int_{\Omega_0}
+\kappa[\bF_{n}]
+\:
+:
+\:
+\bD_{4}
+\\
+&-&
+\int_{\Omega_0}
+\kappa[\bF_{n}]
+\:
+:
+\:
+\bD_{3}
+\\
+&+&
+\int_{\Omega_0}
+\left\{
+{\PD{} \kappa \over \PD{} \bF}[\bF_{n}]
+\delta \bF_{n+1}
+\right\}
+\:
+:
+\:
+\bD_{4}
+\\
+\rra
+\quad
+\mbox{for all test functions} \mathbf{w}
+\end{equation}</script>
+</p>
+<div class="codehilite"><pre><span></span>// Macro
+//Macros for the gradient of a vector field (u1, u2)
+macro grad11(u1, u2) (dx(u1)) //
+macro grad21(u1, u2) (dy(u1)) //
+macro grad12(u1, u2) (dx(u2)) //
+macro grad22(u1, u2) (dy(u2)) //
+
+//Macros for the deformation gradient
+macro F11(u1, u2) (1.0 + grad11(u1, u2)) //
+macro F12(u1, u2) (0.0 + grad12(u1, u2)) //
+macro F21(u1, u2) (0.0 + grad21(u1, u2)) //
+macro F22(u1, u2) (1.0 + grad22(u1, u2)) //
+
+//Macros for the incremental deformation gradient
+macro dF11(varu1, varu2) (grad11(varu1, varu2)) //
+macro dF12(varu1, varu2) (grad12(varu1, varu2)) //
+macro dF21(varu1, varu2) (grad21(varu1, varu2)) //
+macro dF22(varu1, varu2) (grad22(varu1, varu2)) //
+
+//Macro for the determinant of the deformation gradient
+macro J(u1, u2) (
+      F11(u1, u2)*F22(u1, u2)
+    - F12(u1, u2)*F21(u1, u2)
+) //
+
+//Macros for the inverse of the deformation gradient
+macro Finv11 (u1, u2) (
+      F22(u1, u2) / J(u1, u2)
+) //
+macro Finv22 (u1, u2) (
+      F11(u1, u2) / J(u1, u2)
+) //
+macro Finv12 (u1, u2) (
+    - F12(u1, u2) / J(u1, u2)
+) //
+macro Finv21 (u1, u2) (
+    - F21(u1, u2) / J(u1, u2)
+) //
+
+//Macros for the square of the inverse of the deformation gradient
+macro FFinv11 (u1, u2) (
+      Finv11(u1, u2)^2
+    + Finv12(u1, u2)*Finv21(u1, u2)
+) //
+
+macro FFinv12 (u1, u2) (
+      Finv12(u1, u2)*(Finv11(u1, u2)
+    + Finv22(u1, u2))
+) //
+
+macro FFinv21 (u1, u2) (
+      Finv21(u1, u2)*(Finv11(u1, u2)
+    + Finv22(u1, u2))
+) //
+
+macro FFinv22 (u1, u2) (
+      Finv12(u1, u2)*Finv21(u1, u2)
+    + Finv22(u1, u2)^2
+) //
+
+//Macros for the inverse of the transpose of the deformation gradient
+macro FinvT11(u1, u2) (Finv11(u1, u2)) //
+macro FinvT12(u1, u2) (Finv21(u1, u2)) //
+macro FinvT21(u1, u2) (Finv12(u1, u2)) //
+macro FinvT22(u1, u2) (Finv22(u1, u2)) //
+
+//The left Cauchy-Green strain tensor
+macro B11(u1, u2) (
+      F11(u1, u2)^2 + F12(u1, u2)^2
+)//
+
+macro B12(u1, u2) (
+      F11(u1, u2)*F21(u1, u2)
+    + F12(u1, u2)*F22(u1, u2)
+)//
+
+macro B21(u1, u2) (
+      F11(u1, u2)*F21(u1, u2)
+    + F12(u1, u2)*F22(u1, u2)
+)//
+
+macro B22(u1, u2)(
+      F21(u1, u2)^2 + F22(u1, u2)^2
+)//
+
+//The macros for the auxiliary tensors (D0, D1, D2, ...): Begin
+///The tensor quantity D0 = F_{n} (\delta F_{n+1})^T
+macro d0Aux11 (u1, u2, varu1, varu2) (
+      dF11(varu1, varu2) * F11(u1, u2)
+    + dF12(varu1, varu2) * F12(u1, u2)
+)//
+
+macro d0Aux12 (u1, u2, varu1, varu2) (
+      dF21(varu1, varu2) * F11(u1, u2)
+    + dF22(varu1, varu2) * F12(u1, u2)
+)//
+
+macro d0Aux21 (u1, u2, varu1, varu2) (
+      dF11(varu1, varu2) * F21(u1, u2)
+    + dF12(varu1, varu2) * F22(u1, u2)
+)//
+
+macro d0Aux22 (u1, u2, varu1, varu2) (
+      dF21(varu1, varu2) * F21(u1, u2)
+    + dF22(varu1, varu2) * F22(u1, u2)
+)//
+
+///The tensor quantity D1 = D0 + D0^T
+macro d1Aux11 (u1, u2, varu1, varu2) (
+      2.0 * d0Aux11 (u1, u2, varu1, varu2)
+)//
+
+macro d1Aux12 (u1, u2, varu1, varu2) (
+      d0Aux12 (u1, u2, varu1, varu2)
+    + d0Aux21 (u1, u2, varu1, varu2)
+)//
+
+macro d1Aux21 (u1, u2, varu1, varu2) (
+      d1Aux12 (u1, u2, varu1, varu2)
+)//
+
+macro d1Aux22 (u1, u2, varu1, varu2)(
+      2.0 * d0Aux22 (u1, u2, varu1, varu2)
+)//
+
+///The tensor quantity D2 = F^{-T}_{n} dF_{n+1}
+macro d2Aux11 (u1, u2, varu1, varu2) (
+      dF11(varu1, varu2) * FinvT11(u1, u2)
+    + dF21(varu1, varu2) * FinvT12(u1, u2)
+)//
+
+macro d2Aux12 (u1, u2, varu1, varu2) (
+      dF12(varu1, varu2) * FinvT11(u1, u2)
+    + dF22(varu1, varu2) * FinvT12(u1, u2)
+)//
+
+macro d2Aux21 (u1, u2, varu1, varu2) (
+      dF11(varu1, varu2) * FinvT21(u1, u2)
+    + dF21(varu1, varu2) * FinvT22(u1, u2)
+)//
+
+macro d2Aux22 (u1, u2, varu1, varu2) (
+      dF12(varu1, varu2) * FinvT21(u1, u2)
+    + dF22(varu1, varu2) * FinvT22(u1, u2)
+)//
+
+///The tensor quantity D3 = F^{-2}_{n} dF_{n+1}
+macro d3Aux11 (u1, u2, varu1, varu2, w1, w2) (
+      dF11(varu1, varu2) * FFinv11(u1, u2) * grad11(w1, w2)
+    + dF21(varu1, varu2) * FFinv12(u1, u2) * grad11(w1, w2)
+    + dF11(varu1, varu2) * FFinv21(u1, u2) * grad12(w1, w2)
+    + dF21(varu1, varu2) * FFinv22(u1, u2) * grad12(w1, w2)
+)//
+
+macro d3Aux12 (u1, u2, varu1, varu2, w1, w2) (
+      dF12(varu1, varu2) * FFinv11(u1, u2) * grad11(w1, w2)
+    + dF22(varu1, varu2) * FFinv12(u1, u2) * grad11(w1, w2)
+    + dF12(varu1, varu2) * FFinv21(u1, u2) * grad12(w1, w2)
+    + dF22(varu1, varu2) * FFinv22(u1, u2) * grad12(w1, w2)
+)//
+
+macro d3Aux21 (u1, u2, varu1, varu2, w1, w2) (
+      dF11(varu1, varu2) * FFinv11(u1, u2) * grad21(w1, w2)
+    + dF21(varu1, varu2) * FFinv12(u1, u2) * grad21(w1, w2)
+    + dF11(varu1, varu2) * FFinv21(u1, u2) * grad22(w1, w2)
+    + dF21(varu1, varu2) * FFinv22(u1, u2) * grad22(w1, w2)
+)//
+
+macro d3Aux22 (u1, u2, varu1, varu2, w1, w2) (
+      dF12(varu1, varu2) * FFinv11(u1, u2) * grad21(w1, w2)
+    + dF22(varu1, varu2) * FFinv12(u1, u2) * grad21(w1, w2)
+    + dF12(varu1, varu2) * FFinv21(u1, u2) * grad22(w1, w2)
+    + dF22(varu1, varu2) * FFinv22(u1, u2) * grad22(w1, w2)
+)//
+
+///The tensor quantity D4 = (grad w) * Finv
+macro d4Aux11 (w1, w2, u1, u2) (
+      Finv11(u1, u2)*grad11(w1, w2)
+    + Finv21(u1, u2)*grad12(w1, w2)
+)//
+
+macro d4Aux12 (w1, w2, u1, u2) (
+      Finv12(u1, u2)*grad11(w1, w2)
+    + Finv22(u1, u2)*grad12(w1, w2)
+)//
+
+macro d4Aux21 (w1, w2, u1, u2) (
+      Finv11(u1, u2)*grad21(w1, w2)
+    + Finv21(u1, u2)*grad22(w1, w2)
+)//
+
+macro d4Aux22 (w1, w2, u1, u2) (
+      Finv12(u1, u2)*grad21(w1, w2)
+    + Finv22(u1, u2)*grad22(w1, w2)
+)//
+//The macros for the auxiliary tensors (D0, D1, D2, ...): End
+
+//The macros for the various stress measures: BEGIN
+//The Kirchhoff stress tensor
+macro StressK11(u1, u2) (
+      mu * (B11(u1, u2) - 1.0)
+)//
+
+//The Kirchhoff stress tensor
+macro StressK12(u1, u2) (
+      mu * B12(u1, u2)
+)//
+
+//The Kirchhoff stress tensor
+macro StressK21(u1, u2) (
+      mu * B21(u1, u2)
+)//
+
+//The Kirchhoff stress tensor
+macro StressK22(u1, u2) (
+      mu * (B22(u1, u2) - 1.0)
+)//
+
+//The tangent Kirchhoff stress tensor
+macro TanK11(u1, u2, varu1, varu2) (
+      mu * d1Aux11(u1, u2, varu1, varu2)
+)//
+
+macro TanK12(u1, u2, varu1, varu2) (
+      mu * d1Aux12(u1, u2, varu1, varu2)
+)//
+
+macro TanK21(u1, u2, varu1, varu2) (
+      mu * d1Aux21(u1, u2, varu1, varu2)
+)//
+
+macro TanK22(u1, u2, varu1, varu2) (
+      mu * d1Aux22(u1, u2, varu1, varu2)
+)//
+//The macros for the stress tensor components: END
+
+// Parameters
+real mu = 5.e2; //Elastic coefficients (kg/cm^2)
+real D = 1.e3; //(1 / compressibility)
+real Pa = -3.e2; //Stress loads
+
+real InnerRadius = 1.e0; //The wound radius
+real OuterRadius = 4.e0; //The outer (truncated) radius
+real tol = 1.e-4; //Tolerance (L^2)
+real InnerEllipseExtension = 1.e0; //Extension of the inner ellipse ((major axis) - (minor axis))
+
+int m = 40, n = 20;
+
+// Mesh
+border InnerEdge(t=0, 2.*pi){x=(1.0 + InnerEllipseExtension)*InnerRadius*cos(t); y=InnerRadius*sin(t); label=1;}
+border OuterEdge(t=0, 2.*pi){x=(1.0 + 0.0*InnerEllipseExtension)*OuterRadius*cos(t); y=OuterRadius*sin(t); label=2;}
+mesh Th = buildmesh(InnerEdge(-m) + OuterEdge(n));
+int bottom = 1, right = 2, upper = 3, left = 4;
+plot(Th);
+
+// Fespace
+fespace Wh(Th, P1dc);
+fespace Vh(Th, [P1, P1]);
+Vh [w1, w2], [u1n,u2n], [varu1, varu2];
+Vh [ehat1x, ehat1y], [ehat2x, ehat2y];
+Vh [auxVec1, auxVec2]; //The individual elements of the total 1st Piola-Kirchoff stress
+Vh [ef1, ef2];
+
+fespace Sh(Th, P1);
+Sh p, ppp;
+Sh StrK11, StrK12, StrK21, StrK22;
+Sh u1, u2;
+
+// Problem
+varf vfMass1D(p, q) = int2d(Th)(p*q);
+matrix Mass1D = vfMass1D(Sh, Sh, solver=CG);
+
+p[] = 1;
+ppp[] = Mass1D * p[];
+
+real DomainMass = ppp[].sum;
+cout &lt;&lt; &quot;DomainMass = &quot; &lt;&lt; DomainMass &lt;&lt; endl;
+
+varf vmass ([u1, u2], [v1, v2], solver=CG)
+    = int2d(Th)( (u1*v1 + u2*v2) / DomainMass );
+
+matrix Mass = vmass(Vh, Vh);
+
+matrix Id = vmass(Vh, Vh);
+
+//Define the standard Euclidean basis functions
+[ehat1x, ehat1y] = [1.0, 0.0];
+[ehat2x, ehat2y] = [0.0, 1.0];
+
+real ContParam, dContParam;
+
+problem neoHookeanInc ([varu1, varu2], [w1, w2], solver=LU)
+    = int2d(Th, qforder=1)(
+        - (
+              StressK11 (u1n, u2n) * d3Aux11(u1n, u2n, varu1, varu2, w1, w2)
+            + StressK12 (u1n, u2n) * d3Aux12(u1n, u2n, varu1, varu2, w1, w2)
+            + StressK21 (u1n, u2n) * d3Aux21(u1n, u2n, varu1, varu2, w1, w2)
+            + StressK22 (u1n, u2n) * d3Aux22(u1n, u2n, varu1, varu2, w1, w2)
+        )
+        + TanK11 (u1n, u2n, varu1, varu2) * d4Aux11(w1, w2, u1n, u2n)
+        + TanK12 (u1n, u2n, varu1, varu2) * d4Aux12(w1, w2, u1n, u2n)
+        + TanK21 (u1n, u2n, varu1, varu2) * d4Aux21(w1, w2, u1n, u2n)
+        + TanK22 (u1n, u2n, varu1, varu2) * d4Aux22(w1, w2, u1n, u2n)
+    )
+    + int2d(Th, qforder=1)(
+          StressK11 (u1n, u2n) * d4Aux11(w1, w2, u1n, u2n)
+        + StressK12 (u1n, u2n) * d4Aux12(w1, w2, u1n, u2n)
+        + StressK21 (u1n, u2n) * d4Aux21(w1, w2, u1n, u2n)
+        + StressK22 (u1n, u2n) * d4Aux22(w1, w2, u1n, u2n)
+    )
+    //Choose one of the following two boundary conditions involving Pa:
+    // Load vectors normal to the boundary:
+    - int1d(Th, 1)(
+          Pa * (w1*N.x + w2*N.y)
+    )
+    //Load vectors tangential to the boundary:
+    //- int1d(Th, 1)(
+    //    Pa * (w1*N.y - w2*N.x)
+    //)
+    + on(2, varu1=0, varu2=0)
+    ;
+
+//Auxiliary variables
+matrix auxMat;
+
+// Newton&#39;s method
+ContParam = 0.;
+dContParam = 0.01;
+
+//Initialization:
+[varu1, varu2] = [0., 0.];
+[u1n, u2n] = [0., 0.];
+real res = 2. * tol;
+real eforceres;
+int loopcount = 0;
+int loopmax = 45;
+
+// Iterations
+while (loopcount &lt;= loopmax &amp;&amp; res &gt;= tol){
+    loopcount ++;
+    cout &lt;&lt; &quot;Loop &quot; &lt;&lt; loopcount &lt;&lt; endl;
+
+    // Solve
+    neoHookeanInc;
+
+    // Update
+    u1 = varu1;
+    u2 = varu2;
+
+    // Residual
+    w1[] = Mass*varu1[];
+    res = sqrt(w1[]&#39; * varu1[]); //L^2 norm of [varu1, varu2]
+    cout &lt;&lt; &quot; L^2 residual = &quot; &lt;&lt; res &lt;&lt; endl;
+
+    // Newton
+    u1n[] += varu1[];
+
+    // Plot
+    plot([u1n,u2n], cmm=&quot;displacement&quot;);
+}
+
+// Plot
+plot(Th, wait=true);
+
+// Movemesh
+mesh Th1 = movemesh(Th, [x+u1n, y+u2n]);
+
+// Plot
+plot(Th1, wait=true);
+plot([u1n,u2n]);
+</pre></div>
+
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<p><a name="OGDEN1984">[OGDEN1984]</a> OGDEN, Ray W. Non-linear elastic deformations. 1984.</p>
+<p><a name="RAVIART1998">[RAVIART1998]</a> RAVIART, Pierre-Arnaud, THOMAS, Jean-Marie, CIARLET, Philippe G., et al. Introduction à l'analyse numérique des équations aux dérivées partielles. Paris : Dunod, 1998.</p>
+<p><a name="HORGAN2004">[HORGAN2004]</a> HORGAN, Cornelius O. et SACCOMANDI, Giuseppe. Constitutive models for compressible nonlinearly elastic materials with limiting chain extensibility. Journal of Elasticity, 2004, vol. 77, no 2, p. 123-138.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../NonLinearElasticity/" title="Non-linear elasticity" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Non-linear elasticity
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../WhisperingGalleryModes/" title="Whispering gallery modes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Whispering gallery modes
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/FreeFem/FreeFem-doc" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
