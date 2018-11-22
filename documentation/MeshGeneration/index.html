@@ -1837,8 +1837,9 @@
 <h3 id="square">Square<a class="headerlink" href="#square" title="Permanent link">#</a></h3>
 <p>The command <code class="codehilite">square</code> triangulates the unit square.</p>
 <p>The following generates a <span><span class="MathJax_Preview">4 \times 5</span><script type="math/tex">4 \times 5</script></span> grid in the unit square <span><span class="MathJax_Preview">[0,1]^2</span><script type="math/tex">[0,1]^2</script></span>. The labels of the boundaries are shown in <a href="#Fig1">Fig. 1</a>.</p>
-<div class="codehilite"><pre><span></span>mesh Th = square(4, 5);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(4, 5);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -1855,7 +1856,13 @@
 </table>
 <p></center></p>
 <p>To construct a <span><span class="MathJax_Preview">n\times m</span><script type="math/tex">n\times m</script></span> grid in the rectangle <span><span class="MathJax_Preview">[x_0,x_1]\times [y_0,y_1]</span><script type="math/tex">[x_0,x_1]\times [y_0,y_1]</script></span>, proceed as follows:</p>
-<div class="codehilite"><pre><span></span>real x0 = 1.2;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x0 = 1.2;
 real x1 = 1.8;
 real y0 = 0;
 real y1 = 1;
@@ -1863,6 +1870,7 @@ int n = 5;
 real m = 20;
 mesh Th = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y]);
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1874,25 +1882,55 @@ mesh Th = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y]);
     <li>same as in case 0, except two corners where the triangles are the same as case 2 to avoid having 3 vertices on the boundary</li>
     <li>same as in case 2, except two corners where the triangles are the same as case 0 to avoid having 3 vertices on the boundary</li>
 </ol></p>
-<div class="codehilite"><pre><span></span>mesh Th = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y], flags=icase);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(n, m, [x0+(x1-x0)*x, y0+(y1-y0)*y], flags=icase);
 </pre></div>
+</td></tr></table>
 
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Adding the named parameter <code class="codehilite">label=labs</code> will change the 4 default label numbers to <code class="codehilite">labs[i-1]</code>, for example <code class="codehilite">int[int] labs=[11, 12, 13, 14]</code>, and adding the named parameter <code class="codehilite">region=10</code> will change the region number to <span><span class="MathJax_Preview">10</span><script type="math/tex">10</script></span>, for instance (v 3.8).</p>
 <p>To see all of these flags at work, try the file <a href="scripts/MeshGeneration/SquareMesh.edp" download>SquareMesh.edp file</a>:</p>
-<div class="codehilite"><pre><span></span>for (int i = 0; i &lt; 5; ++i){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for (int i = 0; i &lt; 5; ++i){
     int[int] labs = [11, 12, 13, 14];
     mesh Th = square(3, 3, flags=i, label=labs, region=10);
     plot(Th, wait=1, cmm=&quot;square flags = &quot;+i );
 }
 </pre></div>
+</td></tr></table>
 
 </div>
 <h3 id="border">Border<a class="headerlink" href="#border" title="Permanent link">#</a></h3>
 <p>Boundaries are defined piecewise by parametrized curves. The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints. This can be used to structure the mesh if an area touches a border and create new regions by dividing larger ones:</p>
-<div class="codehilite"><pre><span></span>int upper = 1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int upper = 1;
 int others = 2;
 int inner = 3;
 
@@ -1918,6 +1956,7 @@ plot(Th, wait=true);
 cout &lt;&lt; &quot;Part 1 has region number &quot; &lt;&lt; Th(0.75, -0.25).region &lt;&lt; endl;
 cout &lt;&lt; &quot;Part 2 has redion number &quot; &lt;&lt; Th(0.25, -0.25).region &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>Borders and mesh are respectively shown in <a href="#Fig2">Fig. 2</a> and <a href="#Fig3">Fig. 3</a>.</p>
 <table>
@@ -1957,8 +1996,9 @@ cout &lt;&lt; &quot;Part 2 has redion number &quot; &lt;&lt; Th(0.25, -0.25).reg
 </tbody>
 </table>
 <p>The general expression to define a triangulation with <code class="codehilite">buildmesh</code> is</p>
-<div class="codehilite"><pre><span></span>mesh Mesh_Name = buildmesh(Gamma1(m1)+...+GammaJ(mj), OptionalParameter);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Mesh_Name = buildmesh(Gamma1(m1)+...+GammaJ(mj), OptionalParameter);
 </pre></div>
+</td></tr></table>
 
 <p>where <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span> are positive or negative numbers to indicate how many vertices should be on <span><span class="MathJax_Preview">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</span><script type="math/tex">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</script></span>, and the optional parameter (see also <a href="../reference/Functions/#buildmesh">References</a>), separated with a comma, can be:</p>
 <ul>
@@ -1967,7 +2007,13 @@ cout &lt;&lt; &quot;Part 2 has redion number &quot; &lt;&lt; Th(0.25, -0.25).reg
 </ul>
 <p>The orientation of boundaries can be changed by changing the sign of <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span>.</p>
 <p>The following example shows how to change the orientation. The example generates the unit disk with a small circular hole, and assigns "1" to the unit disk ("2" to the circle inside). The boundary label <strong>must be non-zero</strong>, but it can also be omitted.</p>
-<div class="codehilite"><pre><span></span>border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
 border b(t=0, 2*pi){x=0.3+0.3*cos(t); y=0.3*sin(t); label=2;}
 plot(a(50) + b(30)); //to see a plot of the border mesh
 mesh Thwithouthole = buildmesh(a(50) + b(30));
@@ -1975,6 +2021,7 @@ mesh Thwithhole = buildmesh(a(50) + b(-30));
 plot(Thwithouthole, ps=&quot;Thwithouthole.eps&quot;);
 plot(Thwithhole, ps=&quot;Thwithhole.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1997,25 +2044,61 @@ plot(Thwithhole, ps=&quot;Thwithhole.eps&quot;);
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Borders are evaluated only at the time <code class="codehilite">plot</code> or <code class="codehilite">buildmesh</code> is called so the global variables are defined at this time. In this case, since <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> is changed between the two border calls, the following code will not work because the first border will be computed with r=0.3:</p>
-<div class="codehilite"><pre><span></span>real r=1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r=1;
 border a(t=0, 2*pi){x=r*cos(t); y=r*sin(t); label=1;}
 r=0.3;
 border b(t=0, 2*pi){x=r*cos(t); y=r*sin(t); label=1;}
 mesh Thwithhole = buildmesh(a(50) + b(-30)); // bug (a trap) because
                                              // the two circles have the same radius = $0.3$
 </pre></div>
+</td></tr></table>
 
 </div>
 <h3 id="multi-border">Multi-Border<a class="headerlink" href="#multi-border" title="Permanent link">#</a></h3>
 <p>Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the FreeFem++ syntax. To bypass this problem, if the number of segments of the discretization <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is an array, we make an implicit loop on all of the values of the array, and the index variable <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> of the loop is defined after the parameter definition, like in <code class="codehilite">border a(t=0, 2*pi; i)</code> ...</p>
 <p>A first very small example:</p>
-<div class="codehilite"><pre><span></span>border a(t=0, 2*pi; i){x=(i+1)*cos(t); y=(i+1)*sin(t); label=1;}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border a(t=0, 2*pi; i){x=(i+1)*cos(t); y=(i+1)*sin(t); label=1;}
 int[int] nn = [10, 20, 30];
 plot(a(nn)); //plot 3 circles with 10, 20, 30 points
 </pre></div>
+</td></tr></table>
 
 <p>And a more complex example to define a square with small circles:</p>
-<div class="codehilite"><pre><span></span>real[int] xx = [0, 1, 1, 0],
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] xx = [0, 1, 1, 0],
           yy = [0, 0, 1, 1];
 //radius, center of the 4 circles
 real[int] RC = [0.1, 0.05, 0.05, 0.1],
@@ -2044,13 +2127,17 @@ plot(bb(nn), cc(NC), wait=1);
 mesh th = buildmesh(bb(nn) + cc(NC));
 plot(th, wait=1);
 </pre></div>
+</td></tr></table>
 
 <h3 id="data-structures-and-readwrite-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh<a class="headerlink" href="#data-structures-and-readwrite-statements-for-a-mesh" title="Permanent link">#</a></h3>
 <p>Users who want to read a triangulation made elsewhere should see the structure of the file generated below:</p>
-<div class="codehilite"><pre><span></span>border C(t=0, 2*pi){x=cos(t); y=sin(t);}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border C(t=0, 2*pi){x=cos(t); y=sin(t);}
 mesh Th = buildmesh(C(10));
 savemesh(Th, &quot;mesh.msh&quot;);
 </pre></div>
+</td></tr></table>
 
 <p>The mesh is shown on <a href="#Fig7">Fig. 7</a>.</p>
 <p>The information about <code class="codehilite">Th</code> are saved in the file <code class="codehilite">mesh.msh</code> whose structure is shown on <a href="#Tab1">Tab. 1</a>.</p>
@@ -2102,7 +2189,18 @@ savemesh(Th, &quot;mesh.msh&quot;);
 <p></center></p>
 <p>In FreeFem++ there are many mesh file formats available for communication with other tools such as <code>emc2</code>, <code>modulef</code>, ... (see <a href="MeshFormat">Mesh format chapter</a>). The extension of a file implies its format. More details can be found on the file format .msh in the article by F. Hecht "bamg : a bidimensional anisotropic mesh generator" <a href="#refHecht19982">Hecht1998</a>.</p>
 <p>A mesh file can be read into FreeFem++ except that the names of the borders are lost and only their reference numbers are kept. So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword <code class="codehilite">label</code>. Here are some examples:</p>
-<div class="codehilite"><pre><span></span>border floor(t=0, 1){x=t; y=0; label=1;}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border floor(t=0, 1){x=t; y=0; label=1;}
 border right(t=0, 1){x=1; y=t; label=5;}
 border ceiling(t=1, 0){x=t; y=1; label=5;}
 border left(t=1, 0){x=0; y=t; label=5;}
@@ -2115,8 +2213,74 @@ savemesh(th, &quot;toto.msh&quot;); //freefem format
 savemesh(th, &quot;toto.nopo&quot;); //modulef format
 mesh th2 = readmesh(&quot;toto.msh&quot;); //read the mesh
 </pre></div>
+</td></tr></table>
 
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int n = 10;
 
 // Mesh
@@ -2183,10 +2347,145 @@ solve Problem(u, v)
 // Plot
 plot(th2, u);
 </pre></div>
+</td></tr></table>
 
 <h3 id="mesh-connectivity-and-data">Mesh Connectivity and data<a class="headerlink" href="#mesh-connectivity-and-data" title="Permanent link">#</a></h3>
 <p>The following example explains methods to obtain mesh information.</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 mesh Th = square(2, 2);
 
 cout &lt;&lt; &quot;// Get data of the mesh&quot; &lt;&lt; endl;
@@ -2322,9 +2621,119 @@ cout &lt;&lt; &quot;// Print mesh connectivity &quot; &lt;&lt; endl;
          &lt;&lt; &quot;, ymax = &quot; &lt;&lt; bb[3] &lt;&lt; endl;
 }
 </pre></div>
+</td></tr></table>
 
 <p>The output is:</p>
-<div class="codehilite"><pre><span></span>// Get data of the mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Get data of the mesh
 Number of <span class="nv">triangle</span> <span class="o">=</span> <span class="m">8</span>
 Mesh <span class="nv">area</span> <span class="o">=</span> <span class="m">1</span>
 Border <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
@@ -2435,6 +2844,7 @@ Adjacent triangle of the triangle <span class="m">0</span> by edge <span class="
 boundingbox:
 <span class="nv">xmin</span> <span class="o">=</span> <span class="m">0</span>, <span class="nv">xmax</span> <span class="o">=</span> <span class="m">1</span>, <span class="nv">ymin</span> <span class="o">=</span> <span class="m">0</span>, <span class="nv">ymax</span> <span class="o">=</span> <span class="m">1</span>
 </pre></div>
+</td></tr></table>
 
 <p>The real characteristic function of a mesh <code class="codehilite">Th</code> is <code class="codehilite">chi(Th)</code> in 2D and 3D where:</p>
 <p><code class="codehilite">chi(Th)(P)=1</code> if <span><span class="MathJax_Preview">P\in Th</span><script type="math/tex">P\in Th</script></span></p>
@@ -2442,7 +2852,13 @@ boundingbox:
 <h3 id="the-keyword-triangulate">The keyword "triangulate"<a class="headerlink" href="#the-keyword-triangulate" title="Permanent link">#</a></h3>
 <p>FreeFem++ is able to build a triangulation from a set of points. This triangulation is a Delaunay mesh of the convex hull of the set of points. It can be useful to build a mesh from a table function.</p>
 <p>The coordinates of the points and the value of the table function are defined separately with rows of the form: <code class="codehilite">x y f(x,y)</code> in a file such as:</p>
-<div class="codehilite"><pre><span></span>0.51387 0.175741 0.636237
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0.51387 0.175741 0.636237
 0.308652 0.534534 0.746765
 0.947628 0.171736 0.899823
 0.702231 0.226431 0.800819
@@ -2450,6 +2866,7 @@ boundingbox:
 0.0838988 0.389647 0.456045
 ...............
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2467,7 +2884,27 @@ boundingbox:
 </table>
 <p>The third column of each line is left untouched by the <code class="codehilite">triangulate</code> command. But you can use this third value to define a table function with rows of the form: <code class="codehilite">x y f(x,y)</code>.</p>
 <p>The following example shows how to make a mesh from the file <code>xyf</code> with the format stated just above. The command <code class="codehilite">triangulate</code> only uses the 1st and 2nd columns.</p>
-<div class="codehilite"><pre><span></span>// Build the Delaunay mesh of the convex hull
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Build the Delaunay mesh of the convex hull
 mesh Thxy=triangulate(&quot;xyf&quot;); //points are defined by the first 2 columns of file `xyf`
 
 // Plot the created mesh
@@ -2489,27 +2926,53 @@ Vhxy fxy;
 // Plot
 plot(fxy);
 </pre></div>
+</td></tr></table>
 
 <p>One new way to build a mesh is to have two arrays: one for the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> values and the other for the <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> values.</p>
-<div class="codehilite"><pre><span></span>//set two arrays for the x&#39;s and y&#39;s
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>//set two arrays for the x&#39;s and y&#39;s
 Vhxy xx=x, yy=y;
 //build the mesh
 mesh Th = triangulate(xx[], yy[]);
 </pre></div>
+</td></tr></table>
 
 <h2 id="boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes<a class="headerlink" href="#boundary-fem-spaces-built-as-empty-meshes" title="Permanent link">#</a></h2>
 <p>To define a Finite Element space on a boundary, we came up with the idea of a mesh with no internal points (called empty mesh). It can be useful to handle Lagrange multipliers in mixed and mortar methods.</p>
 <p>So the function <code class="codehilite">emptymesh</code> removes all the internal points of a mesh except points on internal boundaries.</p>
-<div class="codehilite"><pre><span></span>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
     border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
     mesh Th = buildmesh(a(20));
     Th = emptymesh(Th);
     plot(Th);
 }
 </pre></div>
+</td></tr></table>
 
 <p>It is also possible to build an empty mesh of a pseudo subregion with <code class="codehilite">emptymesh(Th, ssd)</code> using the set of edges from the mesh <code class="codehilite">Th</code>; an edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> is in this set when, with the two adjacent triangles <span><span class="MathJax_Preview">e =t1\cap t2</span><script type="math/tex">e =t1\cap t2</script></span> and <span><span class="MathJax_Preview">ssd[T1] \neq ssd[T2]</span><script type="math/tex">ssd[T1] \neq ssd[T2]</script></span> where <span><span class="MathJax_Preview">ssd</span><script type="math/tex">ssd</script></span> refers to the pseudo region numbering of triangles, they are stored in the <code class="codehilite">int[int]</code> array of size "the number of triangles".</p>
-<div class="codehilite"><pre><span></span>{
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
     mesh Th = square(10, 10);
     int[int] ssd(Th.nt);
     //build the pseudo region numbering
@@ -2526,6 +2989,7 @@ mesh Th = triangulate(xx[], yy[]);
     savemesh(Th, &quot;emptymesh.msh&quot;);
 }
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2546,8 +3010,9 @@ mesh Th = triangulate(xx[], yy[]);
 <p>Meshes can be translated, rotated, and deformed by <code class="codehilite">movemesh</code>; this is useful for elasticity to watch the deformation due to the displacement <span><span class="MathJax_Preview">\mathbf{\Phi}(x,y)=(\Phi_1(x,y),\Phi_2(x,y))</span><script type="math/tex">\mathbf{\Phi}(x,y)=(\Phi_1(x,y),\Phi_2(x,y))</script></span> of shape.</p>
 <p>It is also useful to handle free boundary problems or optimal shape problems.</p>
 <p>If <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is triangulated as <span><span class="MathJax_Preview">T_h(\Omega)</span><script type="math/tex">T_h(\Omega)</script></span>, and <span><span class="MathJax_Preview">\mathbf{\Phi}</span><script type="math/tex">\mathbf{\Phi}</script></span> is a displacement vector then <span><span class="MathJax_Preview">\mathbf{\Phi}(T_h)</span><script type="math/tex">\mathbf{\Phi}(T_h)</script></span> is obtained by</p>
-<div class="codehilite"><pre><span></span>mesh Th = movemesh(Th,[Phi1, Phi2]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = movemesh(Th,[Phi1, Phi2]);
 </pre></div>
+</td></tr></table>
 
 <p>Sometimes the transformed mesh is invalid because some triangles have flipped over (meaning it now has a negative area). To spot such problems, one may check the minimum triangle area in the transformed mesh with <code class="codehilite">checkmovemesh</code> before any real transformation.</p>
 <p>For example:
@@ -2556,7 +3021,36 @@ mesh Th = triangulate(xx[], yy[]);
     \Phi_2(x,y) &=& y+k*\cos(y\pi)/10)
 \end{eqnarray}</script>
 for a big number <span><span class="MathJax_Preview">k&gt;1</span><script type="math/tex">k>1</script></span>.</p>
-<div class="codehilite"><pre><span></span>verbosity = 4;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>verbosity = 4;
 
 // Parameters
 real coef = 1;
@@ -2587,6 +3081,7 @@ while(1){ // find a correct move mesh
 Th = movemesh(Th, [x+coef*uu, y+coef*vv]);
 plot(Th, wait=true, fill=true, ps=&quot;MovedMesh.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2607,7 +3102,36 @@ plot(Th, wait=true, fill=true, ps=&quot;MovedMesh.eps&quot;);
 <p>Consider a function <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> defined on a mesh <code class="codehilite">Th</code>. A statement like <code class="codehilite">Th=movemesh(Th...)</code> does not change <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> and so the old mesh still exists. It will be destroyed when no function uses it. A statement like <span><span class="MathJax_Preview">u=u</span><script type="math/tex">u=u</script></span> redefines <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> on the new mesh <code class="codehilite">Th</code> with interpolation and therefore destroys the old <code class="codehilite">Th</code>, if <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> was the only function using it.</p>
 </div>
 <p>Now, we give an example of moving a mesh with a Lagrangian function <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> defined on the moving mesh.</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int nn = 10;
 real dt = 0.1;
 
@@ -2638,6 +3162,7 @@ for (int i = 0; i &lt; 4; i++){
 // In this program, since u is only defined on the last mesh, all the
 // previous meshes are deleted from memory.
 </pre></div>
+</td></tr></table>
 
 <h2 id="regular-triangulation-htriangle">Regular Triangulation: <code class="codehilite">hTriangle</code><a class="headerlink" href="#regular-triangulation-htriangle" title="Permanent link">#</a></h2>
 <p>For a set <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, we define the diameter of <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> by</p>
@@ -2662,11 +3187,15 @@ for (int i = 0; i &lt; 4; i++){
 </ol>
 <p>We put <span><span class="MathJax_Preview">h(\mathcal{T}_h)=\max\{\textrm{diam}(T_k)|\; T_k\in \mathcal{T}_h\}</span><script type="math/tex">h(\mathcal{T}_h)=\max\{\textrm{diam}(T_k)|\; T_k\in \mathcal{T}_h\}</script></span>,
 which is obtained by</p>
-<div class="codehilite"><pre><span></span>mesh Th = ......;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = ......;
 fespace Ph(Th, P0);
 Ph h = hTriangle;
 cout &lt;&lt; &quot;size of mesh = &quot; &lt;&lt; h[].max &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <h2 id="adaptmesh">Adaptmesh<a class="headerlink" href="#adaptmesh" title="Permanent link">#</a></h2>
 <p>The function
@@ -2674,7 +3203,26 @@ cout &lt;&lt; &quot;size of mesh = &quot; &lt;&lt; h[].max &lt;&lt; endl;
 f(x,y) = 10.0x^3+y^3+\tan^{-1}[\varepsilon/(\sin(5.0y)-2.0x)],\ \varepsilon = 0.0001
 </script>
 sharply varies in value and the initial mesh given by one of the commands if <a href="##commands-for-mesh-generation">Mesh Generation section</a> cannot reflect its sharp variations.</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real eps = 0.0001;
 real h = 1;
 real hmin = 0.05;
@@ -2695,6 +3243,7 @@ for (int i = 0; i &lt; 2; i++){
     plot(Th, fh, wait=true);
 }
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2710,8 +3259,9 @@ for (int i = 0; i &lt; 2; i++){
 </table>
 <p>FreeFem++ uses a variable metric/Delaunay automatic meshing algorithm.</p>
 <p>The command:</p>
-<p><div class="codehilite"><pre><span></span>mesh ATh = adaptmesh(Th, f);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh ATh = adaptmesh(Th, f);
 </pre></div>
+</td></tr></table>
 create the new mesh <code class="codehilite">ATh</code> adapted to the Hessian</p>
 <div>
 <div class="MathJax_Preview">
@@ -2742,7 +3292,45 @@ D^2f=(\p^2 f/\p x^2,\, \p^2 f/\p x\p y, \p^2 f/\p y^2)
 <p class="admonition-title">Example</p>
 <p>The solution has the singularity <span><span class="MathJax_Preview">r^{3/2},\, r=|x-\gamma|</span><script type="math/tex">r^{3/2},\, r=|x-\gamma|</script></span> at the point <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> of the intersection of two lines <span><span class="MathJax_Preview">bc</span><script type="math/tex">bc</script></span> and <span><span class="MathJax_Preview">bd</span><script type="math/tex">bd</script></span> (see <a href="#Fig15">Fig. 15</a>).</p>
 </div>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real error = 0.1;
 
 // Mesh
@@ -2782,6 +3370,7 @@ for (int i = 0; i &lt; 4; i++){
 // Plot
 plot(u);
 </pre></div>
+</td></tr></table>
 
 <p>To speed up the adaptation, the default parameter <code class="codehilite">err</code> of <code class="codehilite">adaptmesh</code> is changed by hand; it specifies the required precision, so as to make the new mesh finer or coarser.</p>
 <p>The problem is coercive and symmetric, so the linear system can be solved with the conjugate gradient method (parameter <code class="codehilite">solver=CG</code>) with the stopping criteria on the residual, here <code class="codehilite">eps=1.e-6</code>).</p>
@@ -2789,10 +3378,13 @@ plot(u);
 the point of intersection of <span><span class="MathJax_Preview">bc</span><script type="math/tex">bc</script></span> and <span><span class="MathJax_Preview">bd</span><script type="math/tex">bd</script></span> as in <a href="Fig16">Fig. 16</a>.</p>
 <p>This method is described in detail in <a href="#refHecht1998">Hecht1998</a>. It has a number of default parameters which can be modified.</p>
 <p>If <code class="codehilite">f1,f2</code> are functions and <code class="codehilite">thold, Thnew</code> are meshes:</p>
-<div class="codehilite"><pre><span></span>    Thnew = adaptmesh(Thold, f1 ... );
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    Thnew = adaptmesh(Thold, f1 ... );
     Thnew = adaptmesh(Thold, f1,f2 ... ]);
     Thnew = adaptmesh(Thold, [f1,f2] ... );
 </pre></div>
+</td></tr></table>
 
 <p>The additional parameters of <code class="codehilite">adaptmesh</code> are:</p>
 <p>See <a href="../reference/Functions/#adaptmesh">Reference part</a> for more inforamtions</p>
@@ -2892,7 +3484,15 @@ default.</p>
 </li>
 </ul>
 <p>We can use the command <code class="codehilite">adaptmesh</code> to build a uniform mesh with a constant mesh size. To build a mesh with a constant mesh size equal to <span><span class="MathJax_Preview">\frac{1}{30}</span><script type="math/tex">\frac{1}{30}</script></span> try:</p>
-<div class="codehilite"><pre><span></span>mesh Th=square(2, 2); //the initial mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th=square(2, 2); //the initial mesh
 plot(Th, wait=true, ps=&quot;square-0.eps&quot;);
 
 Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000);
@@ -2902,6 +3502,7 @@ Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); //More the one time du to
 Th = adaptmesh(Th, 1./30., IsMetric=1, nbvx=10000); //Adaptation bound `maxsubdiv=`
 plot(Th, wait=true, ps=&quot;square-2.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2926,11 +3527,27 @@ plot(Th, wait=true, ps=&quot;square-2.eps&quot;);
 <li><code class="codehilite">split=</code> sets the level <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> of triangle splitting. Each triangle is split in <span><span class="MathJax_Preview">n\times n</span><script type="math/tex">n\times n</script></span>, one by default.</li>
 </ul>
 <p>To create the mesh <code class="codehilite">Th3</code> where all triangles of a mesh <code class="codehilite">Th</code> are split in <span><span class="MathJax_Preview">3{\times}3</span><script type="math/tex">3{\times}3</script></span>, just write:</p>
-<div class="codehilite"><pre><span></span>mesh Th3 = trunc(Th, 1, split=3);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th3 = trunc(Th, 1, split=3);
 </pre></div>
+</td></tr></table>
 
 <p>The following example construct all "trunced" meshes to the support of the basic function of the space <code class="codehilite">Vh</code> (cf. <code class="codehilite">abs(u)&gt;0</code>), split all the triangles in <span><span class="MathJax_Preview">5{\times} 5</span><script type="math/tex">5{\times} 5</script></span>, and put a label number to <span><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> on a new boundary.</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 mesh Th = square(3, 3);
 
 // Fespace
@@ -2947,6 +3564,7 @@ for (int i = 0; i &lt; n; i++){
     u[][i] = 0; // reset
 }
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2964,7 +3582,14 @@ for (int i = 0; i &lt; n; i++){
 </table>
 <h2 id="splitmesh">Splitmesh<a class="headerlink" href="#splitmesh" title="Permanent link">#</a></h2>
 <p>Another way to split mesh triangles is to use <code class="codehilite">splitmesh</code>, for example:</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 border a(t=0, 2*pi){x=cos(t); y=sin(t); label=1;}
 mesh Th = buildmesh(a(20));
 plot(Th, wait=true, ps=&quot;NotSplittedMesh.eps&quot;);
@@ -2973,6 +3598,7 @@ plot(Th, wait=true, ps=&quot;NotSplittedMesh.eps&quot;);
 Th = splitmesh(Th, 1 + 5*(square(x-0.5) + y*y));
 plot(Th, wait=true, ps=&quot;SplittedMesh.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -2991,7 +3617,18 @@ plot(Th, wait=true, ps=&quot;SplittedMesh.eps&quot;);
 <h2 id="meshing-examples">Meshing Examples<a class="headerlink" href="#meshing-examples" title="Permanent link">#</a></h2>
 <div class="admonition example">
 <p class="admonition-title">Two rectangles touching by a side</p>
-<div class="codehilite"><pre><span></span>border a(t=0, 1){x=t; y=0;};
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border a(t=0, 1){x=t; y=0;};
 border b(t=0, 1){x=1; y=t;};
 border c(t=1, 0){x=t; y=1;};
 border d(t=1, 0){x=0; y=t;};
@@ -3004,6 +3641,7 @@ mesh th = buildmesh(a(10*n) + b(10*n) + c(10*n) + d(10*n));
 mesh TH = buildmesh(c1(10*n) + e(5*n) + f(10*n) + g(5*n));
 plot(th, TH, ps=&quot;TouchSide.esp&quot;);
 </pre></div>
+</td></tr></table>
 
 <p><center>
 <!-- Review -->
@@ -3014,7 +3652,17 @@ plot(th, TH, ps=&quot;TouchSide.esp&quot;);
 </div>
 <div class="admonition example">
 <p class="admonition-title">NACA0012 Airfoil</p>
-<div class="codehilite"><pre><span></span>border upper(t=0, 1){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border upper(t=0, 1){
     x=t;
     y=0.17735*sqrt(t) - 0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4);
 }
@@ -3026,6 +3674,7 @@ border c(t=0, 2*pi){x=0.8*cos(t) + 0.5; y=0.8*sin(t);}
 mesh Th = buildmesh(c(30) + upper(35) + lower(35));
 plot(Th, ps=&quot;NACA0012.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3044,12 +3693,17 @@ plot(Th, ps=&quot;NACA0012.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Cardioid</p>
-<div class="codehilite"><pre><span></span>real b = 1, a = b;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real b = 1, a = b;
 
 border C(t=0, 2*pi){x=(a+b)*cos(t)-b*cos((a+b)*t/b); y=(a+b)*sin(t)-b*sin((a+b)*t/b);}
 mesh Th = buildmesh(C(50));
 plot(Th, ps=&quot;Cardioid.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3068,10 +3722,13 @@ plot(Th, ps=&quot;Cardioid.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Cassini Egg</p>
-<div class="codehilite"><pre><span></span>border C(t=0, 2*pi) {x=(2*cos(2*t)+3)*cos(t); y=(2*cos(2*t)+3)*sin(t);}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border C(t=0, 2*pi) {x=(2*cos(2*t)+3)*cos(t); y=(2*cos(2*t)+3)*sin(t);}
 mesh Th = buildmesh(C(50));
 plot(Th, ps=&quot;Cassini.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3090,7 +3747,34 @@ plot(Th, ps=&quot;Cassini.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">By cubic Bezier curve</p>
-<div class="codehilite"><pre><span></span>// A cubic Bezier curve connecting two points with two control points
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// A cubic Bezier curve connecting two points with two control points
 func real bzi(real p0, real p1, real q1, real q2, real t){
     return p0*(1-t)^3 + q1*3*(1-t)^2*t + q2*3*(1-t)*t^2 + p1*t^3;
 }
@@ -3119,6 +3803,7 @@ int m = 5;
 mesh Th = buildmesh(G1(2*m) + G2(m) + G3(3*m) + G4(m));
 plot(Th, ps=&quot;Bezier.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3137,7 +3822,18 @@ plot(Th, ps=&quot;Bezier.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Section of Engine</p>
-<div class="codehilite"><pre><span></span>real a = 6., b = 1., c = 0.5;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 6., b = 1., c = 0.5;
 
 border L1(t=0, 1){x=-a; y=1+b-2*(1+b)*t;}
 border L2(t=0, 1){x=-a+2*a*t; y=-1-b*(x/a)*(x/a)*(3-2*abs(x)/a );}
@@ -3150,6 +3846,7 @@ border L8(t=0, 1){x=a-2*a*t; y=1+b*(x/a)*(x/a)*(3-2*abs(x)/a);}
 mesh Th = buildmesh(L1(8) + L2(26) + L3(8) + L4(20) + L5(8) + L6(30) + L7(8) + L8(30));
 plot(Th, ps=&quot;Engine.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3168,7 +3865,18 @@ plot(Th, ps=&quot;Engine.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Domain with U-shape channel</p>
-<div class="codehilite"><pre><span></span>real d = 0.1; //width of U-shape
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real d = 0.1; //width of U-shape
 border L1(t=0, 1-d){x=-1; y=-d-t;}
 border L2(t=0, 1-d){x=-1; y=1-t;}
 border B(t=0, 2){x=-1+t; y=-1;}
@@ -3181,6 +3889,7 @@ int n = 5;
 mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n) + C2(3) + C3(n) + R(n) + T(n));
 plot(Th, ps=&quot;U-shape.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3199,7 +3908,19 @@ plot(Th, ps=&quot;U-shape.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Domain with V-shape cut</p>
-<div class="codehilite"><pre><span></span>real dAg = 0.02; //angle of V-shape
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real dAg = 0.02; //angle of V-shape
 border C(t=dAg, 2*pi-dAg){x=cos(t); y=sin(t);};
 real[int] pa(2), pb(2), pc(2);
 pa[0] = cos(dAg);
@@ -3213,6 +3934,7 @@ border seg2(t=0, 1){x=(1-t)*pc[0]+t*pa[0]; y=(1-t)*pc[1]+t*pa[1];};
 mesh Th = buildmesh(seg1(20) + C(40) + seg2(20));
 plot(Th, ps=&quot;V-shape.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3231,7 +3953,25 @@ plot(Th, ps=&quot;V-shape.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Smiling face</p>
-<div class="codehilite"><pre><span></span>real d=0.1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real d=0.1;
 int m = 5;
 real a = 1.5, b = 2, c = 0.7, e = 0.01;
 
@@ -3251,6 +3991,7 @@ mesh Th=buildmesh(F(10*m) + C1(2*m) + C2(3) + C3(2*m) + C4(3)
     + C0(m) + E1(-2*m) + E2(-2*m));
 plot(Th, ps=&quot;SmileFace.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3269,7 +4010,24 @@ plot(Th, ps=&quot;SmileFace.eps&quot;, bw=true);
 </div>
 <div class="admonition example">
 <p class="admonition-title">3 points bending</p>
-<div class="codehilite"><pre><span></span>// Square for Three-Point Bend Specimens fixed on Fix1, Fix2
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Square for Three-Point Bend Specimens fixed on Fix1, Fix2
 // It will be loaded on Load.
 real a = 1, b = 5, c = 0.1;
 int n = 5, m = b*n;
@@ -3288,6 +4046,7 @@ mesh Th = buildmesh(Left(n) + Bot1(m/4) + Fix1(5) + Bot2(m/2)
     + Fix2(5) + Bot3(m/4) + Right(n) + Top1(m/2) + Load(10) + Top2(m/2));
 plot(Th, ps=&quot;ThreePoint.eps&quot;, bw=true);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3334,7 +4093,43 @@ plot(Th, ps=&quot;ThreePoint.eps&quot;, bw=true);
 \end{eqnarray}</script>
 </div>
 <p>An example of using this function is given here:</p>
-<div class="codehilite"><pre><span></span>verbosity=3;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>verbosity=3;
 
 // Mesh
 mesh Th1 = square(10, 10);
@@ -3372,6 +4167,7 @@ solve P(u, v)
 
 plot(u, wait=1);
 </pre></div>
+</td></tr></table>
 
 <p><strong>"gluing" different mesh</strong>
 In line 17 of the previous file, the method to "gluing" different meshes of the same dimension in FreeFem++ is using. This function is the operator "+" between meshes. The method implemented needs the point in adjacent meshes to be the same.</p>
@@ -3379,8 +4175,9 @@ In line 17 of the previous file, the method to "gluing" different meshes of the 
 <h3 id="cube">Cube<a class="headerlink" href="#cube" title="Permanent link">#</a></h3>
 <p>A new function <code class="codehilite">cube</code> like the function <code class="codehilite">square</code> in 2d is the simple way to a build cubic object, in plugin <code class="codehilite">msh3</code> (need <code class="codehilite">load &quot;msh3&quot;</code>).</p>
 <p>The following code generates a <span><span class="MathJax_Preview">3\times 4 \times 5</span><script type="math/tex">3\times 4 \times 5</script></span> grid in the unit cube <span><span class="MathJax_Preview">[0, 1]^3</span><script type="math/tex">[0, 1]^3</script></span>.</p>
-<div class="codehilite"><pre><span></span>mesh3 Th = cube(3, 4, 5);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh3 Th = cube(3, 4, 5);
 </pre></div>
+</td></tr></table>
 
 <p>By default the labels are :</p>
 <ol>
@@ -3393,7 +4190,37 @@ In line 17 of the previous file, the method to "gluing" different meshes of the 
 </ol>
 <p>and the region number is <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>.</p>
 <p>A full example of this function to build a mesh of cube <span><span class="MathJax_Preview">]-1,1[^3</span><script type="math/tex">]-1,1[^3</script></span> with face label given by <span><span class="MathJax_Preview">(ix + 4*(iy+1) + 16*(iz+1))</span><script type="math/tex">(ix + 4*(iy+1) + 16*(iz+1))</script></span> where <span><span class="MathJax_Preview">(ix, iy, iz)</span><script type="math/tex">(ix, iy, iz)</script></span> are the coordinates of the barycenter of the current face, is given below.</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 
 int[int] l6 = [37, 42, 45, 40, 25, 57];
 int r11 = 11;
@@ -3425,9 +4252,22 @@ plot(Th, fill=false);
 cout &lt;&lt; &quot;Nb err = &quot; &lt;&lt; err &lt;&lt; endl;
 assert(err==0);
 </pre></div>
+</td></tr></table>
 
 <p>The output of this script is:</p>
-<div class="codehilite"><pre><span></span>Enter: BuildCube: 3
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Enter: BuildCube: 3
   kind = 3 n tet Cube = 6 / n slip 6 19
 Cube  nv=210 nt=720 nbe=296
 Out:  BuildCube
@@ -3441,6 +4281,7 @@ Label = 57, s = 4 112 : 57
 Volume region = 11: 8
 Nb err = 0
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3482,12 +4323,17 @@ The structure of the files with extension .msh in 3D is given in <a href="Tab2">
 <p></center></p>
 <p><strong>extension file .mesh</strong>
 The data structure for a three dimensional mesh is composed of the data structure presented in <a href="Developers/#mesh-format">Mesh Format section</a> and a data structure for the tetrahedra. The tetrahedra of a three dimensional mesh are referred using the following field:</p>
-<div class="codehilite"><pre><span></span>Tetrahedra
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Tetrahedra
 NbTetrahedra
 Vertex1 Vertex2 Vertex3 Vertex4 Label
 ...
 Vertex1 Vertex2 Vertex3 Vertex4 Label
 </pre></div>
+</td></tr></table>
 
 <p>This field is express with the notation of <a href="Developers/#mesh-format">Mesh Format section</a>.</p>
 <h3 id="tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permanent link">#</a></h3>
@@ -3581,8 +4427,9 @@ switch <code class="codehilite">q</code> or in the parameter <code class="codehi
 <p><strong>keyword: <code class="codehilite">movemesh23</code></strong></p>
 <p>A simple method to construct a surface is to place a two dimensional domain in a three dimensional space. This corresponds to moving the domain by a displacement vector of this form <span><span class="MathJax_Preview">\mathbf{\Phi(x,y)} = (\Phi1(x,y), \Phi2(x,y), \Phi3(x,y))</span><script type="math/tex">\mathbf{\Phi(x,y)} = (\Phi1(x,y), \Phi2(x,y), \Phi3(x,y))</script></span>.</p>
 <p>The result of moving a two dimensional mesh Th2 by this three dimensional displacement is obtained using:</p>
-<div class="codehilite"><pre><span></span>mesh3 Th3 = movemesh23(Th2, transfo=[Phi(1), Phi(2), Phi(3)]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh3 Th3 = movemesh23(Th2, transfo=[Phi(1), Phi(2), Phi(3)]);
 </pre></div>
+</td></tr></table>
 
 <p>The parameters of this command line are:</p>
 <ul>
@@ -3604,7 +4451,70 @@ switch <code class="codehilite">q</code> or in the parameter <code class="codehi
 </li>
 </ul>
 <p>We can do a "gluing" of surface meshes using the process given in <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">Change section</a>. An example to obtain a three dimensional mesh using the command line <code class="codehilite">tetg</code> and <code class="codehilite">movemesh23</code> is given below.</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;tetgen&quot;
 
 // Parameters
@@ -3669,12 +4579,14 @@ func mv2z = z;
 mesh3 Thmv2 = movemesh3(Thfinal, transfo=[mv2x, mv2y, mv2z]);
 plot(Thmv2, cmm=&quot;Thmv2&quot;);
 </pre></div>
+</td></tr></table>
 
 <p>The command <code class="codehilite">movemesh3</code> is described in the following section.</p>
 <p><strong>The keyword <code class="codehilite">tetgtransfo</code></strong></p>
 <p>This keyword corresponds to a composition of command line <code class="codehilite">tetg</code> and <code class="codehilite">movemesh23</code>.</p>
-<div class="codehilite"><pre><span></span>tetgtransfo(Th2, transfo=[Phi(1), Phi(2), Phi(3)]), ...) = tetg(Th3surf, ...),
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>tetgtransfo(Th2, transfo=[Phi(1), Phi(2), Phi(3)]), ...) = tetg(Th3surf, ...),
 </pre></div>
+</td></tr></table>
 
 <p>where <code class="codehilite">Th3surf = movemesh23(Th2, transfo=[Phi(1), Phi(2), Phi(3)])</code> and <code class="codehilite">Th2</code> is the input two dimensional mesh of <code class="codehilite">tetgtransfo</code>.</p>
 <p>The parameters of this command line are, on one hand, the parameters <code class="codehilite">label</code>, <code class="codehilite">switch</code>, <code class="codehilite">regionlist</code>, <code class="codehilite">nboffacetcl</code>, <code class="codehilite">facetcl</code> of keyword <code class="codehilite">tetg</code> and on the other hand, the parameter <code class="codehilite">ptmerge</code> of keyword <code class="codehilite">movemesh23</code>.</p>
@@ -3740,7 +4652,65 @@ x_{n_v} & y_{n_v} & z_{n_v}
 <p>The parameter <code class="codehilite">regionlist</code> defines a new volume constraint in the region. The label in the <code class="codehilite">regionlist</code> will be the previous label of region.</p>
 <p>This parameter and <code class="codehilite">nbofregions</code> can't be used with the parameter <code class="codehilite">sizeofvolume</code>.</p>
 <p><strong>Example <code class="codehilite">refinesphere.edp</code></strong></p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;medit&quot;
 
@@ -3800,11 +4770,13 @@ medit(&quot;sphere&quot;, Th3sph);
 medit(&quot;isotroperefine&quot;, Th3sphrefine);
 medit(&quot;anisotroperefine&quot;, Th3sphrefine2);
 </pre></div>
+</td></tr></table>
 
 <h3 id="moving-mesh-in-three-dimensions">Moving mesh in three dimensions<a class="headerlink" href="#moving-mesh-in-three-dimensions" title="Permanent link">#</a></h3>
 <p>Meshes in three dimensions can be translated, rotated, and deformed using the command line <code class="codehilite">movemesh</code> as in the 2D case (see <a href="#movemesh">section <code class="codehilite">movemesh</code></a>). If <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is tetrahedrized as <span><span class="MathJax_Preview">T_{h}(\Omega)</span><script type="math/tex">T_{h}(\Omega)</script></span>, and <span><span class="MathJax_Preview">\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))</span><script type="math/tex">\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))</script></span> is a displacement vector then <span><span class="MathJax_Preview">\Phi(T_{h})</span><script type="math/tex">\Phi(T_{h})</script></span> is obtained by</p>
-<div class="codehilite"><pre><span></span>mesh3 Th = movemesh(Th, [$\Phi$1, $\Phi$2, $\Phi$3], ...);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh3 Th = movemesh(Th, [$\Phi$1, $\Phi$2, $\Phi$3], ...);
 </pre></div>
+</td></tr></table>
 
 <p>The parameters of movemesh in three dimensions are:</p>
 <ul>
@@ -3938,7 +4910,27 @@ z_{i,j} = j \: \delta \alpha + zmin(V_{i}^{2d}), \qquad \delta \alpha= \frac{ zm
 <div class="admonition example">
 <p class="admonition-title">Cube</p>
 <p><code>Cube.idp</code>
-<div class="codehilite"><pre><span></span>load &quot;medit&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;medit&quot;
 load &quot;msh3&quot;
 
 func mesh3 Cube (int[int] &amp;NN, real[int, int] &amp;BB, int[int, int] &amp;L){
@@ -3959,11 +4951,18 @@ func mesh3 Cube (int[int] &amp;NN, real[int, int] &amp;BB, int[int, int] &amp;L)
 
     return Th;
 }
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Unit cube</p>
-<div class="codehilite"><pre><span></span>include &quot;Cube.idp&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>include &quot;Cube.idp&quot;
 
 int[int] NN = [10,10,10]; //the number of step in each direction
 real [int, int] BB = [[0,1],[0,1],[0,1]]; //the bounding box
@@ -3971,6 +4970,7 @@ int [int, int] L = [[1,2],[3,4],[5,6]]; //the label of the 6 face left,right, fr
 mesh3 Th = Cube(NN, BB, L);
 medit(&quot;Th&quot;, Th);
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -3990,7 +4990,39 @@ medit(&quot;Th&quot;, Th);
 <div class="admonition example">
 <p class="admonition-title">Cone</p>
 <p>An axisymtric mesh on a triangle with degenerateness
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;medit&quot;
 
 // Parameters
@@ -4023,7 +5055,8 @@ mesh3 Th3T = buildlayers(Th2, coef=deg, MaxLayersT,
     zbound=[zminT, zmaxT], transfo=[fx, fy, fz],
     facemerge=0, region=r1T, labelmid=r2T);
 medit(&quot;cone&quot;, Th3T);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p><center></p>
 <table>
 <thead>
@@ -4041,7 +5074,69 @@ medit(&quot;cone&quot;, Th3T);
 </div>
 <div class="admonition example">
 <p class="admonition-title">Buildlayer mesh</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;medit&quot;
 
@@ -4105,12 +5200,36 @@ mesh3 Th3sph = tetgtransfo(Ths, transfo=[XX1, YY1, ZZ1],
     switch=test, nbofregions=1, regionlist=domain);
 medit(&quot;sphere 2 regions&quot;, Th3sph);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="meshing-examples_1">Meshing examples<a class="headerlink" href="#meshing-examples_1" title="Permanent link">#</a></h2>
 <div class="admonition example">
 <p class="admonition-title">lake</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;medit&quot;
 
 // Parameters
@@ -4135,11 +5254,72 @@ mesh3 Th = buildlayers(Th2, nn,
 
 medit(&quot;Th&quot;, Th);
 </pre></div>
+</td></tr></table>
 
 </div>
 <div class="admonition example">
 <p class="admonition-title">Hole region</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;medit&quot;
 
@@ -4201,11 +5381,69 @@ mesh3 Th3finhole = tetg(Th3, switch=&quot;paAAQYY&quot;,
     nbofholes=1, holelist=hole, nbofregions=1, regionlist=domain);
 medit(&quot;Sphere with a hole&quot;, Th3finhole);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h3 id="build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon<a class="headerlink" href="#build-a-3d-mesh-of-a-cube-with-a-balloon" title="Permanent link">#</a></h3>
 <p>First the <code>MeshSurface.idp</code> file to build boundary mesh of a Hexaedra and of a Sphere:</p>
-<div class="codehilite"><pre><span></span>func mesh3 SurfaceHex (int[int] &amp;N, real[int, int] &amp;B, int[int, int] &amp;L, int orientation){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func mesh3 SurfaceHex (int[int] &amp;N, real[int, int] &amp;B, int[int, int] &amp;L, int orientation){
     real x0 = B(0, 0), x1 = B(0, 1);
     real y0 = B(1, 0), y1 = B(1, 1);
     real z0 = B(2, 0), z1 = B(2, 1);
@@ -4264,9 +5502,32 @@ func mesh3 Sphere (real R, real h, int L, int orientation){
     return ThS;
 }
 </pre></div>
+</td></tr></table>
 
 <p>The test of the two functions and the call to <code class="codehilite">TetGen</code> mesh generator:</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;medit&quot;
 include &quot;MeshSurface.idp&quot;
@@ -4290,6 +5551,7 @@ real[int] domain = [0, 0, 0, 1, voltet, 0, 0, 0.7, 2, voltet];
 mesh3 Th = tetg(ThHS, switch=&quot;pqaAAYYQ&quot;, nbofregions=2, regionlist=domain);
 medit(&quot;Cube with ball&quot;, Th);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -4308,8 +5570,9 @@ medit(&quot;Cube with ball&quot;, Th);
 <h2 id="medit">Medit<a class="headerlink" href="#medit" title="Permanent link">#</a></h2>
 <p>The keyword <code class="codehilite">medit</code> allows to display a mesh alone or a mesh and one or several functions defined on the mesh using the Pascal Frey's freeware <code>medit</code>. <code>medit</code> opens its own window and uses OpenGL extensively. Naturally to use this command <code>medit</code> must be installed.</p>
 <p>A vizualisation with <code class="codehilite">medit</code> of scalar solutions <span><span class="MathJax_Preview">f1</span><script type="math/tex">f1</script></span> and <span><span class="MathJax_Preview">f2</span><script type="math/tex">f2</script></span> continuous, piecewise linear and known at the vertices of the mesh Th is obtained using :</p>
-<div class="codehilite"><pre><span></span>medit(&quot;sol1 sol2&quot;, Th, f1, f2, order=1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>medit(&quot;sol1 sol2&quot;, Th, f1, f2, order=1);
 </pre></div>
+</td></tr></table>
 
 <p>The first plot named <code class="codehilite">sol1</code> display f1. The second plot names <code class="codehilite">sol2</code> display f2.</p>
 <p>The arguments of the function <code class="codehilite">medit</code> are the name of the differents scenes (separated by a space) of <code class="codehilite">medit</code>, a mesh and solutions.</p>
@@ -4327,12 +5590,72 @@ medit(&quot;Cube with ball&quot;, Th);
 </li>
 </ul>
 <p>This command line allows also to represent two differents meshes and solutions on them in the same windows. The nature of solutions must be the same. Hence, we can vizualize in the same window the different domains in a domain decomposition method for instance. A vizualisation with medit of scalar solutions <span><span class="MathJax_Preview">h1</span><script type="math/tex">h1</script></span> and <span><span class="MathJax_Preview">h2</span><script type="math/tex">h2</script></span> at vertices of the mesh Th1 and Th2 respectively are obtained using :</p>
-<div class="codehilite"><pre><span></span>medit(&quot;sol2domain&quot;, Th1, h1, Th2, h2, order=1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>medit(&quot;sol2domain&quot;, Th1, h1, Th2, h2, order=1);
 </pre></div>
+</td></tr></table>
 
 <div class="admonition example">
 <p class="admonition-title"><code class="codehilite">medit</code></p>
-<div class="codehilite"><pre><span></span>load &quot;medit&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;medit&quot;
 
 // Initial Problem:
 // Resolution of the following EDP:
@@ -4393,16 +5716,20 @@ Lap2dOmega1;
 // Plot with medit
 medit(&quot;solution&quot;, Th, us, Th1, u1, order=1, save=&quot;testsavemedit.solb&quot;);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="mshmet">Mshmet<a class="headerlink" href="#mshmet" title="Permanent link">#</a></h2>
 <p>Mshmet is a software developed by P. Frey that allows to compute an anisotropic metric based on solutions (i.e. Hessian-based). This software can return also an isotropic metric. Moreover, <code>mshmet</code> can also construct a metric suitable for levelset interface capturing. The solution can be defined on 2D or 3D structured/unstructured meshes. For example, the solution can be an error estimate of a FE solution.</p>
 <p>Solutions for <code class="codehilite">mshmet</code> are given as an argument. The solution can be a <code class="codehilite">func</code>, a vector <code class="codehilite">func</code>, a symmetric tensor, a <code class="codehilite">fespace</code> function, a <code class="codehilite">fespace</code> vector function and a <code class="codehilite">fespace</code> symmetric tensor. The symmetric tensor argument is defined as this type of data for datasol argument. This software accepts more than one solution.</p>
 <p>For example, the metric <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> computed with <code class="codehilite">mshmet</code> for the solution <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> defined on the mesh <span><span class="MathJax_Preview">Th</span><script type="math/tex">Th</script></span> is obtained by writing :</p>
-<div class="codehilite"><pre><span></span>fespace Vh(Th, P1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P1);
 Vh u; //a scalar fespace function
 real[int] M = mshmet(Th, u);
 </pre></div>
+</td></tr></table>
 
 <p>The parameters of the keyword <code class="codehilite">mshmet</code> are :</p>
 <ul>
@@ -4454,7 +5781,59 @@ m_{3 1} & m_{3 2} & m_{3 3}
 , the parameters <code class="codehilite">metric</code> is : <script type="math/tex; mode=display">M_{aniso}= (H(V_{0}), \ldots, H(V_{nv}) )^t </script> where <span><span class="MathJax_Preview">H(V_{i})</span><script type="math/tex">H(V_{i})</script></span> is the vector of size 6 defined by <span><span class="MathJax_Preview">[m11,m21,m22,m31,m32,m33]</span><script type="math/tex">[m11,m21,m22,m31,m32,m33]</script></span></p>
 <div class="admonition example">
 <p class="admonition-title"><code class="codehilite">mshmet</code></p>
-<div class="codehilite"><pre><span></span>load &quot;mshmet&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;mshmet&quot;
 load &quot;medit&quot;
 load &quot;msh3&quot;
 
@@ -4508,6 +5887,7 @@ for (int ii = 0; ii &lt; Th3.nv; ii++)
 
 medit(&quot;Metric&quot;, Th3, usol);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="freeyams">FreeYams<a class="headerlink" href="#freeyams" title="Permanent link">#</a></h2>
@@ -4515,10 +5895,13 @@ medit(&quot;Metric&quot;, Th3, usol);
 <p>Also, this software allows to construct a simplification of a mesh. This decimation is based on the Hausdorff distance between the initial and the current triangulation. Compared to the software yams, FreeYams can be used also to produce anisotropic triangulations adapted to levelset simulations. A technical report on freeYams documentation is available <a href="https://www.ljll.math.upmc.fr/frey/publications/RT-0252.pdf">here</a>.</p>
 <p>To call FreeYams in FreeFem++, we used the keyword <code class="codehilite">freeyams</code>. The arguments of this function are the initial mesh and/or metric. The metric with <code class="codehilite">freeyams</code> are a <code class="codehilite">func</code>, a <code class="codehilite">fespace</code> function, a symmetric tensor function, a symmetric tensor <code class="codehilite">fespace</code> function or a vector of double (<code class="codehilite">real[int]</code>). If the metric is a vector of double, this data must be given in <code class="codehilite">metric</code> parameter. Otherwise, the metric is given in the argument.</p>
 <p>For example, the adapted mesh of <code>Thinit</code> defined by the metric <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> defined as <code class="codehilite">fespace</code> function is obtained by writing:</p>
-<div class="codehilite"><pre><span></span>fespace Vh(Thinit, P1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Thinit, P1);
 Vh u;
 mesh3 Th = freeyams(Thinit, u);
 </pre></div>
+</td></tr></table>
 
 <p>The symmetric tensor argument for <code class="codehilite">freeyams</code> keyword is defined as this type of data for datasol argument.</p>
 <ul>
@@ -4601,7 +5984,23 @@ where <span><span class="MathJax_Preview">H(V_{i})</span><script type="math/tex"
 </ul>
 <div class="admonition example">
 <p class="admonition-title"><code class="codehilite">freeyams</code></p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;medit&quot;
 load &quot;freeyams&quot;
 
@@ -4619,6 +6018,7 @@ mesh3 Th3 = freeyams(Th);
 
 medit(&quot;SurfaceMesh&quot;, Th3);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="mmg3d">mmg3d<a class="headerlink" href="#mmg3d" title="Permanent link">#</a></h2>
@@ -4684,7 +6084,29 @@ medit(&quot;SurfaceMesh&quot;, Th3);
 </ul>
 <div class="admonition example">
 <p class="admonition-title"><code class="codehilite">mmg3d</code></p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;medit&quot;
 load &quot;mmg3d&quot;
 include &quot;Cube.idp&quot;
@@ -4708,11 +6130,71 @@ mesh3 Th3 = mmg3d(Th, memory=100, metric=isometric);
 medit(&quot;Initial&quot;, Th);
 medit(&quot;Isometric&quot;, Th3);
 </pre></div>
+</td></tr></table>
 
 </div>
 <div class="admonition example">
 <p class="admonition-title">Falling spheres</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;medit&quot;
 load &quot;mmg3d&quot;
@@ -4773,12 +6255,65 @@ for(int it = 0; it &lt; 29; it++){
     Th = mmg3d(Th, options=opt, displacement=[zero, zero, uh], memory=1000);
 }
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process<a class="headerlink" href="#a-first-3d-isotrope-mesh-adaptation-process" title="Permanent link">#</a></h2>
 <div class="admonition example">
 <p class="admonition-title">Adaptation 3D</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;
 load &quot;TetGen&quot;
 load &quot;mshmet&quot;
 load &quot;medit&quot;
@@ -4832,13 +6367,26 @@ for (int ii = 0; ii &lt; 5; ii++){
     medit(&quot;U-adap-iso-&quot;+ii, Th3, u, wait=true);
 }
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="build-a-2d-mesh-from-a-isoline">Build a 2d mesh from a isoline<a class="headerlink" href="#build-a-2d-mesh-from-a-isoline" title="Permanent link">#</a></h2>
 <p>The idea is to get the discretization of an isoline of fluid meshes, this tool can be useful to construct meshes from image. First, we give an example of the isovalue meshes <span><span class="MathJax_Preview">0.2</span><script type="math/tex">0.2</script></span> of analytical function $ \sqrt{(x-1/2)^2 +(y-1/2)^2}$, on unit square.</p>
 <div class="admonition example">
 <p class="admonition-title">iosline</p>
-<div class="codehilite"><pre><span></span>load &quot;isoline&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;isoline&quot;
 
 real[int,int] xy(3, 1); //to store the isoline points
 int[int] be(1); //to store the begin, end couple of lines
@@ -4852,6 +6400,7 @@ int[int] be(1); //to store the begin, end couple of lines
 
     int nbc = isoline(Th, u, xy, close=1, iso=iso, beginend=be, smoothing=0.1);
 </pre></div>
+</td></tr></table>
 
 </div>
 <p>The <code class="codehilite">isoline</code> parameters are <code class="codehilite">Th</code> the mesh, the expression <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>, the bidimentionnal array <code class="codehilite">xy</code> to store the list coordinate of the points. The list of named parameter are :</p>
@@ -4881,7 +6430,21 @@ int[int] be(1); //to store the begin, end couple of lines
 <p>In the array <code class="codehilite">xy</code> you get the list of vertices of the isoline, each connex line go from <span><span class="MathJax_Preview">i= i_0^c ,\dots, i_1^c-1</span><script type="math/tex">i= i_0^c ,\dots, i_1^c-1</script></span> with <span><span class="MathJax_Preview">i_0^c =be(2*c)</span><script type="math/tex">i_0^c =be(2*c)</script></span> <span><span class="MathJax_Preview">i_1^c =be(2*c+1)</span><script type="math/tex">i_1^c =be(2*c+1)</script></span>, and where <span><span class="MathJax_Preview">x_i= xy(0,i), y_i=yx( 1,i), l_i=xy(2,i)</span><script type="math/tex">x_i= xy(0,i), y_i=yx( 1,i), l_i=xy(2,i)</script></span>.</p>
 <p>Here <span><span class="MathJax_Preview">l_i</span><script type="math/tex">l_i</script></span> is the length of the line (the origin of the line is point <span><span class="MathJax_Preview">i_0^c</span><script type="math/tex">i_0^c</script></span>).</p>
 <p>The sense of the isoline is such that the upper part is at the left size of the isoline. So here : the minimum is a point <span><span class="MathJax_Preview">0.5,05</span><script type="math/tex">0.5,05</script></span> so the curve 1 turn in the clockwise sense, the order of each component are sort such that the number of point by component is decreasing.</p>
-<div class="codehilite"><pre><span></span>    cout &lt;&lt; &quot;Number of the line component = &quot; &lt;&lt; nbc &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    cout &lt;&lt; &quot;Number of the line component = &quot; &lt;&lt; nbc &lt;&lt; endl;
     cout &lt;&lt; &quot;Number of points = &quot; &lt;&lt; xy.m &lt;&lt; endl;
     cout &lt;&lt; &quot;be = &quot; &lt;&lt; be &lt;&lt; endl;
 
@@ -4897,9 +6460,26 @@ int[int] be(1); //to store the begin, end couple of lines
 
 cout &lt;&lt; &quot;length of last curve = &quot; &lt;&lt; xy(2, xy.m-1) &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>We also have a new function to easily parametrize a discrete curve defined by the couple <span><span class="MathJax_Preview">be, xy</span><script type="math/tex">be, xy</script></span>.</p>
-<div class="codehilite"><pre><span></span>border Curve0(t=0, 1){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border Curve0(t=0, 1){
     int c=0; //component 0
     int i0=be[2*c], i1=be[2*c+1]-1;
     P=Curve(xy, i0, i1, t); //Curve 0
@@ -4917,11 +6497,52 @@ plot(Curve1(100)); //show curve
 mesh Th = buildmesh(Curve1(-100));
 plot(Th, wait=true);
 </pre></div>
+</td></tr></table>
 
 <p>Secondly, we use this idea to build meshes from an image, we use the plugins <code class="codehilite">ppm2rnm</code> to read <code class="codehilite">pgm</code> a gray scale image and then we extract the gray contour at level 0.25.</p>
 <div class="admonition example">
 <p class="admonition-title">Leman lake</p>
-<div class="codehilite"><pre><span></span>load &quot;ppm2rnm&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;ppm2rnm&quot;
 load &quot;isoline&quot;
 
 // Parameters
@@ -4963,6 +6584,7 @@ Th = movemesh(Th, [x*scale, y*scale]);
 cout &lt;&lt; &quot;Th.area = &quot; &lt;&lt; Th.area &lt;&lt; &quot; Km^2 &quot; &lt;&lt; &quot; == &quot; &lt;&lt; AreaLac &lt;&lt; &quot; Km^2 &quot; &lt;&lt; endl;
 plot(Th, wait=true, ps=&quot;leman.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 </div>
 <table>

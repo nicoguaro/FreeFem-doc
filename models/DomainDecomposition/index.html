@@ -1422,7 +1422,64 @@
 </table>
 <div class="admonition example">
 <p class="admonition-title">Schwarz overlapping</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int inside = 2; //inside boundary
 int outside = 1; //outside boundary
 int n = 4;
@@ -1481,6 +1538,7 @@ for (i = 0 ; i &lt; 10; i++){
     plot(U, u, wait=true);
 }
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1549,7 +1607,72 @@ for (i = 0 ; i &lt; 10; i++){
 <p>where the sign <span><span class="MathJax_Preview">+</span><script type="math/tex">+</script></span> or <span><span class="MathJax_Preview">-</span><script type="math/tex">-</script></span> of <span><span class="MathJax_Preview">{\pm}</span><script type="math/tex">{\pm}</script></span> is choose to have convergence.</p>
 <div class="admonition example">
 <p class="admonition-title">Schwarz non-overlapping</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int inside = 2;
 int outside = 1;
 int n = 4;
@@ -1616,6 +1739,7 @@ for (i = 0; i &lt; 10; i++){
 // Plot
 plot(U, u);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1655,7 +1779,20 @@ u_i|_{\Gamma_e^i} = 0
 <div class="admonition example">
 <p class="admonition-title">Schwarz conjugate gradient</p>
 <p>First, we construct the two domains
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int inside = 2;
 int outside = 1;
 int n = 4;
@@ -1669,9 +1806,17 @@ border GammaArc(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
 mesh Th1 = buildmesh(Gamma1(5*n) + Gamma2(5*n) + GammaInside(5*n) + Gamma3(5*n));
 mesh Th2 = buildmesh(GammaInside(-5*n) + GammaArc(25*n));
 plot(Th1, Th2);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>Now, define the finite element spaces:
-<div class="codehilite"><pre><span></span>// Fespace
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Fespace
 fespace Vh1(Th1, P1);
 Vh1 u1, v1;
 Vh1 lambda;
@@ -1679,16 +1824,44 @@ Vh1 p=0;
 
 fespace Vh2(Th2,P1);
 Vh2 u2, v2;
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is impossible to define a function just on a part of boundary, so the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function must be defined on the all domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> such as</p>
-<div class="codehilite"><pre><span></span>Vh1 lambda;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh1 lambda;
 </pre></div>
+</td></tr></table>
 
 </div>
 <p>The two Poisson's problems:</p>
-<div class="codehilite"><pre><span></span>problem Pb1 (u1, v1, init=i, solver=Cholesky)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Pb1 (u1, v1, init=i, solver=Cholesky)
     = int2d(Th1)(
           dx(u1)*dx(v1)
         + dy(u1)*dy(v1)
@@ -1716,11 +1889,14 @@ problem Pb2 (u2, v2, init=i, solver=Cholesky)
     + on(outside, u2=0)
     ;
 </pre></div>
+</td></tr></table>
 
 <p>And, we define a border matrix, because the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function is none zero inside the domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span>:</p>
-<div class="codehilite"><pre><span></span>varf b(u2, v2, solver=CG) = int1d(Th1, inside)(u2*v2);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf b(u2, v2, solver=CG) = int1d(Th1, inside)(u2*v2);
 matrix B = b(Vh1, Vh1, solver=CG);
 </pre></div>
+</td></tr></table>
 
 <p>The boundary problem function,</p>
 <div>
@@ -1731,7 +1907,16 @@ matrix B = b(Vh1, Vh1, solver=CG);
 \lambda \longrightarrow \int_{\Gamma_i }(u_1-u_2) v_{1}
 </script>
 </div>
-<div class="codehilite"><pre><span></span>// Boundary problem function
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Boundary problem function
 func real[int] BoundaryProblem (real[int] &amp;l){
     lambda[] = l; //make FE function form l
     Pb1;
@@ -1742,12 +1927,21 @@ func real[int] BoundaryProblem (real[int] &amp;l){
     return lambda[];
 }
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The difference between the two notations <code class="codehilite">v1</code> and <code class="codehilite">v1[]</code> is: <code class="codehilite">v1</code> is the finite element function and <code class="codehilite">v1[]</code> is the vector in the canonical basis of the finite element function <code class="codehilite">v1</code>.</p>
 </div>
-<div class="codehilite"><pre><span></span>// Solve
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Solve
 real cpu=clock();
 LinearCG(BoundaryProblem, p[], eps=1.e-6, nbiter=100);
 //compute the final solution, because CG works with increment
@@ -1757,6 +1951,7 @@ BoundaryProblem(p[]); //solve again to have right u1, u2
 cout &lt;&lt; &quot; -- CPU time schwarz-gc:&quot; &lt;&lt; clock()-cpu &lt;&lt; endl;
 plot(u1, u2);
 </pre></div>
+</td></tr></table>
 
 </div>
                 

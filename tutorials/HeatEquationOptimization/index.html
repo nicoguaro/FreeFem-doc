@@ -1393,12 +1393,39 @@ u^n = A^{-1} b^n,
 \end{eqnarray*}</script>
 </div>
 <p>The Fast version script:</p>
-<div class="codehilite"><pre><span></span> ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> ...
 Vh u0=fu0, u=u0;
 </pre></div>
+</td></tr></table>
 
 <p>Create three variational formulation, and build the matrices <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>,<span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>.</p>
-<div class="codehilite"><pre><span></span>varf vthermic (u, v)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf vthermic (u, v)
     = int2d(Th)(
           u*v/dt
         + k*(dx(u)*dx(v) + dy(u)*dy(v))
@@ -1425,9 +1452,21 @@ real tgv = 1e30;
 matrix A = vthermic(Vh, Vh, tgv=tgv, solver=CG);
 matrix M = vMass(Vh, Vh);
 </pre></div>
+</td></tr></table>
 
 <p>Now, to build the right hand size; we need 4 vectors.</p>
-<div class="codehilite"><pre><span></span>real[int] b0 = vthermic0(0,Vh); //constant part of RHS
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] b0 = vthermic0(0,Vh); //constant part of RHS
 real[int] bcn = vthermic(0,Vh); //tgv on Dirichlet part
 real[int] bcl = tgv*u0[];   //the Dirichlet B.C. part
 
@@ -1440,6 +1479,7 @@ for(real t = 0; t &lt; T; t += dt){
     plot(u);
 }
 </pre></div>
+</td></tr></table>
                 
                   
                 

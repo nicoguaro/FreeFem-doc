@@ -1588,8 +1588,9 @@
 <p>If the function is convex we can use the conjugate gradient algorithm to solve the problem, and we just need the function (named <code class="codehilite">dJ</code> for example) which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, so the parameters are the name of that function with prototype <code class="codehilite">func real[int] dJ(real[int] &amp;xx);</code> which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, and a vector <code class="codehilite">x</code> of type (of course the number 20 can be changed) <code class="codehilite">real[int] x(20);</code> to initialize the process and get the result.</p>
 <p>Given an initial value <span><span class="MathJax_Preview">\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}^{(0)}</script></span>, a maximum number <span><span class="MathJax_Preview">i_{\max}</span><script type="math/tex">i_{\max}</script></span> of iterations, and an error tolerance <span><span class="MathJax_Preview">0&lt;\epsilon&lt;1</span><script type="math/tex">0<\epsilon<1</script></span>:</p>
 <p>Put <span><span class="MathJax_Preview">\mathbf{x}=\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}=\mathbf{x}^{(0)}</script></span> and write</p>
-<div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=epsilon, stop=stopfunc);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=epsilon, stop=stopfunc);
 </pre></div>
+</td></tr></table>
 
 <p>will give the solution of <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> of <span><span class="MathJax_Preview">\nabla J(\mathbf{x})=0</span><script type="math/tex">\nabla J(\mathbf{x})=0</script></span>. We can omit parameters <code class="codehilite">precon, nbiter, eps, stop</code>. Here <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the preconditioner whose default is the identity matrix.</p>
 <p>The stopping test is</p>
@@ -1604,8 +1605,9 @@
 <!--- __ --->
 
 <p>Writing the minus value in <code class="codehilite">eps=</code>, i.e.,</p>
-<div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=-epsilon);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>NLCG(dJ, x, precon=M, nbiter=imax, eps=-epsilon);
 </pre></div>
+</td></tr></table>
 
 <p>We can use the stopping test :</p>
 <div>
@@ -1640,8 +1642,9 @@
 <ul>
 <li>
 <p><code class="codehilite">stop=</code> <code class="codehilite">stopfunc</code> add your test function to stop before the <code class="codehilite">eps</code> criterion. The prototype for the function <code class="codehilite">stopfunc</code> is</p>
-<div class="codehilite"><pre><span></span> func bool stopfunc(int iter, real[int] u, real[int] g)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span> func bool stopfunc(int iter, real[int] u, real[int] g)
 </pre></div>
+</td></tr></table>
 
 <p>where <code class="codehilite">u</code> is the current solution, and <code class="codehilite">g</code>, the current gradient, is not preconditioned.</p>
 </li>
@@ -1660,7 +1663,35 @@ f(x) &=& ax + x-\ln(1+x), \quad f'(x) = a+\frac{x}{1+x}, \quad f''(x) = \frac{1}
 \end{eqnarray*}</script>
 </div>
 <p>under the boundary condition <span><span class="MathJax_Preview">u=0</span><script type="math/tex">u=0</script></span> on <span><span class="MathJax_Preview">\p\Omega</span><script type="math/tex">\p\Omega</script></span>.</p>
-<div class="codehilite"><pre><span></span>fespace Ph(Th, P0);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Ph(Th, P0);
 Ph alpha; //store df(|nabla u|^2)
 
 // The functionn J
@@ -1690,6 +1721,7 @@ func real[int] dJ (real[int] &amp; u){
     return u; //warning: no return of local array
 }
 </pre></div>
+</td></tr></table>
 
 <p>We also want to construct a preconditioner <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> with solving the problem:</p>
 <p>find <span><span class="MathJax_Preview">u_h \in V_{0h}</span><script type="math/tex">u_h \in V_{0h}</script></span> such that :
@@ -1697,7 +1729,30 @@ func real[int] dJ (real[int] &amp; u){
 \forall v_h \in V_{0h}, \quad \int_\Omega \alpha \nabla u_h . \nabla v_h = \int_\Omega b v_h
 </script>
 where $ \alpha=f'(|\nabla u|^2)$.</p>
-<div class="codehilite"><pre><span></span>alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
 varf alap (uh, vh)
     = int2d(Th)(
           alpha*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
@@ -1722,10 +1777,22 @@ func real[int] C(real[int] &amp; u){
     return u; //warning: no return of local array variable
 }
 </pre></div>
+</td></tr></table>
 
 <p>To solve the problem, we make 10 iterations of the conjugate gradient,
 recompute the preconditioner and restart the conjugate gradient:</p>
-<div class="codehilite"><pre><span></span>int conv=0;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int conv=0;
 for(int i = 0; i &lt; 20; i++){
     conv = NLCG(dJ, u[], nbiter=10, precon=C, veps=eps, verbosity=5);
     if (conv) break;
@@ -1738,6 +1805,7 @@ for(int i = 0; i &lt; 20; i++){
 // Plot
 plot (u, wait=true, cmm=&quot;solution with NLCG&quot;);
 </pre></div>
+</td></tr></table>
 
 </div>
 <p>For a given symmetric positive matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, consider the quadratic form</p>
@@ -1750,17 +1818,20 @@ J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}
 </script>
 </div>
 <p>then <span><span class="MathJax_Preview">J(\mathbf{x})</span><script type="math/tex">J(\mathbf{x})</script></span> is minimized by the solution <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> of <span><span class="MathJax_Preview">A\mathbf{x}=\mathbf{b}</span><script type="math/tex">A\mathbf{x}=\mathbf{b}</script></span>. In this case, we can use the function <code class="codehilite">AffineCG</code></p>
-<div class="codehilite"><pre><span></span>AffineCG(A, x, precon=M, nbiter=imax, eps=±epsilon, stop=stp);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>AffineCG(A, x, precon=M, nbiter=imax, eps=±epsilon, stop=stp);
 </pre></div>
+</td></tr></table>
 
 <p>If <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is not symmetric, we can use GMRES(Generalized Minimum Residual) algorithm by</p>
-<div class="codehilite"><pre><span></span>AffineGMRES(A, x, precon=M, nbiter=imax, eps=±epsilon);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>AffineGMRES(A, x, precon=M, nbiter=imax, eps=±epsilon);
 </pre></div>
+</td></tr></table>
 
 <p>Also, we can use the non-linear version of GMRES algorithm
 (the function <span><span class="MathJax_Preview">J</span><script type="math/tex">J</script></span> is just convex)</p>
-<div class="codehilite"><pre><span></span>AffineGMRES(dJ, x, precon=M, nbiter=imax, eps=±epsilon);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>AffineGMRES(dJ, x, precon=M, nbiter=imax, eps=±epsilon);
 </pre></div>
+</td></tr></table>
 
 <p>For the details of these algorithms, refer to <a href="#PIRONNEAU1998">PIRONNEAU1998</a>, Chapter IV, 1.3.</p>
 <h2 id="algorithms-for-unconstrained-optimization">Algorithms for Unconstrained Optimization<a class="headerlink" href="#algorithms-for-unconstrained-optimization" title="Permanent link">#</a></h2>
@@ -1768,7 +1839,34 @@ J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}
 <h3 id="example-of-usage-for-bfgs-or-cmaes">Example of usage for BFGS or CMAES<a class="headerlink" href="#example-of-usage-for-bfgs-or-cmaes" title="Permanent link">#</a></h3>
 <div class="admonition example">
 <p class="admonition-title">BFGS</p>
-<div class="codehilite"><pre><span></span>real[int] b(10), u(10);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] b(10), u(10);
 
 //J
 func real J (real[int] &amp; u){
@@ -1797,14 +1895,19 @@ u=2;
 BFGS(J, DJ, u, eps=1.e-6, nbiter=20, nbiterline=20);
 cout &lt;&lt; &quot;BFGS: J(u) = &quot; &lt;&lt; J(u) &lt;&lt; &quot;, err = &quot; &lt;&lt; error(u, b) &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 </div>
 <p>It is almost the same a using the CMA evolution strategy except, that since it is a derivative free optimizer, the <code class="codehilite">dJ</code> argument is omitted and there are some other named parameters to control the behavior of the algorithm. With the same objective function as above, an example of utilization would be (see <a href="../examples/#cmaes-varational-inequality">CMAES Variational inequality</a> for a complete example):</p>
-<div class="codehilite"><pre><span></span>load &quot;ff-cmaes&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;ff-cmaes&quot;
 //define J, u, ...
 real min = cmaes(J, u, stopTolFun=1e-6, stopMaxIter=3000);
 cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>This algorithm works with a normal multivariate distribution in the parameters space and tries to adapt its covariance matrix using the information provided by the successive function evaluations (see <a href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a> for more details). Therefore, some specific parameters can be passed to control the starting distribution, size of the sample generations, etc... Named parameters for this are the following :</p>
 <ul>
@@ -1966,22 +2069,32 @@ c(x) & = & 0 \\
 </div>
 <p>Where <span><span class="MathJax_Preview">\mathrm{ub}</span><script type="math/tex">\mathrm{ub}</script></span> and <span><span class="MathJax_Preview">\mathrm{lb}</span><script type="math/tex">\mathrm{lb}</script></span> stand for "upper bound" and "lower bound". If for some <span><span class="MathJax_Preview">i, 1\leq i\leq m</span><script type="math/tex">i, 1\leq i\leq m</script></span> we have <span><span class="MathJax_Preview">c_{i}^{\mathrm{lb}} = c_{i}^{\mathrm{ub}}</span><script type="math/tex">c_{i}^{\mathrm{lb}} = c_{i}^{\mathrm{ub}}</script></span>, it means that <span><span class="MathJax_Preview">c_{i}</span><script type="math/tex">c_{i}</script></span> is an equality constraint, and an inequality one if <span><span class="MathJax_Preview">c_{i}^{\mathrm{lb}} &lt; c_{i}^{\mathrm{ub}}</span><script type="math/tex">c_{i}^{\mathrm{lb}} < c_{i}^{\mathrm{ub}}</script></span>.</p>
 <p>There are different ways to pass the fitness function and constraints. The more general one is to define the functions using the keyword <code class="codehilite">func</code>. Any returned matrix must be a sparse one (type <code class="codehilite">matrix</code>, not a <code class="codehilite">real[int,int]</code>) :</p>
-<div class="codehilite"><pre><span></span>func real J (real[int] &amp;X) {...} //Fitness Function, returns a scalar
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func real J (real[int] &amp;X) {...} //Fitness Function, returns a scalar
 func real[int] gradJ (real[int] &amp;X) {...} //Gradient is a vector
 
 func real[int] C (real[int] &amp;X) {...} //Constraints
 func matrix jacC (real[int] &amp;X) {...} //Constraints Jacobian
 </pre></div>
+</td></tr></table>
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In the current version of FreeFem++, returning a <code class="codehilite">matrix</code> object that is local to a function block leads to undefined results. For each sparse matrix returning function you define, an extern matrix object has to be declared, whose associated function will overwrite and return on each call. Here is an example for <code class="codehilite">jacC</code> :</p>
-<div class="codehilite"><pre><span></span>matrix jacCBuffer; //just declare, no need to define yet
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix jacCBuffer; //just declare, no need to define yet
 func matrix jacC (real[int] &amp;X){
     ...//fill jacCBuffer
     return jacCBuffer;
 }
 </pre></div>
+</td></tr></table>
 
 </div>
 <div class="admonition warning">
@@ -1998,31 +2111,43 @@ func matrix jacC (real[int] &amp;X){
 </script>
 </div>
 <p>Your Hessian function should then have the following prototype :</p>
-<div class="codehilite"><pre><span></span>matrix hessianLBuffer; //Just to keep it in mind
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix hessianLBuffer; //Just to keep it in mind
 func matrix hessianL (real[int] &amp;X, real sigma, real[int] &amp;lambda){...}
 </pre></div>
+</td></tr></table>
 
 <p>If the constraints functions are all affine, or if there are only simple bound constraints, or no constraint at all, the Lagrangian Hessian is equal to the fitness function Hessian, one can then omit the <code class="codehilite">sigma</code> and <code class="codehilite">lambda</code> parameters :</p>
-<div class="codehilite"><pre><span></span>matrix hessianJBuffer;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix hessianJBuffer;
 func matrix hessianJ (real[int] &amp;X){...} //Hessian prototype when constraints are affine
 </pre></div>
+</td></tr></table>
 
 <p>When these functions are defined, IPOPT is called this way :</p>
-<div class="codehilite"><pre><span></span>real[int] Xi = ... ; //starting point
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] Xi = ... ; //starting point
 IPOPT(J, gradJ, hessianL, C, jacC, Xi, /*some named parameters*/);
 </pre></div>
+</td></tr></table>
 
 <p>If the Hessian is omitted, the interface will tell IPOPT to use the (L)BFGS approximation (it can also be enabled with a named parameter, see further). Simple bound or unconstrained problems do not require the constraints part, so the following expressions are valid :</p>
-<div class="codehilite"><pre><span></span>IPOPT(J, gradJ, C, jacC, Xi, ... ); //IPOPT with BFGS
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>IPOPT(J, gradJ, C, jacC, Xi, ... ); //IPOPT with BFGS
 IPOPT(J, gradJ, hessianJ, Xi, ... ); //Newton IPOPT without constraints
 IPOPT(J, gradJ, Xi, ... ); //BFGS, no constraints
 </pre></div>
+</td></tr></table>
 
 <p>Simple bounds are passed using the <code class="codehilite">lb</code> and <code class="codehilite">ub</code> named parameters, while constraint bounds are passed with the <code class="codehilite">clb</code> and <code class="codehilite">cub</code> ones. Unboundedness in some directions can be achieved by using the <span><span class="MathJax_Preview">1e^{19}</span><script type="math/tex">1e^{19}</script></span> and <span><span class="MathJax_Preview">-1e^{19}</span><script type="math/tex">-1e^{19}</script></span> values that IPOPT recognizes as <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span> and <span><span class="MathJax_Preview">-\infty</span><script type="math/tex">-\infty</script></span> :</p>
-<div class="codehilite"><pre><span></span>real[int] xlb(n), xub(n), clb(m), cub(m);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] xlb(n), xub(n), clb(m), cub(m);
 //fill the arrays...
 IPOPT(J, gradJ, hessianL, C, jacC, Xi, lb=xlb, ub=xub, clb=clb, cub=cub, /*some other named parameters*/);
 </pre></div>
+</td></tr></table>
 
 <p><strong>P2 fitness function and affine constraints function :</strong> In the case where the fitness function or constraints function can be expressed respectively in the following forms :</p>
 <div>
@@ -2040,30 +2165,46 @@ IPOPT(J, gradJ, hessianL, C, jacC, Xi, lb=xlb, ub=xub, clb=clb, cub=cub, /*some 
 </script>
 </div>
 <p>where <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> are constant, it is possible to directly pass the <span><span class="MathJax_Preview">(A,b)</span><script type="math/tex">(A,b)</script></span> pair instead of defining 3 (or 2) functions. It also indicates to IPOPT that some objects are constant and that they have to be evaluated only once, thus avoiding multiple copies of the same matrix. The syntax is :</p>
-<div class="codehilite"><pre><span></span>// Affine constraints with &quot;standard&quot; fitness function
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Affine constraints with &quot;standard&quot; fitness function
 matrix A = ... ; //linear part of the constraints
 real[int] b = ... ; //constant part of constraints
 IPOPT(J, gradJ, hessianJ, [A, b], Xi, /*bounds and named parameters*/);
 //[b, A] would work as well.
 </pre></div>
+</td></tr></table>
 
 <p>Note that if you define the constraints in this way, they don't contribute to the Hessian, so the Hessian should only take one <code class="codehilite">real[int]</code> as an argument.</p>
-<div class="codehilite"><pre><span></span>// Affine constraints and P2 fitness func
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Affine constraints and P2 fitness func
 matrix A = ... ; //bilinear form matrix
 real[int] b = ... ; //linear contribution to f
 matrix Ac = ... ; //linear part of the constraints
 real[int] bc = ... ; //constant part of constraints
 IPOPT([A, b], [Ac, bc], Xi, /*bounds and named parameters*/);
 </pre></div>
+</td></tr></table>
 
 <p>If both objective and constraint functions are given this way, it automatically activates the IPOPT <code class="codehilite">mehrotra_algorithm</code> option (better for linear and quadratic programming according to the documentation). Otherwise, this option can only be set through the option file (see the named parameters section).</p>
 <p>A false case is the one of defining <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> in this manner while using standard functions for the constraints :</p>
-<div class="codehilite"><pre><span></span>matrix A = ... ; //bilinear form matrix
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = ... ; //bilinear form matrix
 real[int] b = ... ; //linear contribution to f
 func real[int] C(real[int] &amp;X){...} //constraints
 func matrix jacC(real[int] &amp;X){...} //constraints Jacobian
 IPOPT([A, b], C, jacC, Xi, /*bounds and named parameters*/);
 </pre></div>
+</td></tr></table>
 
 <p>Indeed, when passing <code class="codehilite">[A, b]</code> in order to define <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, the Lagrangian Hessian is automatically built and has the constant <span><span class="MathJax_Preview">x \mapsto A</span><script type="math/tex">x \mapsto A</script></span> function, with no way to add possible constraint contributions, leading to incorrect second order derivatives. So, a problem should be defined like that in only two cases:</p>
 <ol>
@@ -2071,13 +2212,19 @@ IPOPT([A, b], C, jacC, Xi, /*bounds and named parameters*/);
 <li>constraints are affine, but in this case, compatible to pass in the same way</li>
 </ol>
 <p>Here are some other valid definitions of the problem (cases when <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is a pure quadratic or linear form, or <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> a pure linear function, etc...) :</p>
-<div class="codehilite"><pre><span></span>// Pure quadratic f - A is a matrix
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Pure quadratic f - A is a matrix
 IPOPT(A, /*constraints arguments*/, Xi, /*bound and named parameters*/);
 // Pure linear f - b is a real[int]
 IPOPT(b, /*constraints arguments*/, Xi, /*bound and named parameters*/);
 // Linear constraints - Ac is a matrix
 IPOPT(/*fitness function arguments*/, Ac, Xi, /*bound and named parameters*/);
 </pre></div>
+</td></tr></table>
 
 <p><strong>Returned Value :</strong> The <code class="codehilite">IPOPT</code> function returns an error code of type <code class="codehilite">int</code>. A zero value is obtained when the algorithm succeeds and positive values reflect the fact that IPOPT encounters minor troubles. Negative values reveal more problematic cases. The associated IPOPT return tags are listed in the table below. The <a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT pdf documentation</a> provides a more accurate description of these return statuses :</p>
 <table>
@@ -2190,7 +2337,39 @@ IPOPT(/*fitness function arguments*/, Ac, Xi, /*bound and named parameters*/);
 <div class="admonition example">
 <p class="admonition-title">Ipopt variational inequality</p>
 <p>A very simple example consisting of, given two functions $f $ and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> (defined on <span><span class="MathJax_Preview">\Omega\subset\R^{2}</span><script type="math/tex">\Omega\subset\R^{2}</script></span>), minimizing $J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ $, with <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> almost everywhere :</p>
-<div class="codehilite"><pre><span></span>// Solve
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Solve
 //- Delta u = f
 //u &lt; g
 //u = 0 on Gamma
@@ -2224,14 +2403,28 @@ varf vP (u, v)
     )
     ;
 </pre></div>
+</td></tr></table>
 
 <p>Here we build the matrix and second member associated to the function to fully and finally minimize it. The <code class="codehilite">[A,b]</code> syntax for the fitness function is then used to pass it to IPOPT.</p>
-<div class="codehilite"><pre><span></span>matrix A = vP(Vh, Vh, solver=CG);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = vP(Vh, Vh, solver=CG);
 real[int] b = vP(0, Vh);
 </pre></div>
+</td></tr></table>
 
 <p>We use simple bounds to impose the boundary condition <span><span class="MathJax_Preview">u=0</span><script type="math/tex">u=0</script></span> on <span><span class="MathJax_Preview">\partial\Omega</span><script type="math/tex">\partial\Omega</script></span>, as well as the <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> condition.</p>
-<div class="codehilite"><pre><span></span>varf vGamma (u, v) = on(1, 2, 3, 4, u=1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf vGamma (u, v) = on(1, 2, 3, 4, u=1);
 real[int] onGamma = vGamma(0, Vh);
 
 //warning: the boundary conditions are given with lb and ub on border
@@ -2244,6 +2437,7 @@ IPOPT([A, b], u[], lb=lb[], ub=ub[]);
 // Plot
 plot(u);
 </pre></div>
+</td></tr></table>
 
 </div>
 <div class="admonition example">
@@ -2268,7 +2462,81 @@ J(v_{1},v_{2}) = \displaystyle{\frac{1}{2}\int_{\Omega}\vert\nabla v_{1}\vert^{2
 </script>
 </div>
 <p>The problem entails finding (numerically) two functions <span><span class="MathJax_Preview">(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})</span><script type="math/tex">(u_{1},u_{2}) = \underset{(v_{1},v_{2})\in V}{\operatorname{argmin}} J(v_{1},v_{2})</script></span>.</p>
-<div class="codehilite"><pre><span></span>load &quot;ff-Ipopt&quot;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;ff-Ipopt&quot;;
 
 // Parameters
 int nn = 10;
@@ -2344,6 +2612,7 @@ while (++iter){
     lm = lmi;
 }
 </pre></div>
+</td></tr></table>
 
 <p><center></p>
 <table>
@@ -2530,7 +2799,32 @@ these derivatives can be written using a <span><span class="MathJax_Preview">3\t
 <p>If <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span> is the spherical parametrization of the surface of a 3-dimensional object (domain) <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span>, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span> is close to <span><span class="MathJax_Preview">\mathcal{V}(\rho_{\mathrm{object}})</span><script type="math/tex">\mathcal{V}(\rho_{\mathrm{object}})</script></span>, so should be <span><span class="MathJax_Preview">\rho_{0}</span><script type="math/tex">\rho_{0}</script></span> and <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span>. With higher values of <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span>, <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> should be closer to the unconstrained minimum surface surrounding <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span> which is obtained as soon as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</script></span> (sufficient but not necessary).</p>
 <p>It also could be interesting to solve the same problem with the constraint <span><span class="MathJax_Preview">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</script></span> which leads to a sphere when $\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3} $ and moves toward the solution of the unconstrained problem as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}_{\mathrm{min}}</script></span> decreases.</p>
 <p>We start by meshing the domain <span><span class="MathJax_Preview">[0,2\pi ]\times\ [0,\pi ]</span><script type="math/tex">[0,2\pi ]\times\ [0,\pi ]</script></span>, then a periodic P1 finite elements space is defined.</p>
-<div class="codehilite"><pre><span></span>load &quot;msh3&quot;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;msh3&quot;;
 load &quot;medit&quot;;
 load &quot;ff-Ipopt&quot;;
 
@@ -2557,14 +2851,41 @@ fespace Vh(Th, P1, periodic=[[2, y], [4, y]]);
 //outside of the mesh adaptation loop to initialize with the previous optimial shape found on further iterations
 Vh startshape = 5;
 </pre></div>
+</td></tr></table>
 
 <p>We create some finite element functions whose underlying arrays will be used to store the values of dual variables associated to all the constraints in order to reinitialize the algorithm with it in the case where we use mesh adaptation. Doing so, the algorithm will almost restart at the accuracy level it reached before mesh adaptation, thus saving many iterations.</p>
-<div class="codehilite"><pre><span></span>Vh uz = 1., lz = 1.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh uz = 1., lz = 1.;
 rreal[int] lm = [1];
 </pre></div>
+</td></tr></table>
 
 <p>Then, follows the mesh adaptation loop, and a rendering function, <code class="codehilite">Plot3D</code>, using 3D mesh to display the shape it is passed with <code class="codehilite">medit</code> (the <code class="codehilite">movemesh23</code> procedure often crashes when called with ragged shapes).</p>
-<div class="codehilite"><pre><span></span>for(int kkk = 0; kkk &lt; nadapt; ++kkk){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for(int kkk = 0; kkk &lt; nadapt; ++kkk){
     int iter=0;
     func sin2 = square(sin(y));
 
@@ -2590,9 +2911,45 @@ rreal[int] lm = [1];
         return 1;
     }
 </pre></div>
+</td></tr></table>
 
 <p>Here are the functions related to the area computation and its shape derivative, according to equations \eqref{msarea} and \eqref{msdarea}:</p>
-<div class="codehilite"><pre><span></span>// Surface computation
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Surface computation
 //Maybe is it possible to use movemesh23 to have the surface function less complicated
 //However, it would not simplify the gradient and the hessian
 func real Area (real[int] &amp;X){
@@ -2629,9 +2986,58 @@ func real[int] GradArea (real[int] &amp;X){
     return grad;
 }
 </pre></div>
+</td></tr></table>
 
 <p>The function returning the hessian of the area for a given shape is a bit blurry, thus we won't show here all of equation \eqref{msd2area} coefficients definition, they can be found in the <code class="codehilite">edp</code> file.</p>
-<div class="codehilite"><pre><span></span>matrix hessianA;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix hessianA;
 func matrix HessianArea (real[int] &amp;X){
     Vh rho, rho2;
     rho[] = X;
@@ -2681,9 +3087,33 @@ func matrix HessianArea (real[int] &amp;X){
     return hessianA;
 }
 </pre></div>
+</td></tr></table>
 
 <p>And the volume related functions :</p>
-<div class="codehilite"><pre><span></span>// Volume computation
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Volume computation
 func real Volume (real[int] &amp;X){
     Vh rho;
     rho[] = X;
@@ -2708,9 +3138,17 @@ func matrix HessianVolume(real[int] &amp;X){
     return hessianV;
 }
 </pre></div>
+</td></tr></table>
 
 <p>If we want to use the volume as a constraint function we must wrap it and its derivatives in some <strong><code>FreeFem++</code></strong> functions returning the appropriate types. It is not done in the above functions in cases where one wants to use it as a fitness function. The lagrangian hessian also has to be wrapped since the Volume is not linear with respect to <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, it has some non-null second order derivatives.</p>
-<div class="codehilite"><pre><span></span>func real[int] ipVolume (real[int] &amp;X){ real[int] vol = [Volume(X)]; return vol; }
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func real[int] ipVolume (real[int] &amp;X){ real[int] vol = [Volume(X)]; return vol; }
 matrix mdV;
 func matrix ipGradVolume (real[int] &amp;X) { real[int,int] dvol(1,Vh.ndof); dvol(0,:) = GradVolume(X); mdV = dvol; return mdV; }
 matrix HLagrangian;
@@ -2719,16 +3157,37 @@ func matrix ipHessianLag (real[int] &amp;X, real objfact, real[int] &amp;lambda)
     return HLagrangian;
 }
 </pre></div>
+</td></tr></table>
 
 <p>The <code class="codehilite">ipGradVolume</code> function could pose some troubles during the optimization process because the gradient vector is transformed in a sparse matrix, so any null coefficient will be discarded. Here we create the IPOPT structure manually and use the <code class="codehilite">checkindex</code> named-parameter to avoid bad indexing during copies. This gradient is actually dense, there is no reason for some components to be constantly zero :</p>
-<div class="codehilite"><pre><span></span>int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int[int] gvi(Vh.ndof), gvj=0:Vh.ndof-1;
 gvi = 0;
 </pre></div>
+</td></tr></table>
 
 <p>These two arrays will be passed to IPOPT with <code class="codehilite">structjacc=[gvi,gvj]</code>. The last remaining things are the bound definitions. The simple lower bound must be equal to the components of the P1 projection of <span><span class="MathJax_Preview">\rho_{object}</span><script type="math/tex">\rho_{object}</script></span>. And we choose <span><span class="MathJax_Preview">\alpha\in [0,1]</span><script type="math/tex">\alpha\in [0,1]</script></span> to set <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span> to <span><span class="MathJax_Preview">(1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</span><script type="math/tex">(1-\alpha) \mathcal{V}(\rho_{object}) + \alpha\frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</script></span> :</p>
 <!--- __ --->
 
-<div class="codehilite"><pre><span></span>func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func disc1 = sqrt(1./(RR+(E-RR)*cos(y)*cos(y)))*(1+0.1*cos(7*x));
 func disc2 = sqrt(1./(RR+(E-RR)*cos(x)*cos(x)*sin2));
 
 if(1){
@@ -2748,9 +3207,17 @@ if(1)
     Plot3D(lb[], &quot;object_inside&quot;, 1);
 real[int] clb = 0., cub = [(1-alpha)*Vobj + alpha*Vnvc];
 </pre></div>
+</td></tr></table>
 
 <p>Calling IPOPT :</p>
-<div class="codehilite"><pre><span></span>int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int res = IPOPT(Area, GradArea, ipHessianLag, ipVolume, ipGradVolume,
         rc[], ub=ub[], lb=lb[], clb=clb, cub=cub, checkindex=1, maxiter=kkk&lt;nadapt-1 ? 40:150,
         warmstart=kkk, lm=lm, uz=uz[], lz=lz[], tol=0.00001, structjacc=[gvi,gvj]);
 cout &lt;&lt; &quot;IPOPT: res =&quot; &lt;&lt; res &lt;&lt; endl ;
@@ -2759,9 +3226,17 @@ cout &lt;&lt; &quot;IPOPT: res =&quot; &lt;&lt; res &lt;&lt; endl ;
 Plot3D(rc[], &quot;Shape_at_&quot;+kkk, 1);
 Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
 </pre></div>
+</td></tr></table>
 
 <p>Finally, before closing the mesh adaptation loop, we have to perform the said adaptation. The mesh is adaptated with respect to the <span><span class="MathJax_Preview">X=(\rho,0,0)</span><script type="math/tex">X=(\rho,0,0)</script></span> (in spherical coordinates) vector field, not directly with respect to <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, otherwise the true curvature of the 3D-shape would not be well taken into account.</p>
-<div class="codehilite"><pre><span></span>if (kkk &lt; nadapt-1){
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>if (kkk &lt; nadapt-1){
     Th = adaptmesh(Th, rc*cos(x)*sin(y), rc*sin(x)*sin(y), rc*cos(y),
         nbvx=50000, periodic=[[2, y], [4, y]]);
     plot(Th, wait=true);
@@ -2770,6 +3245,7 @@ Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
     lz = lz;
 }
 </pre></div>
+</td></tr></table>
 
 <p>Here are some pictures of the resulting surfaces obtained for decreasing values of <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> (and a slightly more complicated object than two orthogonal discs). We return to the enclosed object when <span><span class="MathJax_Preview">\alpha=0</span><script type="math/tex">\alpha=0</script></span> :</p>
 <p><center>
@@ -2780,7 +3256,18 @@ Plot3D(GradArea(rc[]), &quot;ShapeGradient&quot;, 1);
 <p>The <code class="codehilite">ff-NLopt</code> package provides a <strong><code>FreeFem++</code></strong> interface to the free/open-source library for nonlinear optimization, easing the use of several different free optimization (constrained or not) routines available online along with the PDE solver. All the algorithms are well documented in <a href="https://nlopt.readthedocs.io/en/latest/">NLopt documentation</a>, therefore no exhaustive information concerning their mathematical specificities will be found here and we will focus on the way they are used in a <strong><code>FreeFem++</code></strong> script. If needing detailed information about these algorithms, visit the website where a description of each of them is given, as well as many bibliographical links.</p>
 <p>Most of the gradient based algorithms of NLopt uses a full matrix approximation of the Hessian, so if you're planning to solve a large scale problem, use the IPOPT optimizer which definitely surpass them.</p>
 <p>All the NLopt features are identified that way:</p>
-<div class="codehilite"><pre><span></span>load &quot;ff-NLopt&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;ff-NLopt&quot;
 //define J, u, and maybe grad(J), some constraints etc...
 real min = nloptXXXXXX(J, u, //Unavoidable part
     grad=&lt;name of grad(J)&gt;, //if needed
@@ -2793,6 +3280,7 @@ real min = nloptXXXXXX(J, u, //Unavoidable part
     //Etc...
 );
 </pre></div>
+</td></tr></table>
 
 <p><code class="codehilite">XXXXXX</code> refers to the algorithm tag (not necessarily 6 characters long). <code class="codehilite">u</code> is the starting position (a <code class="codehilite">real[int]</code> type array) which will be overwritten by the algorithm, the value at the end being the found <span><span class="MathJax_Preview">argmin</span><script type="math/tex">argmin</script></span>. And as usual, <code class="codehilite">J</code> is a function taking a <code class="codehilite">real[int]</code> type array as argument and returning a <code class="codehilite">real</code>. <code class="codehilite">grad</code>, <code class="codehilite">lb</code> and <code class="codehilite">ub</code> are "half-optional" arguments, in the sense that they are obligatory for some routines but not all.</p>
 <p>The possible optionally named parameters are the following, note that they are not used by all algorithms (some do not support constraints, or a type of constraints, some are gradient-based and others are derivative free, etc...). One can refer to the table after the parameters description to check which are the named parameters supported by a specific algorithm. Using an unsupported parameter will not stop the compiler work, seldom breaks runtime, and will just be ignored. When it is obvious you are missing a routine, you will get a warning message at runtime (for example if you pass a gradient to a derivative free algorithm, or set the population of a non-genetic one, etc...). In the following description, <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> stands for the dimension of the search space.</p>
@@ -2877,7 +3365,165 @@ The problem consists in finding (numerically) two functions $(u_{1},u_{2}) = \un
 <p>This can be interpreted as finding <span><span class="MathJax_Preview">u_{1}, u_{2}</span><script type="math/tex">u_{1}, u_{2}</script></span> as close as possible (in a certain sense) to the solutions of the Laplace equation with respectively <span><span class="MathJax_Preview">f_{1}, f_{2}</span><script type="math/tex">f_{1}, f_{2}</script></span> second members
  and <span><span class="MathJax_Preview">g_{1}, g_{2}</span><script type="math/tex">g_{1}, g_{2}</script></span> Dirichlet boundary conditions with the <span><span class="MathJax_Preview">u_{1}\leq u_{2}</span><script type="math/tex">u_{1}\leq u_{2}</script></span> almost everywhere constraint.</p>
 <p>Here is the corresponding script to treat this variational inequality problem with one of the NLOpt algorithms.</p>
-<div class="codehilite"><pre><span></span>//A brief script to demonstrate how to use the freefemm interfaced nlopt routines
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>//A brief script to demonstrate how to use the freefemm interfaced nlopt routines
 //The problem consist in solving a simple variational inequality using one of the
 //optimization algorithm of nlopt. We restart the algorithlm a few times after
 //performing some mesh adaptation to get a more precise output
@@ -3037,15 +3683,20 @@ for (int al = 0; al &lt; nadapt; ++al){
     oldu2 = best2;
 }
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="optimization-with-mpi">Optimization with MPI<a class="headerlink" href="#optimization-with-mpi" title="Permanent link">#</a></h2>
 <p>The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm). Somehow, we provide a parallel version of the CMA-ES algorithm. The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> times without any dependence at all, these <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> calculus are then equally distributed to each process. Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the <a href="../examples/cmaes-mpi-variational-inequality">CMAES MPI variational inequality example</a>):</p>
-<div class="codehilite"><pre><span></span>load &quot;mpi-cmaes&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;mpi-cmaes&quot;
 ... // Define J, u and all here
 real min = cmaesMPI(J, u, stopTolFun=1e-6, stopMaxIter=3000);
 cout &lt;&lt; &quot;minimum value is &quot; &lt;&lt; min &lt;&lt; &quot; for u = &quot; &lt;&lt; u &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>If the population size is not changed using the <code class="codehilite">popsize</code> parameter, it will use the heuristic value slightly changed to be equal to the closest greatest multiple of the size of the communicator used by the optimizer. The <strong><code>FreeFem++</code></strong> <code class="codehilite">mpicommworld</code> is used by default. The user can specify his own MPI communicator with the named parameter <code class="codehilite">comm=</code>, see the MPI section of this manual for more information about communicators in <strong><code>FreeFem++</code></strong>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>

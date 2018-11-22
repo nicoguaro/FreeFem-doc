@@ -1332,7 +1332,25 @@
 </p>
 <p>where <span><span class="MathJax_Preview">\mu=\mu_1\chi_1+\mu_2\chi_2+\mu_3\chi_3</span><script type="math/tex">\mu=\mu_1\chi_1+\mu_2\chi_2+\mu_3\chi_3</script></span>. Here we notice that <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> become the discontinuous function.</p>
 <p>This example explains the definition and manipulation of <em>region</em>, i.e. sub-domains of the whole domain. Consider this L-shaped domain with 3 diagonals as internal boundaries, defining 4 sub-domains:</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 border a(t=0, 1){x=t; y=0;};
 border b(t=0, 0.5){x=1; y=t;};
 border c(t=0, 0.5){x=1-t; y=0.5;};
@@ -1352,6 +1370,7 @@ Ph reg=region; //defined the P0 function associated to region number
 // Plot
 plot(reg, fill=true, wait=true, value=true);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1367,7 +1386,14 @@ plot(reg, fill=true, wait=true, value=true);
 </table>
 <p><code class="codehilite">region</code> is a keyword of FreeFem++ which is in fact a variable depending of the current position (is not a function today, use <code class="codehilite">Ph reg=region;</code> to set a function). This variable value returned is the number of the sub-domain of the current position. This number is defined by <code class="codehilite">buildmesh</code> which scans while building the mesh all its connected component.</p>
 <p>So to get the number of a region containing a particular point one does:</p>
-<div class="codehilite"><pre><span></span>// Characteristic function
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Characteristic function
 int nupper = reg(0.4, 0.9); //get the region number of point (0.4,0.9)
 int nlower = reg(0.9, 0.1); //get the region number of point (0.4,0.1)
 cout &lt;&lt; &quot;nlower = &quot; &lt;&lt;  nlower &lt;&lt; &quot;, nupper = &quot; &lt;&lt; nupper&lt;&lt; endl;
@@ -1376,6 +1402,7 @@ Ph nu = 1 + 5*(region==nlower) + 10*(region==nupper);
 // Plot
 plot(nu, fill=true,wait=true);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1391,7 +1418,19 @@ plot(nu, fill=true,wait=true);
 </table>
 <p>This is particularly useful to define discontinuous functions such as might occur when one part of the domain is copper and the other one is iron, for example.</p>
 <p>We this in mind we proceed to solve a Laplace equation with discontinuous coefficients (<span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> is 1, 6 and 11 below).</p>
-<div class="codehilite"><pre><span></span>// Problem
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Problem
 solve lap (u, v)
     = int2d(th)(
           nu*(dx(u)*dx(v) + dy(u)*dy(v))
@@ -1405,6 +1444,7 @@ solve lap (u, v)
 // Plot
 plot(u);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>

@@ -1351,49 +1351,60 @@
                   <h1>Eigenvalue problems</h1>
                 
                 <p>This section depends on your installation of FreeFem++; you need to have compiled <code>ARPACK</code>. This tool is available in FreeFem++ if the word eigenvalue appears in line Load:, like:</p>
-<div class="codehilite"><pre><span></span>-- FreeFem++ v*.** <span class="o">(</span>date *** *** ** **:**:** CET ****<span class="o">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>-- FreeFem++ v*.** <span class="o">(</span>date *** *** ** **:**:** CET ****<span class="o">)</span>
  file : ***.edp
  Load: lg_fem lg_mesh eigenvalue
 </pre></div>
+</td></tr></table>
 
 <p>This tool is based on <a href="http://www.caam.rice.edu/software/ARPACK/"><code>arpack++</code></a>, the object-oriented version of <code>ARPACK</code> eigenvalue package <a href="#LEHOUCQ1998">LEHOUCQ1998</a>.</p>
 <p>The function <code class="codehilite">EigenValue</code> computes the generalized eigenvalue of <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span>. The Shift-invert method is used by default, with sigma =<span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> the shift of the method.</p>
 <p>The matrix <span><span class="MathJax_Preview">OP</span><script type="math/tex">OP</script></span> is defined with <span><span class="MathJax_Preview">A - \sigma B</span><script type="math/tex">A - \sigma B</script></span>.</p>
 <p>The return value is the number of converged eigenvalues (can be greater than the number of requested eigenvalues nev=)</p>
-<div class="codehilite"><pre><span></span>int k = EigenValue(OP, B, nev=Nev, sigma=Sigma);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(OP, B, nev=Nev, sigma=Sigma);
 </pre></div>
+</td></tr></table>
 
 <p>where the matrix $OP= A - \sigma B $ with a solver and boundary condition, and the matrix <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span>.</p>
 <p>There is also a functional interface:</p>
-<div class="codehilite"><pre><span></span>int k = EigenValue(n, FOP1, FB, nev=Nev, sigma=Sigma);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, FOP1, FB, nev=Nev, sigma=Sigma);
 </pre></div>
+</td></tr></table>
 
 <p>where <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is the size of the problem, and the operators are now defined through functions, defining respectively the matrix product of <span><span class="MathJax_Preview">OP^{-1}</span><script type="math/tex">OP^{-1}</script></span> and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span>, as in</p>
-<div class="codehilite"><pre><span></span>int n = OP1.n;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int n = OP1.n;
 func real[int] FOP1(real[int] &amp; u){ real[int] Au = OP^-1*u; return Au; }
 func real[int] FB(real[int] &amp; u){ real[int] Au = B*u; return Au; }
 </pre></div>
+</td></tr></table>
 
 <p>If you want finer control over the method employed in <code>ARPACK</code>, you can specify which mode <code>ARPACK</code> will work with (<code class="codehilite">mode=</code> , see <a href="#LEHOUCQ1998">ARPACK documentation</a>). The operators necessary for the chosen mode can be passed through the optional parameters <code class="codehilite">A=</code>, <code class="codehilite">A1=</code>, <code class="codehilite">B=</code>, <code class="codehilite">B1=</code>, (see below).</p>
 <ul>
 <li>
 <p><code class="codehilite">mode=1</code>: Regular mode for solving <span><span class="MathJax_Preview">A u = \lambda u</span><script type="math/tex">A u = \lambda u</script></span></p>
-<div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, mode=1, nev=Nev);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, mode=1, nev=Nev);
 </pre></div>
+</td></tr></table>
 
 <p>where the function FOP defines the matrix product of A</p>
 </li>
 <li>
 <p><code class="codehilite">mode=2</code>: Regular inverse mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
-<div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, B=FB, B1=FB1, mode=2, nev=Nev);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, B=FB, B1=FB1, mode=2, nev=Nev);
 </pre></div>
+</td></tr></table>
 
 <p>where the functions FOP, FB and FB1 define respectively the matrix product of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> and <span><span class="MathJax_Preview">B^{-1}</span><script type="math/tex">B^{-1}</script></span></p>
 </li>
 <li>
 <p><code class="codehilite">mode=3</code>: Shift-invert mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
-<div class="codehilite"><pre><span></span>int k = EigenValue(n, A1=FOP1, B=FB, mode=3, sigma=Sigma, nev=Nev);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A1=FOP1, B=FB, mode=3, sigma=Sigma, nev=Nev);
 </pre></div>
+</td></tr></table>
 
 <p>where the functions FOP1 and FB define respectively the matrix product of <span><span class="MathJax_Preview">OP^{-1} = (A - \sigma B)^{-1}</span><script type="math/tex">OP^{-1} = (A - \sigma B)^{-1}</script></span> and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span></p>
 </li>
@@ -1471,7 +1482,56 @@ The requested subset of eigenvalues (see above).</p>
 <!--- ** --->
 
 <p>We use the generalized inverse shift mode of the <code>arpack++</code> library, to find 20 eigenvalues and eigenvectors close to the shift value <span><span class="MathJax_Preview">\sigma=20</span><script type="math/tex">\sigma=20</script></span>.</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 verbosity=0;
 real sigma = 20; //value of the shift
 int nev = 20; //number of computed eigen value close to sigma
@@ -1522,9 +1582,29 @@ for (int i = 0; i &lt; k; i++){
     plot(eV[i], cmm=&quot;Eigen Vector &quot;+i+&quot; value =&quot;+ev[i], wait=true, value=true);
 }
 </pre></div>
+</td></tr></table>
 
 <p>The output of this example is:</p>
-<div class="codehilite"><pre><span></span>lambda[0] = 5.0002, err= -1.46519e-11
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>lambda[0] = 5.0002, err= -1.46519e-11
 lambda[1] = 8.00074, err= -4.05158e-11
 lambda[2] = 10.0011, err= 2.84925e-12
 lambda[3] = 10.0011, err= -7.25456e-12
@@ -1545,6 +1625,7 @@ lambda[17] = 32.0449, err= 1.2522e-10
 lambda[18] = 34.049, err= 3.40213e-11
 lambda[19] = 34.0492, err= 2.41751e-10
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>

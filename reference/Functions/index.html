@@ -3046,8 +3046,9 @@
 
 <h2 id="abs">abs<a class="headerlink" href="#abs" title="Permanent link">#</a></h2>
 <p>Return the absolute value.</p>
-<div class="codehilite"><pre><span></span>real a = abs(b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = abs(b);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -3059,8 +3060,9 @@
 </ul>
 <h2 id="acos">acos<a class="headerlink" href="#acos" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\arccos</span><script type="math/tex">\arccos</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = acos(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = acos(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3073,8 +3075,9 @@
 <h2 id="acosh">acosh<a class="headerlink" href="#acosh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\DeclareMathOperator\arccosh{arccosh}</span><script type="math/tex">\DeclareMathOperator\arccosh{arccosh}</script></span>
 <span><span class="MathJax_Preview">\arccosh</span><script type="math/tex">\arccosh</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = acosh(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = acosh(x);
+</pre></div>
+</td></tr></table></p>
 <div>
 <div class="MathJax_Preview">
 \arccosh(x) = \ln\left(x + \sqrt{x^2-1}\right)
@@ -3094,8 +3097,9 @@
 <p><img alt="arccosh function" src="../images/arccosh.svg" /></p>
 <h2 id="adaptmesh">adaptmesh<a class="headerlink" href="#adaptmesh" title="Permanent link">#</a></h2>
 <p>Mesh adaptation function.
-<div class="codehilite"><pre><span></span>mesh Thnew = adaptmesh(Th, [fx, fy], hmin=HMin, hmax=HMax, err=Err, errg=ErrG, nbvx=NbVx, nbsmooth=NbSmooth, nbjacoby=NbJacoby, ratio=Ratio, omega=Omega, iso=Iso, abserror=AbsError, cutoff=CutOff, verbosity=Verbosity, inquire=Inquire, splitpbedge=SplitPbEdge, maxsubdiv=MaxSubdiv, rescaling=Rescaling, keepbackvertices=KeepBackVertices, IsMetric=isMetric, power=Power, thetamax=ThetaMax, splitin2=SplitIn2, metric=Metric, nomeshgeneration=NoMeshGeneration, periodic=Periodic);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Thnew = adaptmesh(Th, [fx, fy], hmin=HMin, hmax=HMax, err=Err, errg=ErrG, nbvx=NbVx, nbsmooth=NbSmooth, nbjacoby=NbJacoby, ratio=Ratio, omega=Omega, iso=Iso, abserror=AbsError, cutoff=CutOff, verbosity=Verbosity, inquire=Inquire, splitpbedge=SplitPbEdge, maxsubdiv=MaxSubdiv, rescaling=Rescaling, keepbackvertices=KeepBackVertices, IsMetric=isMetric, power=Power, thetamax=ThetaMax, splitin2=SplitIn2, metric=Metric, nomeshgeneration=NoMeshGeneration, periodic=Periodic);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
@@ -3159,8 +3163,9 @@
 </ul>
 <h2 id="adj">adj<a class="headerlink" href="#adj" title="Permanent link">#</a></h2>
 <p>Adjacent triangle of the triangle <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> by the edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>
-<div class="codehilite"><pre><span></span>int T = Th[k].adj(e);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int T = Th[k].adj(e);
 </pre></div>
+</td></tr></table>
 <u>Parameter:</u></p>
 <ul>
 <li><code>e</code> (<code class="codehilite">int</code>)<br/>
@@ -3174,8 +3179,9 @@
 <h2 id="affinecg">AffineCG<a class="headerlink" href="#affinecg" title="Permanent link">#</a></h2>
 <p>Affine conjugate gradient solver</p>
 <p>Used to solve a problem like <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span></p>
-<div class="codehilite"><pre><span></span>int Conv = AffineCG(A, x, precon=Precon, nbiter=NbIter, eps=Eps, veps=VEps, stop=Stop);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Conv = AffineCG(A, x, precon=Precon, nbiter=NbIter, eps=Eps, veps=VEps, stop=Stop);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -3208,8 +3214,9 @@
 <p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
 <h2 id="arg">arg<a class="headerlink" href="#arg" title="Permanent link">#</a></h2>
 <p>Return the argument of a complex number.</p>
-<div class="codehilite"><pre><span></span>real a = arg(c);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = arg(c);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -3221,8 +3228,9 @@
 </ul>
 <h2 id="asin">asin<a class="headerlink" href="#asin" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\arcsin</span><script type="math/tex">\arcsin</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = asin(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = asin(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3235,8 +3243,9 @@
 <h2 id="asinh">asinh<a class="headerlink" href="#asinh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\DeclareMathOperator\arcsinh{arcsinh}</span><script type="math/tex">\DeclareMathOperator\arcsinh{arcsinh}</script></span>
 <span><span class="MathJax_Preview">\arcsinh</span><script type="math/tex">\arcsinh</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = asinh(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = asinh(x);
+</pre></div>
+</td></tr></table></p>
 <div>
 <div class="MathJax_Preview">
 \arcsinh(x) = \ln\left(x + \sqrt{x^2+1}\right)
@@ -3256,8 +3265,9 @@
 <p><img alt="arcsinh function" src="../images/arcsinh.svg" /></p>
 <h2 id="assert">assert<a class="headerlink" href="#assert" title="Permanent link">#</a></h2>
 <p>Verify a condition is true (same as C), if not the program stops.</p>
-<div class="codehilite"><pre><span></span>assert(x==0)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>assert(x==0)
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -3269,8 +3279,9 @@
 </ul>
 <h2 id="atan">atan<a class="headerlink" href="#atan" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\arctan</span><script type="math/tex">\arctan</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = atan(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = atan(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3282,8 +3293,9 @@
 <p><img alt="arctan function" src="../images/arctan.svg" /></p>
 <h2 id="atan2">atan2<a class="headerlink" href="#atan2" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\displaystyle{\arctan\left(\frac{y}{x}\right)}</span><script type="math/tex">\displaystyle{\arctan\left(\frac{y}{x}\right)}</script></span> function, returning the correct sign for <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>.
-<div class="codehilite"><pre><span></span>real theta = atan2(y, x)
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = atan2(y, x)
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3295,8 +3307,9 @@
 <h2 id="atanh">atanh<a class="headerlink" href="#atanh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\DeclareMathOperator\arctanh{arctanh}</span><script type="math/tex">\DeclareMathOperator\arctanh{arctanh}</script></span>
 <span><span class="MathJax_Preview">\arctanh</span><script type="math/tex">\arctanh</script></span> function.
-<div class="codehilite"><pre><span></span>real theta = atanh(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real theta = atanh(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3308,8 +3321,9 @@
 <p><img alt="arctanh function" src="../images/arctanh.svg" /></p>
 <h2 id="atoi">atoi<a class="headerlink" href="#atoi" title="Permanent link">#</a></h2>
 <p>Convert a string to an interger.</p>
-<div class="codehilite"><pre><span></span>int a = atoi(s);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int a = atoi(s);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -3321,8 +3335,9 @@
 </ul>
 <h2 id="atof">atof<a class="headerlink" href="#atof" title="Permanent link">#</a></h2>
 <p>Convert a string to an real.</p>
-<div class="codehilite"><pre><span></span>real a = atof(s);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = atof(s);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -3336,8 +3351,9 @@
 <p><span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
 <h2 id="buildmesh">buildmesh<a class="headerlink" href="#buildmesh" title="Permanent link">#</a></h2>
 <p>Build a 2D mesh using border elements.
-<div class="codehilite"><pre><span></span>mesh Th = buildmesh(b1(nn) + b2(nn) + b3(nn) + b4(nn), [nbvx=Nbvx], [fixedborder=FixedBorder]);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = buildmesh(b1(nn) + b2(nn) + b3(nn) + b4(nn), [nbvx=Nbvx], [fixedborder=FixedBorder]);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>b1</code>, <code>b2</code>, <code>b3</code>, <code>b4</code> (<code class="codehilite">border</code>)<br/>
@@ -3357,8 +3373,9 @@
 </ul>
 <h2 id="ceil">ceil<a class="headerlink" href="#ceil" title="Permanent link">#</a></h2>
 <p>Round fractions up of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.
-<div class="codehilite"><pre><span></span>int c = ceil(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int c = ceil(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3369,9 +3386,11 @@
 </ul>
 <h2 id="change">change<a class="headerlink" href="#change" title="Permanent link">#</a></h2>
 <p>Change a property of a mesh.
-<div class="codehilite"><pre><span></span>int[int] L = [0, 1];
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int[int] L = [0, 1];
 Thnew = change(Th, label=L);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li>
@@ -3396,8 +3415,9 @@ Thnew = change(Th, label=L);
 </ul>
 <h2 id="chi">chi<a class="headerlink" href="#chi" title="Permanent link">#</a></h2>
 <p>Characteristic function of a mesh.</p>
-<div class="codehilite"><pre><span></span>int IsInMesh = chi(Th)(x, y);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int IsInMesh = chi(Th)(x, y);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -3415,8 +3435,9 @@ Thnew = change(Th, label=L);
 </ul>
 <h2 id="checkmovemesh">checkmovemesh<a class="headerlink" href="#checkmovemesh" title="Permanent link">#</a></h2>
 <p>Check a <a href="#movemesh"><code class="codehilite">movemesh</code></a> without mesh generation.</p>
-<div class="codehilite"><pre><span></span>real minT = checkmovemesh(Th, [Dx, Dy]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real minT = checkmovemesh(Th, [Dx, Dy]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <p>Same as <a href="#movemesh"><code class="codehilite">movemesh</code></a></p>
@@ -3427,8 +3448,9 @@ Thnew = change(Th, label=L);
 </ul>
 <h2 id="clock">clock<a class="headerlink" href="#clock" title="Permanent link">#</a></h2>
 <p>Get the clock in second.
-<div class="codehilite"><pre><span></span>real t = clock();
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real t = clock();
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li>None</li>
@@ -3442,9 +3464,11 @@ Thnew = change(Th, label=L);
 <p>Same as <a href="#EigenValue"><code class="codehilite">EigenValue</code></a> for complex problems.</p>
 <h2 id="conj">conj<a class="headerlink" href="#conj" title="Permanent link">#</a></h2>
 <p>Caculate the conjuguate of a complex number.
-<div class="codehilite"><pre><span></span>complex C1 = 1 + 1i;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>complex C1 = 1 + 1i;
 complex C2 = conj(C1);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>C1</code> (<code class="codehilite">complex</code>)<br/>
@@ -3457,9 +3481,11 @@ complex C2 = conj(C1);
 </ul>
 <h2 id="convect">convect<a class="headerlink" href="#convect" title="Permanent link">#</a></h2>
 <p>Characteristics Galerkin method.</p>
-<div class="codehilite"><pre><span></span>real cgm = convect([Ux, Uy], dt, c);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real cgm = convect([Ux, Uy], dt, c);
 real cgm = convect([Ux, Uy, Uz], dt, c);
 </pre></div>
+</td></tr></table>
 
 <p>Compute <span><span class="MathJax_Preview">c\circ \mathbf{X}</span><script type="math/tex">c\circ \mathbf{X}</script></span> with <span><span class="MathJax_Preview">\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}</span><script type="math/tex">\mathbf{X}(\mathbf{x}) = \mathbf{x}_{\tau}</script></span> and <span><span class="MathJax_Preview">\mathbf{x}_{\tau}</span><script type="math/tex">\mathbf{x}_{\tau}</script></span> is the solution of:
 <script type="math/tex; mode=display">\begin{eqnarray}
@@ -3487,13 +3513,15 @@ real cgm = convect([Ux, Uy, Uz], dt, c);
 </ul>
 <h2 id="copysign">copysign<a class="headerlink" href="#copysign" title="Permanent link">#</a></h2>
 <p>C++ <code class="codehilite"><span class="n">copysign</span></code> function.</p>
-<div class="codehilite"><pre><span></span>real s = copysign(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real s = copysign(a, b);
 </pre></div>
+</td></tr></table>
 
 <h2 id="cos">cos<a class="headerlink" href="#cos" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\cos</span><script type="math/tex">\cos</script></span> function.</p>
-<div class="codehilite"><pre><span></span>real x = cos(theta);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = cos(theta);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -3506,8 +3534,9 @@ real cgm = convect([Ux, Uy, Uz], dt, c);
 <p><img alt="cos function" src="../images/cos.svg" /></p>
 <h2 id="cosh">cosh<a class="headerlink" href="#cosh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\cosh</span><script type="math/tex">\cosh</script></span> function.</p>
-<div class="codehilite"><pre><span></span>real x = cosh(theta);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = cosh(theta);
 </pre></div>
+</td></tr></table>
 
 <div>
 <div class="MathJax_Preview">
@@ -3527,21 +3556,26 @@ real cgm = convect([Ux, Uy, Uz], dt, c);
 </ul>
 <h2 id="diffnp">diffnp<a class="headerlink" href="#diffnp" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>diffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? (b-a) : 0;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>diffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? (b-a) : 0;
+</pre></div>
+</td></tr></table></p>
 <h2 id="diffpos">diffpos<a class="headerlink" href="#diffpos" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>diffpos(a, b) = max(b-a, 0);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>diffpos(a, b) = max(b-a, 0);
+</pre></div>
+</td></tr></table></p>
 <h2 id="dist">dist<a class="headerlink" href="#dist" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>dist(a, b) = sqrt(a^2 + b^2);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dist(a, b) = sqrt(a^2 + b^2);
 dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="dumptable">dumptable<a class="headerlink" href="#dumptable" title="Permanent link">#</a></h2>
 <p>Show all types, operators and functions in <strong><code>FreeFem++</code></strong>.</p>
-<div class="codehilite"><pre><span></span>dumptable(out);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dumptable(out);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -3554,8 +3588,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dx">dx<a class="headerlink" href="#dx" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh up = dx(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh up = dx(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial u}{\partial x}
 </script>
@@ -3570,8 +3605,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dxx">dxx<a class="headerlink" href="#dxx" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> double derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dxx(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dxx(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial x^2}
 </script>
@@ -3586,8 +3622,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dxy">dxy<a class="headerlink" href="#dxy" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dxy(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dxy(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial x\partial y}
 </script>
@@ -3602,8 +3639,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dxz">dxz<a class="headerlink" href="#dxz" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">xz</span><script type="math/tex">xz</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dxz(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dxz(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial x\partial z}
 </script>
@@ -3618,8 +3656,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dy">dy<a class="headerlink" href="#dy" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh up = dy(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh up = dy(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial u}{\partial y}
 </script>
@@ -3634,8 +3673,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dyx">dyx<a class="headerlink" href="#dyx" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">yx</span><script type="math/tex">yx</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dyx(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dyx(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial y\partial x}
 </script>
@@ -3650,8 +3690,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dyy">dyy<a class="headerlink" href="#dyy" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> double derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dyy(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dyy(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial x^2}
 </script>
@@ -3666,8 +3707,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dyz">dyz<a class="headerlink" href="#dyz" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">yz</span><script type="math/tex">yz</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dyz(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dyz(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial y\partial z}
 </script>
@@ -3682,8 +3724,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dz">dz<a class="headerlink" href="#dz" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh up = dz(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh up = dz(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial u}{\partial z}
 </script>
@@ -3698,8 +3741,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dzx">dzx<a class="headerlink" href="#dzx" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">zx</span><script type="math/tex">zx</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dzx(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dzx(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial z\partial x}
 </script>
@@ -3714,8 +3758,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dzy">dzy<a class="headerlink" href="#dzy" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">zy</span><script type="math/tex">zy</script></span> derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dzy(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dzy(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial z\partial y}
 </script>
@@ -3730,8 +3775,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="dzz">dzz<a class="headerlink" href="#dzz" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> double derivative.</p>
-<p><div class="codehilite"><pre><span></span>Uh upp = dzz(u);
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Uh upp = dzz(u);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 \frac{\partial^2 u}{\partial z^2}
 </script>
@@ -3746,15 +3792,17 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 </ul>
 <h2 id="eigenvalue">EigenValue<a class="headerlink" href="#eigenvalue" title="Permanent link">#</a></h2>
 <p>Compute the generalized eigenvalue of <span><span class="MathJax_Preview">Au=\lambda Bu</span><script type="math/tex">Au=\lambda Bu</script></span>.</p>
-<div class="codehilite"><pre><span></span>int Res = EigenValue()
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Res = EigenValue()
 </pre></div>
+</td></tr></table>
 
 <p><span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
 <h2 id="emptymesh">emptymesh<a class="headerlink" href="#emptymesh" title="Permanent link">#</a></h2>
 <p>Build an empty mesh.</p>
 <p>Useful to handle Lagrange multipliers in mixed and Mortar methods.
-<div class="codehilite"><pre><span></span>mesh eTh = emptymesh(Th, ssd);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh eTh = emptymesh(Th, ssd);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
@@ -3772,8 +3820,9 @@ dist(a, b, c) = sqrt(a^2 + b^2 + c^2);
 <script type="math/tex; mode=display">
 erf(x) = \frac{2}{\sqrt{pi}}\int_{0}^{x}{\exp(-t^2)dt}
 </script>
-<div class="codehilite"><pre><span></span>real err = erf(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real err = erf(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3787,8 +3836,9 @@ erf(x) = \frac{2}{\sqrt{pi}}\int_{0}^{x}{\exp(-t^2)dt}
 <script type="math/tex; mode=display">
 erfc(x) = 1-erf(x)
 </script>
-<div class="codehilite"><pre><span></span>real errc = erfc(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real errc = erfc(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -3799,8 +3849,9 @@ erfc(x) = 1-erf(x)
 </ul>
 <h2 id="exec">exec<a class="headerlink" href="#exec" title="Permanent link">#</a></h2>
 <p>Execute an external command.
-<div class="codehilite"><pre><span></span>int v = exec(command);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int v = exec(command);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>command</code> (<code class="codehilite">string</code>)<br/>
@@ -3813,8 +3864,9 @@ erfc(x) = 1-erf(x)
 </ul>
 <h2 id="exit">exit<a class="headerlink" href="#exit" title="Permanent link">#</a></h2>
 <p>Exit function, equivalent to <code>return</code>.
-<div class="codehilite"><pre><span></span>exit(N);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>exit(N);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>N</code> (<code class="codehilite">int</code>)<br/>
@@ -3826,8 +3878,9 @@ erfc(x) = 1-erf(x)
 </ul>
 <h2 id="exp">exp<a class="headerlink" href="#exp" title="Permanent link">#</a></h2>
 <p>Exponential function.
-<div class="codehilite"><pre><span></span>real a = exp(b);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = exp(b);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>b</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
@@ -3838,8 +3891,9 @@ erfc(x) = 1-erf(x)
 </ul>
 <h2 id="fdim">fdim<a class="headerlink" href="#fdim" title="Permanent link">#</a></h2>
 <p>Positive difference (<code>cmath</code> function).
-<div class="codehilite"><pre><span></span>real fd = fdim(a, b);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real fd = fdim(a, b);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>a</code> (<code class="codehilite">real</code>)</li>
@@ -3853,8 +3907,9 @@ erfc(x) = 1-erf(x)
 </ul>
 <h2 id="floor">floor<a class="headerlink" href="#floor" title="Permanent link">#</a></h2>
 <p>Floor function.
-<div class="codehilite"><pre><span></span>real a = floor(b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = floor(b);
 </pre></div>
+</td></tr></table>
 Return the largest integer value not greater than <code>b</code>.</p>
 <p><u>Parameters:</u></p>
 <ul>
@@ -3866,8 +3921,9 @@ Return the largest integer value not greater than <code>b</code>.</p>
 </ul>
 <h2 id="fmax">fmax<a class="headerlink" href="#fmax" title="Permanent link">#</a></h2>
 <p>Maximum (<code>cmath</code> function).
-<div class="codehilite"><pre><span></span>real Max = fmax(a, b);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real Max = fmax(a, b);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>a</code> (<code class="codehilite">real</code>)</li>
@@ -3879,8 +3935,9 @@ Return the largest integer value not greater than <code>b</code>.</p>
 </ul>
 <h2 id="fmin">fmin<a class="headerlink" href="#fmin" title="Permanent link">#</a></h2>
 <p>Minimum (<code>cmath</code> function).
-<div class="codehilite"><pre><span></span>real Min = fmin(a, b);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real Min = fmin(a, b);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>a</code> (<code class="codehilite">real</code>)</li>
@@ -3892,8 +3949,9 @@ Return the largest integer value not greater than <code>b</code>.</p>
 </ul>
 <h2 id="fmod">fmod<a class="headerlink" href="#fmod" title="Permanent link">#</a></h2>
 <p>Remainder of <span><span class="MathJax_Preview">a/b</span><script type="math/tex">a/b</script></span> (<code>cmath</code> function).
-<div class="codehilite"><pre><span></span>real Mod = fmod(a, b);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real Mod = fmod(a, b);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>a</code> (<code class="codehilite">real</code>)</li>
@@ -3914,15 +3972,20 @@ Return the largest integer value not greater than <code>b</code>.</p>
 </ul>
 <h2 id="imag">imag<a class="headerlink" href="#imag" title="Permanent link">#</a></h2>
 <p>Imaginary part of a complex number.
-<div class="codehilite"><pre><span></span>complex c = 1. + 1i;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>complex c = 1. + 1i;
 real Im = imag(c);
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="int1d">int1d<a class="headerlink" href="#int1d" title="Permanent link">#</a></h2>
 <p>1D integral.
-<div class="codehilite"><pre><span></span>int1d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int1d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
     ...
 )
 </pre></div>
+</td></tr></table>
 Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.</p>
 <p><u>Parameters:</u></p>
 <ul>
@@ -3947,15 +4010,21 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
 </div>
 <h2 id="int2d">int2d<a class="headerlink" href="#int2d" title="Permanent link">#</a></h2>
 <p>2D integral.
-<div class="codehilite"><pre><span></span>int2d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int2d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
     ...
 )
 </pre></div>
+</td></tr></table>
 Or
-<div class="codehilite"><pre><span></span>int2d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int2d(Th, [Label], [qfe=Qfe], [qforder=Qforder])(
     ...
 )
 </pre></div>
+</td></tr></table>
 Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to:
  - Calculate integral in 2D simulation
  - Impose a boundary condition in 3D simulation
@@ -3986,10 +4055,13 @@ Or outside to calculate a quantity.</p>
 </div>
 <h2 id="int3d">int3d<a class="headerlink" href="#int3d" title="Permanent link">#</a></h2>
 <p>3D integral.
-<div class="codehilite"><pre><span></span>int3d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int3d(Th, [Region], [qfe=Qfe], [qforder=Qforder])(
     ...
 )
 </pre></div>
+</td></tr></table>
 Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to calculate integral in 3D simulation, or outside to calculate a quantity.</p>
 <p><u>Parameters:</u></p>
 <ul>
@@ -4014,10 +4086,13 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
 </div>
 <h2 id="intalledges">intalledges<a class="headerlink" href="#intalledges" title="Permanent link">#</a></h2>
 <p>Integral on all edges.</p>
-<div class="codehilite"><pre><span></span>intalledges(Th, [Region])(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>intalledges(Th, [Region])(
     ...
 )
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4036,8 +4111,9 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
 <p>Same as <a href="#intalledges"><code class="codehilite">intalledges</code></a> for <code class="codehilite">mesh3</code>.</p>
 <h2 id="interpolate">interpolate<a class="headerlink" href="#interpolate" title="Permanent link">#</a></h2>
 <p>Interpolation operator from a finite element space to another.</p>
-<div class="codehilite"><pre><span></span>matrix I = interpolate(Wh, Vh, [inside=Inside], [t=T], [op=Op], [U2Vc=U2VC]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix I = interpolate(Wh, Vh, [inside=Inside], [t=T], [op=Op], [U2Vc=U2VC]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4064,31 +4140,38 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
 </ul>
 <h2 id="invdiff">invdiff<a class="headerlink" href="#invdiff" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>invdif(a, b) = (-abs(a-b) &gt; 10^(-30)) ? 1(/b-a) : 0
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>invdif(a, b) = (-abs(a-b) &gt; 10^(-30)) ? 1(/b-a) : 0
 invdif(a, b, e) = (-abs(a-b) &gt; e) ? 1(/b-a) : 0
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="invdiffnp">invdiffnp<a class="headerlink" href="#invdiffnp" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>invdiffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? 1/(b-a) : 0
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>invdiffnp(a, b) = (a&lt;0)&amp;(0&lt;b) ? 1/(b-a) : 0
+</pre></div>
+</td></tr></table></p>
 <h2 id="invdiffpos">invdiffpos<a class="headerlink" href="#invdiffpos" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.
-<div class="codehilite"><pre><span></span>invdiffpos(a, b) = (a&lt;b) ? 1./(b-a) : 0
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>invdiffpos(a, b) = (a&lt;b) ? 1./(b-a) : 0
+</pre></div>
+</td></tr></table></p>
 <h2 id="isinf">isInf<a class="headerlink" href="#isinf" title="Permanent link">#</a></h2>
 <p>The C++ <code class="codehilite"><span class="n">isInf</span></code> function.</p>
-<div class="codehilite"><pre><span></span>int i = isInf(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i = isInf(a);
 </pre></div>
+</td></tr></table>
 
 <h2 id="isnan">isNaN<a class="headerlink" href="#isnan" title="Permanent link">#</a></h2>
 <p>The C++ <code class="codehilite"><span class="n">isNan</span></code> function.</p>
-<div class="codehilite"><pre><span></span>int i = isNaN(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i = isNaN(a);
 </pre></div>
+</td></tr></table>
 
 <h2 id="j0">j0<a class="headerlink" href="#j0" title="Permanent link">#</a></h2>
 <p>Bessel function of first kind, order 0.
-<div class="codehilite"><pre><span></span>real b = j0(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real b = j0(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -4099,8 +4182,9 @@ invdif(a, b, e) = (-abs(a-b) &gt; e) ? 1(/b-a) : 0
 </ul>
 <h2 id="j1">j1<a class="headerlink" href="#j1" title="Permanent link">#</a></h2>
 <p>Bessel function of first kind, order 1.
-<div class="codehilite"><pre><span></span>real b = j1(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real b = j1(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -4111,8 +4195,9 @@ invdif(a, b, e) = (-abs(a-b) &gt; e) ? 1(/b-a) : 0
 </ul>
 <h2 id="jn">jn<a class="headerlink" href="#jn" title="Permanent link">#</a></h2>
 <p>Bessel function of first kind, order n.
-<div class="codehilite"><pre><span></span>real b = jn(n, x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real b = jn(n, x);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n}
 </script>
@@ -4128,10 +4213,13 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </ul>
 <h2 id="jump">jump<a class="headerlink" href="#jump" title="Permanent link">#</a></h2>
 <p>Jump function across an edge.</p>
-<div class="codehilite"><pre><span></span>intalledges(
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>intalledges(
     ... jump(c) ...
 )
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4150,8 +4238,9 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 <p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
 <h2 id="lgamma">lgamma<a class="headerlink" href="#lgamma" title="Permanent link">#</a></h2>
 <p>Natural logarithm of the absolute value of the <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
-<div class="codehilite"><pre><span></span>real lg = lgamma(x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real lg = lgamma(x);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4163,8 +4252,9 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </ul>
 <h2 id="log">log<a class="headerlink" href="#log" title="Permanent link">#</a></h2>
 <p>Natural logarithm.</p>
-<div class="codehilite"><pre><span></span>real l = log(x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real l = log(x);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4184,8 +4274,9 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </div>
 <h2 id="log10">log10<a class="headerlink" href="#log10" title="Permanent link">#</a></h2>
 <p>Common logarithm.</p>
-<div class="codehilite"><pre><span></span>real l = log10(x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real l = log10(x);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4197,8 +4288,9 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </ul>
 <h2 id="lrint">lrint<a class="headerlink" href="#lrint" title="Permanent link">#</a></h2>
 <p>Integer value nearest to <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
-<div class="codehilite"><pre><span></span>int l = lrint(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int l = lrint(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4210,8 +4302,9 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </ul>
 <h2 id="lround">lround<a class="headerlink" href="#lround" title="Permanent link">#</a></h2>
 <p>Round a value, and return a integer value.</p>
-<div class="codehilite"><pre><span></span>int l = lround(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int l = lround(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4223,9 +4316,11 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 </ul>
 <h2 id="max">max<a class="headerlink" href="#max" title="Permanent link">#</a></h2>
 <p>Maximum value of two values.</p>
-<div class="codehilite"><pre><span></span>real m = max(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real m = max(a, b);
 real m = max(a, b, c);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4239,9 +4334,11 @@ real m = max(a, b, c);
 </ul>
 <h2 id="min">min<a class="headerlink" href="#min" title="Permanent link">#</a></h2>
 <p>Minimum value of two values.</p>
-<div class="codehilite"><pre><span></span>real m = min(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real m = min(a, b);
 real m = min(a, b, c);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4255,9 +4352,11 @@ real m = min(a, b, c);
 </ul>
 <h2 id="movemesh">movemesh<a class="headerlink" href="#movemesh" title="Permanent link">#</a></h2>
 <p>Move a mesh.</p>
-<div class="codehilite"><pre><span></span>mesh MovedTh = movemesh(Th, [Dx, Dy]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh MovedTh = movemesh(Th, [Dx, Dy]);
 mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [facemerge=FaceMerge], [ptmerge=PtMerge], [orientation=Orientation]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4289,8 +4388,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="nan">NaN<a class="headerlink" href="#nan" title="Permanent link">#</a></h2>
 <p>C++ <code class="codehilite"><span class="n">nan</span></code> function.</p>
-<div class="codehilite"><pre><span></span>real n = NaN([String]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real n = NaN([String]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4302,11 +4402,15 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p>Parameters and output are the same as <a href="#affinecg">AffineCG</a></p>
 <h2 id="on">on<a class="headerlink" href="#on" title="Permanent link">#</a></h2>
 <p>Dirichlet condition function.
-<div class="codehilite"><pre><span></span>problem (u, v)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem (u, v)
     ...
     + on(Label, u=uD)
     ...
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <div class="admonition warning">
 <p>Used only in problem, solve and varf</p>
 </div>
@@ -4323,8 +4427,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="plot">plot<a class="headerlink" href="#plot" title="Permanent link">#</a></h2>
 <p>Plot meshes and results.</p>
-<div class="codehilite"><pre><span></span>plot([Th], [u], [[Ux, Uy, Uz]], [wait=Wait], [ps=PS], [coef=Coef], [fill=Fill], cmm=[Cmm], [value=Value], [aspectratio=AspectRatio], [bb=Bb], [nbiso=NbIso], [nbarrow=NbArrow], [viso=VIso], [varrow=VArrow], [bw=Bw], [grey=Grey], [hsv=Hsv], [boundary=Boundary], [dim=Dim], [prev=Prev], [WindowIndex=WI]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>plot([Th], [u], [[Ux, Uy, Uz]], [wait=Wait], [ps=PS], [coef=Coef], [fill=Fill], cmm=[Cmm], [value=Value], [aspectratio=AspectRatio], [bb=Bb], [nbiso=NbIso], [nbarrow=NbArrow], [viso=VIso], [varrow=VArrow], [bw=Bw], [grey=Grey], [hsv=Hsv], [boundary=Boundary], [dim=Dim], [prev=Prev], [WindowIndex=WI]);
 </pre></div>
+</td></tr></table>
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -4387,8 +4492,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p>See the <a href="../documentation/Visualization">visualization</a> chapter for in-graphic commands.</p>
 <h2 id="polar">polar<a class="headerlink" href="#polar" title="Permanent link">#</a></h2>
 <p>Polar coordinates.</p>
-<div class="codehilite"><pre><span></span>complex p = polar(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>complex p = polar(a, b);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4401,8 +4507,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="pow">pow<a class="headerlink" href="#pow" title="Permanent link">#</a></h2>
 <p>Power function.
-<div class="codehilite"><pre><span></span>real p = pow(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real p = pow(a, b);
 </pre></div>
+</td></tr></table>
 <span><span class="MathJax_Preview">p=a^b</span><script type="math/tex">p=a^b</script></span></p>
 <p><u>Parameters:</u></p>
 <ul>
@@ -4415,12 +4522,14 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="projection">projection<a class="headerlink" href="#projection" title="Permanent link">#</a></h2>
 <p>Arithmetic useful function.</p>
-<div class="codehilite"><pre><span></span>real p = projection(a, b, x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real p = projection(a, b, x);
 </pre></div>
+</td></tr></table>
 
 <p>Projection is equivalent to:</p>
-<div class="codehilite"><pre><span></span>projection(a, b, x) = min(max(a, x), b)*(a &lt; b) + min(max(b, x), a)*(1-(a &lt; b));
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>projection(a, b, x) = min(max(a, x), b)*(a &lt; b) + min(max(b, x), a)*(1-(a &lt; b));
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4434,8 +4543,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randinit">randinit<a class="headerlink" href="#randinit" title="Permanent link">#</a></h2>
 <p>Initialize the state vector by using a seed.</p>
-<div class="codehilite"><pre><span></span>randinit(seed);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>randinit(seed);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4447,8 +4557,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randint31">randint31<a class="headerlink" href="#randint31" title="Permanent link">#</a></h2>
 <p>Generate <code class="codehilite"><span class="kt">unsigned</span> <span class="kt">int</span></code> (31 bits) random number.</p>
-<div class="codehilite"><pre><span></span>int r = randint31();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int r = randint31();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4460,8 +4571,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randint32">randint32<a class="headerlink" href="#randint32" title="Permanent link">#</a></h2>
 <p>Generate <code class="codehilite"><span class="kt">unsigned</span> <span class="kt">int</span></code> (32 bits) random number.</p>
-<div class="codehilite"><pre><span></span>int r = randint32();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int r = randint32();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4473,8 +4585,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randreal1">randreal1<a class="headerlink" href="#randreal1" title="Permanent link">#</a></h2>
 <p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span> (32 bits).</p>
-<div class="codehilite"><pre><span></span>real r = randreal1();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = randreal1();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4486,8 +4599,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randreal2">randreal2<a class="headerlink" href="#randreal2" title="Permanent link">#</a></h2>
 <p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1)</span><script type="math/tex">[0, 1)</script></span> (32 bits).</p>
-<div class="codehilite"><pre><span></span>real r = randreal2();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = randreal2();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4499,8 +4613,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randreal3">randreal3<a class="headerlink" href="#randreal3" title="Permanent link">#</a></h2>
 <p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">(0, 1)</span><script type="math/tex">(0, 1)</script></span> (32 bits).</p>
-<div class="codehilite"><pre><span></span>real r = randreal3();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = randreal3();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4512,8 +4627,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="randres53">randres53<a class="headerlink" href="#randres53" title="Permanent link">#</a></h2>
 <p>Generate uniform <code class="codehilite">real</code> in <span><span class="MathJax_Preview">[0, 1)</span><script type="math/tex">[0, 1)</script></span> (53 bits).</p>
-<div class="codehilite"><pre><span></span>real r = randres53();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = randres53();
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4525,8 +4641,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="readmesh">readmesh<a class="headerlink" href="#readmesh" title="Permanent link">#</a></h2>
 <p>Read a 2D mesh file at different formats (see <a href="../documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation</a>).</p>
-<div class="codehilite"><pre><span></span>mesh Th = readmesh(MeshFileName);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = readmesh(MeshFileName);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4538,8 +4655,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="readmesh3">readmesh3<a class="headerlink" href="#readmesh3" title="Permanent link">#</a></h2>
 <p>Read a 3D mesh file at different formats (see <a href="../documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation</a>).</p>
-<div class="codehilite"><pre><span></span>mesh3 Th = readmesh3(MeshFileName);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh3 Th = readmesh3(MeshFileName);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4551,8 +4669,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="real">real<a class="headerlink" href="#real" title="Permanent link">#</a></h2>
 <p>Return the real part of a complex number.</p>
-<div class="codehilite"><pre><span></span>real r = real(c);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = real(c);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4564,8 +4683,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="rint">rint<a class="headerlink" href="#rint" title="Permanent link">#</a></h2>
 <p>Integer value nearest to <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> (real value).</p>
-<div class="codehilite"><pre><span></span>real r = rint(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = rint(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4577,8 +4697,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="round">round<a class="headerlink" href="#round" title="Permanent link">#</a></h2>
 <p>Round a value (real value).</p>
-<div class="codehilite"><pre><span></span>real r = round(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = round(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4590,8 +4711,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="savemesh">savemesh<a class="headerlink" href="#savemesh" title="Permanent link">#</a></h2>
 <p>Save a 2D or 3D mesh in different formats (see <a href="../documentation/MeshGeneration/#data-structures-and-readwrite-statements-for-a-mesh">Mesh Generation 2D</a> and <a href="../documentation/MeshGeneration/#readwrite-statements-for-a-mesh-in-3d">Mesh Generation 3D</a>).</p>
-<div class="codehilite"><pre><span></span>savemesh(Th, MeshFileName);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>savemesh(Th, MeshFileName);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4606,8 +4728,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p>Set a property to a matrix. See <a href="Types/#matrix">matrix</a>.</p>
 <h2 id="sign">sign<a class="headerlink" href="#sign" title="Permanent link">#</a></h2>
 <p>Sign of a value.</p>
-<div class="codehilite"><pre><span></span>int s = sign(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int s = sign(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4619,13 +4742,15 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="signbit">signbit<a class="headerlink" href="#signbit" title="Permanent link">#</a></h2>
 <p>C++ <code class="codehilite"><span class="n">signbit</span></code> function</p>
-<div class="codehilite"><pre><span></span>int s = signbit(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int s = signbit(a);
 </pre></div>
+</td></tr></table>
 
 <h2 id="sin">sin<a class="headerlink" href="#sin" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\sin</span><script type="math/tex">\sin</script></span> function.
-<div class="codehilite"><pre><span></span>real x = sin(theta);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = sin(theta);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>theta</code> (<code class="codehilite">real</code> or <code class="codehilite">complex</code>)</li>
@@ -4637,8 +4762,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p><img alt="sin function" src="../images/sin.svg" /></p>
 <h2 id="sinh">sinh<a class="headerlink" href="#sinh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\sinh</span><script type="math/tex">\sinh</script></span> function.
-<div class="codehilite"><pre><span></span>real x = sinh(theta);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = sinh(theta);
+</pre></div>
+</td></tr></table></p>
 <div>
 <div class="MathJax_Preview">
 \sinh(x) = \frac{e^{x} - e^{-x}}{2}
@@ -4658,8 +4784,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p><img alt="sinh function" src="../images/sinh.svg" /></p>
 <h2 id="sort">sort<a class="headerlink" href="#sort" title="Permanent link">#</a></h2>
 <p>Sort two array in parallel</p>
-<div class="codehilite"><pre><span></span>sort(A, B);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sort(A, B);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4673,8 +4800,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p><code>A</code> is sorted in ascending order, <code>B</code> is sorted as <code>A</code>.</p>
 <h2 id="splitmesh">splitmesh<a class="headerlink" href="#splitmesh" title="Permanent link">#</a></h2>
 <p>Split mesh triangles according to a function.</p>
-<div class="codehilite"><pre><span></span>Th = splitmesh(Th0, f);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Th = splitmesh(Th0, f);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4687,8 +4815,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="sqrt">sqrt<a class="headerlink" href="#sqrt" title="Permanent link">#</a></h2>
 <p>Square root</p>
-<div class="codehilite"><pre><span></span>real s = sqrt(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real s = sqrt(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4701,8 +4830,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <h2 id="square">square<a class="headerlink" href="#square" title="Permanent link">#</a></h2>
 <p>1.
  Square of a number.</p>
-<div class="codehilite"><pre><span></span>real S = square(a);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real S = square(a);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4714,8 +4844,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <p>2.
  Build a structured square mesh.</p>
-<div class="codehilite"><pre><span></span>mesh Th = square(nnX, nnY, [[L*x, H*y]], [flags=Flags]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(nnX, nnY, [[L*x, H*y]], [flags=Flags]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4736,8 +4867,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="swap">swap<a class="headerlink" href="#swap" title="Permanent link">#</a></h2>
 <p>Swap values.</p>
-<div class="codehilite"><pre><span></span>swap(a, b);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>swap(a, b);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameters:</u></p>
 <ul>
@@ -4750,8 +4882,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="system">system<a class="headerlink" href="#system" title="Permanent link">#</a></h2>
 <p>Execute a system command.</p>
-<div class="codehilite"><pre><span></span>int Res = system(Command);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Res = system(Command);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4765,12 +4898,14 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <p>!!note
     On Windows, the full path of the command is needed. For example, the execute <code>ls.exe</code>:
-    <div class="codehilite"><pre><span></span>int Res = exec(&quot;C:\\cygwin\\bin\\ls.exe&quot;);
-</pre></div></p>
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Res = exec(&quot;C:\\cygwin\\bin\\ls.exe&quot;);
+</pre></div>
+</td></tr></table></p>
 <h2 id="tan">tan<a class="headerlink" href="#tan" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\tan</span><script type="math/tex">\tan</script></span> function.
-<div class="codehilite"><pre><span></span>real x = tan(theta);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = tan(theta);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>theta</code> (<code class="codehilite">real</code>)</li>
@@ -4782,8 +4917,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p><img alt="tan function" src="../images/tan.svg" /></p>
 <h2 id="tanh">tanh<a class="headerlink" href="#tanh" title="Permanent link">#</a></h2>
 <p><span><span class="MathJax_Preview">\tanh</span><script type="math/tex">\tanh</script></span> function.
-<div class="codehilite"><pre><span></span>real x = tanh(theta);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real x = tanh(theta);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameter:</u></p>
 <ul>
 <li><code>theta</code> (<code class="codehilite">real</code>)</li>
@@ -4795,8 +4931,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <p><img alt="tanh function" src="../images/tanh.svg" /></p>
 <h2 id="tgamma">tgamma<a class="headerlink" href="#tgamma" title="Permanent link">#</a></h2>
 <p>Calculate the <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
-<div class="codehilite"><pre><span></span>real tg = tgamma(x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real tg = tgamma(x);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4808,8 +4945,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="trunc">trunc<a class="headerlink" href="#trunc" title="Permanent link">#</a></h2>
 <p>Split triangle of a mesh.</p>
-<div class="codehilite"><pre><span></span>mesh Th = trunc(Th0, R, [split=Split], [label=Label]);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = trunc(Th0, R, [split=Split], [label=Label]);
 </pre></div>
+</td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
@@ -4829,8 +4967,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="y0">y0<a class="headerlink" href="#y0" title="Permanent link">#</a></h2>
 <p>Bessel function of second kind, order 0.
-<div class="codehilite"><pre><span></span>real B = y0(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real B = y0(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -4841,8 +4980,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="y1">y1<a class="headerlink" href="#y1" title="Permanent link">#</a></h2>
 <p>Bessel function of second kind, order 1.
-<div class="codehilite"><pre><span></span>real B = y1(x);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real B = y1(x);
+</pre></div>
+</td></tr></table></p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>x</code> (<code class="codehilite">real</code>)</li>
@@ -4853,8 +4993,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </ul>
 <h2 id="yn">yn<a class="headerlink" href="#yn" title="Permanent link">#</a></h2>
 <p>Bessel function of second kind, order n.
-<div class="codehilite"><pre><span></span>real B = yn(n, x);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real B = yn(n, x);
 </pre></div>
+</td></tr></table>
 <script type="math/tex; mode=display">
 Y_n(x) = \lim_{\lambda\rightarrow n}{\frac{J_{\lambda}(x)\cos(\lambda\pi)-J_{-\lambda}(x)}{\sin(\lambda\pi)}}
 </script>

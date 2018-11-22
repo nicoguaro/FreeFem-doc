@@ -1377,7 +1377,130 @@ and define</p>
 <p class="admonition-title">Note</p>
 <p>There is a technical difficulty in the example: the output B.C. Here we put <span><span class="MathJax_Preview">p=0</span><script type="math/tex">p=0</script></span> and $ \nu \p_n u = 0$.</p>
 </div>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 verbosity = 0;
 int nn = 1;
 real nu = 0.0025;
@@ -1502,6 +1625,7 @@ assert(abs(outflux)&lt; 2e-3);
 plot(p, wait=1, ps=&quot;NSprojP.eps&quot;);
 plot(u, wait=1, ps=&quot;NSprojU.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <p>We show in <a href="#Fig1">figure 1</a> the numerical results obtained for a Reynolds number of 400 where mesh adaptation is done after 50 iterations on the first mesh.</p>
 <table>

@@ -1397,11 +1397,29 @@ only once and FreeFem++ can be taught to do so.</p>
 <p><strong>Programming:</strong> Write the code in FreeFem++ language using a text editor such as the one provided in your integrated environment.</p>
 <p><strong>Run:</strong> Run the code (here written in file <code>mycode.edp</code>).
 That can also be done in terminal mode by :
-<div class="codehilite"><pre><span></span>FreeFem++ mycode.edp
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>FreeFem++ mycode.edp
+</pre></div>
+</td></tr></table></p>
 <p><strong>Visualization:</strong> Use the keyword <code class="codehilite">plot</code> directly in <code>mycode.edp</code> to display functions while FreeFem++ is running. Use the plot-parameter <code class="codehilite">wait=1</code> to stop the program at each plot.</p>
 <p><strong>Debugging:</strong> A global variable <code>debug</code> (for example) can help as in <code class="codehilite">wait=true</code> to <code class="codehilite">wait=false</code>.
-<div class="codehilite"><pre><span></span>bool debug = true;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool debug = true;
 
 border a(t=0, 2.*pi){x=cos(t); y=sin(t); label=1;};
 border b(t=0, 2.*pi){x=0.8+0.3*cos(t); y=0.3*sin(t); label=2;};
@@ -1420,15 +1438,27 @@ Vh g = sin(pi*x + cos(pi*y));
 plot(f, wait=debug); //plot the function f
 plot(g, wait=debug); //plot the function g
 </pre></div>
+</td></tr></table>
 Changing debug to false will make the plots flow continuously. Watching the flow of graphs on the screen (while drinking coffee) can then become a pleasant experience.</p>
 <h3 id="error-management">Error management<a class="headerlink" href="#error-management" title="Permanent link">#</a></h3>
 <p>Error messages are displayed in the console window. They are not always very explicit because of the template structure of the C++ code (we did our best!). Nevertheless they are displayed at the right place. For example, if you forget parenthesis as in:
-<div class="codehilite"><pre><span></span>bool debug = true;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool debug = true;
 mesh Th = square(10,10;
 plot(Th);
 </pre></div>
+</td></tr></table>
 then you will get the following message from FreeFem++:
-<div class="codehilite"><pre><span></span>    <span class="m">2</span> : mesh <span class="nv">Th</span> <span class="o">=</span> square<span class="o">(</span><span class="m">10</span>,10<span class="p">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="m">2</span> : mesh <span class="nv">Th</span> <span class="o">=</span> square<span class="o">(</span><span class="m">10</span>,10<span class="p">;</span>
  Error line number <span class="m">2</span>, in file bb.edp, before  token <span class="p">;</span>
 parse error
   current <span class="nv">line</span> <span class="o">=</span> <span class="m">2</span>
@@ -1437,31 +1467,45 @@ Compile error : parse error
 error Compile error : parse error
         line number :2, <span class="p">;</span>
  <span class="nv">code</span> <span class="o">=</span> <span class="m">1</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>If you use the same symbol twice as in:
-<div class="codehilite"><pre><span></span>real aaa = 1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real aaa = 1;
 real aaa;
 </pre></div>
+</td></tr></table>
 then you will get the message:
-<div class="codehilite"><pre><span></span>    <span class="m">2</span> : real aaa<span class="p">;</span> The identifier aaa exists
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="m">2</span> : real aaa<span class="p">;</span> The identifier aaa exists
           the existing <span class="nb">type</span> is &lt;Pd&gt;
           the new  <span class="nb">type</span> is &lt;Pd&gt;
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <p>If you find that the program isn't doing what you want you may also use <code class="codehilite">cout</code> to display in text format on the console window the value of variables, just as you would do in C++.</p>
 <p>The following example works:</p>
-<p><div class="codehilite"><pre><span></span>...
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>...
 fespace Vh(Th, P1);
 Vh u;
 cout &lt;&lt; u;
 matrix A = a(Vh, Vh);
 cout &lt;&lt; A;
 </pre></div>
+</td></tr></table>
 <!--- > -->
 Another trick is to <em>comment in and out</em> by using <code class="codehilite">//</code> as in C++.
 For example</p>
-<div class="codehilite"><pre><span></span>real aaa =1;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real aaa =1;
 // real aaa;
 </pre></div>
+</td></tr></table>
                 
                   
                 

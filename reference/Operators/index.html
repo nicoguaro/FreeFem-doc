@@ -1506,48 +1506,59 @@
                 
                 <h2 id="_1">+<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <p>Addition operator.
-<div class="codehilite"><pre><span></span>real a = 1. + 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. + 2.;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, <code class="codehilite">string</code>, <code class="codehilite">mesh</code>, <code class="codehilite">mesh3</code>, array.</p>
 <h2 id="-">-<a class="headerlink" href="#-" title="Permanent link">#</a></h2>
 <p>Substraction operator.
-<div class="codehilite"><pre><span></span>real a = 1. - 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. - 2.;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, array.</p>
 <h2 id="_2">*<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>Multiplication operator.
-<div class="codehilite"><pre><span></span>real[int] b;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] b;
 matrix A
 real[int] x = A^-1*b;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, array, <code class="codehilite">matrix</code>.</p>
 <h2 id="_3">.*<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <p>Term by term multiplication.
-<div class="codehilite"><pre><span></span>matrix A = B .* C;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = B .* C;
+</pre></div>
+</td></tr></table></p>
 <h2 id="_4">/<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <p>Division operator.
-<div class="codehilite"><pre><span></span>real a = 1. / 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. / 2.;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>.</p>
 <h2 id="_5">./<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
 <p>Term by term division.
-<div class="codehilite"><pre><span></span>matrix A = B ./ C;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = B ./ C;
+</pre></div>
+</td></tr></table></p>
 <h2 id="_6">%<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
 <p>Remainder from the division.</p>
-<p><div class="codehilite"><pre><span></span>int a = 1 % 2;
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int a = 1 % 2;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>.</p>
 <h2 id="_7">^<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
 <p>Power operator.
-<div class="codehilite"><pre><span></span>real a = 2.^2;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 2.^2;
 </pre></div>
+</td></tr></table>
 Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, <code class="codehilite">matrix</code>.</p>
 <h2 id="-1">^-1<a class="headerlink" href="#-1" title="Permanent link">#</a></h2>
 <p>Inverse of a <code class="codehilite">matrix</code>.</p>
-<div class="codehilite"><pre><span></span>real[int] Res = A^-1 * b;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] Res = A^-1 * b;
 </pre></div>
+</td></tr></table>
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1555,8 +1566,9 @@ Works for <code class="codehilite">int</code>, <code class="codehilite">real</co
 </div>
 <h2 id="_8">'<a class="headerlink" href="#_8" title="Permanent link">#</a></h2>
 <p>Transpose operator.
-<div class="codehilite"><pre><span></span>real[int] a = b&#39;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] a = b&#39;;
 </pre></div>
+</td></tr></table>
 Works for array and <code class="codehilite">matrix</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1573,7 +1585,16 @@ A:B = \sum_{i,j}{A_{ij}B_{ij}}
 <p><code>a ? b : c</code> is equal to <code>b</code> if the <code>a</code> is true, <code>c</code> otherwise.</p>
 <div class="admonition example">
 <p class="admonition-title">Example with <code class="codehilite">int</code></p>
-<div class="codehilite"><pre><span></span>int a = 12;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int a = 12;
 int b = 5;
 
 cout &lt;&lt; a &lt;&lt; &quot; + &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a + b &lt;&lt; endl;
@@ -1584,20 +1605,37 @@ cout &lt;&lt; a &lt;&lt; &quot; % &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt
 cout &lt;&lt; a &lt;&lt; &quot; ^ &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a ^ b &lt;&lt; endl;
 cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &lt;&lt; &quot; ? &quot; &lt;&lt; a &lt;&lt; &quot; : &quot; &lt;&lt; b &lt;&lt; &quot;) = &quot; &lt;&lt; (a &lt; b ? a : b) &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>The output of this script is:
-<div class="codehilite"><pre><span></span><span class="m">12</span> + <span class="nv">5</span> <span class="o">=</span> <span class="m">17</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="m">12</span> + <span class="nv">5</span> <span class="o">=</span> <span class="m">17</span>
 <span class="m">12</span> - <span class="nv">5</span> <span class="o">=</span> <span class="m">7</span>
 <span class="m">12</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">60</span>
 <span class="m">12</span> / <span class="nv">5</span> <span class="o">=</span> <span class="m">2</span>
 <span class="m">12</span> % <span class="nv">5</span> <span class="o">=</span> <span class="m">2</span>
 <span class="m">12</span> ^ <span class="nv">5</span> <span class="o">=</span> <span class="m">248832</span>
 <span class="o">(</span> <span class="m">12</span> &lt; <span class="m">5</span> ? <span class="m">12</span> : <span class="m">5</span><span class="o">)</span> <span class="o">=</span> <span class="m">5</span>
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example with <code class="codehilite">real</code></p>
-<div class="codehilite"><pre><span></span>real a = qsrt(2.);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = qsrt(2.);
 real b = pi;
 
 cout &lt;&lt; a &lt;&lt; &quot; + &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a + b &lt;&lt; endl;
@@ -1608,16 +1646,24 @@ cout &lt;&lt; a &lt;&lt; &quot; % &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt
 cout &lt;&lt; a &lt;&lt; &quot; ^ &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a ^ b &lt;&lt; endl;
 cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &lt;&lt; &quot; ? &quot; &lt;&lt; a &lt;&lt; &quot; : &quot; &lt;&lt; b &lt;&lt; &quot;) = &quot; &lt;&lt; (a &lt; b ? a : b) &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>The output of this script is:
-<div class="codehilite"><pre><span></span><span class="m">1</span>.41421 + <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">4</span>.55581
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="m">1</span>.41421 + <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">4</span>.55581
 <span class="m">1</span>.41421 - <span class="m">3</span>.14159 <span class="o">=</span> -1.72738
 <span class="m">1</span>.41421 * <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">4</span>.44288
 <span class="m">1</span>.41421 / <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">0</span>.450158
 <span class="m">1</span>.41421 % <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">1</span>
 <span class="m">1</span>.41421 ^ <span class="m">3</span>.14159 <span class="o">=</span> <span class="m">2</span>.97069
 <span class="o">(</span> <span class="m">1</span>.41421 &lt; <span class="m">3</span>.14159 ? <span class="m">1</span>.41421 : <span class="m">3</span>.14159<span class="o">)</span> <span class="o">=</span> <span class="m">1</span>.41421
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 </div>
                 
                   

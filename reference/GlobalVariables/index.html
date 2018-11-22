@@ -1772,34 +1772,42 @@
                 
                 <h2 id="area">area<a class="headerlink" href="#area" title="Permanent link">#</a></h2>
 <p>Area of the current triangle.</p>
-<div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
 Vh0 A = area;
 </pre></div>
+</td></tr></table>
 
 <h2 id="argv">ARGV<a class="headerlink" href="#argv" title="Permanent link">#</a></h2>
 <p>Array that contains all the command line arguments.</p>
-<div class="codehilite"><pre><span></span>for (int i = 0; i &lt; ARGV.n; i++)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for (int i = 0; i &lt; ARGV.n; i++)
     cout &lt;&lt; ARGV[i] &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <p>See <a href="../examples/#command-line-arguments">Command line arguments example</a> for a complete example.</p>
 <h2 id="boundaryedge">BoundaryEdge<a class="headerlink" href="#boundaryedge" title="Permanent link">#</a></h2>
 <p>Return 1 if the current edge is on a boundary, 0 otherwise.</p>
-<div class="codehilite"><pre><span></span>real B = int2d(Th)(BoundaryEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real B = int2d(Th)(BoundaryEdge);
 </pre></div>
+</td></tr></table>
 
 <h2 id="cg">CG<a class="headerlink" href="#cg" title="Permanent link">#</a></h2>
 <p>Conjugate gradient solver.</p>
 <blockquote>
 <p>Usable in <a href="types/#problem"><code class="codehilite">problem</code></a> and <a href="types/#solve"><code class="codehilite">solve</code></a> definition
-<div class="codehilite"><pre><span></span>problem Laplacian (U, V, solver=CG) = ...
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian (U, V, solver=CG) = ...
+</pre></div>
+</td></tr></table></p>
 <p>Or in <a href="types/#matrix"><code class="codehilite">matrix</code></a> construction
-<div class="codehilite"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=CG);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=CG);
+</pre></div>
+</td></tr></table></p>
 <p>Or in <a href="functions/#set"><code class="codehilite">set</code> function</a>
-<div class="codehilite"><pre><span></span>set(A, solver=CG);
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>set(A, solver=CG);
+</pre></div>
+</td></tr></table></p>
 </blockquote>
 <h2 id="cholesky">Cholesky<a class="headerlink" href="#cholesky" title="Permanent link">#</a></h2>
 <p>Cholesky solver.</p>
@@ -1807,125 +1815,155 @@ Vh0 A = area;
 <p>Crout solver.</p>
 <h2 id="edgeorientation">edgeOrientation<a class="headerlink" href="#edgeorientation" title="Permanent link">#</a></h2>
 <p>Sign of <span><span class="MathJax_Preview">i-j</span><script type="math/tex">i-j</script></span> if the current edge is <span><span class="MathJax_Preview">[q_i, q_j]</span><script type="math/tex">[q_i, q_j]</script></span>.</p>
-<div class="codehilite"><pre><span></span>real S = int1d(Th, 1)(edgeOrientation);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real S = int1d(Th, 1)(edgeOrientation);
 </pre></div>
+</td></tr></table>
 
 <h2 id="false">false<a class="headerlink" href="#false" title="Permanent link">#</a></h2>
 <p>False boolean value.</p>
-<div class="codehilite"><pre><span></span>bool b = false;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = false;
 </pre></div>
+</td></tr></table>
 
 <h2 id="gmres">GMRES<a class="headerlink" href="#gmres" title="Permanent link">#</a></h2>
 <p>GMRES solver (Generalized minimal residual method).</p>
 <h2 id="htriangle">hTriangle<a class="headerlink" href="#htriangle" title="Permanent link">#</a></h2>
 <p>Size of the current triangle.</p>
-<div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
 Vh h = hTriangle;
 </pre></div>
+</td></tr></table>
 
 <h2 id="include">include<a class="headerlink" href="#include" title="Permanent link">#</a></h2>
 <p>Include an <a href="ExternalLibraries">external library</a>.
-<div class="codehilite"><pre><span></span>include &quot;iovtk&quot;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>include &quot;iovtk&quot;
+</pre></div>
+</td></tr></table></p>
 <h2 id="internaledge">InternalEdge<a class="headerlink" href="#internaledge" title="Permanent link">#</a></h2>
 <p>Return 0 if the current edge is on a boundary, 1 otherwise.</p>
-<div class="codehilite"><pre><span></span>real I = int2d(Th)(InternalEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real I = int2d(Th)(InternalEdge);
 </pre></div>
+</td></tr></table>
 
 <h2 id="label">label<a class="headerlink" href="#label" title="Permanent link">#</a></h2>
 <p>Label number of a boundary if the current point is on a boundary, 0 otherwise.</p>
-<div class="codehilite"><pre><span></span>int L = Th(xB, yB).label;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int L = Th(xB, yB).label;
 </pre></div>
+</td></tr></table>
 
 <h2 id="lenedge">lenEdge<a class="headerlink" href="#lenedge" title="Permanent link">#</a></h2>
 <p>Length of the current edge.</p>
 <p>For an edge <span><span class="MathJax_Preview">[q_i, g_j]</span><script type="math/tex">[q_i, g_j]</script></span>, return <span><span class="MathJax_Preview">|q_i-q_j|</span><script type="math/tex">|q_i-q_j|</script></span>.</p>
-<div class="codehilite"><pre><span></span>real L = int1d(Th, 1)(lenEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real L = int1d(Th, 1)(lenEdge);
 </pre></div>
+</td></tr></table>
 
 <h2 id="load">load<a class="headerlink" href="#load" title="Permanent link">#</a></h2>
 <p>Load a script.
-<div class="codehilite"><pre><span></span>load &quot;Element_P3&quot;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;Element_P3&quot;
+</pre></div>
+</td></tr></table></p>
 <h2 id="lu">LU<a class="headerlink" href="#lu" title="Permanent link">#</a></h2>
 <p>LU solver.</p>
 <h2 id="n">N<a class="headerlink" href="#n" title="Permanent link">#</a></h2>
 <p>Outward unit normal at the current point if it is on a curve defined by a border. <code class="codehilite">N.x, N.y, N.z</code> are respectively the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>y and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> components of the normal.</p>
-<div class="codehilite"><pre><span></span>func Nx = N.x;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func Nx = N.x;
 func Ny = N.y;
 func Nz = N.z;
 </pre></div>
+</td></tr></table>
 
 <h2 id="ntonedge">nTonEdge<a class="headerlink" href="#ntonedge" title="Permanent link">#</a></h2>
 <p>Number of adjacent triangle of the current edge.</p>
-<div class="codehilite"><pre><span></span>real nTE = int2d(Th)(nTonEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real nTE = int2d(Th)(nTonEdge);
 </pre></div>
+</td></tr></table>
 
 <h2 id="nuedge">nuEdge<a class="headerlink" href="#nuedge" title="Permanent link">#</a></h2>
 <p>Index of the current edge in the triangle.</p>
-<div class="codehilite"><pre><span></span>real nE = int2d(Th)(nuEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real nE = int2d(Th)(nuEdge);
 </pre></div>
+</td></tr></table>
 
 <h2 id="nutriangle">nuTriangle<a class="headerlink" href="#nutriangle" title="Permanent link">#</a></h2>
 <p>Index of the current triangle.</p>
-<div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
 Vh n = nuTriangle;
 </pre></div>
+</td></tr></table>
 
 <h2 id="p">P<a class="headerlink" href="#p" title="Permanent link">#</a></h2>
 <p>Current point.
-<div class="codehilite"><pre><span></span>real cx = P.x;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real cx = P.x;
 real cy = P.y;
 real cz = P.z;
-</pre></div></p>
+</pre></div>
+</td></tr></table></p>
 <h2 id="pi">pi<a class="headerlink" href="#pi" title="Permanent link">#</a></h2>
 <p>Pi = 3.14159.
-<div class="codehilite"><pre><span></span>real Pi = pi;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real Pi = pi;
 </pre></div>
+</td></tr></table>
 This is a real value.</p>
 <h2 id="region">region<a class="headerlink" href="#region" title="Permanent link">#</a></h2>
 <p>Region number of the current point. If the point is outside, then <code class="codehilite">region == notaregion</code> where <code class="codehilite">notaregion</code> is a <strong><code>FreeFem++</code></strong> integer constant.</p>
-<div class="codehilite"><pre><span></span>int R = Th(xR, yR).region;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int R = Th(xR, yR).region;
 </pre></div>
+</td></tr></table>
 
 <h2 id="sparsesolver">sparsesolver<a class="headerlink" href="#sparsesolver" title="Permanent link">#</a></h2>
 <p>Sparse matrix solver.</p>
 <h2 id="true">true<a class="headerlink" href="#true" title="Permanent link">#</a></h2>
 <p>True boolean value.</p>
-<div class="codehilite"><pre><span></span>bool b = true;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = true;
 </pre></div>
+</td></tr></table>
 
 <h2 id="verbosity">verbosity<a class="headerlink" href="#verbosity" title="Permanent link">#</a></h2>
 <p>Verbosity level.
-<div class="codehilite"><pre><span></span>int Verbosity = verbosity;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Verbosity = verbosity;
 verbosity = 0;
 </pre></div>
+</td></tr></table>
 0 = nothing, 1 = few informations, 10 = a lot of informations, ...</p>
 <p>This is an integer value.</p>
 <h2 id="version">version<a class="headerlink" href="#version" title="Permanent link">#</a></h2>
 <p>FreeFem++ version.
-<div class="codehilite"><pre><span></span>cout &lt;&lt; version &lt;&lt; endl;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cout &lt;&lt; version &lt;&lt; endl;
+</pre></div>
+</td></tr></table></p>
 <h2 id="volume">volume<a class="headerlink" href="#volume" title="Permanent link">#</a></h2>
 <p>Volume of the current tetrahedra.</p>
-<div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
 Vh0 V = volume;
 </pre></div>
+</td></tr></table>
 
 <h2 id="x">x<a class="headerlink" href="#x" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> coordinate at the current point.
-<div class="codehilite"><pre><span></span>real CurrentX = x;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentX = x;
 </pre></div>
+</td></tr></table>
 This is a real value.</p>
 <h2 id="y">y<a class="headerlink" href="#y" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> coordinate at the current point.
-<div class="codehilite"><pre><span></span>real CurrentY = y;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentY = y;
 </pre></div>
+</td></tr></table>
 This is a real value.</p>
 <h2 id="z">z<a class="headerlink" href="#z" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> coordinate at the current point.
-<div class="codehilite"><pre><span></span>real CurrentY = y;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentY = y;
 </pre></div>
+</td></tr></table>
 This is a real value.</p>
                 
                   

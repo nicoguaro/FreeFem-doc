@@ -1356,18 +1356,34 @@
 <p>In essence <strong><code>FreeFem++</code></strong> is a compiler: its language is typed, polymorphic, with exception and reentrant. Every variable must be declared of a certain type, in a declarative statement; each statement are separated from the next by a semicolon <code>;</code>.</p>
 <p>The language allows the manipulation of basic types integers (<code class="codehilite">int</code>), reals (<code class="codehilite">real</code>), strings (<code class="codehilite">string</code>),
 arrays (example: <code class="codehilite">real[int]</code>), bi-dimensional (2D) finite element meshes (<code class="codehilite">mesh</code>), 2D finite element spaces (<code class="codehilite">fespace</code>), analytical functions (<code class="codehilite">func</code>), arrays of finite element functions (<code class="codehilite">func[basic_type]</code>), linear and bilinear operators, sparse matrices, vectors , etc. For example:</p>
-<div class="codehilite"><pre><span></span>int i, n = 20; //i, n are integer
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i, n = 20; //i, n are integer
 real[int] xx(n), yy(n); //two array of size n
 for (i = 0; i &lt;= 20; i++){ //which can be used in statements such as
     xx[i] = cos(i*pi/10);
     yy[i] = sin(i*pi/10);
 }
 </pre></div>
+</td></tr></table>
 
 <p>The life of a variable is the current block <code>{...}</code>, except the <code class="codehilite">fespace</code> variable, and the variables local to a block are destroyed at the end of the block as follows.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="codehilite"><pre><span></span>real r = 0.01;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = 0.01;
 mesh Th = square(10, 10); //unit square mesh
 fespace Vh(Th, P1); //P1 Lagrange finite element space
 Vh u = x + exp(y);
@@ -1379,6 +1395,7 @@ plot(u, wait=true);
 }// end of block
 //here r back to 0.01
 </pre></div>
+</td></tr></table>
 
 </div>
 <p>The type declarations are mandatory in <strong><code>FreeFem++</code></strong>; in the end this feature is an asset because it is easy to make bugs in a language with many implicit types.</p>

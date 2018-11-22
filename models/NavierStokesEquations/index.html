@@ -1753,8 +1753,9 @@ B&-\epsilon I
 <p>The driven cavity flow problem is solved first at zero Reynolds number (Stokes flow) and then at Reynolds 100. The velocity pressure formulation is used first and then the calculation is repeated with the stream function vorticity formulation.</p>
 <p>We solve the driven cavity problem by the penalty method \eqref{eqn::PvfStokes} where <span><span class="MathJax_Preview">\mathbf{u}_{\Gamma}\cdot \mathbf{n}=0</span><script type="math/tex">\mathbf{u}_{\Gamma}\cdot \mathbf{n}=0</script></span> and <span><span class="MathJax_Preview">\mathbf{u}_{\Gamma}\cdot \mathbf{s}=1</span><script type="math/tex">\mathbf{u}_{\Gamma}\cdot \mathbf{s}=1</script></span> on the top boundary and zero elsewhere (<span><span class="MathJax_Preview">\mathbf{n}</span><script type="math/tex">\mathbf{n}</script></span> is the unit normal to <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>, and <span><span class="MathJax_Preview">\mathbf{s}</span><script type="math/tex">\mathbf{s}</script></span> the unit tangent to <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>).</p>
 <p>The mesh is constructed by</p>
-<div class="codehilite"><pre><span></span>mesh Th = square(8, 8);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(8, 8);
 </pre></div>
+</td></tr></table>
 
 <p>We use a classical Taylor-Hood element technique to solve the problem:</p>
 <p>The velocity is approximated with the <span><span class="MathJax_Preview">P_{2}</span><script type="math/tex">P_{2}</script></span> FE (<span><span class="MathJax_Preview">X_{h}</span><script type="math/tex">X_{h}</script></span> space), and the pressure is approximated with the <span><span class="MathJax_Preview">P_{1}</span><script type="math/tex">P_{1}</script></span> FE (<span><span class="MathJax_Preview">M_{h}</span><script type="math/tex">M_{h}</script></span> space), where</p>
@@ -1776,15 +1777,34 @@ M_{h} = \left\{ v \in H^{1}(]0,1[^2) \left|\; \forall K \in \mathcal{T}_{h}\quad
 </script>
 </div>
 <p>The FE spaces and functions are constructed by</p>
-<div class="codehilite"><pre><span></span>fespace Xh(Th, P2); //definition of the velocity component space
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Xh(Th, P2); //definition of the velocity component space
 fespace Mh(Th, P1); //definition of the pressure space
 Xh u2, v2;
 Xh u1, v1;
 Mh p, q;
 </pre></div>
+</td></tr></table>
 
 <p>The Stokes operator is implemented as a system-solve for the velocity <span><span class="MathJax_Preview">(u1,u2)</span><script type="math/tex">(u1,u2)</script></span> and the pressure <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>. The test function for the velocity is <span><span class="MathJax_Preview">(v1,v2)</span><script type="math/tex">(v1,v2)</script></span> and <span><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> for the pressure, so the variational form \eqref{eqn::vfStokes} in freefem language is:</p>
-<div class="codehilite"><pre><span></span>solve Stokes (u1, u2, p, v1, v2, q, solver=Crout)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>solve Stokes (u1, u2, p, v1, v2, q, solver=Crout)
     = int2d(Th)(
           (
               dx(u1)*dx(v1)
@@ -1800,6 +1820,7 @@ Mh p, q;
     + on(1, 2, 4, u1=0, u2=0)
     ;
 </pre></div>
+</td></tr></table>
 
 <p>Each unknown has its own boundary conditions.</p>
 <p>If the streamlines are required, they can be computed by finding <span><span class="MathJax_Preview">\psi</span><script type="math/tex">\psi</script></span> such that rot<span><span class="MathJax_Preview">\psi=u</span><script type="math/tex">\psi=u</script></span> or better,</p>
@@ -1811,7 +1832,18 @@ Mh p, q;
 -\Delta\psi=\nabla\times u
 </script>
 </div>
-<div class="codehilite"><pre><span></span>Xh psi, phi;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Xh psi, phi;
 
 solve streamlines (psi, phi)
     = int2d(Th)(
@@ -1824,6 +1856,7 @@ solve streamlines (psi, phi)
     + on(1, 2, 3, 4, psi=0)
     ;
 </pre></div>
+</td></tr></table>
 
 <p>Now the Navier-Stokes equations are solved</p>
 <div>
@@ -1847,7 +1880,40 @@ solve streamlines (psi, phi)
 \end{equation}</script>
 </div>
 <p>The term <span><span class="MathJax_Preview">u^n\circ X^n(x)\approx u^n(x-u^n(x)\tau )</span><script type="math/tex">u^n\circ X^n(x)\approx u^n(x-u^n(x)\tau )</script></span> will be computed by the operator <code class="codehilite">convect</code>, so we obtain</p>
-<div class="codehilite"><pre><span></span>int i=0;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i=0;
 real alpha=1/dt;
 problem NS (u1, u2, p, v1, v2, q, solver=Crout, init=i)
     = int2d(Th)(
@@ -1882,6 +1948,7 @@ for (i = 0; i &lt;= 10; i++){
         plot(coef=0.2, cmm=&quot;[u1,u2] and p&quot;, p, [u1, u2]);
 }
 </pre></div>
+</td></tr></table>
 
 <p>Notice that the stiffness matrices are reused (keyword <code class="codehilite">init=i</code>)</p>
 <p>The complete script is available in <a href="../examples/#cavity">Examples</a>.</p>
@@ -1922,7 +1989,66 @@ p_h^{n+1}=p_h^n+\rho_n\mathbf{B}\mathbf{u}_h^n
 So <span><span class="MathJax_Preview">X_{h}</span><script type="math/tex">X_{h}</script></span> is the velocity space, and <span><span class="MathJax_Preview">M_{h}</span><script type="math/tex">M_{h}</script></span> is the pressure space.</p>
 <div class="admonition example">
 <p class="admonition-title">Stokes Uzawa</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 mesh Th = square(10, 10);
 
 // Fespace
@@ -1983,6 +2109,7 @@ divup(p[]); //compute the final solution
 
 plot([u1, u2], p, wait=1, value=true, coef=0.1);
 </pre></div>
+</td></tr></table>
 
 </div>
 <h2 id="nsuzawacahouetchabartedp">NSUzawaCahouetChabart.edp<a class="headerlink" href="#nsuzawacahouetchabartedp" title="Permanent link">#</a></h2>
@@ -1991,7 +2118,159 @@ plot([u1, u2], p, wait=1, value=true, coef=0.1);
 <p>To implement this, we do</p>
 <div class="admonition example">
 <p class="admonition-title">NS Uzawa Cahouet Chabart</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 verbosity = 0;
 
 real D = 0.1;
@@ -2145,6 +2424,7 @@ cout &lt;&lt; &quot;u1 max = &quot; &lt;&lt; u1[].linfty
      &lt;&lt; &quot;, u2 max = &quot; &lt;&lt; u2[].linfty
      &lt;&lt; &quot;, p max = &quot; &lt;&lt; p[].max &lt;&lt; endl;
 </pre></div>
+</td></tr></table>
 
 <div class="admonition warning">
 <p class="admonition-title">Stop test of the conjugate gradient</p>

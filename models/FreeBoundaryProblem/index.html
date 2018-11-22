@@ -1291,7 +1291,19 @@
                   <h1>Free boundary problem</h1>
                 
                 <p>The domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is defined with:</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real L = 10; //length
 real hr = 2.1; //left height
 real hl = 0.35; //right height
@@ -1305,6 +1317,7 @@ border d(t=hl, 0){x=0; y=t;}; // left: Gamma_d
 mesh Th = buildmesh(a(10*n) + b(6*n) + f(8*n) + d(3*n));
 plot(Th);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1396,7 +1409,94 @@ plot(Th);
 <div class="admonition example">
 <p class="admonition-title">Free boundary</p>
 <p>The FreeFem++ implementation is:</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real L = 10; //length
 real hr = 2.1; //left height
 real hl = 0.35; //right height
@@ -1485,6 +1585,7 @@ while (errv &gt; 1e-6){
 plot(Th);
 plot(u, wait=true);
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>

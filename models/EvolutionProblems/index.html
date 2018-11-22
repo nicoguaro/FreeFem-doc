@@ -1494,7 +1494,47 @@
 </div>
 <!--- __ --->
 
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real dt = 0.1;
 real mu = 0.01;
 
@@ -1536,6 +1576,7 @@ for (int m = 0; m &lt;= 3/dt; m++){
     cout &lt;&lt; &quot;t=&quot; &lt;&lt; t &lt;&lt; &quot; - L^2-Error=&quot; &lt;&lt; sqrt(int2d(Th)((u-t*x^4)^2)) &lt;&lt; endl;
 }
 </pre></div>
+</td></tr></table>
 
 <p>In the last statement, the <span><span class="MathJax_Preview">L^2</span><script type="math/tex">L^2</script></span>-error <span><span class="MathJax_Preview">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</span><script type="math/tex">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</script></span> is calculated at <span><span class="MathJax_Preview">t=m\tau, \tau =0.1</span><script type="math/tex">t=m\tau, \tau =0.1</script></span>. At <span><span class="MathJax_Preview">t=0.1</span><script type="math/tex">t=0.1</script></span>, the error is 0.000213269. The errors increase with <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> and 0.00628589 at <span><span class="MathJax_Preview">t=3</span><script type="math/tex">t=3</script></span>.</p>
 <p>The iteration of the backward Euler \eqref{eqn::heatequationBWE} is made by <a href="../reference/Loops/#for"><code class="codehilite">for</code> loop</a>.</p>
@@ -1652,7 +1693,75 @@ A=(a_{ij}),\quad a_{ij}=a(\phi_j,\phi_i)\nonumber
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real tau = 0.1;
 real theta = 0.;
 
@@ -1722,6 +1831,7 @@ while (theta &lt;= 1.0){
     theta = theta + 0.1;
 }
 </pre></div>
+</td></tr></table>
 
 <table>
 <thead>
@@ -1878,7 +1988,35 @@ u^m(x-\mathbf{\alpha}\tau )=u^m(x)-\tau \mathbf{\alpha}^m(x)\cdot \nabla u^m(x)+
 <p>The exact solution is <span><span class="MathJax_Preview">u(x, t) = u(\mathbf{X}(t))</span><script type="math/tex">u(x, t) = u(\mathbf{X}(t))</script></span> where <span><span class="MathJax_Preview">\mathbf{X}</span><script type="math/tex">\mathbf{X}</script></span> equals <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> rotated around the origin by an angle <span><span class="MathJax_Preview">\theta = -t</span><script type="math/tex">\theta = -t</script></span> (rotate in clockwise). So, if <span><span class="MathJax_Preview">u^0</span><script type="math/tex">u^0</script></span> in a 3D perspective looks like a bell, then <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> will have exactly the same shape, but rotated by the same amount. The program consists in solving the equation until <span><span class="MathJax_Preview">T = 2\pi</span><script type="math/tex">T = 2\pi</script></span>, that is for a full revolution and to compare the final solution with the initial one; they should be equal.</p>
 <div class="admonition example">
 <p class="admonition-title">Convect</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real dt = 0.17;
 
 // Mesh
@@ -1908,6 +2046,7 @@ for (int m = 0; m &lt; 2*pi/dt; m++){
     plot(u, cmm=&quot; t=&quot;+t+&quot;, min=&quot;+u[].min+&quot;, max=&quot;+u[].max);
 }
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1983,7 +2122,62 @@ u\left( {x , y ,T} \right) = \left( {K - \max \left( {x ,y } \right)} \right)^ +
 </div>
 <div class="admonition example">
 <p class="admonition-title">Black-Scholes</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int m = 30;
 int L = 80;
 int LL = 80;
@@ -2040,6 +2234,7 @@ for (int n = 0; n*dt &lt;= 1.0; n++){
 // Plot
 plot(u, wait=true, value=true);
 </pre></div>
+</td></tr></table>
 
 <p>Results are shown on <a href="Fig21">Fig. 21</a>.</p>
 <table>

@@ -1394,7 +1394,32 @@ y = 0.17735\sqrt{x}-0.075597x- 0.212836x^2+0.17363x^3-0.06254x^4.
 y = 0.17735\sqrt{x}-0.075597x- 0.212836x^2+0.17363x^3-0.06254x^4.
 </script>
 </div>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real S = 99;
 
 // Mesh
@@ -1421,6 +1446,7 @@ solve potential(psi, w)
 
 plot(psi, wait=1);
 </pre></div>
+</td></tr></table>
 
 <p>A zoom of the streamlines are shown on <a href="#Fig1">figure 1</a>.</p>
 <table>
@@ -1449,7 +1475,51 @@ plot(psi, wait=1);
 </div>
 <p>But now the domain is outside AND inside <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> and <span><span class="MathJax_Preview">\kappa</span><script type="math/tex">\kappa</script></span> takes a different value in air and in steel. Furthermore there is convection of heat by the flow, hence the term <span><span class="MathJax_Preview">u\cdot\n v</span><script type="math/tex">u\cdot\n v</script></span> above.</p>
 <p>Consider the following, to be plugged at the end of the previous program :</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 real S = 99;
 real dt=0.05;
 real nbT=50;
@@ -1495,6 +1565,7 @@ for(i = 0; i &lt; nbT; i++){
     plot(v);
 }
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>

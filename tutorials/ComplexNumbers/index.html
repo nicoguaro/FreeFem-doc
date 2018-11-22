@@ -1334,7 +1334,77 @@
 <p>where <span><span class="MathJax_Preview">I_B</span><script type="math/tex">I_B</script></span> is <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> in the object and <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> elsewhere.</p>
 <p>In the program below <span><span class="MathJax_Preview">\beta = 1/(1-i/2)</span><script type="math/tex">\beta = 1/(1-i/2)</script></span> in the air and <span><span class="MathJax_Preview">2/(1-i/2)</span><script type="math/tex">2/(1-i/2)</script></span>
 in the object (<span><span class="MathJax_Preview">i=\sqrt{-1}</span><script type="math/tex">i=\sqrt{-1}</script></span>):</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 int nn = 2;
 real a = 20.;
 real b = 20.;
@@ -1406,6 +1476,7 @@ solve temperature(u, uu)
 // Plot
 plot(u, wait=1, ps=&quot;tempmuonde.ps&quot;, fill=true);
 </pre></div>
+</td></tr></table>
 
 <p>Results are shown on <a href="#Fig1">figure 1</a>.</p>
 <table>

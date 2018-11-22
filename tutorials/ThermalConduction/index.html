@@ -1397,7 +1397,50 @@ u(x,y,0)=u_0+x u_1
 <p>$
 \int_\Omega(\frac{u^n-u^{n-1}}{\delta t} w + \kappa\n u^n\n w) +\int_\Gamma\alpha(u^n-u_ue)w=0
 $</p>
-<div class="codehilite"><pre><span></span>// Parameters
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
 func u0 = 10. + 90.*x/6.;
 func k = 1.8*(y&lt;0.5) + 0.2;
 real ue = 25.;
@@ -1442,6 +1485,7 @@ for(real t = 0; t &lt; T; t += dt){
     plot(u);
 }
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1450,8 +1494,9 @@ for(real t = 0; t &lt; T; t += dt){
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The way we store the temperature at point (3, 0.5) for all times in file <code>thermic.dat</code>. Should a one dimensional plot be required, the same procedure can be used. For instance to print <span><span class="MathJax_Preview">x\mapsto \frac{\p u}{\p y}(x,0.9)</span><script type="math/tex">x\mapsto \frac{\p u}{\p y}(x,0.9)</script></span> one would do
-<div class="codehilite"><pre><span></span>for(int i = 0; i &lt; 20; i++) cout &lt;&lt; dy(u)(6.0*i/20.0,0.9) &lt;&lt; endl;
-</pre></div></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for(int i = 0; i &lt; 20; i++) cout &lt;&lt; dy(u)(6.0*i/20.0,0.9) &lt;&lt; endl;
+</pre></div>
+</td></tr></table></p>
 </div>
 <p>Results are shown on <a href="#Fig1">figure 1</a>.</p>
 <table>
@@ -1502,7 +1547,20 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
 </div>
 <p>Note that the PDE has been multiplied by <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>.</p>
 <p>After discretization in time with an implicit scheme, with time steps <code>dt</code>, in the FreeFem++ syntax <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> becomes <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> becomes <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> and the problem is:</p>
-<div class="codehilite"><pre><span></span>problem thermaxi(u, v)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem thermaxi(u, v)
     = int2d(Th)(
           (u*v/dt + dx(u)*dx(v) + dy(u)*dy(v))*x
     )
@@ -1517,6 +1575,7 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
     )
     + on(2, 4, u=u0);
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1540,7 +1599,41 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
 </p>
 <p>because we have the identity $ a^4 - b^4 = (a-b)(a+b)(a^2+b^2)$.</p>
 <p>The iterative process will work with <span><span class="MathJax_Preview">v=u-u_e</span><script type="math/tex">v=u-u_e</script></span>.</p>
-<div class="codehilite"><pre><span></span>...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>...
 // Parameters
 real rad=1e-8;
 real uek=ue+273;
@@ -1576,6 +1669,7 @@ vold = v+ue;
 // Plot
 plot(vold);
 </pre></div>
+</td></tr></table>
                 
                   
                 

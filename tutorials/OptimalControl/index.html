@@ -1348,7 +1348,80 @@
 </div>
 <p>Obviously <span><span class="MathJax_Preview">J'_b</span><script type="math/tex">J'_b</script></span> is equal to <span><span class="MathJax_Preview">\delta J</span><script type="math/tex">\delta J</script></span> when <span><span class="MathJax_Preview">\delta b=1,\delta c=0,\delta d=0</span><script type="math/tex">\delta b=1,\delta c=0,\delta d=0</script></span>, and so on for <span><span class="MathJax_Preview">J'_c</span><script type="math/tex">J'_c</script></span> and <span><span class="MathJax_Preview">J'_d</span><script type="math/tex">J'_d</script></span>.</p>
 <p>All this is implemented in the following program :</p>
-<div class="codehilite"><pre><span></span>// Mesh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
 border aa(t=0, 2*pi){x=5*cos(t); y=5*sin(t);};
 border bb(t=0, 2*pi){x=cos(t); y=sin(t);};
 border cc(t=0, 2*pi){x=-3+cos(t); y=sin(t);};
@@ -1423,6 +1496,7 @@ for(int j = 0; j &lt; z.n; j++)
 // Plot
 plot(ud, value=1, ps=&quot;u.eps&quot;);
 </pre></div>
+</td></tr></table>
 
 <p>In this example the sets <span><span class="MathJax_Preview">B,C,D,E</span><script type="math/tex">B,C,D,E</script></span> are circles of boundaries <span><span class="MathJax_Preview">bb,cc,dd,ee</span><script type="math/tex">bb,cc,dd,ee</script></span> and the domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the circle of boundary <span><span class="MathJax_Preview">aa</span><script type="math/tex">aa</script></span>.</p>
 <p>The desired state <span><span class="MathJax_Preview">u_d</span><script type="math/tex">u_d</script></span> is the solution of the PDE for <span><span class="MathJax_Preview">b=2,c=3,d=4</span><script type="math/tex">b=2,c=3,d=4</script></span>. The unknowns are packed into array <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span>.</p>
