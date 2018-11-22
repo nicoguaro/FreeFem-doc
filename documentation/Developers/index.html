@@ -2114,18 +2114,10 @@ mesh data structure.</p>
 <p>In the file, solutions are stored in this order : scalar solutions, vector solutions and finally symmetric tensor solutions.</p>
 <h2 id="adding-a-new-finite-element">Adding a new finite element<a class="headerlink" href="#adding-a-new-finite-element" title="Permanent link">#</a></h2>
 <h3 id="some-notations">Some notations<a class="headerlink" href="#some-notations" title="Permanent link">#</a></h3>
-<div>
-<div class="MathJax_Preview">
-\newcommand{\vecttwo}[2]{\left|\begin{array}{c}{#1}\\#2\end{array}\right.}
-</div>
-<script type="math/tex; mode=display">
-\newcommand{\vecttwo}[2]{\left|\begin{array}{c}{#1}\\#2\end{array}\right.}
-</script>
-</div>
 <p>For a function <span><span class="MathJax_Preview">\boldsymbol{f}</span><script type="math/tex">\boldsymbol{f}</script></span> taking value in <span><span class="MathJax_Preview">\R^{N},\, N=1,2,\cdots</span><script type="math/tex">\R^{N},\, N=1,2,\cdots</script></span>, we define the finite element approximation <span><span class="MathJax_Preview">\Pi_h\boldsymbol{f}</span><script type="math/tex">\Pi_h\boldsymbol{f}</script></span> of <span><span class="MathJax_Preview">\boldsymbol{f}</span><script type="math/tex">\boldsymbol{f}</script></span>.</p>
 <p>Let us denote the number of the degrees of freedom of the finite element by <span><span class="MathJax_Preview">NbDoF</span><script type="math/tex">NbDoF</script></span>. Then the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-th base <span><span class="MathJax_Preview">\boldsymbol{\omega}^{K}_{i}</span><script type="math/tex">\boldsymbol{\omega}^{K}_{i}</script></span> (<span><span class="MathJax_Preview">i=0,\cdots,NbDoF-1</span><script type="math/tex">i=0,\cdots,NbDoF-1</script></span>) of the finite element space has the <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>-th component <span><span class="MathJax_Preview">\mathbf{\omega}^{K}_{ij}</span><script type="math/tex">\mathbf{\omega}^{K}_{ij}</script></span> for <span><span class="MathJax_Preview">j=0,\cdots,N-1</span><script type="math/tex">j=0,\cdots,N-1</script></span>.</p>
 <p>The operator <span><span class="MathJax_Preview">\Pi_{h}</span><script type="math/tex">\Pi_{h}</script></span> is called the interpolator of the finite element.</p>
-<p>We have the identity $\boldsymbol{\omega}^{K}<em>{i} = \Pi</em>{h} \boldsymbol{\omega}^{K}_{i} $.</p>
+<p>We have the identity <span><span class="MathJax_Preview">\boldsymbol{\omega}^{K}_{i} = \Pi_{h} \boldsymbol{\omega}^{K}_{i}</span><script type="math/tex">\boldsymbol{\omega}^{K}_{i} = \Pi_{h} \boldsymbol{\omega}^{K}_{i}</script></span>.</p>
 <p>Formally, the interpolator <span><span class="MathJax_Preview">\Pi_{h}</span><script type="math/tex">\Pi_{h}</script></span> is constructed by the following formula:
 <script type="math/tex; mode=display">\begin{equation}
 \label{eq-interpo}
@@ -2159,9 +2151,9 @@ where <span><span class="MathJax_Preview">P_{p}</span><script type="math/tex">P_
     \label{eq:RT0-fe}
 \end{equation}</script>
 </div>
-<p>The degrees of freedom are the flux through an edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> of the mesh, where the flux of the function $\mathbf{f} : \R^2 \longrightarrow \R^2 $ is <span><span class="MathJax_Preview">\int_{e} \mathbf{f}.n_{e}</span><script type="math/tex">\int_{e} \mathbf{f}.n_{e}</script></span>, <span><span class="MathJax_Preview">n_{e}</span><script type="math/tex">n_{e}</script></span> is the unit normal of edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> (this implies a orientation of all the edges of the mesh, for example we can use the global numbering of the edge vertices and we just go to small to large number).</p>
+<p>The degrees of freedom are the flux through an edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> of the mesh, where the flux of the function <span><span class="MathJax_Preview">\mathbf{f} : \R^2 \longrightarrow \R^2</span><script type="math/tex">\mathbf{f} : \R^2 \longrightarrow \R^2</script></span> is <span><span class="MathJax_Preview">\int_{e} \mathbf{f}.n_{e}</span><script type="math/tex">\int_{e} \mathbf{f}.n_{e}</script></span>, <span><span class="MathJax_Preview">n_{e}</span><script type="math/tex">n_{e}</script></span> is the unit normal of edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> (this implies a orientation of all the edges of the mesh, for example we can use the global numbering of the edge vertices and we just go to small to large number).</p>
 <p>To compute this flux, we use a quadrature formula with one point, the middle point of the edge. Consider a triangle <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> with three vertices <span><span class="MathJax_Preview">(\mathbf{a},\mathbf{b},\mathbf{c})</span><script type="math/tex">(\mathbf{a},\mathbf{b},\mathbf{c})</script></span>.</p>
-<p>Let denote the vertices numbers by <span><span class="MathJax_Preview">i_{a},i_{b},i_{c}</span><script type="math/tex">i_{a},i_{b},i_{c}</script></span>, and define the three edge vectors <span><span class="MathJax_Preview">\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}</span><script type="math/tex">\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}</script></span> by $ sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})$, <span><span class="MathJax_Preview">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</span><script type="math/tex">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</script></span>, <span><span class="MathJax_Preview">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</span><script type="math/tex">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</script></span>.</p>
+<p>Let denote the vertices numbers by <span><span class="MathJax_Preview">i_{a},i_{b},i_{c}</span><script type="math/tex">i_{a},i_{b},i_{c}</script></span>, and define the three edge vectors <span><span class="MathJax_Preview">\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}</span><script type="math/tex">\mathbf{e}^{0},\mathbf{e}^{1},\mathbf{e}^{2}</script></span> by <span><span class="MathJax_Preview">sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})</span><script type="math/tex">sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})</script></span>, <span><span class="MathJax_Preview">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</span><script type="math/tex">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</script></span>, <span><span class="MathJax_Preview">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</span><script type="math/tex">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</script></span>.</p>
 <p>The three basis functions are:
 <script type="math/tex; mode=display">\begin{equation}
 \boldsymbol{\omega}^{K}_{0}= \frac{sgn(i_{b}-i_{c})}{2|T|}(x-a),\quad \boldsymbol{\omega}^{K}_{1}= \frac{sgn(i_{c}-i_{a})}{2|T|}(x-b),\quad \boldsymbol{\omega}^{K}_{2}= \frac{sgn(i_{a}-i_{b})}{2|T|}(x-c),
@@ -2297,7 +2289,7 @@ where <span><span class="MathJax_Preview">|T|</span><script type="math/tex">|T|<
 <li><span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is the basic function number on finite element <span><span class="MathJax_Preview">i \in [0,NoF[</span><script type="math/tex">i \in [0,NoF[</script></span></li>
 <li><span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> is the value of component <span><span class="MathJax_Preview">j \in [0,N[</span><script type="math/tex">j \in [0,N[</script></span></li>
 <li>
-<p><span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> is the type of computed value $f(P),dx(f)(P), dy(f)(P), ...\ i \in [0,\mathtt{last_operatortype}[ $.</p>
+<p><span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> is the type of computed value <span><span class="MathJax_Preview">f(P),dx(f)(P), dy(f)(P), ...\ i \in [0,\mathtt{last\_operatortype}[</span><script type="math/tex">f(P),dx(f)(P), dy(f)(P), ...\ i \in [0,\mathtt{last\_operatortype}[</script></span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For optimization, this value is computed only if <code>whatd[k]</code> is true, and the numbering is defined with</p>
@@ -2548,8 +2540,7 @@ where <span><span class="MathJax_Preview">|T|</span><script type="math/tex">|T|<
 make
 </pre></div>
 </td></tr></table></p>
-<p>For codewarrior compilation add the file in the project an remove the flag in panal PPC linker FreeFm++ Setting Dead-strip Static Initializition Code Flag.
-<span><span class="MathJax_Preview">\codecheck</span><script type="math/tex">\codecheck</script></span></p>
+<p>For codewarrior compilation add the file in the project an remove the flag in panal PPC linker FreeFm++ Setting Dead-strip Static Initializition Code Flag.</p>
 <h2 id="dynamical-link">Dynamical link<a class="headerlink" href="#dynamical-link" title="Permanent link">#</a></h2>
 <p>Now, it's possible to add built-in functionnalites in <strong><code>FreeFem++</code></strong> under the three environnents Linux, Windows and MacOS X 10.3 or newer.</p>
 <p>It is agood idea to first try the example <code>load.edp</code> in directory <a href="https://github.com/FreeFem/FreeFem-sources/tree/master/examples%2B%2B-load"><code>example++-load</code></a>.</p>
@@ -2777,7 +2768,7 @@ make
 </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The value <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is given by $ size(f)/m$, and the numbering is row-major order.</p>
+<p>The value <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is given by <span><span class="MathJax_Preview">size(f)/m</span><script type="math/tex">size(f)/m</script></span>, and the numbering is row-major order.</p>
 </div>
 <p>So the classical discrete DFFT is <span><span class="MathJax_Preview">\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}</span><script type="math/tex">\hat{f}=\mathtt{dfft}(f,-1)/\sqrt{n}</script></span> and the reverse dFFT <span><span class="MathJax_Preview">f=\mathtt{dfft}(\hat{f},1)/\sqrt{n}</span><script type="math/tex">f=\mathtt{dfft}(\hat{f},1)/\sqrt{n}</script></span></p>
 <div class="admonition note">
@@ -2794,7 +2785,7 @@ So
 <script type="math/tex; mode=display">
 \widehat{\Delta f_{kl}} = -( (2\pi)^2 ( (\tilde{k})^2+(\tilde{l})^2)) \widehat{ f_{kl}} \\
 </script>
-where $ \tilde{k} = k $ if $ k \leq n/2 $ else $ \tilde{k} = k-n$ and $\tilde{l} = l $ if $ l \leq m/2 $ else $ \tilde{l} = l-m$.</p>
+where <span><span class="MathJax_Preview">\tilde{k} = k</span><script type="math/tex">\tilde{k} = k</script></span> if <span><span class="MathJax_Preview">k \leq n/2</span><script type="math/tex">k \leq n/2</script></span> else <span><span class="MathJax_Preview">\tilde{k} = k-n</span><script type="math/tex">\tilde{k} = k-n</script></span> and <span><span class="MathJax_Preview">\tilde{l} = l</span><script type="math/tex">\tilde{l} = l</script></span> if <span><span class="MathJax_Preview">l \leq m/2</span><script type="math/tex">l \leq m/2</script></span> else <span><span class="MathJax_Preview">\tilde{l} = l-m</span><script type="math/tex">\tilde{l} = l-m</script></span>.</p>
 <p>And to have a real function we need all modes to be symmetric around zero, so <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> and <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> must be odd.</p>
 </div>
 <p><strong>Compile to build a new library</strong></p>

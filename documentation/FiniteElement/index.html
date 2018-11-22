@@ -1652,17 +1652,7 @@
                 
                   <h1>Finite Element</h1>
                 
-                <div>
-<div class="MathJax_Preview">
-\newcommand{\vecttwo}[2]{\left|\begin{array}{c}{#1}\\#2\end{array}\right.}
-\newcommand{\vectthree}[3]{\left|\begin{array}{c}{#1}\\#2\\#3\end{array}\right.}
-</div>
-<script type="math/tex; mode=display">
-\newcommand{\vecttwo}[2]{\left|\begin{array}{c}{#1}\\#2\end{array}\right.}
-\newcommand{\vectthree}[3]{\left|\begin{array}{c}{#1}\\#2\\#3\end{array}\right.}
-</script>
-</div>
-<p>As stated in <a href="../tutorials">tutorials</a>, FEM approximates all functions <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> as
+                <p>As stated in <a href="../tutorials">tutorials</a>, FEM approximates all functions <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> as
 <script type="math/tex; mode=display">
 w(x,y)\simeq w_0\phi_0(x,y)+w_1\phi_1(x,y)+\cdots+w_{M-1}\phi_{M-1}(x,y)
 </script>
@@ -1762,7 +1752,7 @@ where <span><span class="MathJax_Preview">\lambda^{K}_{i}, i=0,..,d</span><scrip
     where <span><span class="MathJax_Preview">P_{2}</span><script type="math/tex">P_{2}</script></span> is the set of polynomials of <span><span class="MathJax_Preview">\R^{2}</span><script type="math/tex">\R^{2}</script></span> of degrees <span><span class="MathJax_Preview">\le 2</span><script type="math/tex">\le 2</script></span>.</p>
 </li>
 <li>
-<p><code class="codehilite">[P2b]</code> piecewise $P_{2} $ continuous finite element plus bubble
+<p><code class="codehilite">[P2b]</code> piecewise <span><span class="MathJax_Preview">P_{2}</span><script type="math/tex">P_{2}</script></span> continuous finite element plus bubble
     <script type="math/tex; mode=display">\begin{equation*}
         \P^2_{h} = \left\{ v \in H^{1}(\Omega) \left|\; \forall K \in \mathcal{T}_{h}, \ v_{|K} \in P_{2} \oplus \mathrm{Span}\{ \lambda^{K}_{0} \lambda^{K}_{1} \lambda^{K}_{2} \} \right.\right\}
     \end{equation*}</script>
@@ -1776,7 +1766,7 @@ where <span><span class="MathJax_Preview">\lambda^{K}_{i}, i=0,..,d</span><scrip
 </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Due to an interpolation problem, the degree of freedom is not the six P2 nodes but six nodes which move inside $T(X)= G + .99 (X-G) $ where <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> is the barycenter.</p>
+<p>Due to an interpolation problem, the degree of freedom is not the six P2 nodes but six nodes which move inside <span><span class="MathJax_Preview">T(X)= G + .99 (X-G)</span><script type="math/tex">T(X)= G + .99 (X-G)</script></span> where <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> is the barycenter.</p>
 </div>
 </li>
 <li>
@@ -1970,7 +1960,7 @@ and where <span><span class="MathJax_Preview">\alpha^1_{K}</span><script type="m
     Edge0_{h} = \left\{ \mathbf{v} \in H(\textrm{Curl}) \left|\; \forall K \in\mathcal{T}_{h}, \ \mathbf{v}_{|K}(x,y,z) =
         \vectthree{\alpha^1_{K}}{\alpha^2_{K}}{\alpha^3_{K}} + \vectthree{\beta^1_{K}}{\beta^2_{K}}{\beta^3_{K}}\times\vectthree{x}{y}{z} \right.\right\}
 \end{equation*}</script>
-where by writing <span><span class="MathJax_Preview">\textrm{curl}\mathbf{w}=\vectthree{\p w_2/\p x_3-\p w_3/\p x_2}{\p w_3/\p x_1-\p w_1/\p x_3}{\p w_1/\p x_2-\p w_2/\p x_1}</span><script type="math/tex">\textrm{curl}\mathbf{w}=\vectthree{\p w_2/\p x_3-\p w_3/\p x_2}{\p w_3/\p x_1-\p w_1/\p x_3}{\p w_1/\p x_2-\p w_2/\p x_1}</script></span> with $ \mathbf{w}=(w_i)_{i=1}^d$:
+where by writing <span><span class="MathJax_Preview">\textrm{curl}\mathbf{w}=\vectthree{\p w_2/\p x_3-\p w_3/\p x_2}{\p w_3/\p x_1-\p w_1/\p x_3}{\p w_1/\p x_2-\p w_2/\p x_1}</span><script type="math/tex">\textrm{curl}\mathbf{w}=\vectthree{\p w_2/\p x_3-\p w_3/\p x_2}{\p w_3/\p x_1-\p w_1/\p x_3}{\p w_1/\p x_2-\p w_2/\p x_1}</script></span> with <span><span class="MathJax_Preview">\mathbf{w}=(w_i)_{i=1}^d</span><script type="math/tex">\mathbf{w}=(w_i)_{i=1}^d</script></span>:
 <script type="math/tex; mode=display">
 H(\textrm{curl})=\left\{\mathbf{w}\in L^{2}(\Omega)^d\left|\textrm{curl } \mathbf{w}\in L^{2}(\Omega)^d\right.\right\}
 </script>
@@ -2105,7 +2095,7 @@ fespace Rh(Th, RT0); //vectorial FE
 </td></tr></table>
 
 <p>where <code class="codehilite">Xh, Mh, Rh</code> expresses finite element spaces (called FE spaces) <span><span class="MathJax_Preview">X_h,\, M_h,\, R_h</span><script type="math/tex">X_h,\, M_h,\, R_h</script></span>, respectively.</p>
-<p>To use FE-functions $u_{h},v_{h} \in X_{h} $, <span><span class="MathJax_Preview">p_{h},q_{h} \in M_{h}</span><script type="math/tex">p_{h},q_{h} \in M_{h}</script></span> and <span><span class="MathJax_Preview">U_{h},V_{h} \in R_{h}</span><script type="math/tex">U_{h},V_{h} \in R_{h}</script></span>, we write :</p>
+<p>To use FE-functions <span><span class="MathJax_Preview">u_{h},v_{h} \in X_{h}</span><script type="math/tex">u_{h},v_{h} \in X_{h}</script></span>, <span><span class="MathJax_Preview">p_{h},q_{h} \in M_{h}</span><script type="math/tex">p_{h},q_{h} \in M_{h}</script></span> and <span><span class="MathJax_Preview">U_{h},V_{h} \in R_{h}</span><script type="math/tex">U_{h},V_{h} \in R_{h}</script></span>, we write :</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -2208,7 +2198,7 @@ U_{h}=\vectthree{Uxh}{Uyh}{Uzh} \quad \mbox{and}\quad V_{h}=\vectthree{Vxh}{Vyh}
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>One challenge of the periodic boundary condition is that the mesh must have equivalent faces. The <code>::freefem buildlayers</code> mesh generator splits each quadrilateral face with the diagonal passing through the vertex with maximum number, so to be sure to have the same mesh one both face periodic the 2D numbering in corresponding edges must be compatible (for example the same variation).
-<span><span class="MathJax_Preview">\codecheck</span><script type="math/tex">\codecheck</script></span> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
+<span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span></p>
 <p>By Default, the numbering of square vertex is correct.</p>
 <p>To change the mesh numbering you can use the <code class="codehilite">change</code> function like:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2261,7 +2251,7 @@ Vh fh = f(x,y);
 </pre></div>
 </td></tr></table>
 
-<p>then for vertices $q^{k_i},\, i=1,2,.. d+1 $ in <a href="#Fig1">Fig. 1(a)</a>, <span><span class="MathJax_Preview">f_h</span><script type="math/tex">f_h</script></span> is built as</p>
+<p>then for vertices <span><span class="MathJax_Preview">q^{k_i},\, i=1,2,.. d+1</span><script type="math/tex">q^{k_i},\, i=1,2,.. d+1</script></span> in <a href="#Fig1">Fig. 1(a)</a>, <span><span class="MathJax_Preview">f_h</span><script type="math/tex">f_h</script></span> is built as</p>
 <p><center>
 <code class="codehilite">fh=</code> <span><span class="MathJax_Preview">\displaystyle f_h(x,y)=\sum_k f(\frac{\sum_i q^{k_i}}{d+1}) \phi_k</span><script type="math/tex">\displaystyle f_h(x,y)=\sum_k f(\frac{\sum_i q^{k_i}}{d+1}) \phi_k</script></span>
 </center></p>
@@ -2501,10 +2491,10 @@ w_2\in V_h(\mathcal{T}_h,P_1)\}
 </script>
 </div>
 <h3 id="raviart-thomas-element">Raviart-Thomas Element<a class="headerlink" href="#raviart-thomas-element" title="Permanent link">#</a></h3>
-<p>In the Raviart-Thomas finite element <span><span class="MathJax_Preview">RT0_{h}</span><script type="math/tex">RT0_{h}</script></span>, the degrees of freedom are the fluxes across edges <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> of the mesh, where the flux of the function $\mathbf{f} : \R^2 \longrightarrow \R^2 $ is <span><span class="MathJax_Preview">\int_{e} \mathbf{f}.n_{e}</span><script type="math/tex">\int_{e} \mathbf{f}.n_{e}</script></span>, <span><span class="MathJax_Preview">n_{e}</span><script type="math/tex">n_{e}</script></span> is the unit normal of edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>.</p>
+<p>In the Raviart-Thomas finite element <span><span class="MathJax_Preview">RT0_{h}</span><script type="math/tex">RT0_{h}</script></span>, the degrees of freedom are the fluxes across edges <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> of the mesh, where the flux of the function <span><span class="MathJax_Preview">\mathbf{f} : \R^2 \longrightarrow \R^2</span><script type="math/tex">\mathbf{f} : \R^2 \longrightarrow \R^2</script></span> is <span><span class="MathJax_Preview">\int_{e} \mathbf{f}.n_{e}</span><script type="math/tex">\int_{e} \mathbf{f}.n_{e}</script></span>, <span><span class="MathJax_Preview">n_{e}</span><script type="math/tex">n_{e}</script></span> is the unit normal of edge <span><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>.</p>
 <p>This implies an orientation of all the edges of the mesh, for example we can use the global numbering of the edge vertices and we just go from small to large numbers.</p>
 <p>To compute the flux, we use a quadrature with one Gauss point, the mid-point of the edge.</p>
-<p>Consider a triangle <span><span class="MathJax_Preview">T_k</span><script type="math/tex">T_k</script></span> with three vertices <span><span class="MathJax_Preview">(\mathbf{a},\mathbf{b},\mathbf{c})</span><script type="math/tex">(\mathbf{a},\mathbf{b},\mathbf{c})</script></span>. Lets denote the vertices numbers by <span><span class="MathJax_Preview">i_{a},i_{b},i_{c}</span><script type="math/tex">i_{a},i_{b},i_{c}</script></span>, and define the three edge vectors <span><span class="MathJax_Preview">\mathbf{e}^{1},\mathbf{e}^{2},\mathbf{e}^{3}</span><script type="math/tex">\mathbf{e}^{1},\mathbf{e}^{2},\mathbf{e}^{3}</script></span> by $ sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})$, <span><span class="MathJax_Preview">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</span><script type="math/tex">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</script></span>, <span><span class="MathJax_Preview">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</span><script type="math/tex">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</script></span>.</p>
+<p>Consider a triangle <span><span class="MathJax_Preview">T_k</span><script type="math/tex">T_k</script></span> with three vertices <span><span class="MathJax_Preview">(\mathbf{a},\mathbf{b},\mathbf{c})</span><script type="math/tex">(\mathbf{a},\mathbf{b},\mathbf{c})</script></span>. Lets denote the vertices numbers by <span><span class="MathJax_Preview">i_{a},i_{b},i_{c}</span><script type="math/tex">i_{a},i_{b},i_{c}</script></span>, and define the three edge vectors <span><span class="MathJax_Preview">\mathbf{e}^{1},\mathbf{e}^{2},\mathbf{e}^{3}</span><script type="math/tex">\mathbf{e}^{1},\mathbf{e}^{2},\mathbf{e}^{3}</script></span> by <span><span class="MathJax_Preview">sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})</span><script type="math/tex">sgn(i_{b}-i_{c})(\mathbf{b}-\mathbf{c})</script></span>, <span><span class="MathJax_Preview">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</span><script type="math/tex">sgn(i_{c}-i_{a})(\mathbf{c}-\mathbf{a})</script></span>, <span><span class="MathJax_Preview">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</span><script type="math/tex">sgn(i_{a}-i_{b})(\mathbf{a}-\mathbf{b})</script></span>.</p>
 <p>We get three basis functions :</p>
 <div>
 <div class="MathJax_Preview">\begin{equation}
@@ -2849,16 +2839,16 @@ plot(vs, vg, wait=true);
 <p>where</p>
 <ul>
 <li>
-<p>if <span><span class="MathJax_Preview">d=2</span><script type="math/tex">d=2</script></span> then $ \nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u ) + \p_y(\kappa \p_y u ) $ with $ \p_x u = \frac{\p u}{\p x}$ and <span><span class="MathJax_Preview">\p_y u = \frac{\p u}{\p y}</span><script type="math/tex">\p_y u = \frac{\p u}{\p y}</script></span></p>
+<p>if <span><span class="MathJax_Preview">d=2</span><script type="math/tex">d=2</script></span> then <span><span class="MathJax_Preview">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u ) + \p_y(\kappa \p_y u )</span><script type="math/tex">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u ) + \p_y(\kappa \p_y u )</script></span> with <span><span class="MathJax_Preview">\p_x u = \frac{\p u}{\p x}</span><script type="math/tex">\p_x u = \frac{\p u}{\p x}</script></span> and <span><span class="MathJax_Preview">\p_y u = \frac{\p u}{\p y}</span><script type="math/tex">\p_y u = \frac{\p u}{\p y}</script></span></p>
 </li>
 <li>
-<p>if <span><span class="MathJax_Preview">d=3</span><script type="math/tex">d=3</script></span> then <span><span class="MathJax_Preview">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u) + \p_y(\kappa \p_y u) + \p_z(\kappa \p_z u)</span><script type="math/tex">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u) + \p_y(\kappa \p_y u) + \p_z(\kappa \p_z u)</script></span> with $ \p_x u = \frac{\p u}{\p x}$, <span><span class="MathJax_Preview">\p_y u = \frac{\p u}{\p y}</span><script type="math/tex">\p_y u = \frac{\p u}{\p y}</script></span> and , <span><span class="MathJax_Preview">\p_z u = \frac{\p u}{\p z}</span><script type="math/tex">\p_z u = \frac{\p u}{\p z}</script></span></p>
+<p>if <span><span class="MathJax_Preview">d=3</span><script type="math/tex">d=3</script></span> then <span><span class="MathJax_Preview">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u) + \p_y(\kappa \p_y u) + \p_z(\kappa \p_z u)</span><script type="math/tex">\nabla.(\kappa \nabla u) = \p_x(\kappa \p_x u) + \p_y(\kappa \p_y u) + \p_z(\kappa \p_z u)</script></span> with <span><span class="MathJax_Preview">\p_x u = \frac{\p u}{\p x}</span><script type="math/tex">\p_x u = \frac{\p u}{\p x}</script></span>, <span><span class="MathJax_Preview">\p_y u = \frac{\p u}{\p y}</span><script type="math/tex">\p_y u = \frac{\p u}{\p y}</script></span> and , <span><span class="MathJax_Preview">\p_z u = \frac{\p u}{\p z}</span><script type="math/tex">\p_z u = \frac{\p u}{\p z}</script></span></p>
 </li>
 <li>
-<p>The border <span><span class="MathJax_Preview">\Gamma=\p \Omega</span><script type="math/tex">\Gamma=\p \Omega</script></span> is split in <span><span class="MathJax_Preview">\Gamma_d</span><script type="math/tex">\Gamma_d</script></span> and <span><span class="MathJax_Preview">\Gamma_n</span><script type="math/tex">\Gamma_n</script></span> such that <span><span class="MathJax_Preview">\Gamma_d \cap \Gamma_n = \emptyset</span><script type="math/tex">\Gamma_d \cap \Gamma_n = \emptyset</script></span> and $ \Gamma_d \cup \Gamma_n = \p \Omega$,</p>
+<p>The border <span><span class="MathJax_Preview">\Gamma=\p \Omega</span><script type="math/tex">\Gamma=\p \Omega</script></span> is split in <span><span class="MathJax_Preview">\Gamma_d</span><script type="math/tex">\Gamma_d</script></span> and <span><span class="MathJax_Preview">\Gamma_n</span><script type="math/tex">\Gamma_n</script></span> such that <span><span class="MathJax_Preview">\Gamma_d \cap \Gamma_n = \emptyset</span><script type="math/tex">\Gamma_d \cap \Gamma_n = \emptyset</script></span> and <span><span class="MathJax_Preview">\Gamma_d \cup \Gamma_n = \p \Omega</span><script type="math/tex">\Gamma_d \cup \Gamma_n = \p \Omega</script></span>,</p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">\kappa</span><script type="math/tex">\kappa</script></span> is a given positive function, such that $\exists \kappa_0 \in \R ,\quad 0 &lt; \kappa_0 \leq \kappa $.</p>
+<p><span><span class="MathJax_Preview">\kappa</span><script type="math/tex">\kappa</script></span> is a given positive function, such that <span><span class="MathJax_Preview">\exists \kappa_0 \in \R ,\quad 0 &lt; \kappa_0 \leq \kappa</span><script type="math/tex">\exists \kappa_0 \in \R ,\quad 0 < \kappa_0 \leq \kappa</script></span>.</p>
 </li>
 <li>
 <p><span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> a given non negative function,</p>
@@ -2878,10 +2868,10 @@ plot(vs, vg, wait=true);
     - \int_{\Gamma} {v}\kappa \frac{ \p u}{\p \mathbf{n}} \,d\gamma,= \int_{\Omega} f {v} \,d\omega
 \end{equation}</script>
 </p>
-<p>where if <span><span class="MathJax_Preview">d=2</span><script type="math/tex">d=2</script></span> the $ \nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y})$,</p>
-<p>where if <span><span class="MathJax_Preview">d=3</span><script type="math/tex">d=3</script></span> the $ \nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y} + \frac{\p u}{\p z}\frac{\p { v}}{\p z})$,</p>
+<p>where if <span><span class="MathJax_Preview">d=2</span><script type="math/tex">d=2</script></span> the <span><span class="MathJax_Preview">\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y})</span><script type="math/tex">\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y})</script></span>,</p>
+<p>where if <span><span class="MathJax_Preview">d=3</span><script type="math/tex">d=3</script></span> the <span><span class="MathJax_Preview">\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y} + \frac{\p u}{\p z}\frac{\p { v}}{\p z})</span><script type="math/tex">\nabla{ v} . \nabla u = (\frac{\p u}{\p x}\frac{\p { v}}{\p x}+\frac{\p u}{\p y}\frac{\p { v}}{\p y} + \frac{\p u}{\p z}\frac{\p { v}}{\p z})</script></span>,</p>
 <p>and where <span><span class="MathJax_Preview">\mathbf{n}</span><script type="math/tex">\mathbf{n}</script></span> is the unitary outer-pointing normal of the <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>.</p>
-<p>Now we note that $\kappa \frac{ \p u}{\p n} = - a u + b $ on <span><span class="MathJax_Preview">\Gamma_r</span><script type="math/tex">\Gamma_r</script></span> and <span><span class="MathJax_Preview">v=0</span><script type="math/tex">v=0</script></span> on $ \Gamma_d $ and $ \Gamma = \Gamma_d \cup \Gamma_n$
+<p>Now we note that <span><span class="MathJax_Preview">\kappa \frac{ \p u}{\p n} = - a u + b</span><script type="math/tex">\kappa \frac{ \p u}{\p n} = - a u + b</script></span> on <span><span class="MathJax_Preview">\Gamma_r</span><script type="math/tex">\Gamma_r</script></span> and <span><span class="MathJax_Preview">v=0</span><script type="math/tex">v=0</script></span> on <span><span class="MathJax_Preview">\Gamma_d</span><script type="math/tex">\Gamma_d</script></span> and <span><span class="MathJax_Preview">\Gamma = \Gamma_d \cup \Gamma_n</span><script type="math/tex">\Gamma = \Gamma_d \cup \Gamma_n</script></span>
 thus</p>
 <div>
 <div class="MathJax_Preview">
@@ -3061,10 +3051,10 @@ problem Pw (u, v)
 <p>Bilinear part for 3D meshes <code class="codehilite">Th</code></p>
 <ul>
 <li>
-<p><code class="codehilite">int3d(Th)(K*v*w) =</code> $\displaystyle\sum_{T\in\mathtt{Th}}\int_{T } K\,v\,w $</p>
+<p><code class="codehilite">int3d(Th)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th}}\int_{T } K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th}}\int_{T } K\,v\,w</script></span></p>
 </li>
 <li>
-<p><code class="codehilite">int3d(Th, 1)(K*v*w) =</code> $\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w $</p>
+<p><code class="codehilite">int3d(Th, 1)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w</script></span></p>
 </li>
 <li>
 <p><code class="codehilite">int3d(Th, levelset=phi)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi&lt;0} K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th}}\int_{T,\phi<0} K\,v\,w</script></span></p>
@@ -3073,7 +3063,7 @@ problem Pw (u, v)
 <p><code class="codehilite">int3d(Th, l, levelset=phi)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi&lt;0} K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{l}}\int_{T,\phi<0} K\,v\,w</script></span></p>
 </li>
 <li>
-<p><code class="codehilite">int2d(Th, 2, 5)(K*v*w) =</code> $\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w $</p>
+<p><code class="codehilite">int2d(Th, 2, 5)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th}}\int_{(\p T\cup\Gamma) \cap ( \Gamma_2 \cup \Gamma_{5})} K\,v\,w</script></span></p>
 </li>
 <li>
 <p><code class="codehilite">int2d(Th, 1)(K*v*w) =</code> <span><span class="MathJax_Preview">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w</span><script type="math/tex">\displaystyle\sum_{T\in\mathtt{Th},T\subset \Omega_{1}}\int_{T} K\,v\,w</script></span></p>
@@ -3216,7 +3206,7 @@ problem Pw (u, v)
 </li>
 <li>
 <p>An "on" vectorial form (for Dirichlet) : <code class="codehilite">on(1, u1=g1, u2=g2)</code></p>
-<p>If you have vectorial finite element like <code class="codehilite">RT0</code>, the 2 components are coupled, and so you have : $b[i] = "(\Pi_h (g1,g2))[i]" \times tgv $, where <span><span class="MathJax_Preview">\Pi_h</span><script type="math/tex">\Pi_h</script></span> is the vectorial finite element interpolant.</p>
+<p>If you have vectorial finite element like <code class="codehilite">RT0</code>, the 2 components are coupled, and so you have : <span><span class="MathJax_Preview">b[i] = "(\Pi_h (g1,g2))[i]" \times tgv</span><script type="math/tex">b[i] = "(\Pi_h (g1,g2))[i]" \times tgv</script></span>, where <span><span class="MathJax_Preview">\Pi_h</span><script type="math/tex">\Pi_h</script></span> is the vectorial finite element interpolant.</p>
 </li>
 <li>
 <p>A linear form on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> (for Neumann in 2d) <code class="codehilite">-int1d(Th)(f*w)</code> or <code class="codehilite">-int1d(Th, 3)(f*w)</code></p>
@@ -3715,7 +3705,7 @@ assert( abs(I2-I2l) &lt; 1e-10 );
 </script>
 </div>
 <p>where <span><span class="MathJax_Preview">V_0 = \{w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0\}</span><script type="math/tex">V_0 = \{w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0\}</script></span>.</p>
-<p>So to code the method with the matrices <span><span class="MathJax_Preview">A=(A_{ij})</span><script type="math/tex">A=(A_{ij})</script></span>, <span><span class="MathJax_Preview">M=(M_{ij})</span><script type="math/tex">M=(M_{ij})</script></span>, and the vectors $ u^n, b^n, b',b", b_{cl}$ (notation if <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is a vector then <span><span class="MathJax_Preview">w_i</span><script type="math/tex">w_i</script></span> is a component of the vector).</p>
+<p>So to code the method with the matrices <span><span class="MathJax_Preview">A=(A_{ij})</span><script type="math/tex">A=(A_{ij})</script></span>, <span><span class="MathJax_Preview">M=(M_{ij})</span><script type="math/tex">M=(M_{ij})</script></span>, and the vectors <span><span class="MathJax_Preview">u^n, b^n, b',b", b_{cl}</span><script type="math/tex">u^n, b^n, b',b", b_{cl}</script></span> (notation if <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is a vector then <span><span class="MathJax_Preview">w_i</span><script type="math/tex">w_i</script></span> is a component of the vector).</p>
 <div>
 <div class="MathJax_Preview">\begin{equation}
 u^n = A^{-1} b^n, \quad
@@ -4037,7 +4027,7 @@ h[] = h[]./count; //mean length edge / vertex
 <script type="math/tex; mode=display">
 { \eta_K = \int_K h_K^2 |( f + \Delta u_h)|^2 + \int_{\partial K} h_e |[ \frac{\partial u_h}{\partial n} ]|^2 }
 </script>
-where $ h_K$ is size of the longest edge (<code class="codehilite">hTriangle</code>), <span><span class="MathJax_Preview">h_e</span><script type="math/tex">h_e</script></span> is the size of the current edge (<code class="codehilite">lenEdge</code>), <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> the
+where <span><span class="MathJax_Preview">h_K</span><script type="math/tex">h_K</script></span> is size of the longest edge (<code class="codehilite">hTriangle</code>), <span><span class="MathJax_Preview">h_e</span><script type="math/tex">h_e</script></span> is the size of the current edge (<code class="codehilite">lenEdge</code>), <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> the
 normal.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2

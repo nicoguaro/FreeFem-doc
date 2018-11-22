@@ -1568,12 +1568,8 @@
                 
                   <h1>Algorithms & Optimization</h1>
                 
-                <div>
-<div class="MathJax_Preview">\newcommand{\MyInt}[2]{\displaystyle{\int_{#1} #2 } }</div>
-<script type="math/tex; mode=display">\newcommand{\MyInt}[2]{\displaystyle{\int_{#1} #2 } }</script>
-</div>
-<h2 id="conjugate-gradientgmres">Conjugate Gradient/GMRES<a class="headerlink" href="#conjugate-gradientgmres" title="Permanent link">#</a></h2>
-<p>Suppose we want to solve the Euler problem (here <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> has nothing to do with the reserved variable for the first coordinate in FreeFem++): find $ x\in \R^n $ such that</p>
+                <h2 id="conjugate-gradientgmres">Conjugate Gradient/GMRES<a class="headerlink" href="#conjugate-gradientgmres" title="Permanent link">#</a></h2>
+<p>Suppose we want to solve the Euler problem (here <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> has nothing to do with the reserved variable for the first coordinate in FreeFem++): find <span><span class="MathJax_Preview">x\in \R^n</span><script type="math/tex">x\in \R^n</script></span> such that</p>
 <div>
 <div class="MathJax_Preview">\begin{equation}
 \label{eqn:dJ=0}
@@ -1584,7 +1580,7 @@
 \nabla J(x) = \left(\frac{\p J}{\p x_i} (\mathbf{x})\right) = 0
 \end{equation}</script>
 </div>
-<p>where $ J$ is a function (to minimize for example) from $ \R^n$ to $ \R$.</p>
+<p>where <span><span class="MathJax_Preview">J</span><script type="math/tex">J</script></span> is a function (to minimize for example) from <span><span class="MathJax_Preview">\R^n</span><script type="math/tex">\R^n</script></span> to <span><span class="MathJax_Preview">\R</span><script type="math/tex">\R</script></span>.</p>
 <p>If the function is convex we can use the conjugate gradient algorithm to solve the problem, and we just need the function (named <code class="codehilite">dJ</code> for example) which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, so the parameters are the name of that function with prototype <code class="codehilite">func real[int] dJ(real[int] &amp;xx);</code> which computes <span><span class="MathJax_Preview">\nabla J</span><script type="math/tex">\nabla J</script></span>, and a vector <code class="codehilite">x</code> of type (of course the number 20 can be changed) <code class="codehilite">real[int] x(20);</code> to initialize the process and get the result.</p>
 <p>Given an initial value <span><span class="MathJax_Preview">\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}^{(0)}</script></span>, a maximum number <span><span class="MathJax_Preview">i_{\max}</span><script type="math/tex">i_{\max}</script></span> of iterations, and an error tolerance <span><span class="MathJax_Preview">0&lt;\epsilon&lt;1</span><script type="math/tex">0<\epsilon<1</script></span>:</p>
 <p>Put <span><span class="MathJax_Preview">\mathbf{x}=\mathbf{x}^{(0)}</span><script type="math/tex">\mathbf{x}=\mathbf{x}^{(0)}</script></span> and write</p>
@@ -1728,7 +1724,7 @@ func real[int] dJ (real[int] &amp; u){
 <script type="math/tex; mode=display">
 \forall v_h \in V_{0h}, \quad \int_\Omega \alpha \nabla u_h . \nabla v_h = \int_\Omega b v_h
 </script>
-where $ \alpha=f'(|\nabla u|^2)$.</p>
+where <span><span class="MathJax_Preview">\alpha=f'(|\nabla u|^2)</span><script type="math/tex">\alpha=f'(|\nabla u|^2)</script></span>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2336,7 +2332,7 @@ IPOPT(/*fitness function arguments*/, Ac, Xi, /*bound and named parameters*/);
 <h2 id="some-short-examples-using-ipopt">Some short examples using IPOPT<a class="headerlink" href="#some-short-examples-using-ipopt" title="Permanent link">#</a></h2>
 <div class="admonition example">
 <p class="admonition-title">Ipopt variational inequality</p>
-<p>A very simple example consisting of, given two functions $f $ and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> (defined on <span><span class="MathJax_Preview">\Omega\subset\R^{2}</span><script type="math/tex">\Omega\subset\R^{2}</script></span>), minimizing $J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ $, with <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> almost everywhere :</p>
+<p>A very simple example consisting of, given two functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> (defined on <span><span class="MathJax_Preview">\Omega\subset\R^{2}</span><script type="math/tex">\Omega\subset\R^{2}</script></span>), minimizing $J(u) = \displaystyle{\frac{1}{2}\int_{\Omega} \vert\nabla u\vert^{2} - \int_{\Omega}fu}\ $, with <span><span class="MathJax_Preview">u\leq g</span><script type="math/tex">u\leq g</script></span> almost everywhere :</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -2797,7 +2793,7 @@ these derivatives can be written using a <span><span class="MathJax_Preview">3\t
 </script>
 </div>
 <p>If <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span> is the spherical parametrization of the surface of a 3-dimensional object (domain) <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span>, it can be interpreted as finding the surface with minimum area enclosing the object with a given maximum volume. If <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span> is close to <span><span class="MathJax_Preview">\mathcal{V}(\rho_{\mathrm{object}})</span><script type="math/tex">\mathcal{V}(\rho_{\mathrm{object}})</script></span>, so should be <span><span class="MathJax_Preview">\rho_{0}</span><script type="math/tex">\rho_{0}</script></span> and <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span>. With higher values of <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}}</script></span>, <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> should be closer to the unconstrained minimum surface surrounding <span><span class="MathJax_Preview">\mathcal{O}</span><script type="math/tex">\mathcal{O}</script></span> which is obtained as soon as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</span><script type="math/tex">\mathcal{V}_{\mathrm{max}} \geq \frac{4}{3}\pi \|\rho_{\mathrm{object}}\|_{\infty}^{3}</script></span> (sufficient but not necessary).</p>
-<p>It also could be interesting to solve the same problem with the constraint <span><span class="MathJax_Preview">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</script></span> which leads to a sphere when $\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3} $ and moves toward the solution of the unconstrained problem as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}_{\mathrm{min}}</script></span> decreases.</p>
+<p>It also could be interesting to solve the same problem with the constraint <span><span class="MathJax_Preview">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}(\rho_{0})\geq \mathcal{V}_{\mathrm{min}}</script></span> which leads to a sphere when <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3}</span><script type="math/tex">\mathcal{V}_{\mathrm{min}} \geq \frac{1}{6}\pi \mathrm{diam}(\mathcal{O})^{3}</script></span> and moves toward the solution of the unconstrained problem as <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{min}}</span><script type="math/tex">\mathcal{V}_{\mathrm{min}}</script></span> decreases.</p>
 <p>We start by meshing the domain <span><span class="MathJax_Preview">[0,2\pi ]\times\ [0,\pi ]</span><script type="math/tex">[0,2\pi ]\times\ [0,\pi ]</script></span>, then a periodic P1 finite elements space is defined.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
