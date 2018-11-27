@@ -1646,7 +1646,7 @@
 </li>
 </ul>
 <div class="admonition example">
-<p class="admonition-title"><a href="../examples/#Algorithms">Algorithms.edp</a></p>
+<p class="admonition-title"><a href="/examples/#algorithms">Algorithms.edp</a></p>
 <p>For a given function <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>, let us find the minimizer <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> of the function</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray*}
@@ -1894,7 +1894,7 @@ J(\mathbf{x})=\frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{b}^T\mathbf{x}
 </td></tr></table>
 
 </div>
-<p>It is almost the same a using the CMA evolution strategy except, that since it is a derivative free optimizer, the <code class="codehilite"><span class="n">dJ</span></code> argument is omitted and there are some other named parameters to control the behavior of the algorithm. With the same objective function as above, an example of utilization would be (see <a href="../examples/#cmaes-varational-inequality">CMAES Variational inequality</a> for a complete example):</p>
+<p>It is almost the same a using the CMA evolution strategy except, that since it is a derivative free optimizer, the <code class="codehilite"><span class="n">dJ</span></code> argument is omitted and there are some other named parameters to control the behavior of the algorithm. With the same objective function as above, an example of utilization would be (see <a href="/examples/#cmaes-variational-inequality">CMAES Variational inequality</a> for a complete example):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -2780,7 +2780,7 @@ these derivatives can be written using a <span><span class="MathJax_Preview">3\t
 \end{equation}</script>
 </div>
 <h3 id="the-problem-and-its-script">The problem and its script<a class="headerlink" href="#the-problem-and-its-script" title="Permanent link">#</a></h3>
-<p>The whole code is available in <a href="../examples/#ipopt-minimum-surface-volume">IPOPT minimum surface &amp; volume example</a>. We propose to solve the following problem :</p>
+<p>The whole code is available in <a href="/examples/#ipopt-minimal-surface-volume">IPOPT minimal surface &amp; volume example</a>. We propose to solve the following problem :</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Given a positive function <span><span class="MathJax_Preview">\rho_{\mathrm{object}}</span><script type="math/tex">\rho_{\mathrm{object}}</script></span> piecewise continuous, and a scalar <span><span class="MathJax_Preview">\mathcal{V}_{\mathrm{max}} &gt; \mathcal{V}(\rho_{\mathrm{object}})</span><script type="math/tex">\mathcal{V}_{\mathrm{max}} > \mathcal{V}(\rho_{\mathrm{object}})</script></span>, find <span><span class="MathJax_Preview">\rho_{0}</span><script type="math/tex">\rho_{0}</script></span> such that :</p>
@@ -3683,7 +3683,7 @@ The problem consists in finding (numerically) two functions $(u_{1},u_{2}) = \un
 
 </div>
 <h2 id="optimization-with-mpi">Optimization with MPI<a class="headerlink" href="#optimization-with-mpi" title="Permanent link">#</a></h2>
-<p>The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm). Somehow, we provide a parallel version of the CMA-ES algorithm. The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> times without any dependence at all, these <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> calculus are then equally distributed to each process. Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the <a href="../examples/cmaes-mpi-variational-inequality">CMAES MPI variational inequality example</a>):</p>
+<p>The only quick way to use the previously presented algorithms on a parallel architecture lies in parallelizing the used cost function (which is in most real life cases, the expensive part of the algorithm). Somehow, we provide a parallel version of the CMA-ES algorithm. The parallelization principle is the trivial one of evolving/genetic algorithms: at each iteration the cost function has to be evaluated <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> times without any dependence at all, these <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> calculus are then equally distributed to each process. Calling the MPI version of CMA-ES is nearly the same as calling its sequential version (a complete example of use can be found in the <a href="/examples/#cmaes-mpi-variational-inequality">CMAES MPI variational inequality example</a>):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3

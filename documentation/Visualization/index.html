@@ -1428,7 +1428,7 @@
 <p class="admonition-title">Note</p>
 <p>The length of an arrow is always bound to be in [5‰, 5%] of the screen size in order to see something.</p>
 </div>
-<p>The <code class="codehilite"><span class="nf">plot</span></code> command parameters are listed in the <a href="../reference/Functions/#plot">Reference part</a>.</p>
+<p>The <code class="codehilite"><span class="nf">plot</span></code> command parameters are listed in the <a href="/reference/Functions/#plot">Reference part</a>.</p>
 <p>The keyboard shortcuts are :</p>
 <ul>
 <li><strong>enter</strong> tries to show plot</li>
@@ -1617,10 +1617,10 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../examples/#visualization-hsv">HSV.edp</a> for the complete script.</p>
+<p>See <a href="/examples/#hsv">HSV.edp</a> for the complete script.</p>
 </div>
 <h2 id="link-with-gnuplot">Link with gnuplot<a class="headerlink" href="#link-with-gnuplot" title="Permanent link">#</a></h2>
-<p>Example <a href="../tutorials/Membrane">Membrane</a> shows how to generate a gnuplot from a FreeFem++ file. Here is another technique which has the advantage of being online, i.e. one doesn't need to quit FreeFem++ to generate a gnuplot.</p>
+<p>Example <a href="/tutorials/Membrane">Membrane</a> shows how to generate a gnuplot from a FreeFem++ file. Here is another technique which has the advantage of being online, i.e. one doesn't need to quit FreeFem++ to generate a gnuplot.</p>
 <p>However, this works only if <a href="http://www.gnuplot.info">gnuplot</a> is installed, and only on an Unix-like computer.</p>
 <p>Add to the previous example:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1657,12 +1657,12 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../examples/#visualization-plot">Plot.edp</a> for the complete script.</p>
+<p>See <a href="/examples/#plot">Plot.edp</a> for the complete script.</p>
 </div>
 <h2 id="link-with-medit">Link with medit<a class="headerlink" href="#link-with-medit" title="Permanent link">#</a></h2>
 <p>As said above, <code>medit</code> is a freeware display package by Pascal Frey using OpenGL. Then you may run the following example.</p>
 <p>Now <code>medit</code> software is included in FreeFem++ under <code>ffmedit</code> name.</p>
-<p>The <code class="codehilite"><span class="nf">medit</span></code> command parameters are listed in the <a href="../reference/ExternalLibraries/#medit">Reference part</a>.</p>
+<p>The <code class="codehilite"><span class="nf">medit</span></code> command parameters are listed in the <a href="/reference/ExternalLibraries/#medit">Reference part</a>.</p>
 <p><center></p>
 <table>
 <thead>
@@ -1735,7 +1735,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../examples/#visualization-medit">Medit.edp</a> for the complete script.</p>
+<p>See <a href="/examples/#medit">Medit.edp</a> for the complete script.</p>
 </div>
 <h2 id="link-with-paraview">Link with Paraview<a class="headerlink" href="#link-with-paraview" title="Permanent link">#</a></h2>
 <p>One can also export mesh or results in the <code>.vtk</code> format in order to post-process data using <a href="https://www.paraview.org/">Paraview</a>.</p>
@@ -1775,7 +1775,7 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../examples/#visualization-paraview">Paraview.edp</a> for the complete script.</p>
+<p>See <a href="/examples/#paraview">Paraview.edp</a> for the complete script.</p>
 </div>
 <h2 id="link-with-matlab-and-octave">Link with Matlab<sup>&copy;</sup> and Octave<a class="headerlink" href="#link-with-matlab-and-octave" title="Permanent link">#</a></h2>
 <p>In order to create plots from FreeFem++ simulations in <a href="https://www.gnu.org/software/octave/">Octave</a> and <a href="https://www.mathworks.com/">Matlab</a> the FEM mesh and the FE function must be exported to text files:</p>
@@ -1795,7 +1795,7 @@
 
 <span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="s">&quot;export_mesh.msh&quot;</span><span class="p">);</span>
 
-<span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;export_data.txt&quot;</span><span class="p">);</span> 
+<span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;export_data.txt&quot;</span><span class="p">);</span>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">u</span><span class="p">[].</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
    <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
@@ -1830,7 +1830,7 @@
 <p></center></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more Matlab / Octave plot examples have a look at the tutorial section <a href="../tutorials/MatlabOctavePlot/">Matlab / Octave Examples</a> or visit the <a href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib library</a> at github.</p>
+<p>For more Matlab / Octave plot examples have a look at the tutorial section <a href="/tutorials/MatlabOctavePlot/">Matlab / Octave Examples</a> or visit the <a href="https://github.com/samplemaker/freefem_matlab_octave_plot">ffmatlib library</a> at github.</p>
 </div>
                 
                   

@@ -2021,7 +2021,7 @@ where the data type of <code class="codehilite"><span class="n">a</span></code> 
 </td></tr></table>
 Thank you to Guy-Antoine Atenekeng Kahou for his help to code this interface.</p>
 <h3 id="schwarz-example-in-parallel">Schwarz example in parallel<a class="headerlink" href="#schwarz-example-in-parallel" title="Permanent link">#</a></h3>
-<p>This example is a rewritting of example <a href="../models/DomainDecomposition/#schwarz-overlapping">Schwarz overlapping</a>.</p>
+<p>This example is a rewritting of example <a href="/models/DomainDecomposition/#schwarz-overlapping">Schwarz overlapping</a>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ff-mpirun -np <span class="m">2</span> SchwarzParallel.edp
@@ -2174,7 +2174,7 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span> script freeze in the loop</p>
 <h4 id="true-parallel-schwarz-example">True parallel Schwarz example<a class="headerlink" href="#true-parallel-schwarz-example" title="Permanent link">#</a></h4>
 <p><em>Thank you to F. Nataf</em></p>
-<p>This is a explanation of the two examples <a href="../examples/#mpi-gmres-2d">MPI-GMRES 2D</a> and <a href="../examples/#mpi-gmres-3d">MPI-GMRES 3D</a>, a Schwarz parallel with a complexity almost independent of the number of process (with a coarse grid preconditioner).</p>
+<p>This is a explanation of the two examples <a href="/examples/#mpi-gmres-2d">MPI-GMRES 2D</a> and <a href="/examples/#mpi-gmres-3d">MPI-GMRES 3D</a>, a Schwarz parallel with a complexity almost independent of the number of process (with a coarse grid preconditioner).</p>
 <p>To solve the following Poisson problem on domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> with boundary <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> in <span><span class="MathJax_Preview">L^2(\Omega)</span><script type="math/tex">L^2(\Omega)</script></span> :</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray}
@@ -2773,7 +2773,7 @@ a?b: c \equiv
     </tbody>
 </table>
 
-<p>We also add functions (see <a href="#Tab2">Table 2</a>) with no parameter to change the default sparse solver in the <code>.edp</code> file. To use these functions, we need to load the library corresponding to the solver. An example of using different parallel sparse solvers for the same problem is given in <a href="../examples/#direct-solvers">Direct solvers example</a>.</p>
+<p>We also add functions (see <a href="#Tab2">Table 2</a>) with no parameter to change the default sparse solver in the <code>.edp</code> file. To use these functions, we need to load the library corresponding to the solver. An example of using different parallel sparse solvers for the same problem is given in <a href="/examples/#direct-solvers">Direct solvers example</a>.</p>
 <table>
     <thead>
         <tr>
@@ -3191,7 +3191,7 @@ a?b: c \equiv
 <p>If no solver parameter is given, we used default option of MUMPS solver.</p>
 <div class="admonition example">
 <p class="admonition-title">MUMPS example</p>
-<p>A simple example of calling MUMPS in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="../examples/#solver-mumps">Test solver MUMPS example</a>.</p>
+<p>A simple example of calling MUMPS in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="/examples/#solver-mumps">Test solver MUMPS example</a>.</p>
 </div>
 <h4 id="superlu-distributed-solver">SuperLU distributed solver<a class="headerlink" href="#superlu-distributed-solver" title="Permanent link">#</a></h4>
 <p>The package <a href="http://crd-legacy.lbl.gov/~xiaoye/SuperLU/">SuperLU_DIST</a> solves linear systems using LU factorization. It is a free scientific library under BSD license.</p>
@@ -3275,7 +3275,7 @@ The structure of data file for SuperLU_DIST in <strong><code>FreeFem++</code></s
 <p>If no solver parameter is given, we used default option of SuperLU_DIST solver.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>A simple example of calling SuperLU_DIST in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="../examples/#solver-superlu_dist">Solver superLU_DIST example</a>.</p>
+<p>A simple example of calling SuperLU_DIST in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="/examples/#solver-superlu_dist">Solver superLU_DIST example</a>.</p>
 </div>
 <h4 id="pastix-solver">PaStiX solver<a class="headerlink" href="#pastix-solver" title="Permanent link">#</a></h4>
 <p><a href="http://pastix.gforge.inria.fr/files/README-txt.html">PaStiX</a> (Parallel Sparse matrix package) is a free scientific library under CECILL-C license. This package solves sparse linear system with a direct and block ILU(k) iterative methods. This solver can be applied to a real or complex matrix with a symmetric pattern.</p>
@@ -3317,7 +3317,7 @@ The structure of data file for SuperLU_DIST in <strong><code>FreeFem++</code></s
 <p>If no solver parameter is given, we use the default option of PaStiX solver.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>A simple example of calling PaStiX in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="../examples/#solver-pastix">Solver PaStiX example</a>.</p>
+<p>A simple example of calling PaStiX in <strong><code>FreeFem++</code></strong> with this two methods is given in the <a href="/examples/#solver-pastix">Solver PaStiX example</a>.</p>
 </div>
 <p>In <a href="#Tab3">Table 3</a>, we recall the different matrix considering in the different direct solvers.</p>
 <table>

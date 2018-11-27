@@ -2000,7 +2000,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>where <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span> are positive or negative numbers to indicate how many vertices should be on <span><span class="MathJax_Preview">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</span><script type="math/tex">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</script></span>, and the optional parameter (see also <a href="../reference/Functions/#buildmesh">References</a>), separated with a comma, can be:</p>
+<p>where <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span> are positive or negative numbers to indicate how many vertices should be on <span><span class="MathJax_Preview">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</span><script type="math/tex">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</script></span>, and the optional parameter (see also <a href="/reference/Functions/#buildmesh">References</a>), separated with a comma, can be:</p>
 <ul>
 <li><code class="codehilite"><span class="kp">nbvx</span><span class="o">=</span> <span class="kt">int</span></code>, to set the maximum number of vertices in the mesh.</li>
 <li><code class="codehilite"><span class="kp">fixedborder</span><span class="o">=</span> <span class="kt">bool</span></code>, to say if the mesh generator can change the boundary mesh or not (by default the boundary mesh can change; beware that with periodic boundary conditions (see. <a href="FiniteElement">Finite Element</a>), it can be dangerous.</li>
@@ -3273,7 +3273,7 @@ D^2f=(\p^2 f/\p x^2,\, \p^2 f/\p x\p y, \p^2 f/\p y^2)
 </div>
 <p>of a function (formula or FE-function).</p>
 <p>Mesh adaptation is a very powerful tool when the solution of a problem varies locally and sharply.</p>
-<p>Here we solve the <a href="../tutorials/">Poisson's problem</a>, when <span><span class="MathJax_Preview">f=1</span><script type="math/tex">f=1</script></span> and <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is a L-shape domain.</p>
+<p>Here we solve the <a href="/tutorials/">Poisson's problem</a>, when <span><span class="MathJax_Preview">f=1</span><script type="math/tex">f=1</script></span> and <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is a L-shape domain.</p>
 <table>
 <thead>
 <tr>
@@ -3387,7 +3387,7 @@ the point of intersection of <span><span class="MathJax_Preview">bc</span><scrip
 </td></tr></table>
 
 <p>The additional parameters of <code class="codehilite"><span class="nf">adaptmesh</span></code> are:</p>
-<p>See <a href="../reference/Functions/#adaptmesh">Reference part</a> for more inforamtions</p>
+<p>See <a href="/reference/Functions/#adaptmesh">Reference part</a> for more inforamtions</p>
 <ul>
 <li>
 <p><code class="codehilite"><span class="kp">hmin</span><span class="o">=</span></code> Minimum edge size. Its default is related to the size of the domain to be meshed and the precision of the mesh generator.</p>
@@ -3480,7 +3480,7 @@ default.</p>
 <p><code class="codehilite"><span class="kp">nomeshgeneration</span><span class="o">=</span></code> If true, no adapted mesh is generated (useful to compute only a metric).</p>
 </li>
 <li>
-<p><code class="codehilite"><span class="kp">periodic</span><span class="o">=</span></code> Writing <code class="codehilite"><span class="kp">periodic</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="kr">x</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="kr">x</span><span class="p">]];</span></code> builds an adapted periodic mesh. The sample builds a biperiodic mesh of a square. (see <a href="FiniteElement">periodic finite element spaces</a>, and see <a href="../examples/#sphere">the Sphere example</a> for a full example)</p>
+<p><code class="codehilite"><span class="kp">periodic</span><span class="o">=</span></code> Writing <code class="codehilite"><span class="kp">periodic</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="kr">x</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="kr">x</span><span class="p">]];</span></code> builds an adapted periodic mesh. The sample builds a biperiodic mesh of a square. (see <a href="FiniteElement">periodic finite element spaces</a>, and see <a href="/examples/#sphere">the Sphere example</a> for a full example)</p>
 </li>
 </ul>
 <p>We can use the command <code class="codehilite"><span class="nf">adaptmesh</span></code> to build a uniform mesh with a constant mesh size. To build a mesh with a constant mesh size equal to <span><span class="MathJax_Preview">\frac{1}{30}</span><script type="math/tex">\frac{1}{30}</script></span> try:</p>
@@ -4593,7 +4593,7 @@ switch <code class="codehilite"><span class="n">q</span></code> or in the parame
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To use <code class="codehilite"><span class="nf">tetgtransfo</span></code>, the result's mesh of <code class="codehilite"><span class="nf">movemesh23</span></code> must be a closed surface and define one region only. Therefore, the parameter <code class="codehilite"><span class="kp">regionlist</span></code> is defined for one region.</p>
-<p>An example of this keyword can be found in line 61 of the <a href="../examples/#example-build-layer-mesh">Build layer mesh example</a>.</p>
+<p>An example of this keyword can be found in line 61 of the <a href="/examples/#build-layer-mesh">Build layer mesh example</a>.</p>
 </div>
 <p><strong>The keyword <code class="codehilite"><span class="nf">tetgconvexhull</span></code></strong></p>
 <p>FreeFem++, using TetGen, is able to build a tetrahedralization from a set of points. This tetrahedralization is a Delaunay mesh of the convex hull of the set of points.</p>
@@ -4801,7 +4801,7 @@ x_{n_v} & y_{n_v} & z_{n_v}
 <p><code class="codehilite"><span class="kp">orientation</span> <span class="o">=</span></code> An integer expression (1 by default), to reverse or not to reverse the orientation of the tetrahedra if it is not positive.</p>
 </li>
 </ul>
-<p>An example of this command can be found in the <a href="../examples/#poissons-equation-3d">Poisson's equation 3D example</a>.</p>
+<p>An example of this command can be found in the <a href="/examples/#poissons-equation-3d">Poisson's equation 3D example</a>.</p>
 <h3 id="layer-mesh">Layer mesh<a class="headerlink" href="#layer-mesh" title="Permanent link">#</a></h3>
 <p>In this section, we present the command line to obtain a Layer mesh: <code class="codehilite"><span class="nf">buildlayers</span></code>. This mesh is obtained by extending a two dimensional mesh in the <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span>-axis.</p>
 <p>The domain <span><span class="MathJax_Preview">\Omega_{3d}</span><script type="math/tex">\Omega_{3d}</script></span> defined by the layer mesh is equal to <span><span class="MathJax_Preview">\Omega_{3d} = \Omega_{2d} \times [zmin, zmax]</span><script type="math/tex">\Omega_{3d} = \Omega_{2d} \times [zmin, zmax]</script></span> where <span><span class="MathJax_Preview">\Omega_{2d}</span><script type="math/tex">\Omega_{2d}</script></span> is the domain defined by the two dimensional meshes. <span><span class="MathJax_Preview">zmin</span><script type="math/tex">zmin</script></span> and <span><span class="MathJax_Preview">zmax</span><script type="math/tex">zmax</script></span> are functions of <span><span class="MathJax_Preview">\Omega_{2d}</span><script type="math/tex">\Omega_{2d}</script></span> in <span><span class="MathJax_Preview">\R</span><script type="math/tex">\R</script></span> that defines respectively the lower surface and upper surface of <span><span class="MathJax_Preview">\Omega_{3d}</span><script type="math/tex">\Omega_{3d}</script></span>.</p>
@@ -4906,7 +4906,7 @@ z_{i,j} = j \: \delta \alpha + zmin(V_{i}^{2d}), \qquad \delta \alpha= \frac{ zm
 </ul>
 <p>Moreover, we also add post processing parameters that allow to moving the mesh. These parameters correspond to parameters <code class="codehilite"><span class="kp">transfo</span></code>, <code class="codehilite"><span class="kp">facemerge</span></code> and <code class="codehilite"><span class="kp">ptmerge</span></code> of the command line <code class="codehilite"><span class="nf">movemesh</span></code>.</p>
 <p>The vector <code class="codehilite"><span class="kr">region</span></code>, <code class="codehilite"><span class="kp">labelmid</span></code>, <code class="codehilite"><span class="kp">labelup</span></code> and <code class="codehilite"><span class="kp">labeldown</span></code> These vectors are composed of <span><span class="MathJax_Preview">n_{l}</span><script type="math/tex">n_{l}</script></span> successive pairs of number <span><span class="MathJax_Preview">O_i,N_l</span><script type="math/tex">O_i,N_l</script></span> where <span><span class="MathJax_Preview">n_{l}</span><script type="math/tex">n_{l}</script></span> is the number (label or region) that we want to get.</p>
-<p>An example of this command is given in the <a href="../examples/#example-build-layer-mesh">Build layer mesh example</a>.</p>
+<p>An example of this command is given in the <a href="/examples/#build-layer-mesh">Build layer mesh example</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">Cube</p>
 <p><code>Cube.idp</code>

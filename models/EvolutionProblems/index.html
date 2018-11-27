@@ -1579,7 +1579,7 @@
 </td></tr></table>
 
 <p>In the last statement, the <span><span class="MathJax_Preview">L^2</span><script type="math/tex">L^2</script></span>-error <span><span class="MathJax_Preview">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</span><script type="math/tex">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</script></span> is calculated at <span><span class="MathJax_Preview">t=m\tau, \tau =0.1</span><script type="math/tex">t=m\tau, \tau =0.1</script></span>. At <span><span class="MathJax_Preview">t=0.1</span><script type="math/tex">t=0.1</script></span>, the error is 0.000213269. The errors increase with <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> and 0.00628589 at <span><span class="MathJax_Preview">t=3</span><script type="math/tex">t=3</script></span>.</p>
-<p>The iteration of the backward Euler \eqref{eqn::heatequationBWE} is made by <a href="../reference/Loops/#for"><code class="codehilite"><span class="k">for</span></code> loop</a>.</p>
+<p>The iteration of the backward Euler \eqref{eqn::heatequationBWE} is made by <a href="/reference/Loops/#for"><code class="codehilite"><span class="k">for</span></code> loop</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The stiffness matrix in the loop is used over and over again. FreeFem++ support reuses of stiffness matrix.</p>
@@ -1648,7 +1648,7 @@ A=(a_{ij}),\quad a_{ij}=a(\phi_j,\phi_i)\nonumber
 \end{eqnarray}</script>
 </div>
 <p>Refer <a href="#TABATA1994">TABATA1994</a>, pp.70--75 for solvability of \eqref{eqn::Evolution-1}. The stability of \eqref{eqn::Evolution-1} is in <a href="#TABATA1994">TABATA1994</a>, Theorem 2.13:</p>
-<p>Let <span><span class="MathJax_Preview">\{\mathcal{T}_h\}_{h\downarrow 0}</span><script type="math/tex">\{\mathcal{T}_h\}_{h\downarrow 0}</script></span> be regular triangulations (see <a href="../documentation/MeshGeneration/#regular-triangulation-htriangle">Regular Triangulation</a>). Then there is a number <span><span class="MathJax_Preview">c_0&gt;0</span><script type="math/tex">c_0>0</script></span> independent of <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> such that,</p>
+<p>Let <span><span class="MathJax_Preview">\{\mathcal{T}_h\}_{h\downarrow 0}</span><script type="math/tex">\{\mathcal{T}_h\}_{h\downarrow 0}</script></span> be regular triangulations (see <a href="/documentation/MeshGeneration/#regular-triangulation-htriangle">Regular Triangulation</a>). Then there is a number <span><span class="MathJax_Preview">c_0&gt;0</span><script type="math/tex">c_0>0</script></span> independent of <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> such that,</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray}
 |u_h^n|^2\le

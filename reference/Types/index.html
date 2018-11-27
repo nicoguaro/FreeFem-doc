@@ -2065,7 +2065,7 @@ a/b <span class="o">=</span> <span class="o">(</span><span class="m">0</span>.23
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../examples/#complex">Complex example</a> for a detailled example.</p>
+<p>See <a href="/examples/#complex">Complex example</a> for a detailed example.</p>
 </div>
 <h3 id="string">string<a class="headerlink" href="#string" title="Permanent link">#</a></h3>
 <p>String value.</p>
@@ -2093,7 +2093,7 @@ a/b <span class="o">=</span> <span class="o">(</span><span class="m">0</span>.23
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">(</span><span class="mi">5</span><span class="o">:</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
-<p>See <a href="../examples/#string">String Example</a> for a complete example.</p>
+<p>See <a href="/examples/#string">String Example</a> for a complete example.</p>
 <h2 id="mesh-design">Mesh design<a class="headerlink" href="#mesh-design" title="Permanent link">#</a></h2>
 <h3 id="border">border<a class="headerlink" href="#border" title="Permanent link">#</a></h3>
 <p>Border type.
@@ -2123,19 +2123,19 @@ Define the 2D geometrical border in parametric coordinates.</p>
 </td></tr></table></p>
 </div>
 <h3 id="mesh">mesh<a class="headerlink" href="#mesh" title="Permanent link">#</a></h3>
-<p>2D Mesh type (see <a href="../documentation/MeshGeneration/">Mesh Generation</a>).</p>
+<p>2D Mesh type (see <a href="/documentation/MeshGeneration/">Mesh Generation</a>).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="mesh3">mesh3<a class="headerlink" href="#mesh3" title="Permanent link">#</a></h3>
-<p>3D mesh type (see <a href="../documentation/MeshGeneration/">Mesh Generation</a>).
+<p>3D mesh type (see <a href="/documentation/MeshGeneration/">Mesh Generation</a>).
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="finite-element-space-design">Finite element space design<a class="headerlink" href="#finite-element-space-design" title="Permanent link">#</a></h2>
 <h3 id="fespace">fespace<a class="headerlink" href="#fespace" title="Permanent link">#</a></h3>
-<p>Finite element space type (see <a href="../documentation/FiniteElement/">Finite Element</a>).</p>
+<p>Finite element space type (see <a href="/documentation/FiniteElement/">Finite Element</a>).</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
 <span class="kt">fespace</span> <span class="nf">UPh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
@@ -2243,7 +2243,7 @@ Macro ends with <code>//</code>.</p>
 </pre></div>
 </td></tr></table></p>
 </div>
-<p>See <a href="../examples/#macro">Macro example</a></p>
+<p>See <a href="/examples/#macro">Macro example</a></p>
 <h3 id="newmacro-endmacro">NewMacro / EndMacro<a class="headerlink" href="#newmacro-endmacro" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2299,7 +2299,7 @@ f(x) + g(x),\, f(x) - g(x),\, f(x)g(x),\, f(x)/g(x)
 </script>
 and by composition <span><span class="MathJax_Preview">f(g(x))</span><script type="math/tex">f(g(x))</script></span>, each applied a finite number of times.</p>
 <p>In <strong><code>FreeFem++</code></strong>,  all elementary functions can thus be created. The derivative of an elementary function is also an elementary function; however, the indefinite integral of an elementary function cannot always be expressed in terms of elementary functions.</p>
-<p>See <a href="../examples/#elementary-function">Elementary function example</a> for a complete example.</p>
+<p>See <a href="/examples/#elementary-function">Elementary function example</a> for a complete example.</p>
 <h3 id="random-functions">Random functions<a class="headerlink" href="#random-functions" title="Permanent link">#</a></h3>
 <p><strong><code>FreeFem++</code></strong> includes the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">Mersenne Twister</a> random number generator. It is a very fast and accurate random number generator of period <span><span class="MathJax_Preview">2^{219937}-1</span><script type="math/tex">2^{219937}-1</script></span>.</p>
 <p>See <a href="Functions/#randint32"><code class="codehilite"><span class="nf">randint32</span><span class="p">()</span></code></a>, <a href="Functions/#randint31"><code class="codehilite"><span class="nf">randint31</span><span class="p">()</span></code></a>, <a href="Functions/#randreal1"><code class="codehilite"><span class="nf">randreal1</span><span class="p">()</span></code></a>, <a href="Functions/#randreal2"><code class="codehilite"><span class="nf">randreal2</span><span class="p">()</span></code></a>, <a href="Functions/#randreal3"><code class="codehilite"><span class="nf">randreal3</span><span class="p">()</span></code></a>, <a href="Functions/#randres53"><code class="codehilite"><span class="nf">randres53</span><span class="p">()</span></code></a>, <a href="Functions/#randinit"><code class="codehilite"><span class="nf">randinit</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code></a>.</p>
@@ -2327,7 +2327,7 @@ and by composition <span><span class="MathJax_Preview">f(g(x))</span><script typ
 </pre></div>
 </td></tr></table>
 
-<p>The construction of <code class="codehilite"><span class="n">fh</span> <span class="o">=</span> <span class="n">f</span></code> is explained in <a href="../documentation/FiniteElement/">Finite Element</a>.</p>
+<p>The construction of <code class="codehilite"><span class="n">fh</span> <span class="o">=</span> <span class="n">f</span></code> is explained in <a href="/documentation/FiniteElement/">Finite Element</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The <code class="codehilite"><span class="nf">plot</span></code> command only works for real or complex FE-functions, not for elementary functions.</p>
@@ -2397,7 +2397,7 @@ Else, the stop test is:
 </pre></div>
 </td></tr></table>
 
-<p>Refere to <a href="../documentation/FiniteElement/#problem-definition">Problem definition</a> for a description of the Dirichlet condition implementation.</p>
+<p>Refere to <a href="/documentation/FiniteElement/#problem-definition">Problem definition</a> for a description of the Dirichlet condition implementation.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Pivot tolerance</p>
@@ -2424,11 +2424,11 @@ Else, the stop test is:
 <p class="admonition-title"><code class="codehilite"><span class="nf">dimKrylov</span></code></p>
 <p>Dimension of the Krylov space</p>
 </div>
-<p>Usage of <code class="codehilite"><span class="kt">problem</span></code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">problem</span></code> is detailled in the <a href="/tutorials">tutorial</a>.</p>
 <h3 id="solve">solve<a class="headerlink" href="#solve" title="Permanent link">#</a></h3>
 <p>Solve type.</p>
 <p>Identical to <a href="#problem">problem</a> but automatically solved.</p>
-<p>Usage of <code class="codehilite"><span class="kt">solve</span></code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">solve</span></code> is detailled in the <a href="/tutorials">tutorial</a>.</p>
 <h3 id="varf">varf<a class="headerlink" href="#varf" title="Permanent link">#</a></h3>
 <p>Variational form type.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">varf</span> <span class="n">vLaplacian</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
@@ -2437,7 +2437,7 @@ Else, the stop test is:
 
 <p>Directly define a variational form.</p>
 <p>This is the other way to define a problem in order to directly manage matrix and right hang side.</p>
-<p>Usage of <code class="codehilite"><span class="kt">varf</span></code> is detailed in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">varf</span></code> is detailed in the <a href="/tutorials">tutorial</a>.</p>
 <h2 id="array">Array<a class="headerlink" href="#array" title="Permanent link">#</a></h2>
 <p>An array stores multiple objects, and there are 2 kinds of arrays:</p>
 <ul>
@@ -2474,7 +2474,7 @@ it is equivalent to <span><span class="MathJax_Preview">v = a[q*n]</span><script
       <span class="m">0</span>   <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>
 </pre></div>
 </td></tr></table></p>
-<p>See the <a href="../example/#array">Array example</a> for a complete example.</p>
+<p>See the <a href="/examples/#array">Array example</a> for a complete example.</p>
 <h3 id="array-index">Array index<a class="headerlink" href="#array-index" title="Permanent link">#</a></h3>
 <p>Array index can be int or string:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2634,7 +2634,7 @@ it is equivalent to <span><span class="MathJax_Preview">v = a[q*n]</span><script
     <span class="nf">plot</span><span class="p">(</span><span class="n">uu</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
-<p>See <a href="../examples/#fe-array">FE array example</a>.</p>
+<p>See <a href="/examples/#fe-array">FE array example</a>.</p>
 </div>
 <h3 id="map-arrays">Map arrays<a class="headerlink" href="#map-arrays" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2665,7 +2665,7 @@ it is equivalent to <span><span class="MathJax_Preview">v = a[q*n]</span><script
 </pre></div>
 </td></tr></table>
 
-<p>or using a variational form type (see <a href="../documentation/FiniteElement/#variational-form-sparse-matrix-pde-data-vector">Finite Element</a>):</p>
+<p>or using a variational form type (see <a href="/documentation/FiniteElement/#variational-form-sparse-matrix-pde-data-vector">Finite Element</a>):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="n">Laplacian</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
@@ -2746,19 +2746,19 @@ or
 </div>
 <div class="admonition note">
 <p class="admonition-title">datafilename</p>
-<p>Name of the file containing solver parameters, see <a href="../documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Name of the file containing solver parameters, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">lparams</p>
-<p>Vector of integer parameters for the solver, see <a href="../documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Vector of integer parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">dparams</p>
-<p>Vector of real parameters for the solver, see <a href="../documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Vector of real parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">sparams</p>
-<p>String parameters for the solver, see <a href="../documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>String parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2816,9 +2816,9 @@ or
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="n">C</span> <span class="o">=</span> <span class="kp">A</span> <span class="o">*</span> <span class="kp">B</span><span class="o">&#39;</span>
 </pre></div>
 </td></tr></table></p>
-<p>See <a href="./example/#matrix-operations">Matrix operations example</a> for a complete example.</p>
+<p>See <a href="/examples/#matrix-operations">Matrix operations example</a> for a complete example.</p>
 <h3 id="matrix-inversion">Matrix inversion<a class="headerlink" href="#matrix-inversion" title="Permanent link">#</a></h3>
-<p>See <a href="../examples/#matrix-inversion">Matrix inversion example</a>.</p>
+<p>See <a href="/examples/#matrix-inversion">Matrix inversion example</a>.</p>
                 
                   
                 

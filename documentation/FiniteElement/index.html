@@ -1652,7 +1652,7 @@
                 
                   <h1>Finite Element</h1>
                 
-                <p>As stated in <a href="../tutorials">tutorials</a>, FEM approximates all functions <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> as
+                <p>As stated in <a href="/tutorials">tutorials</a>, FEM approximates all functions <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> as
 <script type="math/tex; mode=display">
 w(x,y)\simeq w_0\phi_0(x,y)+w_1\phi_1(x,y)+\cdots+w_{M-1}\phi_{M-1}(x,y)
 </script>
@@ -2219,7 +2219,7 @@ U_{h}=\vectthree{Uxh}{Uyh}{Uzh} \quad \mbox{and}\quad V_{h}=\vectthree{Vxh}{Vyh}
 </pre></div>
 </td></tr></table>
 
-<p>The full example is in <a href="../examples/periodic-3d">Examples</a>.</p>
+<p>The full example is in <a href="/examples/#periodic-3d">Examples</a>.</p>
 </div>
 <h2 id="lagrangian-finite-elements">Lagrangian Finite Elements<a class="headerlink" href="#lagrangian-finite-elements" title="Permanent link">#</a></h2>
 <h3 id="p0-element">P0-element<a class="headerlink" href="#p0-element" title="Permanent link">#</a></h3>
@@ -2910,7 +2910,7 @@ thus</p>
 = \int_{\Omega} f {v}} \,d\omega + \int_{\Gamma_r} b v \,d\gamma , \quad \forall v \in H^1(\Omega)
 \end{equation}</script>
 where <span><span class="MathJax_Preview">\varepsilon</span><script type="math/tex">\varepsilon</script></span> is a small parameter ($ \sim \kappa\; 10^{-10} |\Omega|^{\frac2d} $).</p>
-<p>Remark that if the solution is of order <span><span class="MathJax_Preview">\frac{1}{\varepsilon}</span><script type="math/tex">\frac{1}{\varepsilon}</script></span> then the compatibility condition is unsatisfied, otherwise we get the solution such that $\int_\Omega u = 0 $, you can also add a Lagrange multiplier to solve the real mathematical problem like in the <a href="../examples/lagrange-multipliers">Lagrange multipliers example</a>.</p>
+<p>Remark that if the solution is of order <span><span class="MathJax_Preview">\frac{1}{\varepsilon}</span><script type="math/tex">\frac{1}{\varepsilon}</script></span> then the compatibility condition is unsatisfied, otherwise we get the solution such that $\int_\Omega u = 0 $, you can also add a Lagrange multiplier to solve the real mathematical problem like in the <a href="/examples/#lagrange-multipliers">Lagrange multipliers example</a>.</p>
 </div>
 <p>In FreeFem++, the bidimensional problem \eqref{eqn::v-poisson} becomes :</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -3695,7 +3695,7 @@ and where <span><span class="MathJax_Preview">G6(a,b,b)</span><script type="math
 
 <h2 id="variational-form-sparse-matrix-pde-data-vector">Variational Form, Sparse Matrix, PDE Data Vector<a class="headerlink" href="#variational-form-sparse-matrix-pde-data-vector" title="Permanent link">#</a></h2>
 <p>In FreeFem++ it is possible to define variational forms, and use them to build matrices and vectors, and store them to speed-up the script (4 times faster here).</p>
-<p>For example let us solve the <a href="../tutorials/ThermalConduction/">Thermal Conduction problem</a>. The variational formulation is in <span><span class="MathJax_Preview">L^2(0,T;H^1(\Omega))</span><script type="math/tex">L^2(0,T;H^1(\Omega))</script></span>; we shall seek <span><span class="MathJax_Preview">u^n</span><script type="math/tex">u^n</script></span> satisfying</p>
+<p>For example let us solve the <a href="/tutorials/ThermalConduction/">Thermal Conduction problem</a>. The variational formulation is in <span><span class="MathJax_Preview">L^2(0,T;H^1(\Omega))</span><script type="math/tex">L^2(0,T;H^1(\Omega))</script></span>; we shall seek <span><span class="MathJax_Preview">u^n</span><script type="math/tex">u^n</script></span> satisfying</p>
 <div>
 <div class="MathJax_Preview">
 \forall w \in V_{0}; \qquad \int_\Omega \frac{u^n-u^{n-1}}{\delta t} w + \kappa\n u^n\n w) +\int_\Gamma\alpha(u^n-u_{ue})w=0
@@ -3853,7 +3853,7 @@ b'_i & \mbox{else if } \not\in \Gamma_{24} \end{array}\right.
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The boundary condition is implemented by penalization and vector <code class="codehilite"><span class="n">bcn</span></code> contains the contribution of the boundary condition <span><span class="MathJax_Preview">u=1</span><script type="math/tex">u=1</script></span>, so to change the boundary condition, we have just to multiply the vector <code class="codehilite"><span class="n">bc</span><span class="p">[]</span></code> by the current value <code class="codehilite"><span class="n">f</span></code> of the new boundary condition term by term with the operator <code class="codehilite"><span class="p">.</span><span class="o">*</span></code>. <a href="../models/NavierStokesEquations/#uzawa-algorithm-and-conjugate-gradients">Uzawa model</a> gives a real example of using all this features.</p>
+<p>The boundary condition is implemented by penalization and vector <code class="codehilite"><span class="n">bcn</span></code> contains the contribution of the boundary condition <span><span class="MathJax_Preview">u=1</span><script type="math/tex">u=1</script></span>, so to change the boundary condition, we have just to multiply the vector <code class="codehilite"><span class="n">bc</span><span class="p">[]</span></code> by the current value <code class="codehilite"><span class="n">f</span></code> of the new boundary condition term by term with the operator <code class="codehilite"><span class="p">.</span><span class="o">*</span></code>. <a href="/models/NavierStokesEquations/#uzawa-algorithm-and-conjugate-gradients">Uzawa model</a> gives a real example of using all this features.</p>
 </div>
 <p>And the new version of the algorithm is now:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -3999,7 +3999,7 @@ b'_i & \mbox{else if } \not\in \Gamma_{24} \end{array}\right.
 \mathtt{etaK}[i] = \int {1}_{|K_i} = \int_{K_i} 1;
 </script>
 </p>
-<p>Now, we can use this to compute error indicators like in example <a href="../models/StaticProblems/#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a>.</p>
+<p>Now, we can use this to compute error indicators like in example <a href="/models/StaticProblems/#adaptation-using-residual-error-indicator">Adaptation using residual error indicator</a>.</p>
 <p>First to compute a continuous approximation to the function <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> "density mesh size" of the mesh <span><span class="MathJax_Preview">Th</span><script type="math/tex">Th</script></span>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
