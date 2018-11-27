@@ -3202,7 +3202,7 @@ cout &lt;&lt; &quot;size of mesh = &quot; &lt;&lt; h[].max &lt;&lt; endl;
 <script type="math/tex; mode=display">
 f(x,y) = 10.0x^3+y^3+\tan^{-1}[\varepsilon/(\sin(5.0y)-2.0x)],\ \varepsilon = 0.0001
 </script>
-sharply varies in value and the initial mesh given by one of the commands if <a href="##commands-for-mesh-generation">Mesh Generation section</a> cannot reflect its sharp variations.</p>
+sharply varies in value and the initial mesh given by one of the commands in the <a href="##commands-for-mesh-generation">Mesh Generation section</a> cannot reflect its sharp variations.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -4889,16 +4889,16 @@ z_{i,j} = j \: \delta \alpha + zmin(V_{i}^{2d}), \qquad \delta \alpha= \frac{ zm
 <p>The number of associated points or vertex <span><span class="MathJax_Preview">V_{i}^{2d}</span><script type="math/tex">V_{i}^{2d}</script></span> is the integer part of <span><span class="MathJax_Preview">coef(V_{i}^{2d}) M</span><script type="math/tex">coef(V_{i}^{2d}) M</script></span>.</p>
 </li>
 <li>
-<p><code class="codehilite">region=</code> This vector is used to initialized the region of tetrahedra.</p>
-<p>This vector contain successive pair of the 2d region number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d region number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
+<p><code class="codehilite">region=</code> This vector is used to initialize the region of tetrahedra.</p>
+<p>This vector contains successive pairs of the 2d region number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d region number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
 </li>
 <li>
-<p><code class="codehilite">labelmid=</code> This vector is used to initialized the 3d labels number of the vertical face or mid face form the 2d label number.</p>
-<p>This vector contains successive pair of the 2d label number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d label number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
+<p><code class="codehilite">labelmid=</code> This vector is used to initialize the 3d labels number of the vertical face or mid face from the 2d label number.</p>
+<p>This vector contains successive pairs of the 2d label number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d label number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
 </li>
 <li>
-<p><code class="codehilite">labelup=</code> This vector is used to initialized the 3d label numbers of the upper/top face form the 2d region number.</p>
-<p>This vector contains successive pair of the 2d region number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d label number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
+<p><code class="codehilite">labelup=</code> This vector is used to initialize the 3d label numbers of the upper/top face from the 2d region number.</p>
+<p>This vector contains successive pairs of the 2d region number at index <span><span class="MathJax_Preview">2i</span><script type="math/tex">2i</script></span> and the corresponding 3d label number at index <span><span class="MathJax_Preview">2i+1</span><script type="math/tex">2i+1</script></span>, like <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite">change</code></a>.</p>
 </li>
 <li>
 <p><code class="codehilite">labeldown=</code> Same as the previous case but for the lower/down face label.</p>

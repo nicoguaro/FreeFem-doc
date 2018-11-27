@@ -3183,7 +3183,7 @@
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>A</code> (<code class="codehilite">matrix</code>)<br/>
  Matrix of the problem <span><span class="MathJax_Preview">Ax=b</span><script type="math/tex">Ax=b</script></span></li>
@@ -3264,14 +3264,14 @@
 </ul>
 <p><img alt="arcsinh function" src="../images/arcsinh.svg" /></p>
 <h2 id="assert">assert<a class="headerlink" href="#assert" title="Permanent link">#</a></h2>
-<p>Verify a condition is true (same as C), if not the program stops.</p>
+<p>Verify if a condition is true (same as C), if not the program stops.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>assert(x==0)
 </pre></div>
 </td></tr></table>
 
 <p><u>Parameter:</u></p>
 <ul>
-<li>Bollean condition</li>
+<li>Boolean condition</li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -3334,7 +3334,7 @@
 <li><code>a</code> (<code class="codehilite">int</code>)</li>
 </ul>
 <h2 id="atof">atof<a class="headerlink" href="#atof" title="Permanent link">#</a></h2>
-<p>Convert a string to an real.</p>
+<p>Convert a string to a real.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = atof(s);
 </pre></div>
 </td></tr></table>
@@ -3357,12 +3357,12 @@
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>b1</code>, <code>b2</code>, <code>b3</code>, <code>b4</code> (<code class="codehilite">border</code>)<br/>
- Geometry border, <code>b1(nn)</code> mean <code>b1</code> border discretize by <code>nn</code> vertices</li>
+ Geometry border, <code>b1(nn)</code> means <code>b1</code> border discretized by <code>nn</code> vertices</li>
 <li><em><code class="codehilite">nbvx=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
  Maximum number of vertices<br/>
  Default: 9000</li>
 <li><em><code class="codehilite">fixedborder=</code></em> (<code class="codehilite">bool</code>) <em>[Optional]</em><br/>
- If true, mesh generator can not change the boundary mesh<br/>
+ If true, mesh generator cannot change the boundary mesh<br/>
  Default: <code class="codehilite">false</code>
  <!--- - _<code class="codehilite">wzxhzdk:1233</code>_ (<code class="codehilite">wzxhzdk:1234</code>) _[Deprecated]_ ---></li>
 </ul>
@@ -3391,7 +3391,7 @@
 Thnew = change(Th, label=L);
 </pre></div>
 </td></tr></table></p>
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li>
 <p><code>Th</code> (<code class="codehilite">mesh</code>)<br/>
@@ -3439,7 +3439,7 @@ Thnew = change(Th, label=L);
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <p>Same as <a href="#movemesh"><code class="codehilite">movemesh</code></a></p>
 <p><u>Output:</u></p>
 <ul>
@@ -3493,7 +3493,7 @@ real cgm = convect([Ux, Uy, Uz], dt, c);
     \mathbf{x}_{\tau} &=& \mathbf{x}
 \end{eqnarray}</script>
 </p>
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>ux</code> (<code class="codehilite">fespace</code> function)<br/>
  Velocity: <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> component</li>
@@ -4301,7 +4301,7 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 <li><code>l</code> (<code class="codehilite">int</code>)</li>
 </ul>
 <h2 id="lround">lround<a class="headerlink" href="#lround" title="Permanent link">#</a></h2>
-<p>Round a value, and return a integer value.</p>
+<p>Round a value, and return an integer value.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int l = lround(a);
 </pre></div>
 </td></tr></table>
@@ -4371,9 +4371,9 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <li><em><code class="codehilite">region=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
  Set label to tetrahedra</li>
 <li><em><code class="codehilite">label=</code></em> (<code class="codehilite">int[int]</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
- Set label of faces (see <a href="#change">change</a> for more informations)</li>
+ Set label of faces (see <a href="#change">change</a> for more information)</li>
 <li><em><code class="codehilite">facemerge=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
- If equal to 1, some face can be merged during the mesh moving<br/>
+ If equal to 1, some faces can be merged during the mesh moving<br/>
  Default: 1</li>
 <li><em><code class="codehilite">ptmerge=</code></em> (<code class="codehilite">real</code>) <em>[Optional]</em> <strong>3D only</strong><br/>
  Criteria to define when two points merge</li>
@@ -4419,7 +4419,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <li><code>Label</code> (<code class="codehilite">int</code> or <code class="codehilite">border</code> in 2D)<br/>
  Boundary reference where to impose the Dirichlet condition</li>
 <li><code>uD</code> (<code class="codehilite">fespace</code> function, <code class="codehilite">func</code> or <code class="codehilite">real</code> or <code class="codehilite">int</code>)<br/>
- Dirichlet condition (<code>u</code> is an unknwown of the problem)</li>
+ Dirichlet condition (<code>u</code> is an unknown of the problem)</li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -4433,7 +4433,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Only one af <code>Th</code>, <code>u</code> or <code>[Ux, Uy]</code> / <code>[Ux, Uy, Uz]</code> is needed for the <code class="codehilite">plot</code> command.</p>
+<p>Only one of <code>Th</code>, <code>u</code> or <code>[Ux, Uy]</code> / <code>[Ux, Uy, Uz]</code> is needed for the <code class="codehilite">plot</code> command.</p>
 </div>
 <p><u>Parameters:</u></p>
 <ul>
@@ -4464,7 +4464,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <li><em><code class="codehilite">nbiso=</code></em> (<code class="codehilite">int</code>)<br/>
  Number of isovalues</li>
 <li><em><code class="codehilite">nbarrow=</code></em> (<code class="codehilite">int</code>)<br/>
- Number of color of arrows values</li>
+ Number of colors of arrows values</li>
 <li><em><code class="codehilite">viso=</code></em> (<code class="codehilite">real[int]</code>)<br/>
  Specify an array of isovalues</li>
 <li><em><code class="codehilite">varrow=</code></em> (<code class="codehilite">real[int]</code>)<br/>
@@ -4788,7 +4788,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>A</code> (<code class="codehilite">real[int]</code>)</li>
 <li><code>B</code> (<code class="codehilite">int[int]</code>)</li>
@@ -4804,7 +4804,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>Th0</code> (<code class="codehilite">mesh</code>)</li>
 <li><code>f</code> (<code class="codehilite">func</code> or <code class="codehilite">fespace</code> function)</li>
@@ -4848,7 +4848,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>nnX</code> (<code class="codehilite">int</code>)<br/>
   Discretization along <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
@@ -4859,7 +4859,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 <li><code>H</code> (<code class="codehilite">real</code>) <em>[Optional]</em><br/>
   Height along <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></li>
 <li><em><code class="codehilite">flags=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
-  Structured mesh type, see <a href="../documentation/MeshGeneration/#square">Mesh Generation chapter</a> for more informations</li>
+  Structured mesh type, see <a href="../documentation/MeshGeneration/#square">Mesh Generation chapter</a> for more information</li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -4897,7 +4897,7 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
  Value returned by the system command</li>
 </ul>
 <p>!!note
-    On Windows, the full path of the command is needed. For example, the execute <code>ls.exe</code>:
+    On Windows, the full path of the command is needed. For example, to execute <code>ls.exe</code>:
     <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Res = exec(&quot;C:\\cygwin\\bin\\ls.exe&quot;);
 </pre></div>
 </td></tr></table></p>
@@ -4949,11 +4949,11 @@ mesh3 MovedTh = movemesh(Th, [Dx, Dy, Dz], [region=Region], [label=Label], [face
 </pre></div>
 </td></tr></table>
 
-<p><u>Parameter:</u></p>
+<p><u>Parameters:</u></p>
 <ul>
 <li><code>Th0</code> (<code class="codehilite">mesh</code>)</li>
 <li><code>R</code> (<code class="codehilite">bool</code> or <code class="codehilite">int</code>)<br/>
- Split triangles where <code>R</code> is true or different of 0</li>
+ Split triangles where <code>R</code> is true or different from 0</li>
 <li><em><code class="codehilite">split=</code></em> (<code class="codehilite">int</code>) <em>[Optional]</em><br/>
  Level of splitting<br/>
  Default: 1</li>

@@ -2682,12 +2682,12 @@ matrix A = [[A1, ...], ..., [..., An]];
 </td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>I</code> and <code>J</code> are <code class="codehilite">int[int]</code> and <code>C</code> is <code class="codehilite">real[int]</code>. The matrix is define as:
+<p><code>I</code> and <code>J</code> are <code class="codehilite">int[int]</code> and <code>C</code> is <code class="codehilite">real[int]</code>. The matrix is defined as:
 <script type="math/tex; mode=display">
 A = \sum_k{C[k]M_{I[k], J[k]}}
 </script>
 where <span><span class="MathJax_Preview">M_{a, b} = \left(\delta_{ia}\delta_{jb}\right)_{ij}</span><script type="math/tex">M_{a, b} = \left(\delta_{ia}\delta_{jb}\right)_{ij}</script></span> <!--- __ ---></p>
-<p><code>I</code>, <code>J</code> and <code>C</code> can be retrived using <code>[I, J, C] = A</code> (array are automatically resized).</p>
+<p><code>I</code>, <code>J</code> and <code>C</code> can be retrieved using <code>[I, J, C] = A</code> (arrays are automatically resized).</p>
 <p>The size of the matrix is <code class="codehilite">n = I.max;</code>, <code class="codehilite">m = J.max;</code>.</p>
 </div>
 <p>Matrices are designed using templates, so they can be real or complex:</p>
@@ -2799,7 +2799,7 @@ B = A(I^-1, J^-1);
 </td></tr></table>
 
 <h3 id="complex-matrix">Complex matrix<a class="headerlink" href="#complex-matrix" title="Permanent link">#</a></h3>
-<p>Use <code>.im</code> and <code>.re</code> to get the imaginary and real part of a complex amtrix, respectvely:
+<p>Use <code>.im</code> and <code>.re</code> to get the imaginary and real part of a complex matrix, respectively:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix&lt;complex&gt; C = ...
