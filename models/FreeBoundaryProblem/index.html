@@ -1303,19 +1303,19 @@
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real L = 10; //length
-real hr = 2.1; //left height
-real hl = 0.35; //right height
-int n = 4;
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//length</span>
+<span class="kt">real</span> <span class="n">hr</span> <span class="o">=</span> <span class="mf">2.1</span><span class="p">;</span> <span class="c1">//left height</span>
+<span class="kt">real</span> <span class="n">hl</span> <span class="o">=</span> <span class="mf">0.35</span><span class="p">;</span> <span class="c1">//right height</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-// Mesh
-border a(t=0, L){x=t; y=0;}; //bottom: Gamma_a
-border b(t=0, hr){x=L; y=t;}; //right: Gamma_b
-border f(t=L, 0){x=t; y=t*(hr-hl)/L+hl;}; //free surface: Gamma_f
-border d(t=hl, 0){x=0; y=t;}; // left: Gamma_d
-mesh Th = buildmesh(a(10*n) + b(6*n) + f(8*n) + d(3*n));
-plot(Th);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;};</span> <span class="c1">//bottom: Gamma_a</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hr</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">L</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span> <span class="c1">//right: Gamma_b</span>
+<span class="kt">border</span> <span class="nf">f</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="o">*</span><span class="p">(</span><span class="n">hr</span><span class="o">-</span><span class="n">hl</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="o">+</span><span class="n">hl</span><span class="p">;};</span> <span class="c1">//free surface: Gamma_f</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span> <span class="c1">// left: Gamma_d</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="nf">d</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1496,94 +1496,94 @@ plot(Th);
 85
 86
 87
-88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real L = 10; //length
-real hr = 2.1; //left height
-real hl = 0.35; //right height
-int n = 4;
+88</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//length</span>
+<span class="kt">real</span> <span class="n">hr</span> <span class="o">=</span> <span class="mf">2.1</span><span class="p">;</span> <span class="c1">//left height</span>
+<span class="kt">real</span> <span class="n">hl</span> <span class="o">=</span> <span class="mf">0.35</span><span class="p">;</span> <span class="c1">//right height</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-real q = 0.02; //incoming flow
-real K = 0.5; //permeability
+<span class="kt">real</span> <span class="n">q</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">;</span> <span class="c1">//incoming flow</span>
+<span class="kt">real</span> <span class="n">K</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1">//permeability</span>
 
-// Mesh
-border a(t=0, L){x=t; y=0;}; //bottom: Gamma_a
-border b(t=0, hr){x=L; y=t;}; //right: Gamma_b
-border f(t=L, 0){x=t; y=t*(hr-hl)/L+hl;}; //free surface: Gamma_f
-border d(t=hl, 0){x=0; y=t;}; // left: Gamma_d
-mesh Th = buildmesh(a(10*n) + b(6*n) + f(8*n) + d(3*n));
-plot(Th);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;};</span> <span class="c1">//bottom: Gamma_a</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hr</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">L</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span> <span class="c1">//right: Gamma_b</span>
+<span class="kt">border</span> <span class="nf">f</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="o">*</span><span class="p">(</span><span class="n">hr</span><span class="o">-</span><span class="n">hl</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="o">+</span><span class="n">hl</span><span class="p">;};</span> <span class="c1">//free surface: Gamma_f</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span> <span class="c1">// left: Gamma_d</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="nf">d</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u, v;
-Vh uu, vv;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
 
-// Problem
-problem Pu (u, uu, solver=CG)
-    = int2d(Th)(
-          dx(u)*dx(uu)
-        + dy(u)*dy(uu)
-    )
-    + on(b, f, u=y)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">Pu</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kr">y</span><span class="p">)</span>
+    <span class="p">;</span>
 
-problem Pv (v, vv, solver=CG)
-    = int2d(Th)(
-          dx(v)*dx(vv)
-        + dy(v)*dy(vv)
-    )
-    + on(a, v=0)
-    + int1d(Th, f)(
-          vv*((q/K)*N.y - (dx(u)*N.x + dy(u)*N.y))
-    )
-    ;
+<span class="kt">problem</span> <span class="nf">Pv</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">f</span><span class="p">)(</span>
+          <span class="n">vv</span><span class="o">*</span><span class="p">((</span><span class="n">q</span><span class="o">/</span><span class="n">K</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span> <span class="o">-</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
 
-// Loop
-int j = 0;
-real errv = 1.;
-real erradap = 0.001;
-while (errv &gt; 1e-6){
-    // Update
-    j++;
+<span class="c1">// Loop</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">errv</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">erradap</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">errv</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">){</span>
+    <span class="c1">// Update</span>
+    <span class="n">j</span><span class="o">++</span><span class="p">;</span>
 
-    // Solve
-    Pu;
-    Pv;
+    <span class="c1">// Solve</span>
+    <span class="n">Pu</span><span class="p">;</span>
+    <span class="n">Pv</span><span class="p">;</span>
 
-    // Plot
-    plot(Th, u, v);
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
 
-    // Error
-    errv = int1d(Th, f)(v*v);
+    <span class="c1">// Error</span>
+    <span class="n">errv</span> <span class="o">=</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">f</span><span class="p">)(</span><span class="n">v</span><span class="o">*</span><span class="n">v</span><span class="p">);</span>
 
-    // Movemesh
-    real coef = 1.;
-    real mintcc = checkmovemesh(Th, [x, y])/5.;
-    real mint = checkmovemesh(Th, [x, y-v*coef]);
+    <span class="c1">// Movemesh</span>
+    <span class="kt">real</span> <span class="kp">coef</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+    <span class="kt">real</span> <span class="n">mintcc</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="p">])</span><span class="o">/</span><span class="mf">5.</span><span class="p">;</span>
+    <span class="kt">real</span> <span class="n">mint</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="kp">coef</span><span class="p">]);</span>
 
-    if (mint &lt; mintcc || j%10==0){ //mesh too bad =&gt; remeshing
-        Th = adaptmesh(Th, u, err=erradap);
-        mintcc = checkmovemesh(Th, [x, y])/5.;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">mint</span> <span class="o">&lt;</span> <span class="n">mintcc</span> <span class="o">||</span> <span class="n">j</span><span class="o">%</span><span class="mi">10</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span> <span class="c1">//mesh too bad =&gt; remeshing</span>
+        <span class="n">Th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span><span class="n">erradap</span><span class="p">);</span>
+        <span class="n">mintcc</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="p">])</span><span class="o">/</span><span class="mf">5.</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    while (1){
-        real mint = checkmovemesh(Th, [x, y-v*coef]);
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="kt">real</span> <span class="n">mint</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="kp">coef</span><span class="p">]);</span>
 
-        if (mint &gt; mintcc) break;
+        <span class="k">if</span> <span class="p">(</span><span class="n">mint</span> <span class="o">&gt;</span> <span class="n">mintcc</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
-        cout &lt;&lt; &quot;min |T| = &quot; &lt;&lt; mint &lt;&lt; endl;
-        coef /= 1.5;
-    }
+        <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;min |T| = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mint</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+        <span class="kp">coef</span> <span class="o">/=</span> <span class="mf">1.5</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    Th=movemesh(Th, [x, y-coef*v]);
+    <span class="n">Th</span><span class="o">=</span><span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="o">-</span><span class="kp">coef</span><span class="o">*</span><span class="n">v</span><span class="p">]);</span>
 
-    // Display
-    cout &lt;&lt; endl &lt;&lt; j &lt;&lt; &quot; - errv = &quot; &lt;&lt; errv &lt;&lt; endl;
-}
+    <span class="c1">// Display</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - errv = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">errv</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 
-// Plot
-plot(Th);
-plot(u, wait=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

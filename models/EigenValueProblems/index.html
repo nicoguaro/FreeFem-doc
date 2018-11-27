@@ -1360,113 +1360,113 @@
 </td></tr></table>
 
 <p>This tool is based on <a href="http://www.caam.rice.edu/software/ARPACK/"><code>arpack++</code></a>, the object-oriented version of <code>ARPACK</code> eigenvalue package <a href="#LEHOUCQ1998">LEHOUCQ1998</a>.</p>
-<p>The function <code class="codehilite">EigenValue</code> computes the generalized eigenvalue of <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span>. The Shift-invert method is used by default, with sigma =<span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> the shift of the method.</p>
+<p>The function <code class="codehilite"><span class="nf">EigenValue</span></code> computes the generalized eigenvalue of <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span>. The Shift-invert method is used by default, with sigma =<span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> the shift of the method.</p>
 <p>The matrix <span><span class="MathJax_Preview">OP</span><script type="math/tex">OP</script></span> is defined with <span><span class="MathJax_Preview">A - \sigma B</span><script type="math/tex">A - \sigma B</script></span>.</p>
 <p>The return value is the number of converged eigenvalues (can be greater than the number of requested eigenvalues nev=)</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(OP, B, nev=Nev, sigma=Sigma);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="kp">B</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span><span class="n">Sigma</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>where the matrix $OP= A - \sigma B $ with a solver and boundary condition, and the matrix <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span>.</p>
 <p>There is also a functional interface:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, FOP1, FB, nev=Nev, sigma=Sigma);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="n">FOP1</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span><span class="n">Sigma</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>where <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is the size of the problem, and the operators are now defined through functions, defining respectively the matrix product of <span><span class="MathJax_Preview">OP^{-1}</span><script type="math/tex">OP^{-1}</script></span> and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span>, as in</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int n = OP1.n;
-func real[int] FOP1(real[int] &amp; u){ real[int] Au = OP^-1*u; return Au; }
-func real[int] FB(real[int] &amp; u){ real[int] Au = B*u; return Au; }
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="n">OP1</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span>
+<span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">FOP1</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">u</span><span class="p">){</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Au</span> <span class="o">=</span> <span class="n">OP</span><span class="o">^-</span><span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="p">;</span> <span class="k">return</span> <span class="n">Au</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">FB</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">u</span><span class="p">){</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Au</span> <span class="o">=</span> <span class="kp">B</span><span class="o">*</span><span class="n">u</span><span class="p">;</span> <span class="k">return</span> <span class="n">Au</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>If you want finer control over the method employed in <code>ARPACK</code>, you can specify which mode <code>ARPACK</code> will work with (<code class="codehilite">mode=</code> , see <a href="#LEHOUCQ1998">ARPACK documentation</a>). The operators necessary for the chosen mode can be passed through the optional parameters <code class="codehilite">A=</code>, <code class="codehilite">A1=</code>, <code class="codehilite">B=</code>, <code class="codehilite">B1=</code>, (see below).</p>
+<p>If you want finer control over the method employed in <code>ARPACK</code>, you can specify which mode <code>ARPACK</code> will work with (<code class="codehilite"><span class="kp">mode</span><span class="o">=</span></code> , see <a href="#LEHOUCQ1998">ARPACK documentation</a>). The operators necessary for the chosen mode can be passed through the optional parameters <code class="codehilite"><span class="kp">A</span><span class="o">=</span></code>, <code class="codehilite"><span class="kp">A1</span><span class="o">=</span></code>, <code class="codehilite"><span class="kp">B</span><span class="o">=</span></code>, <code class="codehilite"><span class="kp">B1</span><span class="o">=</span></code>, (see below).</p>
 <ul>
 <li>
-<p><code class="codehilite">mode=1</code>: Regular mode for solving <span><span class="MathJax_Preview">A u = \lambda u</span><script type="math/tex">A u = \lambda u</script></span></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, mode=1, nev=Nev);
+<p><code class="codehilite"><span class="kp">mode</span><span class="o">=</span><span class="mi">1</span></code>: Regular mode for solving <span><span class="MathJax_Preview">A u = \lambda u</span><script type="math/tex">A u = \lambda u</script></span></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kp">A</span><span class="o">=</span><span class="n">FOP</span><span class="p">,</span> <span class="kp">mode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>where the function FOP defines the matrix product of A</p>
 </li>
 <li>
-<p><code class="codehilite">mode=2</code>: Regular inverse mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A=FOP, B=FB, B1=FB1, mode=2, nev=Nev);
+<p><code class="codehilite"><span class="kp">mode</span><span class="o">=</span><span class="mi">2</span></code>: Regular inverse mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kp">A</span><span class="o">=</span><span class="n">FOP</span><span class="p">,</span> <span class="kp">B</span><span class="o">=</span><span class="n">FB</span><span class="p">,</span> <span class="kp">B1</span><span class="o">=</span><span class="n">FB1</span><span class="p">,</span> <span class="kp">mode</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>where the functions FOP, FB and FB1 define respectively the matrix product of <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> and <span><span class="MathJax_Preview">B^{-1}</span><script type="math/tex">B^{-1}</script></span></p>
 </li>
 <li>
-<p><code class="codehilite">mode=3</code>: Shift-invert mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int k = EigenValue(n, A1=FOP1, B=FB, mode=3, sigma=Sigma, nev=Nev);
+<p><code class="codehilite"><span class="kp">mode</span><span class="o">=</span><span class="mi">3</span></code>: Shift-invert mode for solving <span><span class="MathJax_Preview">A u = \lambda B u</span><script type="math/tex">A u = \lambda B u</script></span></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kp">A1</span><span class="o">=</span><span class="n">FOP1</span><span class="p">,</span> <span class="kp">B</span><span class="o">=</span><span class="n">FB</span><span class="p">,</span> <span class="kp">mode</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span><span class="n">Sigma</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>where the functions FOP1 and FB define respectively the matrix product of <span><span class="MathJax_Preview">OP^{-1} = (A - \sigma B)^{-1}</span><script type="math/tex">OP^{-1} = (A - \sigma B)^{-1}</script></span> and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span></p>
 </li>
 </ul>
-<p>You can also specify which subset of eigenvalues you want to compute (<code class="codehilite">which=</code>). The default value is <code class="codehilite">which=&quot;LM&quot;</code>, for eigenvalues with largest magnitude. <code class="codehilite">&quot;SM&quot;</code> is for smallest magnitude, <code class="codehilite">&quot;LA&quot;</code> for largest algebraic value, <code class="codehilite">&quot;SA&quot;</code> for smallest algebraic value, and <code class="codehilite">&quot;BE&quot;</code> for both ends of the spectrum.</p>
-<p>Remark: For complex problems, you need to use the keyword <code class="codehilite">complexEigenValue</code> instead of <code class="codehilite">EigenValue</code> when passing operators through functions.</p>
+<p>You can also specify which subset of eigenvalues you want to compute (<code class="codehilite"><span class="kp">which</span><span class="o">=</span></code>). The default value is <code class="codehilite"><span class="kp">which</span><span class="o">=</span><span class="s">&quot;LM&quot;</span></code>, for eigenvalues with largest magnitude. <code class="codehilite"><span class="s">&quot;SM&quot;</span></code> is for smallest magnitude, <code class="codehilite"><span class="s">&quot;LA&quot;</span></code> for largest algebraic value, <code class="codehilite"><span class="s">&quot;SA&quot;</span></code> for smallest algebraic value, and <code class="codehilite"><span class="s">&quot;BE&quot;</span></code> for both ends of the spectrum.</p>
+<p>Remark: For complex problems, you need to use the keyword <code class="codehilite"><span class="nf">complexEigenValue</span></code> instead of <code class="codehilite"><span class="nf">EigenValue</span></code> when passing operators through functions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Boundary condition and Eigenvalue Problems</p>
-<p>The locking (Dirichlet) boundary condition is make with exact penalization so we put <code class="codehilite">1e30=tgv</code> on the diagonal term of the locked degree of freedom (see <a href="../documentation/FiniteElement/#variational-form-sparse-matrix-pde-data-vector">Finite Element chapter</a>). So take Dirichlet boundary condition just on <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and not on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> because we solve <span><span class="MathJax_Preview">w=OP^{-1}*B*v</span><script type="math/tex">w=OP^{-1}*B*v</script></span>.</p>
+<p>The locking (Dirichlet) boundary condition is make with exact penalization so we put <code class="codehilite"><span class="mf">1e30</span><span class="o">=</span><span class="kp">tgv</span></code> on the diagonal term of the locked degree of freedom (see <a href="../documentation/FiniteElement/#variational-form-sparse-matrix-pde-data-vector">Finite Element chapter</a>). So take Dirichlet boundary condition just on <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and not on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> because we solve <span><span class="MathJax_Preview">w=OP^{-1}*B*v</span><script type="math/tex">w=OP^{-1}*B*v</script></span>.</p>
 <!--- ** --->
 
-<p>If you put locking (Dirichlet) boundary condition on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> matrix (with key work <code class="codehilite">on</code>) you get small spurious modes <span><span class="MathJax_Preview">(10^{-30})</span><script type="math/tex">(10^{-30})</script></span>, due to boundary condition, but if you forget the locking boundary condition on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> matrix (no keywork <code class="codehilite">on</code>) you get huge spurious <span><span class="MathJax_Preview">(10^{30})</span><script type="math/tex">(10^{30})</script></span> modes associated to these boundary conditons. We compute only small mode, so we get the good one in this case.</p>
+<p>If you put locking (Dirichlet) boundary condition on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> matrix (with key work <code class="codehilite"><span class="nf">on</span></code>) you get small spurious modes <span><span class="MathJax_Preview">(10^{-30})</span><script type="math/tex">(10^{-30})</script></span>, due to boundary condition, but if you forget the locking boundary condition on <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> matrix (no keywork <code class="codehilite"><span class="nf">on</span></code>) you get huge spurious <span><span class="MathJax_Preview">(10^{30})</span><script type="math/tex">(10^{30})</script></span> modes associated to these boundary conditons. We compute only small mode, so we get the good one in this case.</p>
 </div>
 <ul>
 <li>
-<p><code class="codehilite">sym=</code>
+<p><code class="codehilite"><span class="kp">sym</span><span class="o">=</span></code>
     The problem is symmetric (all the eigen value are real)</p>
 </li>
 <li>
-<p><code class="codehilite">nev=</code>
+<p><code class="codehilite"><span class="kp">nev</span><span class="o">=</span></code>
     The number desired eigenvalues (nev) close to the shift.</p>
 </li>
 <li>
-<p><code class="codehilite">value=</code>
+<p><code class="codehilite"><span class="kp">value</span><span class="o">=</span></code>
     The array to store the real part of the eigenvalues</p>
 </li>
 <li>
-<p><code class="codehilite">ivalue=</code>
+<p><code class="codehilite"><span class="kp">ivalue</span><span class="o">=</span></code>
     The array to store the imag. part of the eigenvalues</p>
 </li>
 <li>
-<p><code class="codehilite">vector=</code>
+<p><code class="codehilite"><span class="kp">vector</span><span class="o">=</span></code>
     The FE function array to store the eigenvectors</p>
 </li>
 <li>
-<p><code class="codehilite">rawvector=</code>
-    An array of type <code class="codehilite">real[int,int]</code> to store eigenvectors by column.</p>
+<p><code class="codehilite"><span class="kp">rawvector</span><span class="o">=</span></code>
+    An array of type <code class="codehilite"><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">]</span></code> to store eigenvectors by column.</p>
 <p>For real non symmetric problems, complex eigenvectors are given as two consecutive vectors, so if eigenvalue <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> and <span><span class="MathJax_Preview">k+1</span><script type="math/tex">k+1</script></span> are complex conjugate eigenvalues, the <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>th vector will contain the real part and the <span><span class="MathJax_Preview">k+1</span><script type="math/tex">k+1</script></span>th vector the imaginary part of the corresponding complex conjugate eigenvectors.</p>
 </li>
 <li>
-<p><code class="codehilite">tol=</code>
+<p><code class="codehilite"><span class="kp">tol</span><span class="o">=</span></code>
     The relative accuracy to which eigenvalues are to be determined;</p>
 </li>
 <li>
-<p><code class="codehilite">sigma=</code>
+<p><code class="codehilite"><span class="kp">sigma</span><span class="o">=</span></code>
     The shift value;</p>
 </li>
 <li>
-<p><code class="codehilite">maxit=</code>
+<p><code class="codehilite"><span class="kp">maxit</span><span class="o">=</span></code>
     The maximum number of iterations allowed;</p>
 </li>
 <li>
-<p><code class="codehilite">ncv=</code>
+<p><code class="codehilite"><span class="kp">ncv</span><span class="o">=</span></code>
     The number of Arnoldi vectors generated at each iteration of <code>ARPACK</code>;</p>
 </li>
 <li>
-<p><code class="codehilite">mode=</code>
+<p><code class="codehilite"><span class="kp">mode</span><span class="o">=</span></code>
     The computational mode used by <code>ARPACK</code> (see above);</p>
 </li>
 <li>
-<p><code class="codehilite">which=</code>
+<p><code class="codehilite"><span class="kp">which</span><span class="o">=</span></code>
 The requested subset of eigenvalues (see above).</p>
 </li>
 </ul>
@@ -1531,56 +1531,56 @@ The requested subset of eigenvalues (see above).</p>
 47
 48
 49
-50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-verbosity=0;
-real sigma = 20; //value of the shift
-int nev = 20; //number of computed eigen value close to sigma
+50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kr">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//value of the shift</span>
+<span class="kt">int</span> <span class="kp">nev</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//number of computed eigen value close to sigma</span>
 
-// Mesh
-mesh Th = square(20, 20, [pi*x, pi*y]);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span> <span class="kr">pi</span><span class="o">*</span><span class="kr">y</span><span class="p">]);</span>
 
-// Fespace
-fespace Vh(Th, P2);
-Vh u1, u2;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">;</span>
 
-// Problem
-// OP = A - sigma B ; // the shifted matrix
-varf op (u1, u2)
-    = int2d(Th)(
-          dx(u1)*dx(u2)
-        + dy(u1)*dy(u2)
-        - sigma* u1*u2
-    )
-    + on(1, 2, 3, 4, u1=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="c1">// OP = A - sigma B ; // the shifted matrix</span>
+<span class="kt">varf</span> <span class="kp">op</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+        <span class="o">-</span> <span class="kp">sigma</span><span class="o">*</span> <span class="n">u1</span><span class="o">*</span><span class="n">u2</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-varf b ([u1], [u2]) = int2d(Th)(u1*u2); //no boundary condition
+<span class="kt">varf</span> <span class="nf">b</span> <span class="p">([</span><span class="n">u1</span><span class="p">],</span> <span class="p">[</span><span class="n">u2</span><span class="p">])</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">u1</span><span class="o">*</span><span class="n">u2</span><span class="p">);</span> <span class="c1">//no boundary condition</span>
 
-matrix OP = op(Vh, Vh, solver=Crout, factorize=1); //crout solver because the matrix in not positive
-matrix B = b(Vh, Vh, solver=CG, eps=1e-20);
+<span class="kt">matrix</span> <span class="n">OP</span> <span class="o">=</span> <span class="kp">op</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Crout</span><span class="p">,</span> <span class="kp">factorize</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//crout solver because the matrix in not positive</span>
+<span class="kt">matrix</span> <span class="kp">B</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">);</span>
 
-// important remark:
-// the boundary condition is make with exact penalization:
-// we put 1e30=tgv on the diagonal term of the lock degree of freedom.
-// So take Dirichlet boundary condition just on $a$ variational form
-// and not on $b$ variational form.
-// because we solve $ w=OP^-1*B*v $
+<span class="c1">// important remark:</span>
+<span class="c1">// the boundary condition is make with exact penalization:</span>
+<span class="c1">// we put 1e30=tgv on the diagonal term of the lock degree of freedom.</span>
+<span class="c1">// So take Dirichlet boundary condition just on $a$ variational form</span>
+<span class="c1">// and not on $b$ variational form.</span>
+<span class="c1">// because we solve $ w=OP^-1*B*v $</span>
 
-// Solve
-real[int] ev(nev); //to store the nev eigenvalue
-Vh[int] eV(nev); //to store the nev eigenvector
+<span class="c1">// Solve</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">ev</span><span class="p">(</span><span class="kp">nev</span><span class="p">);</span> <span class="c1">//to store the nev eigenvalue</span>
+<span class="n">Vh</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">eV</span><span class="p">(</span><span class="kp">nev</span><span class="p">);</span> <span class="c1">//to store the nev eigenvector</span>
 
-int k = EigenValue(OP, B, sym=true, sigma=sigma, value=ev, vector=eV,
-    tol=1e-10, maxit=0, ncv=0);
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="kp">B</span><span class="p">,</span> <span class="kp">sym</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span><span class="kp">sigma</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="n">ev</span><span class="p">,</span> <span class="kp">vector</span><span class="o">=</span><span class="n">eV</span><span class="p">,</span>
+    <span class="kp">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="kp">maxit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kp">ncv</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
 
-// Display &amp; Plot
-for (int i = 0; i &lt; k; i++){
-    u1 = eV[i];
-    real gg = int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1));
-    real mm = int2d(Th)(u1*u1) ;
-    cout &lt;&lt; &quot;lambda[&quot; &lt;&lt; i &lt;&lt; &quot;] = &quot; &lt;&lt; ev[i] &lt;&lt; &quot;, err= &quot; &lt;&lt; int2d(Th)(dx(u1)*dx(u1) + dy(u1)*dy(u1) - (ev[i])*u1*u1) &lt;&lt; endl;
-    plot(eV[i], cmm=&quot;Eigen Vector &quot;+i+&quot; value =&quot;+ev[i], wait=true, value=true);
-}
+<span class="c1">// Display &amp; Plot</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">u1</span> <span class="o">=</span> <span class="n">eV</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="kt">real</span> <span class="n">gg</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">));</span>
+    <span class="kt">real</span> <span class="n">mm</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">u1</span><span class="o">*</span><span class="n">u1</span><span class="p">)</span> <span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;lambda[&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;] = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, err= &quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">u1</span><span class="o">*</span><span class="n">u1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">eV</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;Eigen Vector &quot;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s">&quot; value =&quot;</span><span class="o">+</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -1604,26 +1604,26 @@ for (int i = 0; i &lt; k; i++){
 17
 18
 19
-20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>lambda[0] = 5.0002, err= -1.46519e-11
-lambda[1] = 8.00074, err= -4.05158e-11
-lambda[2] = 10.0011, err= 2.84925e-12
-lambda[3] = 10.0011, err= -7.25456e-12
-lambda[4] = 13.002, err= -1.74257e-10
-lambda[5] = 13.0039, err= 1.22554e-11
-lambda[6] = 17.0046, err= -1.06274e-11
-lambda[7] = 17.0048, err= 1.03883e-10
-lambda[8] = 18.0083, err= -4.05497e-11
-lambda[9] = 20.0096, err= -2.21678e-13
-lambda[10] = 20.0096, err= -4.16212e-14
-lambda[11] = 25.014, err= -7.42931e-10
-lambda[12] = 25.0283, err= 6.77444e-10
-lambda[13] = 26.0159, err= 3.19864e-11
-lambda[14] = 26.0159, err= -4.9652e-12
-lambda[15] = 29.0258, err= -9.99573e-11
-lambda[16] = 29.0273, err= 1.38242e-10
-lambda[17] = 32.0449, err= 1.2522e-10
-lambda[18] = 34.049, err= 3.40213e-11
-lambda[19] = 34.0492, err= 2.41751e-10
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">lambda</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0002</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.46519e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">8.00074</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">4.05158e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">10.0011</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">2.84925e-12</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">10.0011</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">7.25456e-12</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">13.002</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.74257e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">13.0039</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">1.22554e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mf">17.0046</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.06274e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mf">17.0048</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">1.03883e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mf">18.0083</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">4.05497e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="mf">20.0096</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">2.21678e-13</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mf">20.0096</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">4.16212e-14</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="mf">25.014</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">7.42931e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="mf">25.0283</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">6.77444e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="mf">26.0159</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">3.19864e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="mf">26.0159</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">4.9652e-12</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mf">29.0258</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="o">-</span><span class="mf">9.99573e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="mf">29.0273</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">1.38242e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span> <span class="o">=</span> <span class="mf">32.0449</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">1.2522e-10</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span> <span class="o">=</span> <span class="mf">34.049</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">3.40213e-11</span>
+<span class="n">lambda</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="o">=</span> <span class="mf">34.0492</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span> <span class="mf">2.41751e-10</span>
 </pre></div>
 </td></tr></table>
 

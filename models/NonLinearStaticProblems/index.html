@@ -1438,81 +1438,81 @@ u^{n+1} = u^n - ( \nabla^2 J (u^{n}))^{-1}*\nabla J(u^n)
 72
 73
 74
-75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real a = 0.001;
-func b = 1.;
+75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">;</span>
+<span class="kt">func</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
 
-// Mesh
-mesh Th = square(10, 10);
-Th = adaptmesh(Th, 0.05, IsMetric=1, splitpbedge=1);
-plot(Th, wait=true);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">Th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="kp">IsMetric</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">splitpbedge</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u=0;
-Vh v, w;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
 
-fespace Ph(Th, P1dc);
-Ph alpha; //to store |nabla u|^2
-Ph dalpha ; //to store 2f&#39;&#39;(|nabla u|^2)
+<span class="kt">fespace</span> <span class="nf">Ph</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1dc</span><span class="p">);</span>
+<span class="n">Ph</span> <span class="n">alpha</span><span class="p">;</span> <span class="c1">//to store |nabla u|^2</span>
+<span class="n">Ph</span> <span class="n">dalpha</span> <span class="p">;</span> <span class="c1">//to store 2f&#39;&#39;(|nabla u|^2)</span>
 
-// Function
-func real f (real u){
-    return u*a + u - log(1.+u);
-}
-func real df (real u){
-    return a +u/(1.+u);
-}
-func real ddf (real u){
-    return 1. / ((1.+u)*(1.+u));
-}
+<span class="c1">// Function</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">f</span> <span class="p">(</span><span class="kt">real</span> <span class="n">u</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">u</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="nf">log</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">u</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">df</span> <span class="p">(</span><span class="kt">real</span> <span class="n">u</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span><span class="n">u</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">u</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">ddf</span> <span class="p">(</span><span class="kt">real</span> <span class="n">u</span><span class="p">){</span>
+    <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">((</span><span class="mf">1.</span><span class="o">+</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">u</span><span class="p">));</span>
+<span class="p">}</span>
 
-// Problem
-//the variational form of evaluate dJ = nabla J
-//dJ = f&#39;()*(dx(u)*dx(vh) + dy(u)*dy(vh))
-varf vdJ (uh, vh)
-    = int2d(Th)(
-          alpha*(dx(u)*dx(vh) + dy(u)*dy(vh))
-        - b*vh
-    )
-    + on(1, 2, 3, 4, uh=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="c1">//the variational form of evaluate dJ = nabla J</span>
+<span class="c1">//dJ = f&#39;()*(dx(u)*dx(vh) + dy(u)*dy(vh))</span>
+<span class="kt">varf</span> <span class="nf">vdJ</span> <span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vh</span><span class="p">))</span>
+        <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">vh</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">uh</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-//the variational form of evaluate ddJ = nabla^2 J
-//hJ(uh,vh) = f&#39;()*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
-//  + 2*f&#39;&#39;()(dx(u)*dx(uh) + dy(u)*dy(uh)) * (dx(u)*dx(vh) + dy(u)*dy(vh))
-varf vhJ (uh, vh)
-    = int2d(Th)(
-          alpha*(dx(uh)*dx(vh) + dy(uh)*dy(vh))
-        + dalpha*(dx(u)*dx(vh) + dy(u)*dy(vh))*(dx(u)*dx(uh) + dy(u)*dy(uh))
-    )
-    + on(1, 2, 3, 4, uh=0)
-    ;
+<span class="c1">//the variational form of evaluate ddJ = nabla^2 J</span>
+<span class="c1">//hJ(uh,vh) = f&#39;()*(dx(uh)*dx(vh) + dy(uh)*dy(vh))</span>
+<span class="c1">//  + 2*f&#39;&#39;()(dx(u)*dx(uh) + dy(u)*dy(uh)) * (dx(u)*dx(vh) + dy(u)*dy(vh))</span>
+<span class="kt">varf</span> <span class="nf">vhJ</span> <span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vh</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">dalpha</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vh</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">uh</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Newton algorithm
-for (int i = 0; i &lt; 100; i++){
-    // Compute f&#39; and f&#39;&#39;
-    alpha = df(dx(u)*dx(u) + dy(u)*dy(u));
-    dalpha = 2*ddf(dx(u)*dx(u) + dy(u)*dy(u));
+<span class="c1">// Newton algorithm</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Compute f&#39; and f&#39;&#39;</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
+    <span class="n">dalpha</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">ddf</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
 
-    // nabla J
-    v[]= vdJ(0, Vh);
+    <span class="c1">// nabla J</span>
+    <span class="n">v</span><span class="p">[]</span><span class="o">=</span> <span class="n">vdJ</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
 
-    // Residual
-    real res = v[]&#39;*v[];
-    cout &lt;&lt; i &lt;&lt; &quot; residu^2 = &quot; &lt;&lt; res &lt;&lt; endl;
-    if( res &lt; 1e-12) break;
+    <span class="c1">// Residual</span>
+    <span class="kt">real</span> <span class="n">res</span> <span class="o">=</span> <span class="n">v</span><span class="p">[]</span><span class="o">&#39;*</span><span class="n">v</span><span class="p">[];</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; residu^2 = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
-    // HJ
-    matrix H = vhJ(Vh, Vh, factorize=1, solver=LU);
+    <span class="c1">// HJ</span>
+    <span class="kt">matrix</span> <span class="n">H</span> <span class="o">=</span> <span class="n">vhJ</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">factorize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">);</span>
 
-    // Newton
-    w[] = H^-1*v[];
-    u[] -= w[];
-}
+    <span class="c1">// Newton</span>
+    <span class="n">w</span><span class="p">[]</span> <span class="o">=</span> <span class="n">H</span><span class="o">^-</span><span class="mi">1</span><span class="o">*</span><span class="n">v</span><span class="p">[];</span>
+    <span class="n">u</span><span class="p">[]</span> <span class="o">-=</span> <span class="n">w</span><span class="p">[];</span>
+<span class="p">}</span>
 
-// Plot
-plot (u, wait=true, cmm=&quot;Solution with Newton-Raphson&quot;);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;Solution with Newton-Raphson&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
                 

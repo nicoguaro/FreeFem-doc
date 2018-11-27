@@ -1460,7 +1460,7 @@
 <p>The wifi hotspot (simulated by a simple circle) will be the boundary condition, with a non null value for our electrical field.</p>
 <h2 id="coding">Coding<a class="headerlink" href="#coding" title="Permanent link">#</a></h2>
 <h3 id="the-domain">The domain<a class="headerlink" href="#the-domain" title="Permanent link">#</a></h3>
-<p>In order to create the domain of experimentation, we need to create <code class="codehilite">border</code> objects, like this :</p>
+<p>In order to create the domain of experimentation, we need to create <code class="codehilite"><span class="kt">border</span></code> objects, like this :</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1481,27 +1481,27 @@
 18
 19
 20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 40, b = 40, c = 0.5;
-border a00(t=0, 1) {x=a*t; y=0; label=1;}
-border a10(t=0, 1) {x=a; y=b*t; label=1;}
-border a20(t=1, 0) {x=a*t; y=b; label=1;}
-border a30(t=1, 0) {x=0; y=b*t; label=1;}
-border a01(t=0, 1) {x=c+(a-c*2)*t; y=c; label=1;}
-border a11(t=0, 1) {x=a-c; y=c+(b-c*2)*t; label=1;}
-border a21(t=1, 0) {x=c+(a-c*2)*t; y=b-c; label=1;}
-border a31(t=1, 0) {x=c; y=c+(b-c*2)*t; label=1;}
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="kt">border</span> <span class="nf">a00</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a10</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a20</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a30</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a01</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">c</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a11</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">c</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a21</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a31</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">c</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">c</span><span class="o">+</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
 
-real p = 5, q = 20, d = 34, e = 1;
-border b00(t=0, 1) {x=p+d*t; y=q; label=3;}
-border b10(t=0, 1) {x=p+d; y=q+e*t; label=3;}
-border b20(t=1, 0) {x=p+d*t; y=q+e; label=3;}
-border b30(t=1, 0) {x=p; y=q+e*t; label=3;}
+<span class="kt">real</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="nf">d</span> <span class="o">=</span> <span class="mi">34</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">border</span> <span class="nf">b00</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="nf">d</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">q</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b10</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="nf">d</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">q</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b20</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="nf">d</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">q</span><span class="o">+</span><span class="n">e</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b30</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">p</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">q</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
 
-real r = 30, s =1 , j = 1, u = 15;
-border c00(t=0, 1) {x=r+j*t; y=s; label=3;}
-border c10(t=0, 1) {x=r+j; y=s+u*t; label=3;}
-border c20(t=1, 0) {x=r+j*t; y=s+u; label=3;}
-border c30(t=1, 0) {x=r; y=s+u*t; label=3;}
+<span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span><span class="mi">1</span> <span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="kt">border</span> <span class="nf">c00</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">r</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">s</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">c10</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">r</span><span class="o">+</span><span class="n">j</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="n">u</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">c20</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">r</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="n">u</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">c30</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="n">r</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="n">u</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
 </pre></div>
 </td></tr></table>
 
@@ -1511,16 +1511,16 @@ border c30(t=1, 0) {x=r; y=s+u*t; label=3;}
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int n=13;
-mesh Sh = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
-    + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n)
-    + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
-    + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
-plot(Sh, wait=1);
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="kr">n</span><span class="o">=</span><span class="mi">13</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Sh</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a00</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a10</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a20</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a30</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">a01</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a11</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a21</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a31</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">b00</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b10</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b20</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b30</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">c00</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c10</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c20</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c30</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
-<p>So we are creating a <code class="codehilite">mesh</code>, and plotting it :</p>
+<p>So we are creating a <code class="codehilite"><span class="kt">mesh</span></code>, and plotting it :</p>
 <table>
 <thead>
 <tr>
@@ -1533,7 +1533,7 @@ plot(Sh, wait=1);
 </tr>
 </tbody>
 </table>
-<p>There is currently no wifi hotspot, and as we want to resolve the equation for a multiple number of position next to the left wall, let's do a <code class="codehilite">for</code> loop:</p>
+<p>There is currently no wifi hotspot, and as we want to resolve the equation for a multiple number of position next to the left wall, let's do a <code class="codehilite"><span class="k">for</span></code> loop:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -1541,14 +1541,14 @@ plot(Sh, wait=1);
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int bx;
-for (bx = 1; bx &lt;= 7; bx++){
-    border C(t=0, 2*pi){x=2+cos(t); y=bx*5+sin(t); label=2;}
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">bx</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">bx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">bx</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">bx</span><span class="o">++</span><span class="p">){</span>
+    <span class="kt">border</span> <span class="n">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">2</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">bx</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
 
-    mesh Th = buildmesh(a00(10*n) + a10(10*n) + a20(10*n) + a30(10*n)
-        + a01(10*n) + a11(10*n) + a21(10*n) + a31(10*n) + C(10)
-        + b00(5*n) + b10(5*n) + b20(5*n) + b30(5*n)
-        + c00(5*n) + c10(5*n) + c20(5*n) + c30(5*n));
+    <span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a00</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a10</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a20</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a30</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">a01</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a11</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a21</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">a31</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b00</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b10</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b20</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b30</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">c00</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c10</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c20</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c30</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
 </pre></div>
 </td></tr></table>
 
@@ -1580,43 +1580,43 @@ for (bx = 1; bx &lt;= 7; bx++){
 25
 26
 27
-28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P1);
-func real wall() {
-   if (Th(x,y).region == Th(0.5,0.5).region || Th(x,y).region == Th(7,20.5).region || Th(x,y).region == Th(30.5,2).region) { return 1; }
-   else { return 0; }
-}
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">wall</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">Th</span><span class="p">(</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">).</span><span class="kr">region</span> <span class="o">==</span> <span class="n">Th</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">).</span><span class="kr">region</span> <span class="o">||</span> <span class="n">Th</span><span class="p">(</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">).</span><span class="kr">region</span> <span class="o">==</span> <span class="n">Th</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mf">20.5</span><span class="p">).</span><span class="kr">region</span> <span class="o">||</span> <span class="n">Th</span><span class="p">(</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">).</span><span class="kr">region</span> <span class="o">==</span> <span class="n">Th</span><span class="p">(</span><span class="mf">30.5</span><span class="p">,</span><span class="mi">2</span><span class="p">).</span><span class="kr">region</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+   <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
 
-Vh&lt;complex&gt; v,w;
+<span class="n">Vh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">;</span>
 
-randinit(900);
-Vh wallreflexion = randreal1();
-Vh&lt;complex&gt; wallabsorption = randreal1()*0.5i;
-Vh k = 6;
+<span class="nf">randinit</span><span class="p">(</span><span class="mi">900</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">wallreflexion</span> <span class="o">=</span> <span class="nf">randreal1</span><span class="p">();</span>
+<span class="n">Vh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">wallabsorption</span> <span class="o">=</span> <span class="nf">randreal1</span><span class="p">()</span><span class="o">*</span><span class="mf">0.5</span><span class="n">i</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 
-cout &lt;&lt; &quot;Reflexion of walls : &quot; &lt;&lt; wallreflexion &lt;&lt; &quot;\n&quot;;
-cout &lt;&lt; &quot;Absorption of walls : &quot; &lt;&lt; wallabsorption &lt;&lt; &quot;\n&quot;;
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Reflexion of walls : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">wallreflexion</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Absorption of walls : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">wallabsorption</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 
-problem muwave(v,w) =
-    int2d(Th)(
-          (v*w*k^2)/(1+(wallreflexion+wallabsorption)*wall())^2
-        - (dx(v)*dx(w)+dy(v)*dy(w))
-    )
-    + on(2, v=1)
-    ;
+<span class="kt">problem</span> <span class="nf">muwave</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span>
+    <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">k</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">wallreflexion</span><span class="o">+</span><span class="n">wallabsorption</span><span class="p">)</span><span class="o">*</span><span class="n">wall</span><span class="p">())</span><span class="o">^</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">;</span>
 
-muwave;
-Vh vm = log(real(v)^2 + imag(v)^2);
-plot(vm, wait=1, fill=true, value=0, nbiso=65);
-}
+<span class="n">muwave</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">vm</span> <span class="o">=</span> <span class="nf">log</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="nf">imag</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kp">nbiso</span><span class="o">=</span><span class="mi">65</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <p>A bit of understanding here :</p>
 <ul>
-<li>The <code class="codehilite">fespace</code> keyword defines a finite elements space, no need to know more here.</li>
+<li>The <code class="codehilite"><span class="kt">fespace</span></code> keyword defines a finite elements space, no need to know more here.</li>
 <li>The function <code>wall</code> return 0 if in air and 1 if in a wall (x and y are global variables).</li>
 <li>For this example, random numbers are used for the reflexion and the absorption.</li>
-<li>The problem is defined with <code class="codehilite">problem</code> and we solve it by calling it.</li>
+<li>The problem is defined with <code class="codehilite"><span class="kt">problem</span></code> and we solve it by calling it.</li>
 </ul>
 <p>Finally, I plotted the <span><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span> of the module of the solution <code>v</code> to see the signal's power, and here we are :</p>
 <table>

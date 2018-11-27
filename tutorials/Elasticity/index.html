@@ -1448,55 +1448,55 @@ axis are governed by</p>
 46
 47
 48
-49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real E = 21e5;
-real nu = 0.28;
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">21e5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">nu</span> <span class="o">=</span> <span class="mf">0.28</span><span class="p">;</span>
 
-real f = -1;
+<span class="kt">real</span> <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 
-// Mesh
-mesh Th = square(10, 10, [20*x,2*y-1]);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-// Fespace
-fespace Vh(Th, P2);
-Vh u, v;
-Vh uu, vv;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
 
-// Macro
-real sqrt2=sqrt(2.);
-macro epsilon(u1,u2) [dx(u1),dy(u2),(dy(u1)+dx(u2))/sqrt2] //
-// The sqrt2 is because we want: epsilon(u1,u2)&#39;* epsilon(v1,v2) $== \epsilon(\bm{u}): \epsilon(\bm{v})$
-macro div(u,v) ( dx(u)+dy(v) ) //
+<span class="c1">// Macro</span>
+<span class="kt">real</span> <span class="n">sqrt2</span><span class="o">=</span><span class="nf">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">);</span>
+<span class="kt">macro</span> <span class="nf">epsilon</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">),</span><span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">),(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">+</span><span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt2</span><span class="p">]</span> <span class="c1">//</span>
+<span class="o">//</span> <span class="n">The</span> <span class="n">sqrt2</span> <span class="n">is</span> <span class="n">because</span> <span class="n">we</span> <span class="nl">want</span><span class="o">:</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">)</span><span class="o">&#39;*</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span> <span class="err">$</span><span class="o">==</span> <span class="err">\</span><span class="n">epsilon</span><span class="p">(</span><span class="err">\</span><span class="n">bm</span><span class="p">{</span><span class="n">u</span><span class="p">})</span><span class="o">:</span> <span class="err">\</span><span class="n">epsilon</span><span class="p">(</span><span class="err">\</span><span class="n">bm</span><span class="p">{</span><span class="n">v</span><span class="p">})</span><span class="err">$</span>
+<span class="kt">macro</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="p">(</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">)</span> <span class="c1">//</span>
 
-// Problem
-real mu= E/(2*(1+nu));
-real lambda = E*nu/((1+nu)*(1-2*nu));
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">mu</span><span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">nu</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="n">nu</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">nu</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">nu</span><span class="p">));</span>
 
-solve lame([u, v], [uu, vv])
-    = int2d(Th)(
-          lambda * div(u, v) * div(uu, vv)
-        + 2.*mu * ( epsilon(u,v)&#39; * epsilon(uu,vv) )
-    )
-    - int2d(Th)(
-            f*vv
-    )
-    + on(4, u=0, v=0)
-    ;
+<span class="kt">solve</span> <span class="nf">lame</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="p">[</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">lambda</span> <span class="o">*</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">div</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">mu</span> <span class="o">*</span> <span class="p">(</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span><span class="n">vv</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+            <span class="n">f</span><span class="o">*</span><span class="n">vv</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-real coef=100;
-plot([u, v], wait=1, ps=&quot;lamevect.eps&quot;, coef=coef);
+<span class="c1">// Plot</span>
+<span class="kt">real</span> <span class="kp">coef</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;lamevect.eps&quot;</span><span class="p">,</span> <span class="kp">coef</span><span class="o">=</span><span class="kp">coef</span><span class="p">);</span>
 
-// Move mesh
-mesh th1 = movemesh(Th, [x+u*coef, y+v*coef]);
-plot(th1,wait=1,ps=&quot;lamedeform.eps&quot;);
+<span class="c1">// Move mesh</span>
+<span class="kt">mesh</span> <span class="n">th1</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u</span><span class="o">*</span><span class="kp">coef</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">v</span><span class="o">*</span><span class="kp">coef</span><span class="p">]);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span><span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="kp">ps</span><span class="o">=</span><span class="s">&quot;lamedeform.eps&quot;</span><span class="p">);</span>
 
-// Output
-real dxmin = u[].min;
-real dymin = v[].min;
+<span class="c1">// Output</span>
+<span class="kt">real</span> <span class="n">dxmin</span> <span class="o">=</span> <span class="n">u</span><span class="p">[].</span><span class="kr">min</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dymin</span> <span class="o">=</span> <span class="n">v</span><span class="p">[].</span><span class="kr">min</span><span class="p">;</span>
 
-cout &lt;&lt; &quot; - dep. max x = &quot;&lt;&lt; dxmin &lt;&lt; &quot; y=&quot; &lt;&lt; dymin &lt;&lt; endl;
-cout &lt;&lt; &quot;   dep. (20, 0) = &quot; &lt;&lt; u(20, 0) &lt;&lt; &quot; &quot; &lt;&lt; v(20, 0) &lt;&lt; endl;
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - dep. max x = &quot;</span><span class="o">&lt;&lt;</span> <span class="n">dxmin</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; y=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">dymin</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;   dep. (20, 0) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 

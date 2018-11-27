@@ -1563,112 +1563,112 @@ A_3\{{H}_{\rho}^t,{H}_{\phi}^t,{H}_{z}^t\}&=&0
 103
 104
 105
-106</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real radius = 36; //approximate radius of the cavity
-real yb = -10, yt = -yb; //window yb=bottom and yt=top coordinates
-real xl = radius-5, xr = radius+3; //window xl=left and xr=right coordinates
-real angle = asin((yt)/radius); //angle of the sphere segment to model in radians
-int Nm = 60; //number of mesh vertices per border
-real ne = 1.46; //n_e-extraordinary refractive index (root of permittivity parallel to z-axis, epara)
-real no = 1.46; //n_o-ordinary refractive index (root of permittivity orthogonal to z-axis, eorto)
-real nm = 1; //refractive index of surrounding medium (air)
+106</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">36</span><span class="p">;</span> <span class="c1">//approximate radius of the cavity</span>
+<span class="kt">real</span> <span class="n">yb</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">yt</span> <span class="o">=</span> <span class="o">-</span><span class="n">yb</span><span class="p">;</span> <span class="c1">//window yb=bottom and yt=top coordinates</span>
+<span class="kt">real</span> <span class="n">xl</span> <span class="o">=</span> <span class="n">radius</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xr</span> <span class="o">=</span> <span class="n">radius</span><span class="o">+</span><span class="mi">3</span><span class="p">;</span> <span class="c1">//window xl=left and xr=right coordinates</span>
+<span class="kt">real</span> <span class="n">angle</span> <span class="o">=</span> <span class="nf">asin</span><span class="p">((</span><span class="n">yt</span><span class="p">)</span><span class="o">/</span><span class="n">radius</span><span class="p">);</span> <span class="c1">//angle of the sphere segment to model in radians</span>
+<span class="kt">int</span> <span class="n">Nm</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span> <span class="c1">//number of mesh vertices per border</span>
+<span class="kt">real</span> <span class="n">ne</span> <span class="o">=</span> <span class="mf">1.46</span><span class="p">;</span> <span class="c1">//n_e-extraordinary refractive index (root of permittivity parallel to z-axis, epara)</span>
+<span class="kt">real</span> <span class="n">no</span> <span class="o">=</span> <span class="mf">1.46</span><span class="p">;</span> <span class="c1">//n_o-ordinary refractive index (root of permittivity orthogonal to z-axis, eorto)</span>
+<span class="kt">real</span> <span class="n">nm</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//refractive index of surrounding medium (air)</span>
 
-int nev = 4; // number of eigen values to find
+<span class="kt">int</span> <span class="kp">nev</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// number of eigen values to find</span>
 
-int M = 213; //azimuthal mode order ~ 2Pi*n*R/lambda
-real alpha = 1; //penalty term
+<span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">213</span><span class="p">;</span> <span class="c1">//azimuthal mode order ~ 2Pi*n*R/lambda</span>
+<span class="kt">real</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//penalty term</span>
 
-// Mesh
-border W1l(t=0, 1){x=xl+(radius*cos(angle)-xl)*(1-t); y=yt; label=1;}
-border W1r(t=0, 1){x=xr-(xr-radius*cos(angle))*(t); y=yt; label=1;}
-border W2(t=0, 1){x=xr; y=yb+(yt-yb)*t; label=1;}
-border W3l(t=0, 1){x=xl+(radius*cos(angle)-xl)*(t); y=yb; label=1;}
-border W3r(t=0, 1){x=xr-(xr-radius*cos(angle))*(1-t); y=yb; label=1;}
-border W4(t=0, 1){x=xl; y=yt-(yt-yb)*t; label=1;}
-border S(t=0, 1){x=radius*cos((t-0.5)*2*angle); y=radius*sin((t-0.5)*2*angle); label=2;}
-mesh Th = buildmesh(W1r(Nm/4) + W1l(Nm/4) + W4(Nm) + W3l(Nm/4) + W3r(Nm/4) + W2(Nm) + S(Nm));
-plot(Th, WindowIndex=0);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">W1l</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xl</span><span class="o">+</span><span class="p">(</span><span class="n">radius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="o">-</span><span class="n">xl</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">yt</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">W1r</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xr</span><span class="o">-</span><span class="p">(</span><span class="n">xr</span><span class="o">-</span><span class="n">radius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">yt</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">W2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xr</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">yb</span><span class="o">+</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">yb</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">W3l</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xl</span><span class="o">+</span><span class="p">(</span><span class="n">radius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="o">-</span><span class="n">xl</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">yb</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">W3r</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xr</span><span class="o">-</span><span class="p">(</span><span class="n">xr</span><span class="o">-</span><span class="n">radius</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">yb</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">W4</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">xl</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">yt</span><span class="o">-</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">yb</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">S</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">radius</span><span class="o">*</span><span class="nf">cos</span><span class="p">((</span><span class="kp">t</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">angle</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">radius</span><span class="o">*</span><span class="nf">sin</span><span class="p">((</span><span class="kp">t</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">angle</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">W1r</span><span class="p">(</span><span class="n">Nm</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">W1l</span><span class="p">(</span><span class="n">Nm</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">W4</span><span class="p">(</span><span class="n">Nm</span><span class="p">)</span> <span class="o">+</span> <span class="n">W3l</span><span class="p">(</span><span class="n">Nm</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">W3r</span><span class="p">(</span><span class="n">Nm</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">W2</span><span class="p">(</span><span class="n">Nm</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span><span class="p">(</span><span class="n">Nm</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">WindowIndex</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
 
-// Fespace
-fespace Ph(Th, P0);
-Ph reg = region;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Ph</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Ph</span> <span class="n">reg</span> <span class="o">=</span> <span class="kr">region</span><span class="p">;</span>
 
-int ncav = reg(xl+1, 0); // cavity
-int nair = reg(xr-1, 0); //air
-Ph eorto = no^2*(region==ncav) + nm^2*(region==nair); //subdomains for epsilon values inside and outside the resonators
-Ph epara = ne^2*(region==ncav) + nm^2*(region==nair); //subdomains for epsilon values inside and outside the resonators
+<span class="kt">int</span> <span class="n">ncav</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">xl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// cavity</span>
+<span class="kt">int</span> <span class="n">nair</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">xr</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">//air</span>
+<span class="n">Ph</span> <span class="n">eorto</span> <span class="o">=</span> <span class="n">no</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">ncav</span><span class="p">)</span> <span class="o">+</span> <span class="n">nm</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">nair</span><span class="p">);</span> <span class="c1">//subdomains for epsilon values inside and outside the resonators</span>
+<span class="n">Ph</span> <span class="n">epara</span> <span class="o">=</span> <span class="n">ne</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">ncav</span><span class="p">)</span> <span class="o">+</span> <span class="n">nm</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">nair</span><span class="p">);</span> <span class="c1">//subdomains for epsilon values inside and outside the resonators</span>
 
-//supplementary variables to store eigenvectors, defined on mesh Th with P2 elements - Largange quadratic.
-fespace Supp(Th, P2);
-Supp eHsqr;
+<span class="c1">//supplementary variables to store eigenvectors, defined on mesh Th with P2 elements - Largange quadratic.</span>
+<span class="kt">fespace</span> <span class="nf">Supp</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">Supp</span> <span class="n">eHsqr</span><span class="p">;</span>
 
-//3d vector FE space
-fespace Vh(Th, [P2, P2, P2]);
-Vh [Hr, Hphi, Hz], [vHr, vHphi, vHz]; //magnetic field components on Vh space and test functions vH
+<span class="c1">//3d vector FE space</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">],</span> <span class="p">[</span><span class="n">vHr</span><span class="p">,</span> <span class="n">vHphi</span><span class="p">,</span> <span class="n">vHz</span><span class="p">];</span> <span class="c1">//magnetic field components on Vh space and test functions vH</span>
 
-// Macro
-//boundary condition macros
-macro EWall(Hr, Hphi, Hz) (
-      dy(Hr) - dx(Hz) + Hr*N.x + Hz*N.y
-    - epara*(Hz*M - dy(Hphi)*x)*N.y
-    + eorto*(Hphi - Hr*M+dx(Hphi)*x)*N.x) //
-macro MWall(Hr, Hphi, Hz) (
-      Hphi + Hz*N.x - Hr*N.y
-    + epara*(Hz*M - dy(Hphi)*x)*N.x
-    + eorto*(Hphi - Hr*M+dx(Hphi)*x)*N.y ) //
+<span class="c1">// Macro</span>
+<span class="c1">//boundary condition macros</span>
+<span class="kt">macro</span> <span class="nf">EWall</span><span class="p">(</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">)</span> <span class="p">(</span>
+      <span class="nf">dy</span><span class="p">(</span><span class="n">Hr</span><span class="p">)</span> <span class="o">-</span> <span class="nf">dx</span><span class="p">(</span><span class="n">Hz</span><span class="p">)</span> <span class="o">+</span> <span class="n">Hr</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span> <span class="o">+</span> <span class="n">Hz</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span>
+    <span class="o">-</span> <span class="n">epara</span><span class="o">*</span><span class="p">(</span><span class="n">Hz</span><span class="o">*</span><span class="n">M</span> <span class="o">-</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span>
+    <span class="o">+</span> <span class="n">eorto</span><span class="o">*</span><span class="p">(</span><span class="n">Hphi</span> <span class="o">-</span> <span class="n">Hr</span><span class="o">*</span><span class="n">M</span><span class="o">+</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">MWall</span><span class="p">(</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">)</span> <span class="p">(</span>
+      <span class="n">Hphi</span> <span class="o">+</span> <span class="n">Hz</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span> <span class="o">-</span> <span class="n">Hr</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span>
+    <span class="o">+</span> <span class="n">epara</span><span class="o">*</span><span class="p">(</span><span class="n">Hz</span><span class="o">*</span><span class="n">M</span> <span class="o">-</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span>
+    <span class="o">+</span> <span class="n">eorto</span><span class="o">*</span><span class="p">(</span><span class="n">Hphi</span> <span class="o">-</span> <span class="n">Hr</span><span class="o">*</span><span class="n">M</span><span class="o">+</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span> <span class="p">)</span> <span class="c1">//</span>
 
-// Problem
-real sigma =(M/(ne*radius))^2+2; // value of the shift (k^2), where the modes will be found
-varf b ([Hr, Hphi, Hz], [vHr, vHphi, vHz])
-    = int2d(Th)(
-          x*(Hr*vHr+Hphi*vHphi+Hz*vHz)
-    )
-    ;
-// OP = A - sigma B ; // the shifted matrix
-varf op ([Hr, Hphi, Hz], [vHr, vHphi, vHz])=
-    int2d(Th)(
-          (
-              (eorto*(vHphi*Hphi - M*(vHphi*Hr + Hphi*vHr) + M^2*vHr*Hr) + epara*M^2*vHz*Hz)/x //A/r
-            + eorto*(dx(vHphi)*(Hphi - M*Hr) + dx(Hphi)*(vHphi - M*vHr)) - epara*M*(vHz*dy(Hphi) + Hz*dy(vHphi)) //B
-            + x*(eorto*dx(vHphi)*dx(Hphi) + epara*((dx(vHz) - dy(vHr))*(dx(Hz) - dy(Hr)) + dy(vHphi)*dy(Hphi))) //C
-        )/(eorto*epara)
-        + alpha*(
-              (vHr*Hr - M*(vHphi*Hr + Hphi*vHr) + M^2*vHphi*Hphi)/x //D/r
-            + (dx(vHr) + dy(vHz))*(Hr - M*Hphi) + (vHr - M*vHphi)*(dx(Hr) + dy(Hz)) //E
-            + x*(dx(vHr) + dy(vHz))*(dx(Hr) + dy(Hz)) //F
-        )
-        -sigma*x*(vHr*Hr + vHphi*Hphi + vHz*Hz)
-    )
-    //electric wall boundary condition on the boundary of computation domain
-    +int1d(Th, 1)(
-          EWall(Hr, Hphi, Hz)*EWall(vHr, vHphi, vHz)
-    )
-    ;
-//setting sparce matrices and assigning the solver UMFPACK to solve eigenvalue problem
-matrix B = b(Vh, Vh, solver=UMFPACK);
-matrix OP = op(Vh, Vh, solver=UMFPACK);
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="o">/</span><span class="p">(</span><span class="n">ne</span><span class="o">*</span><span class="n">radius</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span> <span class="c1">// value of the shift (k^2), where the modes will be found</span>
+<span class="kt">varf</span> <span class="nf">b</span> <span class="p">([</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">],</span> <span class="p">[</span><span class="n">vHr</span><span class="p">,</span> <span class="n">vHphi</span><span class="p">,</span> <span class="n">vHz</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="kr">x</span><span class="o">*</span><span class="p">(</span><span class="n">Hr</span><span class="o">*</span><span class="n">vHr</span><span class="o">+</span><span class="n">Hphi</span><span class="o">*</span><span class="n">vHphi</span><span class="o">+</span><span class="n">Hz</span><span class="o">*</span><span class="n">vHz</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
+<span class="c1">// OP = A - sigma B ; // the shifted matrix</span>
+<span class="kt">varf</span> <span class="kp">op</span> <span class="p">([</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">],</span> <span class="p">[</span><span class="n">vHr</span><span class="p">,</span> <span class="n">vHphi</span><span class="p">,</span> <span class="n">vHz</span><span class="p">])</span><span class="o">=</span>
+    <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span>
+              <span class="p">(</span><span class="n">eorto</span><span class="o">*</span><span class="p">(</span><span class="n">vHphi</span><span class="o">*</span><span class="n">Hphi</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="p">(</span><span class="n">vHphi</span><span class="o">*</span><span class="n">Hr</span> <span class="o">+</span> <span class="n">Hphi</span><span class="o">*</span><span class="n">vHr</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">vHr</span><span class="o">*</span><span class="n">Hr</span><span class="p">)</span> <span class="o">+</span> <span class="n">epara</span><span class="o">*</span><span class="n">M</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">vHz</span><span class="o">*</span><span class="n">Hz</span><span class="p">)</span><span class="o">/</span><span class="kr">x</span> <span class="c1">//A/r</span>
+            <span class="o">+</span> <span class="n">eorto</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">vHphi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Hphi</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">Hr</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vHphi</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">vHr</span><span class="p">))</span> <span class="o">-</span> <span class="n">epara</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="p">(</span><span class="n">vHz</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span> <span class="o">+</span> <span class="n">Hz</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vHphi</span><span class="p">))</span> <span class="c1">//B</span>
+            <span class="o">+</span> <span class="kr">x</span><span class="o">*</span><span class="p">(</span><span class="n">eorto</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vHphi</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)</span> <span class="o">+</span> <span class="n">epara</span><span class="o">*</span><span class="p">((</span><span class="nf">dx</span><span class="p">(</span><span class="n">vHz</span><span class="p">)</span> <span class="o">-</span> <span class="nf">dy</span><span class="p">(</span><span class="n">vHr</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hz</span><span class="p">)</span> <span class="o">-</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Hr</span><span class="p">))</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">vHphi</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">Hphi</span><span class="p">)))</span> <span class="c1">//C</span>
+        <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">eorto</span><span class="o">*</span><span class="n">epara</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="p">(</span>
+              <span class="p">(</span><span class="n">vHr</span><span class="o">*</span><span class="n">Hr</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="p">(</span><span class="n">vHphi</span><span class="o">*</span><span class="n">Hr</span> <span class="o">+</span> <span class="n">Hphi</span><span class="o">*</span><span class="n">vHr</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">vHphi</span><span class="o">*</span><span class="n">Hphi</span><span class="p">)</span><span class="o">/</span><span class="kr">x</span> <span class="c1">//D/r</span>
+            <span class="o">+</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">vHr</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">vHz</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">Hr</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">Hphi</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">vHr</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">vHphi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hr</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Hz</span><span class="p">))</span> <span class="c1">//E</span>
+            <span class="o">+</span> <span class="kr">x</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">vHr</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">vHz</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">Hr</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Hz</span><span class="p">))</span> <span class="c1">//F</span>
+        <span class="p">)</span>
+        <span class="o">-</span><span class="kp">sigma</span><span class="o">*</span><span class="kr">x</span><span class="o">*</span><span class="p">(</span><span class="n">vHr</span><span class="o">*</span><span class="n">Hr</span> <span class="o">+</span> <span class="n">vHphi</span><span class="o">*</span><span class="n">Hphi</span> <span class="o">+</span> <span class="n">vHz</span><span class="o">*</span><span class="n">Hz</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="c1">//electric wall boundary condition on the boundary of computation domain</span>
+    <span class="o">+</span><span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span>
+          <span class="n">EWall</span><span class="p">(</span><span class="n">Hr</span><span class="p">,</span> <span class="n">Hphi</span><span class="p">,</span> <span class="n">Hz</span><span class="p">)</span><span class="o">*</span><span class="n">EWall</span><span class="p">(</span><span class="n">vHr</span><span class="p">,</span> <span class="n">vHphi</span><span class="p">,</span> <span class="n">vHz</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
+<span class="c1">//setting sparce matrices and assigning the solver UMFPACK to solve eigenvalue problem</span>
+<span class="kt">matrix</span> <span class="kp">B</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">UMFPACK</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="n">OP</span> <span class="o">=</span> <span class="kp">op</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">UMFPACK</span><span class="p">);</span>
 
-// Solve
-real[int] ev(nev); //to store the nev eigenvalue
-Vh[int] [eHr, eHphi, eHz](nev); //to store the nev eigenvector
-//calling ARPACK on sparce matrices with the assigned solver UMFPACK:
-int k = EigenValue(OP, B, sym=true, sigma=sigma, value=ev, vector=eHr, tol=1e-10, maxit=0, ncv=0);
+<span class="c1">// Solve</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">ev</span><span class="p">(</span><span class="kp">nev</span><span class="p">);</span> <span class="c1">//to store the nev eigenvalue</span>
+<span class="n">Vh</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="p">[</span><span class="n">eHr</span><span class="p">,</span> <span class="n">eHphi</span><span class="p">,</span> <span class="n">eHz</span><span class="p">](</span><span class="kp">nev</span><span class="p">);</span> <span class="c1">//to store the nev eigenvector</span>
+<span class="c1">//calling ARPACK on sparce matrices with the assigned solver UMFPACK:</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="kp">B</span><span class="p">,</span> <span class="kp">sym</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span><span class="kp">sigma</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="n">ev</span><span class="p">,</span> <span class="kp">vector</span><span class="o">=</span><span class="n">eHr</span><span class="p">,</span> <span class="kp">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="kp">maxit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kp">ncv</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
 
-k = min(k, nev); //sometimes the number of converged eigen values
-                 //can be greater than nev
+<span class="n">k</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="kp">nev</span><span class="p">);</span> <span class="c1">//sometimes the number of converged eigen values</span>
+                 <span class="c1">//can be greater than nev</span>
 
-//file to output mode values
-ofstream f(&quot;modes.txt&quot;);
-//setting number of digits in the file output
-int nold = f.precision(11);
+<span class="c1">//file to output mode values</span>
+<span class="kt">ofstream</span> <span class="nf">f</span><span class="p">(</span><span class="s">&quot;modes.txt&quot;</span><span class="p">);</span>
+<span class="c1">//setting number of digits in the file output</span>
+<span class="kt">int</span> <span class="n">nold</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="kr">precision</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
 
-// Plot &amp; Save
-for (int i = 0; i &lt; k; i++){
-    real lambda = 2*pi/sqrt(ev[i]);
-    eHsqr = (sqrt(eHr[i]^2 + eHphi[i]^2 + eHz[i]^2)); //intensity from magnetic field components
-    plot(eHsqr, WindowIndex=i, value=1, nbiso=20,LabelColors=1, aspectratio=1, cmm=&quot;Mode &quot;+i+&quot;, lambda=&quot;+lambda+&quot;, F=&quot;+(299792.458/lambda));
-    f &lt;&lt; &quot;Mode &quot;&lt;&lt; i &lt;&lt; &quot;, ka=&quot; &lt;&lt; sqrt(ev[i])*radius &lt;&lt; endl;
-}
+<span class="c1">// Plot &amp; Save</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">eHsqr</span> <span class="o">=</span> <span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">eHr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">eHphi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">eHz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span> <span class="c1">//intensity from magnetic field components</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">eHsqr</span><span class="p">,</span> <span class="kp">WindowIndex</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nbiso</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">LabelColors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">aspectratio</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;Mode &quot;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s">&quot;, lambda=&quot;</span><span class="o">+</span><span class="n">lambda</span><span class="o">+</span><span class="s">&quot;, F=&quot;</span><span class="o">+</span><span class="p">(</span><span class="mf">299792.458</span><span class="o">/</span><span class="n">lambda</span><span class="p">));</span>
+    <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Mode &quot;</span><span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, ka=&quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">ev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">radius</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 

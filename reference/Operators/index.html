@@ -1506,57 +1506,57 @@
                 
                 <h2 id="_1">+<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <p>Addition operator.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. + 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">+</span> <span class="mf">2.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, <code class="codehilite">string</code>, <code class="codehilite">mesh</code>, <code class="codehilite">mesh3</code>, array.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>, <code class="codehilite"><span class="kt">complex</span></code>, <code class="codehilite"><span class="kt">string</span></code>, <code class="codehilite"><span class="kt">mesh</span></code>, <code class="codehilite"><span class="kt">mesh3</span></code>, array.</p>
 <h2 id="-">-<a class="headerlink" href="#-" title="Permanent link">#</a></h2>
 <p>Substraction operator.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. - 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="mf">2.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, array.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>, <code class="codehilite"><span class="kt">complex</span></code>, array.</p>
 <h2 id="_2">*<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>Multiplication operator.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] b;
-matrix A
-real[int] x = A^-1*b;
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">b</span><span class="p">;</span>
+<span class="kt">matrix</span> <span class="kp">A</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kr">x</span> <span class="o">=</span> <span class="kp">A</span><span class="o">^-</span><span class="mi">1</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, array, <code class="codehilite">matrix</code>.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>, <code class="codehilite"><span class="kt">complex</span></code>, array, <code class="codehilite"><span class="kt">matrix</span></code>.</p>
 <h2 id="_3">.*<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <p>Term by term multiplication.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = B .* C;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="kp">B</span> <span class="p">.</span><span class="o">*</span> <span class="n">C</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="_4">/<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <p>Division operator.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 1. / 2.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>, <code class="codehilite"><span class="kt">complex</span></code>.</p>
 <h2 id="_5">./<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
 <p>Term by term division.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = B ./ C;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="kp">B</span> <span class="p">.</span><span class="o">/</span> <span class="n">C</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="_6">%<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
 <p>Remainder from the division.</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int a = 1 % 2;
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>.</p>
 <h2 id="_7">^<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
 <p>Power operator.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = 2.^2;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for <code class="codehilite">int</code>, <code class="codehilite">real</code>, <code class="codehilite">complex</code>, <code class="codehilite">matrix</code>.</p>
+Works for <code class="codehilite"><span class="kt">int</span></code>, <code class="codehilite"><span class="kt">real</span></code>, <code class="codehilite"><span class="kt">complex</span></code>, <code class="codehilite"><span class="kt">matrix</span></code>.</p>
 <h2 id="-1">^-1<a class="headerlink" href="#-1" title="Permanent link">#</a></h2>
-<p>Inverse of a <code class="codehilite">matrix</code>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] Res = A^-1 * b;
+<p>Inverse of a <code class="codehilite"><span class="kt">matrix</span></code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Res</span> <span class="o">=</span> <span class="kp">A</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1566,13 +1566,13 @@ Works for <code class="codehilite">int</code>, <code class="codehilite">real</co
 </div>
 <h2 id="_8">'<a class="headerlink" href="#_8" title="Permanent link">#</a></h2>
 <p>Transpose operator.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] a = b&#39;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="o">&#39;</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-Works for array and <code class="codehilite">matrix</code>.</p>
+Works for array and <code class="codehilite"><span class="kt">matrix</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For <code class="codehilite">matrix&lt;complex&gt;</code>, the <code>''</code> operator return the Hermitian tranpose.</p>
+<p>For <code class="codehilite"><span class="kt">matrix</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span></code>, the <code>''</code> operator return the Hermitian tranpose.</p>
 </div>
 <h2 id="_9">:<a class="headerlink" href="#_9" title="Permanent link">#</a></h2>
 <p>Tensor scalar product.
@@ -1584,7 +1584,7 @@ A:B = \sum_{i,j}{A_{ij}B_{ij}}
 <p><code>C++</code> arithmetical if expression.</p>
 <p><code>a ? b : c</code> is equal to <code>b</code> if the <code>a</code> is true, <code>c</code> otherwise.</p>
 <div class="admonition example">
-<p class="admonition-title">Example with <code class="codehilite">int</code></p>
+<p class="admonition-title">Example with <code class="codehilite"><span class="kt">int</span></code></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1594,16 +1594,16 @@ A:B = \sum_{i,j}{A_{ij}B_{ij}}
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int a = 12;
-int b = 5;
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 
-cout &lt;&lt; a &lt;&lt; &quot; + &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a + b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; - &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a - b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; * &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a * b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; / &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a / b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; % &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a % b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; ^ &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a ^ b &lt;&lt; endl;
-cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &lt;&lt; &quot; ? &quot; &lt;&lt; a &lt;&lt; &quot; : &quot; &lt;&lt; b &lt;&lt; &quot;) = &quot; &lt;&lt; (a &lt; b ? a : b) &lt;&lt; endl;
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; + &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; * &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; / &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; % &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ^ &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;( &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &lt; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ? &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="o">:</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1625,7 +1625,7 @@ cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &
 </td></tr></table></p>
 </div>
 <div class="admonition example">
-<p class="admonition-title">Example with <code class="codehilite">real</code></p>
+<p class="admonition-title">Example with <code class="codehilite"><span class="kt">real</span></code></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1635,16 +1635,16 @@ cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real a = qsrt(2.);
-real b = pi;
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="n">qsrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">);</span>
+<span class="kt">real</span> <span class="n">b</span> <span class="o">=</span> <span class="kr">pi</span><span class="p">;</span>
 
-cout &lt;&lt; a &lt;&lt; &quot; + &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a + b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; - &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a - b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; * &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a * b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; / &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a / b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; % &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a % b &lt;&lt; endl;
-cout &lt;&lt; a &lt;&lt; &quot; ^ &quot; &lt;&lt; b &lt;&lt; &quot; = &quot; &lt;&lt; a ^ b &lt;&lt; endl;
-cout &lt;&lt; &quot;( &quot; &lt;&lt; a &lt;&lt; &quot; &lt; &quot; &lt;&lt; b &lt;&lt; &quot; ? &quot; &lt;&lt; a &lt;&lt; &quot; : &quot; &lt;&lt; b &lt;&lt; &quot;) = &quot; &lt;&lt; (a &lt; b ? a : b) &lt;&lt; endl;
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; + &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; * &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; / &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; % &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ^ &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;( &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &lt; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ? &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="o">:</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 

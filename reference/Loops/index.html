@@ -1467,9 +1467,9 @@
 <p>For loop.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for (int i = 0; i &lt; N; ++i){
-    ...
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="if">if<a class="headerlink" href="#if" title="Permanent link">#</a></h2>
@@ -1479,12 +1479,12 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>if (condition){
-    ...
-}
-else{
-    ...
-}
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="else">else<a class="headerlink" href="#else" title="Permanent link">#</a></h2>
@@ -1493,9 +1493,9 @@ else{
 <p>While loop.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>while (condition){
-    ...
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="continue">continue<a class="headerlink" href="#continue" title="Permanent link">#</a></h2>
@@ -1504,11 +1504,11 @@ else{
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for (int i = 0; i &lt; N; ++i){
-    ...
-    if (condition) continue;
-    ...
-}
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="p">...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="break">break<a class="headerlink" href="#break" title="Permanent link">#</a></h2>
@@ -1517,11 +1517,11 @@ else{
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>while (condition1){
-    ...
-    if (condition) break;
-    ...
-}
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">condition1</span><span class="p">){</span>
+    <span class="p">...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="try">try<a class="headerlink" href="#try" title="Permanent link">#</a></h2>
@@ -1531,12 +1531,12 @@ else{
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>try{
-    ...
-}
-catch(...){
-    ...
-}
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(...){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <p>See <a href="../examples/#basic-error-handling">Basic error handling example</a> and <a href="../examples/#error-handling">Error handling example</a>.</p>
@@ -1544,15 +1544,15 @@ catch(...){
 <p>Catch an error, see <a href="#try">try</a></p>
 <h2 id="implicit-loop">Implicit loop<a class="headerlink" href="#implicit-loop" title="Permanent link">#</a></h2>
 <p>Array with one index:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for [i, ai : a]
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="nl">ai</span> <span class="o">:</span> <span class="n">a</span><span class="p">]</span>
 </pre></div>
 </td></tr></table>
-If <code class="codehilite">real[int] a(10)</code>, then <code>i=0:9</code> and <code>ai</code> is a reference to <code>a[i]</code>.</p>
+If <code class="codehilite"><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code>, then <code>i=0:9</code> and <code>ai</code> is a reference to <code>a[i]</code>.</p>
 <p>Array with two indices or matrix:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for [i, j, aij : a]
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="nl">aij</span> <span class="o">:</span> <span class="n">a</span><span class="p">]</span>
 </pre></div>
 </td></tr></table>
-If <code class="codehilite">real[int] a(10, 11)</code>, then <code>i=0:9</code>, <code>j=1:10</code> and <code>aij</code> is a reference to <code>a(i, j)</code>.</p>
+If <code class="codehilite"><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span></code>, then <code>i=0:9</code>, <code>j=1:10</code> and <code>aij</code> is a reference to <code>a(i, j)</code>.</p>
 <p>See  <a href="../examples/implicit-loop">Implicit loop example</a>.</p>
                 
                   

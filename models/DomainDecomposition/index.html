@@ -1411,7 +1411,7 @@
 <table>
 <thead>
 <tr>
-<th align="center"><a name="Fig25">Fig. 25</a>: The 2 overlapping mesh <code class="codehilite">TH</code> and <code class="codehilite">th</code></th>
+<th align="center"><a name="Fig25">Fig. 25</a>: The 2 overlapping mesh <code class="codehilite"><span class="n">TH</span></code> and <code class="codehilite"><span class="n">th</span></code></th>
 </tr>
 </thead>
 <tbody>
@@ -1479,64 +1479,64 @@
 55
 56
 57
-58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int inside = 2; //inside boundary
-int outside = 1; //outside boundary
-int n = 4;
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="kp">inside</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//inside boundary</span>
+<span class="kt">int</span> <span class="n">outside</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//outside boundary</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-// Mesh
-border a(t=1, 2){x=t; y=0; label=outside;}
-border b(t=0, 1){x=2; y=t; label=outside;}
-border c(t=2, 0){x=t; y=1; label=outside;}
-border d(t=1, 0){x=1-t; y=t; label=inside;}
-border e(t=0, pi/2){x=cos(t); y=sin(t); label=inside;}
-border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
-mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
-mesh TH = buildmesh(e(5*n) + e1(25*n));
-plot(th, TH, wait=true); //to see the 2 meshes
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">c</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="kp">inside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">e</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kr">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="kp">inside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">e1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="nf">d</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="kt">mesh</span> <span class="n">TH</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">e1</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">TH</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span> <span class="c1">//to see the 2 meshes</span>
 
-// Fespace
-fespace vh(th, P1);
-vh u=0, v;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
 
-fespace VH(TH, P1);
-VH U, V;
+<span class="kt">fespace</span> <span class="nf">VH</span><span class="p">(</span><span class="n">TH</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">VH</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">;</span>
 
-// Problem
-int i = 0;
-problem PB (U, V, init=i, solver=Cholesky)
-    = int2d(TH)(
-          dx(U)*dx(V)
-        + dy(U)*dy(V)
-    )
-    + int2d(TH)(
-        - V
-    )
-    + on(inside, U=u)
-    + on(outside, U=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">problem</span> <span class="nf">PB</span> <span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">V</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-problem pb (u, v, init=i, solver=Cholesky)
-    = int2d(th)(
-          dx(u)*dx(v)
-        + dy(u)*dy(v)
-    )
-    + int2d(th)(
-        - v
-    )
-    + on(inside, u=U)
-    + on(outside, u=0)
-    ;
+<span class="kt">problem</span> <span class="nf">pb</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="kp">inside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">U</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Calculation loop
-for (i = 0 ; i &lt; 10; i++){
-    // Solve
-    PB;
-    pb;
+<span class="c1">// Calculation loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Solve</span>
+    <span class="n">PB</span><span class="p">;</span>
+    <span class="n">pb</span><span class="p">;</span>
 
-    // Plot
-    plot(U, u, wait=true);
-}
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -1572,7 +1572,7 @@ for (i = 0 ; i &lt; 10; i++){
 <table>
 <thead>
 <tr>
-<th align="center"><a name="Fig27">Fig. 27</a>: The two none overlapping mesh <code class="codehilite">TH</code> and <code class="codehilite">th</code></th>
+<th align="center"><a name="Fig27">Fig. 27</a>: The two none overlapping mesh <code class="codehilite"><span class="n">TH</span></code> and <code class="codehilite"><span class="n">th</span></code></th>
 </tr>
 </thead>
 <tbody>
@@ -1672,72 +1672,72 @@ for (i = 0 ; i &lt; 10; i++){
 63
 64
 65
-66</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int inside = 2;
-int outside = 1;
-int n = 4;
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="kp">inside</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">outside</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-// Mesh
-border a(t=1, 2){x=t; y=0; label=outside;};
-border b(t=0, 1){x=2; y=t; label=outside;};
-border c(t=2, 0){x=t; y=1; label=outside;};
-border d(t=1, 0){x=1-t; y=t; label=inside;};
-border e(t=0, 1){x=1-t; y=t; label=inside;};
-border e1(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;};
-mesh th = buildmesh(a(5*n) + b(5*n) + c(10*n) + d(5*n));
-mesh TH = buildmesh(e(5*n) + e1(25*n));
-plot(th, TH, wait=true);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">c</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="kp">inside</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">e</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="kp">inside</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">e1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;};</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="nf">d</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="kt">mesh</span> <span class="n">TH</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">e1</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">TH</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Fespace
-fespace vh(th, P1);
-vh u=0, v;
-vh lambda=0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">vh</span> <span class="n">lambda</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-fespace VH(TH, P1);
-VH U, V;
+<span class="kt">fespace</span> <span class="nf">VH</span><span class="p">(</span><span class="n">TH</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">VH</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">;</span>
 
-// Problem
-int i = 0;
-problem PB (U, V, init=i, solver=Cholesky)
-    = int2d(TH)(
-          dx(U)*dx(V)
-        + dy(U)*dy(V)
-    )
-    + int2d(TH)(
-        - V
-    )
-    + int1d(TH, inside)(
-          lambda*V
-    )
-    + on(outside, U= 0 )
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">problem</span> <span class="nf">PB</span> <span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">TH</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">V</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">TH</span><span class="p">,</span> <span class="kp">inside</span><span class="p">)(</span>
+          <span class="n">lambda</span><span class="o">*</span><span class="n">V</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+    <span class="p">;</span>
 
-problem pb (u, v, init=i, solver=Cholesky)
-    = int2d(th)(
-          dx(u)*dx(v)
-        + dy(u)*dy(v)
-    )
-    + int2d(th)(
-        - v
-    )
-    + int1d(th, inside)(
-        - lambda*v
-    )
-    + on(outside, u=0)
-    ;
+<span class="kt">problem</span> <span class="nf">pb</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="kp">inside</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">lambda</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-for (i = 0; i &lt; 10; i++){
-    // Solve
-    PB;
-    pb;
-    lambda = lambda - (u-U)/2;
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Solve</span>
+    <span class="n">PB</span><span class="p">;</span>
+    <span class="n">pb</span><span class="p">;</span>
+    <span class="n">lambda</span> <span class="o">=</span> <span class="n">lambda</span> <span class="o">-</span> <span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">U</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
-    // Plot
-    plot(U,u,wait=true);
-}
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="p">}</span>
 
-// Plot
-plot(U, u);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1792,20 +1792,20 @@ u_i|_{\Gamma_e^i} = 0
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int inside = 2;
-int outside = 1;
-int n = 4;
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="kp">inside</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">outside</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-// Mesh
-border Gamma1(t=1, 2){x=t; y=0; label=outside;}
-border Gamma2(t=0, 1){x=2; y=t; label=outside;}
-border Gamma3(t=2, 0){x=t; y=1; label=outside;}
-border GammaInside(t=1, 0){x=1-t; y=t; label=inside;}
-border GammaArc(t=pi/2, 2*pi){x=cos(t); y=sin(t); label=outside;}
-mesh Th1 = buildmesh(Gamma1(5*n) + Gamma2(5*n) + GammaInside(5*n) + Gamma3(5*n));
-mesh Th2 = buildmesh(GammaInside(-5*n) + GammaArc(25*n));
-plot(Th1, Th2);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">Gamma1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">Gamma2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">Gamma3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">GammaInside</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="kp">inside</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">GammaArc</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">outside</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">Th1</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">Gamma1</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">Gamma2</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">GammaInside</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">Gamma3</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="kt">mesh</span> <span class="n">Th2</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">GammaInside</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">GammaArc</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="n">Th2</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <p>Now, define the finite element spaces:
@@ -1816,20 +1816,20 @@ plot(Th1, Th2);
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Fespace
-fespace Vh1(Th1, P1);
-Vh1 u1, v1;
-Vh1 lambda;
-Vh1 p=0;
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh1</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh1</span> <span class="n">u1</span><span class="p">,</span> <span class="n">v1</span><span class="p">;</span>
+<span class="n">Vh1</span> <span class="n">lambda</span><span class="p">;</span>
+<span class="n">Vh1</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-fespace Vh2(Th2,P1);
-Vh2 u2, v2;
+<span class="kt">fespace</span> <span class="nf">Vh2</span><span class="p">(</span><span class="n">Th2</span><span class="p">,</span><span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh2</span> <span class="n">u2</span><span class="p">,</span> <span class="n">v2</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is impossible to define a function just on a part of boundary, so the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function must be defined on the all domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span> such as</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh1 lambda;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Vh1</span> <span class="n">lambda</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1861,40 +1861,40 @@ Vh2 u2, v2;
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Pb1 (u1, v1, init=i, solver=Cholesky)
-    = int2d(Th1)(
-          dx(u1)*dx(v1)
-        + dy(u1)*dy(v1)
-    )
-    + int2d(Th1)(
-        - v1
-    )
-    + int1d(Th1, inside)(
-          lambda*v1
-    )
-    + on(outside, u1=0)
-    ;
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="nf">Pb1</span> <span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th1</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th1</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">v1</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="kp">inside</span><span class="p">)(</span>
+          <span class="n">lambda</span><span class="o">*</span><span class="n">v1</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-problem Pb2 (u2, v2, init=i, solver=Cholesky)
-    = int2d(Th2)(
-          dx(u2)*dx(v2)
-        + dy(u2)*dy(v2)
-    )
-    + int2d(Th2)(
-        - v2
-    )
-    + int1d(Th2, inside)(
-        - lambda*v2
-    )
-    + on(outside, u2=0)
-    ;
+<span class="kt">problem</span> <span class="nf">Pb2</span> <span class="p">(</span><span class="n">u2</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">Cholesky</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th2</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th2</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">v2</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th2</span><span class="p">,</span> <span class="kp">inside</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">lambda</span><span class="o">*</span><span class="n">v2</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span> <span class="n">u2</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <p>And, we define a border matrix, because the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> function is none zero inside the domain <span><span class="MathJax_Preview">\Omega_1</span><script type="math/tex">\Omega_1</script></span>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf b(u2, v2, solver=CG) = int1d(Th1, inside)(u2*v2);
-matrix B = b(Vh1, Vh1, solver=CG);
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">varf</span> <span class="nf">b</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="kp">inside</span><span class="p">)(</span><span class="n">u2</span><span class="o">*</span><span class="n">v2</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="kp">B</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">Vh1</span><span class="p">,</span> <span class="n">Vh1</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1916,22 +1916,22 @@ matrix B = b(Vh1, Vh1, solver=CG);
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Boundary problem function
-func real[int] BoundaryProblem (real[int] &amp;l){
-    lambda[] = l; //make FE function form l
-    Pb1;
-    Pb2;
-    i++; //no refactorization i != 0
-    v1 = -(u1-u2);
-    lambda[] = B*v1[];
-    return lambda[];
-}
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Boundary problem function</span>
+<span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">BoundaryProblem</span> <span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">l</span><span class="p">){</span>
+    <span class="n">lambda</span><span class="p">[]</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="c1">//make FE function form l</span>
+    <span class="n">Pb1</span><span class="p">;</span>
+    <span class="n">Pb2</span><span class="p">;</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="c1">//no refactorization i != 0</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">u1</span><span class="o">-</span><span class="n">u2</span><span class="p">);</span>
+    <span class="n">lambda</span><span class="p">[]</span> <span class="o">=</span> <span class="kp">B</span><span class="o">*</span><span class="n">v1</span><span class="p">[];</span>
+    <span class="k">return</span> <span class="n">lambda</span><span class="p">[];</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The difference between the two notations <code class="codehilite">v1</code> and <code class="codehilite">v1[]</code> is: <code class="codehilite">v1</code> is the finite element function and <code class="codehilite">v1[]</code> is the vector in the canonical basis of the finite element function <code class="codehilite">v1</code>.</p>
+<p>The difference between the two notations <code class="codehilite"><span class="n">v1</span></code> and <code class="codehilite"><span class="n">v1</span><span class="p">[]</span></code> is: <code class="codehilite"><span class="n">v1</span></code> is the finite element function and <code class="codehilite"><span class="n">v1</span><span class="p">[]</span></code> is the vector in the canonical basis of the finite element function <code class="codehilite"><span class="n">v1</span></code>.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -1941,15 +1941,15 @@ func real[int] BoundaryProblem (real[int] &amp;l){
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Solve
-real cpu=clock();
-LinearCG(BoundaryProblem, p[], eps=1.e-6, nbiter=100);
-//compute the final solution, because CG works with increment
-BoundaryProblem(p[]); //solve again to have right u1, u2
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Solve</span>
+<span class="kt">real</span> <span class="n">cpu</span><span class="o">=</span><span class="nf">clock</span><span class="p">();</span>
+<span class="nf">LinearCG</span><span class="p">(</span><span class="n">BoundaryProblem</span><span class="p">,</span> <span class="n">p</span><span class="p">[],</span> <span class="kp">eps</span><span class="o">=</span><span class="mf">1.e-6</span><span class="p">,</span> <span class="kp">nbiter</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+<span class="c1">//compute the final solution, because CG works with increment</span>
+<span class="n">BoundaryProblem</span><span class="p">(</span><span class="n">p</span><span class="p">[]);</span> <span class="c1">//solve again to have right u1, u2</span>
 
-// Display &amp; Plot
-cout &lt;&lt; &quot; -- CPU time schwarz-gc:&quot; &lt;&lt; clock()-cpu &lt;&lt; endl;
-plot(u1, u2);
+<span class="c1">// Display &amp; Plot</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; -- CPU time schwarz-gc:&quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">clock</span><span class="p">()</span><span class="o">-</span><span class="n">cpu</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

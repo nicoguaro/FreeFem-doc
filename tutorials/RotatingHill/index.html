@@ -1462,7 +1462,7 @@ c(x,t)=c^0(x_{-t},0)
 </script>
 The game consists in solving the equation until <span><span class="MathJax_Preview">T=2\pi</span><script type="math/tex">T=2\pi</script></span>, that is for a full revolution and to compare the final solution with the initial one; they should be equal.</p>
 <h2 id="solution-by-a-characteristics-galerkin-method"><strong>Solution by a Characteristics-Galerkin Method</strong><a class="headerlink" href="#solution-by-a-characteristics-galerkin-method" title="Permanent link">#</a></h2>
-<p>In FreeFem++ there is an operator called <code class="codehilite">convect([u1,u2], dt, c)</code> which compute $ c\circ X$ with <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is the convect field defined by $ X(x)= x_{dt}$ and where <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is particule path in the steady state velocity field <span><span class="MathJax_Preview">\mathbf{u}=[u1,u2]</span><script type="math/tex">\mathbf{u}=[u1,u2]</script></span> starting at point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> at time <span><span class="MathJax_Preview">\tau=0</span><script type="math/tex">\tau=0</script></span>, so <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is solution of the following ODE:</p>
+<p>In FreeFem++ there is an operator called <code class="codehilite"><span class="nf">convect</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></code> which compute $ c\circ X$ with <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is the convect field defined by $ X(x)= x_{dt}$ and where <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is particule path in the steady state velocity field <span><span class="MathJax_Preview">\mathbf{u}=[u1,u2]</span><script type="math/tex">\mathbf{u}=[u1,u2]</script></span> starting at point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> at time <span><span class="MathJax_Preview">\tau=0</span><script type="math/tex">\tau=0</script></span>, so <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is solution of the following ODE:</p>
 <div>
 <div class="MathJax_Preview">
 \dot{x}_\tau = u(x_\tau), \mathbf{x}_{\tau=0}=x.
@@ -1491,32 +1491,32 @@ The game consists in solving the equation until <span><span class="MathJax_Previ
 17
 18
 19
-20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real dt = 0.17;
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.17</span><span class="p">;</span>
 
-// Mesh
-border C(t=0., 2.*pi) {x=cos(t); y=sin(t);};
-mesh Th = buildmesh(C(100));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 
-// Fespace
-fespace Uh(Th, P1);
-Uh cold, c = exp(-10*((x-0.3)^2 +(y-0.3)^2));
-Uh u1 = y, u2 = -x;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Uh</span> <span class="n">cold</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">Uh</span> <span class="n">u1</span> <span class="o">=</span> <span class="kr">y</span><span class="p">,</span> <span class="n">u2</span> <span class="o">=</span> <span class="o">-</span><span class="kr">x</span><span class="p">;</span>
 
-// Time loop
-real t = 0;
-for (int m = 0; m &lt; 2.*pi/dt; m++){
-    t += dt;
-    cold = c;
-    c = convect([u1, u2], -dt, cold);
-    plot(c, cmm=&quot; t=&quot;+t +&quot;, min=&quot;+c[].min+&quot;, max=&quot;+c[].max);
-}
+<span class="c1">// Time loop</span>
+<span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">m</span> <span class="o">&lt;</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span> <span class="kr">m</span><span class="o">++</span><span class="p">){</span>
+    <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
+    <span class="n">cold</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nf">convect</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">cold</span><span class="p">);</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot; t=&quot;</span><span class="o">+</span><span class="kp">t</span> <span class="o">+</span><span class="s">&quot;, min=&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">[].</span><span class="kr">min</span><span class="o">+</span><span class="s">&quot;, max=&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">[].</span><span class="kr">max</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>3D plots can be done by adding the qualifyer <code class="codehilite">dim=3</code> to the plot instruction.</p>
+<p>3D plots can be done by adding the qualifyer <code class="codehilite"><span class="kp">dim</span><span class="o">=</span><span class="mi">3</span></code> to the plot instruction.</p>
 </div>
 <p>The method is very powerful but has two limitations:</p>
 <ul>
@@ -1576,51 +1576,51 @@ for (int m = 0; m &lt; 2.*pi/dt; m++){
 36
 37
 38
-39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real al=0.5;
-real dt = 0.05;
+39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">al</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
 
-// Mesh
-border C(t=0., 2.*pi) {x=cos(t); y=sin(t);};
-mesh Th = buildmesh(C(100));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(Th,P1dc);
-Vh w, ccold, v1 = y, v2 = -x, cc = exp(-10*((x-0.3)^2 +(y-0.3)^2));
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P1dc</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">w</span><span class="p">,</span> <span class="n">ccold</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="kr">y</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="o">-</span><span class="kr">x</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span>
 
-// Macro
-macro n() (N.x*v1 + N.y*v2) // Macro without parameter
+<span class="c1">// Macro</span>
+<span class="kt">macro</span> <span class="kr">n</span><span class="p">()</span> <span class="p">(</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">*</span><span class="n">v1</span> <span class="o">+</span> <span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span> <span class="c1">// Macro without parameter</span>
 
-// Problem
-problem Adual(cc, w)
-    = int2d(Th)(
-          (cc/dt+(v1*dx(cc)+v2*dy(cc)))*w
-    )
-    + intalledges(Th)(
-          (1-nTonEdge)*w*(al*abs(n)-n/2)*jump(cc)
-    )
-    - int2d(Th)(
-          ccold*w/dt
-    )
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="n">Adual</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="n">cc</span><span class="o">/</span><span class="n">dt</span><span class="o">+</span><span class="p">(</span><span class="n">v1</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span><span class="o">+</span><span class="n">v2</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">cc</span><span class="p">)))</span><span class="o">*</span><span class="n">w</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">intalledges</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">nTonEdge</span><span class="p">)</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">al</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span><span class="o">-</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nf">jump</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">ccold</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
 
-// Time iterations
-for (real t = 0.; t &lt; 2.*pi; t += dt){
-    ccold = cc;
-    Adual;
-    plot(cc, fill=1, cmm=&quot;t=&quot;+t+&quot;, min=&quot;+cc[].min+&quot;, max=&quot;+ cc[].max);
-}
+<span class="c1">// Time iterations</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span> <span class="kp">t</span> <span class="o">&lt;</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">;</span> <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">){</span>
+    <span class="n">ccold</span> <span class="o">=</span> <span class="n">cc</span><span class="p">;</span>
+    <span class="n">Adual</span><span class="p">;</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;t=&quot;</span><span class="o">+</span><span class="kp">t</span><span class="o">+</span><span class="s">&quot;, min=&quot;</span><span class="o">+</span><span class="n">cc</span><span class="p">[].</span><span class="kr">min</span><span class="o">+</span><span class="s">&quot;, max=&quot;</span><span class="o">+</span> <span class="n">cc</span><span class="p">[].</span><span class="kr">max</span><span class="p">);</span>
+<span class="p">}</span>
 
-// Plot
-real [int] viso = [-0.2, -0.1, 0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1., 1.1];
-plot(cc, wait=1, fill=1, ps=&quot;ConvectCG.eps&quot;, viso=viso);
-plot(cc, wait=1, fill=1, ps=&quot;ConvectDG.eps&quot;, viso=viso);
+<span class="c1">// Plot</span>
+<span class="kt">real</span> <span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kp">viso</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">];</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;ConvectCG.eps&quot;</span><span class="p">,</span> <span class="kp">viso</span><span class="o">=</span><span class="kp">viso</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;ConvectDG.eps&quot;</span><span class="p">,</span> <span class="kp">viso</span><span class="o">=</span><span class="kp">viso</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>New keywords: <code class="codehilite">intalledges</code> to integrate on all edges of all triangles</p>
+<p>New keywords: <code class="codehilite"><span class="nf">intalledges</span></code> to integrate on all edges of all triangles</p>
 <div>
 <div class="MathJax_Preview">\begin{equation}
 \mathtt{intalledges}(\mathtt{Th}) \equiv \sum_{T\in\mathtt{Th}}\int_{\p T }
@@ -1630,9 +1630,9 @@ plot(cc, wait=1, fill=1, ps=&quot;ConvectDG.eps&quot;, viso=viso);
 \end{equation}</script>
 </div>
 </div>
-<p>(so all internal edges are see two times), nTonEdge which is one if the triangle has a boundary edge and two otherwise, <code class="codehilite">jump</code> to implement <span><span class="MathJax_Preview">[c]</span><script type="math/tex">[c]</script></span>.</p>
+<p>(so all internal edges are see two times), nTonEdge which is one if the triangle has a boundary edge and two otherwise, <code class="codehilite"><span class="nf">jump</span></code> to implement <span><span class="MathJax_Preview">[c]</span><script type="math/tex">[c]</script></span>.</p>
 <p>Results of both methods are shown on <a href="#Fig1">figure 1</a> with identical levels for the level line; this is done with the plot-modifier viso.</p>
-<p>Notice also the macro where the parameter <span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> is not used (but the syntax needs one) and which ends with a <code class="codehilite">//</code>; it simply replaces the name <code class="codehilite">n</code> by <code class="codehilite">(N.x*v1+N.y*v2)</code>. As easily guessed <code class="codehilite">N.x,N.y</code> is the normal to the edge.</p>
+<p>Notice also the macro where the parameter <span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> is not used (but the syntax needs one) and which ends with a <code class="codehilite"><span class="c1">//</span></code>; it simply replaces the name <code class="codehilite"><span class="kr">n</span></code> by <code class="codehilite"><span class="p">(</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">*</span><span class="n">v1</span><span class="o">+</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span></code>. As easily guessed <code class="codehilite"><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">,</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span></code> is the normal to the edge.</p>
 <table>
 <thead>
 <tr>
@@ -1692,55 +1692,55 @@ plot(cc, wait=1, fill=1, ps=&quot;ConvectDG.eps&quot;, viso=viso);
 42
 43
 44
-45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real al=0.5;
-real dt = 0.05;
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">al</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
 
-// Mesh
-border C(t=0., 2.*pi) {x=cos(t); y=sin(t);};
-mesh Th = buildmesh(C(100));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(Th,P1dc);
-Vh w, ccold, v1 = y, v2 = -x, cc = exp(-10*((x-0.3)^2 +(y-0.3)^2));
-Vh rhs=0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P1dc</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">w</span><span class="p">,</span> <span class="n">ccold</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="kr">y</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="o">-</span><span class="kr">x</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">Vh</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-// Macro
-macro n() (N.x*v1 + N.y*v2) // Macro without parameter
+<span class="c1">// Macro</span>
+<span class="kt">macro</span> <span class="kr">n</span><span class="p">()</span> <span class="p">(</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">*</span><span class="n">v1</span> <span class="o">+</span> <span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span> <span class="c1">// Macro without parameter</span>
 
-// Problem
-real t = 0.;
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 
-varf vAdual (cc, w)
-    = int2d(Th)(
-          (cc/dt+(v1*dx(cc)+v2*dy(cc)))*w
-    )
-    + intalledges(Th)(
-          (1-nTonEdge)*w*(al*abs(n)-n/2)*jump(cc)
-    )
-    ;
+<span class="kt">varf</span> <span class="nf">vAdual</span> <span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="n">cc</span><span class="o">/</span><span class="n">dt</span><span class="o">+</span><span class="p">(</span><span class="n">v1</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span><span class="o">+</span><span class="n">v2</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">cc</span><span class="p">)))</span><span class="o">*</span><span class="n">w</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">intalledges</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">nTonEdge</span><span class="p">)</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">al</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span><span class="o">-</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nf">jump</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
 
-varf vBdual (cc, w)
-    = - int2d(Th)(
-          ccold*w/dt
-    )
-    ;
+<span class="kt">varf</span> <span class="nf">vBdual</span> <span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="o">=</span> <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">ccold</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
 
-matrix AA = vAdual(Vh, Vh);
-matrix BB = vBdual(Vh, Vh);
-set (AA, init=t, solver=sparsesolver);
+<span class="kt">matrix</span> <span class="n">AA</span> <span class="o">=</span> <span class="n">vAdual</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="n">BB</span> <span class="o">=</span> <span class="n">vBdual</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+<span class="nf">set</span> <span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="kp">t</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">sparsesolver</span><span class="p">);</span>
 
-// Time iterations
-for (t = 0.; t &lt; 2.*pi; t += dt){
-    ccold = cc;
-    rhs[] = BB * ccold[];
-    cc[] = AA^-1 * rhs[];
-    plot(cc, fill=1, cmm=&quot;t=&quot;+t+&quot;, min=&quot;+cc[].min+&quot;, max=&quot;+ cc[].max);
-}
+<span class="c1">// Time iterations</span>
+<span class="k">for</span> <span class="p">(</span><span class="kp">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span> <span class="kp">t</span> <span class="o">&lt;</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">;</span> <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">){</span>
+    <span class="n">ccold</span> <span class="o">=</span> <span class="n">cc</span><span class="p">;</span>
+    <span class="n">rhs</span><span class="p">[]</span> <span class="o">=</span> <span class="n">BB</span> <span class="o">*</span> <span class="n">ccold</span><span class="p">[];</span>
+    <span class="n">cc</span><span class="p">[]</span> <span class="o">=</span> <span class="n">AA</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">[];</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;t=&quot;</span><span class="o">+</span><span class="kp">t</span><span class="o">+</span><span class="s">&quot;, min=&quot;</span><span class="o">+</span><span class="n">cc</span><span class="p">[].</span><span class="kr">min</span><span class="o">+</span><span class="s">&quot;, max=&quot;</span><span class="o">+</span> <span class="n">cc</span><span class="p">[].</span><span class="kr">max</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>Notice the new keyword <code class="codehilite">set</code> to specify a solver in this framework; the modifier <code class="codehilite">init</code> is used to tell the solver that the matrix has not changed (<code class="codehilite">init=true</code>), and the name parameter are the same that in problem definition (see <a href="../documentation/FiniteElement/#problem">Problem</a>)</p>
+<p>Notice the new keyword <code class="codehilite"><span class="nf">set</span></code> to specify a solver in this framework; the modifier <code class="codehilite"><span class="kp">init</span></code> is used to tell the solver that the matrix has not changed (<code class="codehilite"><span class="kp">init</span><span class="o">=</span><span class="kr">true</span></code>), and the name parameter are the same that in problem definition (see <a href="../documentation/FiniteElement/#problem">Problem</a>)</p>
 <h2 id="finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with FreeFem++ but it requires programming.<a class="headerlink" href="#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming" title="Permanent link">#</a></h2>
 <p>For instance the <span><span class="MathJax_Preview">P_0-P_1</span><script type="math/tex">P_0-P_1</script></span> Finite Volume Method of Dervieux <em>et al</em> associates to each <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> function <span><span class="MathJax_Preview">c^1</span><script type="math/tex">c^1</script></span> a <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> function <span><span class="MathJax_Preview">c^0</span><script type="math/tex">c^0</script></span> with constant value around each vertex <span><span class="MathJax_Preview">q^i</span><script type="math/tex">q^i</script></span> equal to <span><span class="MathJax_Preview">c^1(q^i)</span><script type="math/tex">c^1(q^i)</script></span> on the cell <span><span class="MathJax_Preview">\sigma_i</span><script type="math/tex">\sigma_i</script></span> made by all the medians of all triangles having <span><span class="MathJax_Preview">q^i</span><script type="math/tex">q^i</script></span> as vertex.</p>
 <p>Then upwinding is done by taking left or right values at the median:</p>
@@ -1783,37 +1783,37 @@ for (t = 0.; t &lt; 2.*pi; t += dt){
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;mat_dervieux&quot;; //External module in C++ must be loaded
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;mat_dervieux&quot;</span><span class="p">;</span> <span class="c1">//External module in C++ must be loaded</span>
 
-// Parameters
-real dt = 0.025;
+<span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.025</span><span class="p">;</span>
 
-// Mesh
-border a(t=0., 2.*pi){x=cos(t); y=sin(t);}
-mesh th = buildmesh(a(100));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(th,P1);
-Vh vh, vold, u1=y, u2=-x;
-Vh v=exp(-10*((x-0.3)^2 +(y-0.3)^2)), vWall=0, rhs=0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span><span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">vh</span><span class="p">,</span> <span class="n">vold</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="kr">y</span><span class="p">,</span> <span class="n">u2</span><span class="o">=-</span><span class="kr">x</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">v</span><span class="o">=</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)),</span> <span class="n">vWall</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-// Problem
-//qf1pTlump means mass lumping is used
-problem FVM(v,vh) = int2d(th,qft=qf1pTlump)(v*vh/dt)
-    - int2d(th,qft=qf1pTlump)(vold*vh/dt)
-    + int1d(th,a)(((u1*N.x+u2*N.y)&lt;0)*(u1*N.x+u2*N.y)*vWall*vh)
-+ rhs[] ;
+<span class="c1">// Problem</span>
+<span class="c1">//qf1pTlump means mass lumping is used</span>
+<span class="kt">problem</span> <span class="nf">FVM</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">vh</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">,</span><span class="kp">qft</span><span class="o">=</span><span class="kr">qf1pTlump</span><span class="p">)(</span><span class="n">v</span><span class="o">*</span><span class="n">vh</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">,</span><span class="kp">qft</span><span class="o">=</span><span class="kr">qf1pTlump</span><span class="p">)(</span><span class="n">vold</span><span class="o">*</span><span class="n">vh</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">th</span><span class="p">,</span><span class="n">a</span><span class="p">)(((</span><span class="n">u1</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">+</span><span class="n">u2</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">+</span><span class="n">u2</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">)</span><span class="o">*</span><span class="n">vWall</span><span class="o">*</span><span class="n">vh</span><span class="p">)</span>
+<span class="o">+</span> <span class="n">rhs</span><span class="p">[]</span> <span class="p">;</span>
 
-matrix A;
-MatUpWind0(A, th, vold, [u1, u2]);
+<span class="kt">matrix</span> <span class="kp">A</span><span class="p">;</span>
+<span class="n">MatUpWind0</span><span class="p">(</span><span class="kp">A</span><span class="p">,</span> <span class="n">th</span><span class="p">,</span> <span class="n">vold</span><span class="p">,</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">]);</span>
 
-// Time loop
-for (int t = 0; t &lt; 2.*pi ; t += dt){
-    vold = v;
-    rhs[] = A * vold[];
-    FVM;
-    plot(v, wait=0);
-}
+<span class="c1">// Time loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kp">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kp">t</span> <span class="o">&lt;</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span> <span class="p">;</span> <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">){</span>
+    <span class="n">vold</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">rhs</span><span class="p">[]</span> <span class="o">=</span> <span class="kp">A</span> <span class="o">*</span> <span class="n">vold</span><span class="p">[];</span>
+    <span class="n">FVM</span><span class="p">;</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 

@@ -1354,23 +1354,23 @@
 <p>Your contribution is needed, please check the <a href="TODO/">TODO page</a>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>In essence <strong><code>FreeFem++</code></strong> is a compiler: its language is typed, polymorphic, with exception and reentrant. Every variable must be declared of a certain type, in a declarative statement; each statement are separated from the next by a semicolon <code>;</code>.</p>
-<p>The language allows the manipulation of basic types integers (<code class="codehilite">int</code>), reals (<code class="codehilite">real</code>), strings (<code class="codehilite">string</code>),
-arrays (example: <code class="codehilite">real[int]</code>), bi-dimensional (2D) finite element meshes (<code class="codehilite">mesh</code>), 2D finite element spaces (<code class="codehilite">fespace</code>), analytical functions (<code class="codehilite">func</code>), arrays of finite element functions (<code class="codehilite">func[basic_type]</code>), linear and bilinear operators, sparse matrices, vectors , etc. For example:</p>
+<p>The language allows the manipulation of basic types integers (<code class="codehilite"><span class="kt">int</span></code>), reals (<code class="codehilite"><span class="kt">real</span></code>), strings (<code class="codehilite"><span class="kt">string</span></code>),
+arrays (example: <code class="codehilite"><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code>), bi-dimensional (2D) finite element meshes (<code class="codehilite"><span class="kt">mesh</span></code>), 2D finite element spaces (<code class="codehilite"><span class="kt">fespace</span></code>), analytical functions (<code class="codehilite"><span class="kt">func</span></code>), arrays of finite element functions (<code class="codehilite"><span class="kt">func</span><span class="p">[</span><span class="n">basic_type</span><span class="p">]</span></code>), linear and bilinear operators, sparse matrices, vectors , etc. For example:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i, n = 20; //i, n are integer
-real[int] xx(n), yy(n); //two array of size n
-for (i = 0; i &lt;= 20; i++){ //which can be used in statements such as
-    xx[i] = cos(i*pi/10);
-    yy[i] = sin(i*pi/10);
-}
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//i, n are integer</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">xx</span><span class="p">(</span><span class="kr">n</span><span class="p">),</span> <span class="n">yy</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//two array of size n</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">//which can be used in statements such as</span>
+    <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>The life of a variable is the current block <code>{...}</code>, except the <code class="codehilite">fespace</code> variable, and the variables local to a block are destroyed at the end of the block as follows.</p>
+<p>The life of a variable is the current block <code>{...}</code>, except the <code class="codehilite"><span class="kt">fespace</span></code> variable, and the variables local to a block are destroyed at the end of the block as follows.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1383,17 +1383,17 @@ for (i = 0; i &lt;= 20; i++){ //which can be used in statements such as
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = 0.01;
-mesh Th = square(10, 10); //unit square mesh
-fespace Vh(Th, P1); //P1 Lagrange finite element space
-Vh u = x + exp(y);
-func f = z*x + r*log(y);
-plot(u, wait=true);
-{ // new block
-    real r = 2; //not the same r
-    fespace Vh(Th, P1); //error because Vh is a global name
-}// end of block
-//here r back to 0.01
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">//unit square mesh</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span> <span class="c1">//P1 Lagrange finite element space</span>
+<span class="n">Vh</span> <span class="n">u</span> <span class="o">=</span> <span class="kr">x</span> <span class="o">+</span> <span class="nf">exp</span><span class="p">(</span><span class="kr">y</span><span class="p">);</span>
+<span class="kt">func</span> <span class="n">f</span> <span class="o">=</span> <span class="kr">z</span><span class="o">*</span><span class="kr">x</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="nf">log</span><span class="p">(</span><span class="kr">y</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="p">{</span> <span class="c1">// new block</span>
+    <span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//not the same r</span>
+    <span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span> <span class="c1">//error because Vh is a global name</span>
+<span class="p">}</span><span class="c1">// end of block</span>
+<span class="c1">//here r back to 0.01</span>
 </pre></div>
 </td></tr></table>
 

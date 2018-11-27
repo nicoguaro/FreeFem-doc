@@ -1534,52 +1534,52 @@
 38
 39
 40
-41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real dt = 0.1;
-real mu = 0.01;
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
 
-// Mesh
-mesh Th = square(16, 16);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u, v, uu, f, g;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">;</span>
 
-// Problem
-problem dHeat (u, v)
-    = int2d(Th)(
-          u*v
-        + dt*mu*(dx(u)*dx(v) + dy(u)*dy(v))
-    )
-    + int2d(Th)(
-        - uu*v
-        - dt*f*v
-    )
-    + on(1, 2, 3, 4, u=g)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">dHeat</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">u</span><span class="o">*</span><span class="n">v</span>
+        <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">uu</span><span class="o">*</span><span class="n">v</span>
+        <span class="o">-</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Time loop
-real t = 0;
-uu = 0;
-for (int m = 0; m &lt;= 3/dt; m++){
-    // Update
-    t = t+dt;
-    f = x^4 - mu*t*12*x^2;
-    g = t*x^4;
-    uu = u;
+<span class="c1">// Time loop</span>
+<span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">uu</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">m</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span> <span class="kr">m</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Update</span>
+    <span class="kp">t</span> <span class="o">=</span> <span class="kp">t</span><span class="o">+</span><span class="n">dt</span><span class="p">;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="kr">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">-</span> <span class="n">mu</span><span class="o">*</span><span class="kp">t</span><span class="o">*</span><span class="mi">12</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="kp">t</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">4</span><span class="p">;</span>
+    <span class="n">uu</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-    // Solve
-    dHeat;
+    <span class="c1">// Solve</span>
+    <span class="n">dHeat</span><span class="p">;</span>
 
-    // Plot
-    plot(u, wait=true);
-    cout &lt;&lt; &quot;t=&quot; &lt;&lt; t &lt;&lt; &quot; - L^2-Error=&quot; &lt;&lt; sqrt(int2d(Th)((u-t*x^4)^2)) &lt;&lt; endl;
-}
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;t=&quot;</span> <span class="o">&lt;&lt;</span> <span class="kp">t</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - L^2-Error=&quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)((</span><span class="n">u</span><span class="o">-</span><span class="kp">t</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">4</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <p>In the last statement, the <span><span class="MathJax_Preview">L^2</span><script type="math/tex">L^2</script></span>-error <span><span class="MathJax_Preview">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</span><script type="math/tex">\left(\int_{\Omega}\left| u-tx^4\right|^2\right)^{1/2}</script></span> is calculated at <span><span class="MathJax_Preview">t=m\tau, \tau =0.1</span><script type="math/tex">t=m\tau, \tau =0.1</script></span>. At <span><span class="MathJax_Preview">t=0.1</span><script type="math/tex">t=0.1</script></span>, the error is 0.000213269. The errors increase with <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> and 0.00628589 at <span><span class="MathJax_Preview">t=3</span><script type="math/tex">t=3</script></span>.</p>
-<p>The iteration of the backward Euler \eqref{eqn::heatequationBWE} is made by <a href="../reference/Loops/#for"><code class="codehilite">for</code> loop</a>.</p>
+<p>The iteration of the backward Euler \eqref{eqn::heatequationBWE} is made by <a href="../reference/Loops/#for"><code class="codehilite"><span class="k">for</span></code> loop</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The stiffness matrix in the loop is used over and over again. FreeFem++ support reuses of stiffness matrix.</p>
@@ -1761,75 +1761,75 @@ A=(a_{ij}),\quad a_{ij}=a(\phi_j,\phi_i)\nonumber
 66
 67
 68
-69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real tau = 0.1;
-real theta = 0.;
+69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">tau</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 
-// Mesh
-mesh Th = square(12, 12);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u, v, oldU;
-Vh f1, f0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">oldU</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f0</span><span class="p">;</span>
 
-fespace Ph(Th, P0);
-Ph h = hTriangle; // mesh sizes for each triangle
+<span class="kt">fespace</span> <span class="nf">Ph</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Ph</span> <span class="n">h</span> <span class="o">=</span> <span class="kr">hTriangle</span><span class="p">;</span> <span class="c1">// mesh sizes for each triangle</span>
 
-// Function
-func real f (real t){
-    return x^2*(x-1)^2 + t*(-2 + 12*x - 11*x^2 - 2*x^3 + x^4);
-}
+<span class="c1">// Function</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">f</span> <span class="p">(</span><span class="kt">real</span> <span class="kp">t</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kp">t</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="kr">x</span> <span class="o">-</span> <span class="mi">11</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="kr">x</span><span class="o">^</span><span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
 
-// File
-ofstream out(&quot;err02.csv&quot;); //file to store calculations
-out &lt;&lt; &quot;mesh size = &quot; &lt;&lt; h[].max &lt;&lt; &quot;, time step = &quot; &lt;&lt; tau &lt;&lt; endl;
-for (int n = 0; n &lt; 5/tau; n++)
-    out &lt;&lt; n*tau &lt;&lt; &quot;,&quot;;
-out &lt;&lt; endl;
+<span class="c1">// File</span>
+<span class="kt">ofstream</span> <span class="nf">out</span><span class="p">(</span><span class="s">&quot;err02.csv&quot;</span><span class="p">);</span> <span class="c1">//file to store calculations</span>
+<span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;mesh size = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">h</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, time step = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tau</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">n</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span> <span class="kr">n</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="kr">n</span><span class="o">*</span><span class="n">tau</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-// Problem
-problem aTau (u, v)
-    = int2d(Th)(
-          u*v
-        + theta*tau*(dx(u)*dx(v) + dy(u)*dy(v) + u*v)
-    )
-    - int2d(Th)(
-          oldU*v
-        - (1-theta)*tau*(dx(oldU)*dx(v) + dy(oldU)*dy(v) + oldU*v)
-    )
-    - int2d(Th)(
-          tau*(theta*f1 + (1-theta)*f0)*v
-    )
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">aTau</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">u</span><span class="o">*</span><span class="n">v</span>
+        <span class="o">+</span> <span class="n">theta</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">oldU</span><span class="o">*</span><span class="n">v</span>
+        <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">oldU</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">oldU</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">oldU</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">tau</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">f1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">f0</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="p">;</span>
 
-// Theta loop
-while (theta &lt;= 1.0){
-    real t = 0;
-    real T = 3;
-    oldU = 0;
-    out &lt;&lt; theta &lt;&lt; &quot;,&quot;;
-    for (int n = 0; n &lt; T/tau; n++){
-        // Update
-        t = t + tau;
-        f0 = f(n*tau);
-        f1 = f((n+1)*tau);
+<span class="c1">// Theta loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">theta</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">){</span>
+    <span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">real</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">oldU</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">theta</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">n</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span> <span class="kr">n</span><span class="o">++</span><span class="p">){</span>
+        <span class="c1">// Update</span>
+        <span class="kp">t</span> <span class="o">=</span> <span class="kp">t</span> <span class="o">+</span> <span class="n">tau</span><span class="p">;</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="kr">n</span><span class="o">*</span><span class="n">tau</span><span class="p">);</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">((</span><span class="kr">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">tau</span><span class="p">);</span>
 
-        // Solve
-        aTau;
-        oldU = u;
+        <span class="c1">// Solve</span>
+        <span class="n">aTau</span><span class="p">;</span>
+        <span class="n">oldU</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-        // Plot
-        plot(u);
+        <span class="c1">// Plot</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
 
-        // Error
-        Vh uex = t*x^2*(1-x)^2; //exact solution = tx^2(1-x)^2
-        Vh err = u - uex; // err = FE-sol - exact
-        out &lt;&lt; abs(err[].max)/abs(uex[].max) &lt;&lt; &quot;,&quot;;
-    }
-    out &lt;&lt; endl;
-    theta = theta + 0.1;
-}
+        <span class="c1">// Error</span>
+        <span class="n">Vh</span> <span class="n">uex</span> <span class="o">=</span> <span class="kp">t</span><span class="o">*</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span> <span class="c1">//exact solution = tx^2(1-x)^2</span>
+        <span class="n">Vh</span> <span class="kp">err</span> <span class="o">=</span> <span class="n">u</span> <span class="o">-</span> <span class="n">uex</span><span class="p">;</span> <span class="c1">// err = FE-sol - exact</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="nf">abs</span><span class="p">(</span><span class="kp">err</span><span class="p">[].</span><span class="kr">max</span><span class="p">)</span><span class="o">/</span><span class="nf">abs</span><span class="p">(</span><span class="n">uex</span><span class="p">[].</span><span class="kr">max</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -1979,12 +1979,12 @@ u^m(x-\mathbf{\alpha}\tau )=u^m(x)-\tau \mathbf{\alpha}^m(x)\cdot \nabla u^m(x)+
 </script>
 </div>
 <p>Putting</p>
-<p><code class="codehilite">convect</code> <span><span class="MathJax_Preview">\left( {\mathbf{\alpha},-\tau ,u^m } \right)\approx u^m \left(x - \mathbf{\alpha}^m\tau \right)</span><script type="math/tex">\left( {\mathbf{\alpha},-\tau ,u^m } \right)\approx u^m \left(x - \mathbf{\alpha}^m\tau \right)</script></span></p>
+<p><code class="codehilite"><span class="nf">convect</span></code> <span><span class="MathJax_Preview">\left( {\mathbf{\alpha},-\tau ,u^m } \right)\approx u^m \left(x - \mathbf{\alpha}^m\tau \right)</span><script type="math/tex">\left( {\mathbf{\alpha},-\tau ,u^m } \right)\approx u^m \left(x - \mathbf{\alpha}^m\tau \right)</script></span></p>
 <p>we can get the approximation</p>
-<p><span><span class="MathJax_Preview">u^m \left( {X^m( x )} \right) \approx</span><script type="math/tex">u^m \left( {X^m( x )} \right) \approx</script></span> <code class="codehilite">convect</code> <span><span class="MathJax_Preview">\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)</span><script type="math/tex">\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)</script></span> by <span><span class="MathJax_Preview">X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]</span><script type="math/tex">X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]</script></span></p>
+<p><span><span class="MathJax_Preview">u^m \left( {X^m( x )} \right) \approx</span><script type="math/tex">u^m \left( {X^m( x )} \right) \approx</script></span> <code class="codehilite"><span class="nf">convect</span></code> <span><span class="MathJax_Preview">\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)</span><script type="math/tex">\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)</script></span> by <span><span class="MathJax_Preview">X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]</span><script type="math/tex">X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]</script></span></p>
 <p>A classical convection problem is that of the "rotating bell" (quoted from <a href="#LUCQUIN1998">LUCQUIN1998</a>, p.16).</p>
 <p>Let <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> be the unit disk centered at 0, with its center rotating with speed <span><span class="MathJax_Preview">\alpha_1 = y,\, \alpha_2 = -x</span><script type="math/tex">\alpha_1 = y,\, \alpha_2 = -x</script></span>. We consider the problem \eqref{eqn::conv} with <span><span class="MathJax_Preview">f=0</span><script type="math/tex">f=0</script></span> and the initial condition <span><span class="MathJax_Preview">u(x,0)=u^0(x)</span><script type="math/tex">u(x,0)=u^0(x)</script></span>, that is, from \eqref{eqn::Charac}</p>
-<p><span><span class="MathJax_Preview">u^{m + 1}(x) = u^m(X^m(x))\approx</span><script type="math/tex">u^{m + 1}(x) = u^m(X^m(x))\approx</script></span> <code class="codehilite">convect</code><span><span class="MathJax_Preview">(\mathbf{\alpha},-\tau ,u^m)</span><script type="math/tex">(\mathbf{\alpha},-\tau ,u^m)</script></span></p>
+<p><span><span class="MathJax_Preview">u^{m + 1}(x) = u^m(X^m(x))\approx</span><script type="math/tex">u^{m + 1}(x) = u^m(X^m(x))\approx</script></span> <code class="codehilite"><span class="nf">convect</span></code><span><span class="MathJax_Preview">(\mathbf{\alpha},-\tau ,u^m)</span><script type="math/tex">(\mathbf{\alpha},-\tau ,u^m)</script></span></p>
 <p>The exact solution is <span><span class="MathJax_Preview">u(x, t) = u(\mathbf{X}(t))</span><script type="math/tex">u(x, t) = u(\mathbf{X}(t))</script></span> where <span><span class="MathJax_Preview">\mathbf{X}</span><script type="math/tex">\mathbf{X}</script></span> equals <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> rotated around the origin by an angle <span><span class="MathJax_Preview">\theta = -t</span><script type="math/tex">\theta = -t</script></span> (rotate in clockwise). So, if <span><span class="MathJax_Preview">u^0</span><script type="math/tex">u^0</script></span> in a 3D perspective looks like a bell, then <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> will have exactly the same shape, but rotated by the same amount. The program consists in solving the equation until <span><span class="MathJax_Preview">T = 2\pi</span><script type="math/tex">T = 2\pi</script></span>, that is for a full revolution and to compare the final solution with the initial one; they should be equal.</p>
 <div class="admonition example">
 <p class="admonition-title">Convect</p>
@@ -2016,41 +2016,41 @@ u^m(x-\mathbf{\alpha}\tau )=u^m(x)-\tau \mathbf{\alpha}^m(x)\cdot \nabla u^m(x)+
 26
 27
 28
-29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real dt = 0.17;
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.17</span><span class="p">;</span>
 
-// Mesh
-border C(t=0, 2*pi){x=cos(t); y=sin(t);}
-mesh Th = buildmesh(C(70));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">70</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u0;
-Vh a1 = -y, a2 = x; //rotation velocity
-Vh u;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u0</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">a1</span> <span class="o">=</span> <span class="o">-</span><span class="kr">y</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="kr">x</span><span class="p">;</span> <span class="c1">//rotation velocity</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">;</span>
 
-// Initialization
-u = exp(-10*((x-0.3)^2 +(y-0.3)^2));
+<span class="c1">// Initialization</span>
+<span class="n">u</span> <span class="o">=</span> <span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span>
 
-// Time loop
-real t = 0.;
-for (int m = 0; m &lt; 2*pi/dt; m++){
-    // Update
-    t += dt;
-    u0 = u;
+<span class="c1">// Time loop</span>
+<span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">m</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span> <span class="kr">m</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Update</span>
+    <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
+    <span class="n">u0</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-    // Convect
-    u = convect([a1, a2], -dt, u0); //u^{m+1}=u^m(X^m(x))
+    <span class="c1">// Convect</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nf">convect</span><span class="p">([</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">u0</span><span class="p">);</span> <span class="c1">//u^{m+1}=u^m(X^m(x))</span>
 
-    // Plot
-    plot(u, cmm=&quot; t=&quot;+t+&quot;, min=&quot;+u[].min+&quot;, max=&quot;+u[].max);
-}
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot; t=&quot;</span><span class="o">+</span><span class="kp">t</span><span class="o">+</span><span class="s">&quot;, min=&quot;</span><span class="o">+</span><span class="n">u</span><span class="p">[].</span><span class="kr">min</span><span class="o">+</span><span class="s">&quot;, max=&quot;</span><span class="o">+</span><span class="n">u</span><span class="p">[].</span><span class="kr">max</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The scheme <code class="codehilite">convect</code> is unconditionally stable, then the bell become lower and lower (the maximum of <span><span class="MathJax_Preview">u^{37}</span><script type="math/tex">u^{37}</script></span> is <span><span class="MathJax_Preview">0.406</span><script type="math/tex">0.406</script></span> as shown in <a href="#Fig21">Fig. 21</a>).</p>
+<p>The scheme <code class="codehilite"><span class="nf">convect</span></code> is unconditionally stable, then the bell become lower and lower (the maximum of <span><span class="MathJax_Preview">u^{37}</span><script type="math/tex">u^{37}</script></span> is <span><span class="MathJax_Preview">0.406</span><script type="math/tex">0.406</script></span> as shown in <a href="#Fig21">Fig. 21</a>).</p>
 </div>
 <table>
 <thead>
@@ -2177,62 +2177,62 @@ u\left( {x , y ,T} \right) = \left( {K - \max \left( {x ,y } \right)} \right)^ +
 53
 54
 55
-56</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int m = 30;
-int L = 80;
-int LL = 80;
-int j = 100;
-real sigx = 0.3;
-real sigy = 0.3;
-real rho = 0.3;
-real r = 0.05;
-real K = 40;
-real dt = 0.01;
+56</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">LL</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">sigx</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">sigy</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">rho</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
 
-// Mesh
-mesh th = square(m, m, [L*x, LL*y]);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="kr">m</span><span class="p">,</span> <span class="kr">m</span><span class="p">,</span> <span class="p">[</span><span class="n">L</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span> <span class="n">LL</span><span class="o">*</span><span class="kr">y</span><span class="p">]);</span>
 
-// Fespace
-fespace Vh(th, P1);
-Vh u = max(K-max(x,y),0.);
-Vh xveloc, yveloc, v, uold;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="kr">max</span><span class="p">(</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">),</span><span class="mf">0.</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">xveloc</span><span class="p">,</span> <span class="n">yveloc</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uold</span><span class="p">;</span>
 
-// Time loop
-for (int n = 0; n*dt &lt;= 1.0; n++){
-    // Mesh adaptation
-    if (j &gt; 20){
-        th = adaptmesh(th, u, verbosity=1, abserror=1, nbjacoby=2,
-            err=0.001, nbvx=5000, omega=1.8, ratio=1.8, nbsmooth=3,
-            splitpbedge=1, maxsubdiv=5, rescaling=1);
-        j = 0;
-        xveloc = -x*r + x*sigx^2 + x*rho*sigx*sigy/2;
-        yveloc = -y*r + y*sigy^2 + y*rho*sigx*sigy/2;
-        u = u;
-    }
+<span class="c1">// Time loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">n</span><span class="o">*</span><span class="n">dt</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="kr">n</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Mesh adaptation</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">){</span>
+        <span class="n">th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kr">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">abserror</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nbjacoby</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="kp">err</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="kp">nbvx</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="kp">omega</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="kp">ratio</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="kp">nbsmooth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="kp">splitpbedge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">maxsubdiv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="kp">rescaling</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">xveloc</span> <span class="o">=</span> <span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="kr">x</span><span class="o">*</span><span class="n">sigx</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kr">x</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">sigx</span><span class="o">*</span><span class="n">sigy</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">yveloc</span> <span class="o">=</span> <span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="kr">y</span><span class="o">*</span><span class="n">sigy</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kr">y</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">sigx</span><span class="o">*</span><span class="n">sigy</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // Update
-    uold = u;
+    <span class="c1">// Update</span>
+    <span class="n">uold</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-    // Solve
-    solve eq1(u, v, init=j, solver=LU)
-        = int2d(th)(
-              u*v*(r+1/dt)
-            + dx(u)*dx(v)*(x*sigx)^2/2
-            + dy(u)*dy(v)*(y*sigy)^2/2
-            + (dy(u)*dx(v) + dx(u)*dy(v))*rho*sigx*sigy*x*y/2
-        )
-        - int2d(th)(
-              v*convect([xveloc, yveloc], dt, uold)/dt
-        )
-        + on(2, 3, u=0)
-        ;
+    <span class="c1">// Solve</span>
+    <span class="kt">solve</span> <span class="nf">eq1</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">j</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
+        <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+              <span class="n">u</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+            <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">*</span><span class="n">sigx</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+            <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">*</span><span class="n">sigy</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+            <span class="o">+</span> <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">sigx</span><span class="o">*</span><span class="n">sigy</span><span class="o">*</span><span class="kr">x</span><span class="o">*</span><span class="kr">y</span><span class="o">/</span><span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+              <span class="n">v</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">xveloc</span><span class="p">,</span> <span class="n">yveloc</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">uold</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span>
 
-    // Update
-    j = j+1;
-};
+    <span class="c1">// Update</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
 
-// Plot
-plot(u, wait=true, value=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

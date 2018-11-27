@@ -1516,103 +1516,103 @@ where $((u-g)^+ = max(0,u-g) $</p>
 88
 89
 90
-91</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;medit&quot;
+91</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;</span><span class="nf">medit</span><span class="s">&quot;</span>
 
-// Parameters
-real eps = 1e-5;
-real c = 1000; //penalty parameter of the algoritm
-real tgv = 1e30; //a huge value for exact penalization
-func f = 1; //right hand side function
-func fd = 0; //Dirichlet boundary condition function
+<span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="kp">eps</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">//penalty parameter of the algoritm</span>
+<span class="kt">real</span> <span class="kp">tgv</span> <span class="o">=</span> <span class="mf">1e30</span><span class="p">;</span> <span class="c1">//a huge value for exact penalization</span>
+<span class="kt">func</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//right hand side function</span>
+<span class="kt">func</span> <span class="n">fd</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Dirichlet boundary condition function</span>
 
-// Mesh
-mesh Th = square(20, 20);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-int n = Vh.ndof; //number of degree of freedom
-Vh uh, uhp; //u^n+1 and u^n
-Vh Ik; //to define the set where the containt is reached.
-Vh g = 0.05; //discret function g
-Vh lambda = 0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="n">Vh</span><span class="p">.</span><span class="kr">ndof</span><span class="p">;</span> <span class="c1">//number of degree of freedom</span>
+<span class="n">Vh</span> <span class="n">uh</span><span class="p">,</span> <span class="n">uhp</span><span class="p">;</span> <span class="c1">//u^n+1 and u^n</span>
+<span class="n">Vh</span> <span class="n">Ik</span><span class="p">;</span> <span class="c1">//to define the set where the containt is reached.</span>
+<span class="n">Vh</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span> <span class="c1">//discret function g</span>
+<span class="n">Vh</span> <span class="n">lambda</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-// Problem
-varf a (uh, vh)
-    = int2d(Th)(
-          dx(uh)*dx(vh)
-        + dy(uh)*dy(vh)
-    )
-    - int2d(Th)(
-          f*vh
-    )
-    + on(1, 2, 3, 4, uh=fd)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">varf</span> <span class="nf">a</span> <span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vh</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vh</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">f</span><span class="o">*</span><span class="n">vh</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">uh</span><span class="o">=</span><span class="n">fd</span><span class="p">)</span>
+    <span class="p">;</span>
 
-//the mass Matrix construction
-varf vM (uh, vh) = int2d(Th)(uh*vh);
+<span class="c1">//the mass Matrix construction</span>
+<span class="kt">varf</span> <span class="nf">vM</span> <span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">uh</span><span class="o">*</span><span class="n">vh</span><span class="p">);</span>
 
-//two versions of the matrix of the problem
-matrix A = a(Vh, Vh, tgv=tgv, solver=CG); //one changing
-matrix AA = a(Vh, Vh, solver=CG); //one for computing residual
+<span class="c1">//two versions of the matrix of the problem</span>
+<span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">tgv</span><span class="o">=</span><span class="kp">tgv</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span> <span class="c1">//one changing</span>
+<span class="kt">matrix</span> <span class="n">AA</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span> <span class="c1">//one for computing residual</span>
 
-matrix M = vM(Vh, Vh); //to do a fast computing of L^2 norm : sqrt(u&#39;*(w=M*u))
+<span class="kt">matrix</span> <span class="n">M</span> <span class="o">=</span> <span class="n">vM</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span> <span class="c1">//to do a fast computing of L^2 norm : sqrt(u&#39;*(w=M*u))</span>
 
-real[int] Aiin(n);
-real[int] Aii = A.diag; //get the diagonal of the matrix
-real[int] rhs = a(0, Vh, tgv=tgv);
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Aiin</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Aii</span> <span class="o">=</span> <span class="kp">A</span><span class="p">.</span><span class="kr">diag</span><span class="p">;</span> <span class="c1">//get the diagonal of the matrix</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Vh</span><span class="p">,</span> <span class="kp">tgv</span><span class="o">=</span><span class="kp">tgv</span><span class="p">);</span>
 
-// Initialization
-Ik = 0;
-uhp = -tgv;
+<span class="c1">// Initialization</span>
+<span class="n">Ik</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">uhp</span> <span class="o">=</span> <span class="o">-</span><span class="kp">tgv</span><span class="p">;</span>
 
-// Loop
-for(int iter = 0; iter &lt; 100; ++iter){
-    // Update
-    real[int] b = rhs; //get a copy of the Right hand side
-    real[int] Ak(n); //the complementary of Ik ( !Ik = (Ik-1))
-    Ak = 1.; Ak -= Ik[];
-    //adding new locking condition on b and on the diagonal if (Ik ==1 )
-    b = Ik[] .* g[]; b *= tgv; b -= Ak .* rhs;
-    Aiin = Ik[] * tgv; Aiin += Ak .* Aii; //set Aii= tgv i in Ik
-    A.diag = Aiin; //set the matrix diagonal
-    set(A, solver=CG); //important to change preconditioning for solving
+<span class="c1">// Loop</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">iter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">iter</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">iter</span><span class="p">){</span>
+    <span class="c1">// Update</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">b</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">;</span> <span class="c1">//get a copy of the Right hand side</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Ak</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//the complementary of Ik ( !Ik = (Ik-1))</span>
+    <span class="n">Ak</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span> <span class="n">Ak</span> <span class="o">-=</span> <span class="n">Ik</span><span class="p">[];</span>
+    <span class="c1">//adding new locking condition on b and on the diagonal if (Ik ==1 )</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">Ik</span><span class="p">[]</span> <span class="p">.</span><span class="o">*</span> <span class="n">g</span><span class="p">[];</span> <span class="n">b</span> <span class="o">*=</span> <span class="kp">tgv</span><span class="p">;</span> <span class="n">b</span> <span class="o">-=</span> <span class="n">Ak</span> <span class="p">.</span><span class="o">*</span> <span class="n">rhs</span><span class="p">;</span>
+    <span class="n">Aiin</span> <span class="o">=</span> <span class="n">Ik</span><span class="p">[]</span> <span class="o">*</span> <span class="kp">tgv</span><span class="p">;</span> <span class="n">Aiin</span> <span class="o">+=</span> <span class="n">Ak</span> <span class="p">.</span><span class="o">*</span> <span class="n">Aii</span><span class="p">;</span> <span class="c1">//set Aii= tgv i in Ik</span>
+    <span class="kp">A</span><span class="p">.</span><span class="kr">diag</span> <span class="o">=</span> <span class="n">Aiin</span><span class="p">;</span> <span class="c1">//set the matrix diagonal</span>
+    <span class="nf">set</span><span class="p">(</span><span class="kp">A</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span> <span class="c1">//important to change preconditioning for solving</span>
 
-    // Solve
-    uh[] = A^-1* b; //solve the problem with more locking condition
+    <span class="c1">// Solve</span>
+    <span class="n">uh</span><span class="p">[]</span> <span class="o">=</span> <span class="kp">A</span><span class="o">^-</span><span class="mi">1</span><span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="c1">//solve the problem with more locking condition</span>
 
-    // Residual
-    lambda[] = AA * uh[]; //compute the residual (fast with matrix)
-    lambda[] += rhs; //remark rhs = -\int f v
+    <span class="c1">// Residual</span>
+    <span class="n">lambda</span><span class="p">[]</span> <span class="o">=</span> <span class="n">AA</span> <span class="o">*</span> <span class="n">uh</span><span class="p">[];</span> <span class="c1">//compute the residual (fast with matrix)</span>
+    <span class="n">lambda</span><span class="p">[]</span> <span class="o">+=</span> <span class="n">rhs</span><span class="p">;</span> <span class="c1">//remark rhs = -\int f v</span>
 
-    Ik = (lambda + c*( g- uh)) &lt; 0.; //the new locking value
+    <span class="n">Ik</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambda</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="p">(</span> <span class="n">g</span><span class="o">-</span> <span class="n">uh</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">;</span> <span class="c1">//the new locking value</span>
 
-    // Plot
-    plot(Ik, wait=true, cmm=&quot; lock set &quot;, value=true, fill=true);
-    plot(uh, wait=true, cmm=&quot;uh&quot;);
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">Ik</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot; lock set &quot;</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;uh&quot;</span><span class="p">);</span>
 
-    // Error
-    //trick to compute L^2 norm of the variation (fast method)
-    real[int] diff(n), Mdiff(n);
-    diff = uh[] - uhp[];
-    Mdiff = M*diff;
-    real err = sqrt(Mdiff&#39;*diff);
-    cout &lt;&lt; &quot;|| u_{k=1} - u_{k} ||_2 = &quot; &lt;&lt; err &lt;&lt; endl;
+    <span class="c1">// Error</span>
+    <span class="c1">//trick to compute L^2 norm of the variation (fast method)</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">diff</span><span class="p">(</span><span class="kr">n</span><span class="p">),</span> <span class="n">Mdiff</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">uh</span><span class="p">[]</span> <span class="o">-</span> <span class="n">uhp</span><span class="p">[];</span>
+    <span class="n">Mdiff</span> <span class="o">=</span> <span class="n">M</span><span class="o">*</span><span class="n">diff</span><span class="p">;</span>
+    <span class="kt">real</span> <span class="kp">err</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">Mdiff</span><span class="o">&#39;*</span><span class="n">diff</span><span class="p">);</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;|| u_{k=1} - u_{k} ||_2 = &quot;</span> <span class="o">&lt;&lt;</span> <span class="kp">err</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-    // Stop test
-    if(err &lt; eps) break;
+    <span class="c1">// Stop test</span>
+    <span class="k">if</span><span class="p">(</span><span class="kp">err</span> <span class="o">&lt;</span> <span class="kp">eps</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
-    // Update
-    uhp[] = uh[];
-}
+    <span class="c1">// Update</span>
+    <span class="n">uhp</span><span class="p">[]</span> <span class="o">=</span> <span class="n">uh</span><span class="p">[];</span>
+<span class="p">}</span>
 
-// Plot
-medit(&quot;uh&quot;, Th, uh);
+<span class="c1">// Plot</span>
+<span class="nf">medit</span><span class="p">(</span><span class="s">&quot;uh&quot;</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">uh</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As you can see on this example, some vector, or matrix operator are not implemented so a way is to skip the expression and we use operator <code class="codehilite">+=</code>,  <code class="codehilite">-=</code> to merge the result.</p>
+<p>As you can see on this example, some vector, or matrix operator are not implemented so a way is to skip the expression and we use operator <code class="codehilite"><span class="o">+=</span></code>,  <code class="codehilite"><span class="o">-=</span></code> to merge the result.</p>
 </div>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>

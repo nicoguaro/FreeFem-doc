@@ -1773,39 +1773,39 @@
                 <h2 id="area">area<a class="headerlink" href="#area" title="Permanent link">#</a></h2>
 <p>Area of the current triangle.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
-Vh0 A = area;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Vh0</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Vh0</span> <span class="kp">A</span> <span class="o">=</span> <span class="kr">area</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="argv">ARGV<a class="headerlink" href="#argv" title="Permanent link">#</a></h2>
 <p>Array that contains all the command line arguments.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for (int i = 0; i &lt; ARGV.n; i++)
-    cout &lt;&lt; ARGV[i] &lt;&lt; endl;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">ARGV</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="kr">ARGV</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <p>See <a href="../examples/#command-line-arguments">Command line arguments example</a> for a complete example.</p>
 <h2 id="boundaryedge">BoundaryEdge<a class="headerlink" href="#boundaryedge" title="Permanent link">#</a></h2>
 <p>Return 1 if the current edge is on a boundary, 0 otherwise.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real B = int2d(Th)(BoundaryEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="kp">B</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="kr">BoundaryEdge</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="cg">CG<a class="headerlink" href="#cg" title="Permanent link">#</a></h2>
 <p>Conjugate gradient solver.</p>
 <blockquote>
-<p>Usable in <a href="types/#problem"><code class="codehilite">problem</code></a> and <a href="types/#solve"><code class="codehilite">solve</code></a> definition
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian (U, V, solver=CG) = ...
+<p>Usable in <a href="types/#problem"><code class="codehilite"><span class="kt">problem</span></code></a> and <a href="types/#solve"><code class="codehilite"><span class="kt">solve</span></code></a> definition
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span> <span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table></p>
-<p>Or in <a href="types/#matrix"><code class="codehilite">matrix</code></a> construction
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=CG);
+<p>Or in <a href="types/#matrix"><code class="codehilite"><span class="kt">matrix</span></code></a> construction
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
-<p>Or in <a href="functions/#set"><code class="codehilite">set</code> function</a>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>set(A, solver=CG);
+<p>Or in <a href="functions/#set"><code class="codehilite"><span class="nf">set</span></code> function</a>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">set</span><span class="p">(</span><span class="kp">A</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 </blockquote>
@@ -1815,13 +1815,13 @@ Vh0 A = area;
 <p>Crout solver.</p>
 <h2 id="edgeorientation">edgeOrientation<a class="headerlink" href="#edgeorientation" title="Permanent link">#</a></h2>
 <p>Sign of <span><span class="MathJax_Preview">i-j</span><script type="math/tex">i-j</script></span> if the current edge is <span><span class="MathJax_Preview">[q_i, q_j]</span><script type="math/tex">[q_i, q_j]</script></span>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real S = int1d(Th, 1)(edgeOrientation);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">S</span> <span class="o">=</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="kr">edgeOrientation</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="false">false<a class="headerlink" href="#false" title="Permanent link">#</a></h2>
 <p>False boolean value.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = false;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="kr">false</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1830,69 +1830,69 @@ Vh0 A = area;
 <h2 id="htriangle">hTriangle<a class="headerlink" href="#htriangle" title="Permanent link">#</a></h2>
 <p>Size of the current triangle.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
-Vh h = hTriangle;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">h</span> <span class="o">=</span> <span class="kr">hTriangle</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="include">include<a class="headerlink" href="#include" title="Permanent link">#</a></h2>
 <p>Include an <a href="ExternalLibraries">external library</a>.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>include &quot;iovtk&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">include</span> <span class="s">&quot;iovtk&quot;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="internaledge">InternalEdge<a class="headerlink" href="#internaledge" title="Permanent link">#</a></h2>
 <p>Return 0 if the current edge is on a boundary, 1 otherwise.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real I = int2d(Th)(InternalEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">I</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="kr">InternalEdge</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="label">label<a class="headerlink" href="#label" title="Permanent link">#</a></h2>
 <p>Label number of a boundary if the current point is on a boundary, 0 otherwise.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int L = Th(xB, yB).label;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Th</span><span class="p">(</span><span class="n">xB</span><span class="p">,</span> <span class="n">yB</span><span class="p">).</span><span class="kr">label</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="lenedge">lenEdge<a class="headerlink" href="#lenedge" title="Permanent link">#</a></h2>
 <p>Length of the current edge.</p>
 <p>For an edge <span><span class="MathJax_Preview">[q_i, g_j]</span><script type="math/tex">[q_i, g_j]</script></span>, return <span><span class="MathJax_Preview">|q_i-q_j|</span><script type="math/tex">|q_i-q_j|</script></span>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real L = int1d(Th, 1)(lenEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">L</span> <span class="o">=</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="kr">lenEdge</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="load">load<a class="headerlink" href="#load" title="Permanent link">#</a></h2>
 <p>Load a script.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;Element_P3&quot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;Element_P3&quot;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="lu">LU<a class="headerlink" href="#lu" title="Permanent link">#</a></h2>
 <p>LU solver.</p>
 <h2 id="n">N<a class="headerlink" href="#n" title="Permanent link">#</a></h2>
-<p>Outward unit normal at the current point if it is on a curve defined by a border. <code class="codehilite">N.x, N.y, N.z</code> are respectively the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> components of the normal.</p>
+<p>Outward unit normal at the current point if it is on a curve defined by a border. <code class="codehilite"><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">,</span> <span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">,</span> <span class="kr">N</span><span class="p">.</span><span class="kr">z</span></code> are respectively the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> components of the normal.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func Nx = N.x;
-func Ny = N.y;
-func Nz = N.z;
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">Nx</span> <span class="o">=</span> <span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">;</span>
+<span class="kt">func</span> <span class="n">Ny</span> <span class="o">=</span> <span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">;</span>
+<span class="kt">func</span> <span class="n">Nz</span> <span class="o">=</span> <span class="kr">N</span><span class="p">.</span><span class="kr">z</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="ntonedge">nTonEdge<a class="headerlink" href="#ntonedge" title="Permanent link">#</a></h2>
 <p>Number of adjacent triangles of the current edge.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real nTE = int2d(Th)(nTonEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">nTE</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="kr">nTonEdge</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="nuedge">nuEdge<a class="headerlink" href="#nuedge" title="Permanent link">#</a></h2>
 <p>Index of the current edge in the triangle.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real nE = int2d(Th)(nuEdge);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">nE</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="kr">nuEdge</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="nutriangle">nuTriangle<a class="headerlink" href="#nutriangle" title="Permanent link">#</a></h2>
 <p>Index of the current triangle.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh(Th, P0);
-Vh n = nuTriangle;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="kr">n</span> <span class="o">=</span> <span class="kr">nuTriangle</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1900,20 +1900,20 @@ Vh n = nuTriangle;
 <p>Current point.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real cx = P.x;
-real cy = P.y;
-real cz = P.z;
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">cx</span> <span class="o">=</span> <span class="kr">P</span><span class="p">.</span><span class="kr">x</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">cy</span> <span class="o">=</span> <span class="kr">P</span><span class="p">.</span><span class="kr">y</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">cz</span> <span class="o">=</span> <span class="kr">P</span><span class="p">.</span><span class="kr">z</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="pi">pi<a class="headerlink" href="#pi" title="Permanent link">#</a></h2>
 <p>Pi = 3.14159.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real Pi = pi;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">Pi</span> <span class="o">=</span> <span class="kr">pi</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 This is a real value.</p>
 <h2 id="region">region<a class="headerlink" href="#region" title="Permanent link">#</a></h2>
-<p>Region number of the current point. If the point is outside, then <code class="codehilite">region == notaregion</code> where <code class="codehilite">notaregion</code> is a <strong><code>FreeFem++</code></strong> integer constant.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int R = Th(xR, yR).region;
+<p>Region number of the current point. If the point is outside, then <code class="codehilite"><span class="kr">region</span> <span class="o">==</span> <span class="kr">notaregion</span></code> where <code class="codehilite"><span class="kr">notaregion</span></code> is a <strong><code>FreeFem++</code></strong> integer constant.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">R</span> <span class="o">=</span> <span class="n">Th</span><span class="p">(</span><span class="n">xR</span><span class="p">,</span> <span class="n">yR</span><span class="p">).</span><span class="kr">region</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -1921,47 +1921,47 @@ This is a real value.</p>
 <p>Sparse matrix solver.</p>
 <h2 id="true">true<a class="headerlink" href="#true" title="Permanent link">#</a></h2>
 <p>True boolean value.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = true;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="kr">true</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="verbosity">verbosity<a class="headerlink" href="#verbosity" title="Permanent link">#</a></h2>
 <p>Verbosity level.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Verbosity = verbosity;
-verbosity = 0;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">Verbosity</span> <span class="o">=</span> <span class="kr">verbosity</span><span class="p">;</span>
+<span class="kr">verbosity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 0 = nothing, 1 = few informations, 10 = a lot of informations, ...</p>
 <p>This is an integer value.</p>
 <h2 id="version">version<a class="headerlink" href="#version" title="Permanent link">#</a></h2>
 <p>FreeFem++ version.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cout &lt;&lt; version &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="kr">version</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="volume">volume<a class="headerlink" href="#volume" title="Permanent link">#</a></h2>
 <p>Volume of the current tetrahedra.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Vh0(Th, P0);
-Vh0 V = volume;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Vh0</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span>
+<span class="n">Vh0</span> <span class="n">V</span> <span class="o">=</span> <span class="kr">volume</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="x">x<a class="headerlink" href="#x" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> coordinate at the current point.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentX = x;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">CurrentX</span> <span class="o">=</span> <span class="kr">x</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 This is a real value.</p>
 <h2 id="y">y<a class="headerlink" href="#y" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> coordinate at the current point.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentY = y;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">CurrentY</span> <span class="o">=</span> <span class="kr">y</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 This is a real value.</p>
 <h2 id="z">z<a class="headerlink" href="#z" title="Permanent link">#</a></h2>
 <p>The <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> coordinate at the current point.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real CurrentY = y;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">CurrentY</span> <span class="o">=</span> <span class="kr">y</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 This is a real value.</p>

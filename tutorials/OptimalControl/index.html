@@ -1310,7 +1310,7 @@
                 
                 
                 <h1 id="optimal-control">Optimal Control<a class="headerlink" href="#optimal-control" title="Permanent link">#</a></h1>
-<p>Thanks to the function <code class="codehilite">BFGS</code> it is possible to solve complex nonlinear optimization problem within FreeFem++. For example consider the following inverse problem</p>
+<p>Thanks to the function <code class="codehilite"><span class="nf">BFGS</span></code> it is possible to solve complex nonlinear optimization problem within FreeFem++. For example consider the following inverse problem</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray}
     \min_{b, c, d\in R}J &amp;=&amp; \int_E(u-u_d)^2\\
@@ -1421,80 +1421,80 @@
 71
 72
 73
-74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
-border aa(t=0, 2*pi){x=5*cos(t); y=5*sin(t);};
-border bb(t=0, 2*pi){x=cos(t); y=sin(t);};
-border cc(t=0, 2*pi){x=-3+cos(t); y=sin(t);};
-border dd(t=0, 2*pi){x=cos(t); y =-3+sin(t);};
+74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">aa</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">border</span> <span class="kp">bb</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">border</span> <span class="nf">cc</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mi">3</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
+<span class="kt">border</span> <span class="nf">dd</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span> <span class="o">=-</span><span class="mi">3</span><span class="o">+</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
 
-mesh th = buildmesh(aa(70) + bb(35) + cc(35) + dd(35));
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">aa</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="o">+</span> <span class="kp">bb</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="o">+</span> <span class="n">cc</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dd</span><span class="p">(</span><span class="mi">35</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(th, P1);
-Vh Ib=((x^2+y^2)&lt;1.0001),
-    Ic=(((x+3)^2+ y^2)&lt;1.0001),
-    Id=((x^2+(y+3)^2)&lt;1.0001),
-    Ie=(((x-1)^2+ y^2)&lt;=4),
-    ud, u, uh, du;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">Ib</span><span class="o">=</span><span class="p">((</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1.0001</span><span class="p">),</span>
+    <span class="n">Ic</span><span class="o">=</span><span class="p">(((</span><span class="kr">x</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1.0001</span><span class="p">),</span>
+    <span class="n">Id</span><span class="o">=</span><span class="p">((</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="kr">y</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1.0001</span><span class="p">),</span>
+    <span class="n">Ie</span><span class="o">=</span><span class="p">(((</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">),</span>
+    <span class="n">ud</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="n">du</span><span class="p">;</span>
 
-// Problem
-real[int] z(3);
-problem A(u, uh)
-    = int2d(th)(
-          (1+z[0]*Ib+z[1]*Ic+z[2]*Id)*(dx(u)*dx(uh) + dy(u)*dy(uh))
-    )
-    + on(aa, u=x^3-y^3)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kr">z</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kt">problem</span> <span class="kp">A</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Ib</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Ic</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Id</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="kr">x</span><span class="o">^</span><span class="mi">3</span><span class="o">-</span><span class="kr">y</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Solve
-z[0]=2; z[1]=3; z[2]=4;
-A;
-ud = u;
+<span class="c1">// Solve</span>
+<span class="kr">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="kr">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="kr">z</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+<span class="kp">A</span><span class="p">;</span>
+<span class="n">ud</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-ofstream f(&quot;J.txt&quot;);
-func real J(real[int] &amp; Z){
-    for (int i = 0; i &lt; z.n; i++)
-        z[i] =Z[i];
-    A;
-    real s = int2d(th)(Ie*(u-ud)^2);
-    f &lt;&lt; s &lt;&lt; &quot; &quot;;
-    return s;
-}
+<span class="kt">ofstream</span> <span class="nf">f</span><span class="p">(</span><span class="s">&quot;J.txt&quot;</span><span class="p">);</span>
+<span class="kt">func</span> <span class="kt">real</span> <span class="nf">J</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">Z</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">z</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="kr">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="kp">A</span><span class="p">;</span>
+    <span class="kt">real</span> <span class="n">s</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span><span class="n">Ie</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">ud</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
 
-// Problem BFGS
-real[int] dz(3), dJdz(3);
-problem B (du, uh)
-    = int2d(th)(
-          (1+z[0]*Ib+z[1]*Ic+z[2]*Id)*(dx(du)*dx(uh) + dy(du)*dy(uh))
-    )
-    + int2d(th)(
-          (dz[0]*Ib+dz[1]*Ic+dz[2]*Id)*(dx(u)*dx(uh) + dy(u)*dy(uh))
-    )
-    +on(aa, du=0)
-    ;
+<span class="c1">// Problem BFGS</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="nf">dz</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">dJdz</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kt">problem</span> <span class="kp">B</span> <span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">uh</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Ib</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Ic</span><span class="o">+</span><span class="kr">z</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Id</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">du</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">du</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="nf">dz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Ib</span><span class="o">+</span><span class="nf">dz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Ic</span><span class="o">+</span><span class="nf">dz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Id</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uh</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">du</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-func real[int] DJ(real[int] &amp;Z){
-    for(int i = 0; i &lt; z.n; i++){
-        for(int j = 0; j &lt; dz.n; j++)
-            dz[j] = 0;
-        dz[i] = 1;
-        B;
-        dJdz[i] = 2*int2d(th)(Ie*(u-ud)*du);
-    }
-    return dJdz;
-}
+<span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">DJ</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">Z</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">z</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nf">dz</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="nf">dz</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nf">dz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kp">B</span><span class="p">;</span>
+        <span class="n">dJdz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span><span class="n">Ie</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">ud</span><span class="p">)</span><span class="o">*</span><span class="n">du</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">dJdz</span><span class="p">;</span>
+<span class="p">}</span>
 
-real[int] Z(3);
-for(int j = 0; j &lt; z.n; j++)
-    Z[j]=1;
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Z</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="kr">z</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">Z</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 
-BFGS(J, DJ, Z, eps=1.e-6, nbiter=15, nbiterline=20);
-cout &lt;&lt; &quot;BFGS: J(z) = &quot; &lt;&lt; J(Z) &lt;&lt; endl;
-for(int j = 0; j &lt; z.n; j++)
-    cout &lt;&lt; z[j] &lt;&lt; endl;
+<span class="nf">BFGS</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">DJ</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="mf">1.e-6</span><span class="p">,</span> <span class="kp">nbiter</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">nbiterline</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;BFGS: J(z) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">J</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="kr">z</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="kr">z</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-// Plot
-plot(ud, value=1, ps=&quot;u.eps&quot;);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">ud</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;u.eps&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1560,7 +1560,7 @@ plot(ud, value=1, ps=&quot;u.eps&quot;);
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As BFGS stores an <span><span class="MathJax_Preview">M\times M</span><script type="math/tex">M\times M</script></span> matrix where <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the number of unknowns, it is dangerously expensive to use this method when the unknown <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is a Finite Element Function. One should use another optimizer such as the NonLinear Conjugate Gradient <code class="codehilite">NLCG</code> (also a key word of FreeFem++).</p>
+<p>As BFGS stores an <span><span class="MathJax_Preview">M\times M</span><script type="math/tex">M\times M</script></span> matrix where <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the number of unknowns, it is dangerously expensive to use this method when the unknown <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is a Finite Element Function. One should use another optimizer such as the NonLinear Conjugate Gradient <code class="codehilite"><span class="nf">NLCG</span></code> (also a key word of FreeFem++).</p>
 </div>
                 
                   

@@ -1362,38 +1362,38 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int nn = 30;
+32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="n">nn</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
 
-// Mesh
-mesh Th = square(nn, nn);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">nn</span><span class="p">);</span>
 
-// Fespace
-fespace Uh(Th, P1b);
-Uh u, v;
-Uh uu, vv;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1b</span><span class="p">);</span>
+<span class="n">Uh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">Uh</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
 
-fespace Ph(Th, P1);
-Ph p, pp;
+<span class="kt">fespace</span> <span class="nf">Ph</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Ph</span> <span class="n">p</span><span class="p">,</span> <span class="n">pp</span><span class="p">;</span>
 
-// Problem
-solve stokes ([u, v, p], [uu, vv, pp])
-    = int2d(Th)(
-          dx(u)*dx(uu)
-        + dy(u)*dy(uu)
-        + dx(v)*dx(vv)
-        + dy(v)*dy(vv)
-        + dx(p)*uu
-        + dy(p)*vv
-        + pp*(dx(u) + dy(v))
-        - 1e-10*p*pp
-    )
-    + on(1, 2, 4, u=0, v=0)
-    + on(3, u=1, v=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">solve</span> <span class="nf">stokes</span> <span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">],</span> <span class="p">[</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">pp</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">uu</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">vv</span>
+        <span class="o">+</span> <span class="n">pp</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="o">-</span> <span class="mf">1e-10</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">pp</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-plot([u, v], p, wait=1);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

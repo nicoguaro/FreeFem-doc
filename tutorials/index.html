@@ -1384,7 +1384,7 @@
 <p>The FreeFem++ language is <a href="../reference/Types">typed</a>, polymorphic and reentrant with <a href="../reference/Types#macro-design">macro generation</a>.</p>
 <p>Every variable must be typed and declared in a statement. Each statement is separated from the next by a semicolon <code>;</code>.</p>
 <p>The FreeFem++ language is a C++ idiom with something that is more akin to LaTeX.</p>
-<p>For the specialist, one key guideline is that FreeFem++ rarely generates an internal finite element array, this was adopted for speed and consequently FreeFem++ could be hard to beat in terms of execution speed, except for the time lost in the interpretation of the language (which can be reduced by a systematic usage of <code class="codehilite">varf</code> and <code class="codehilite">matrix</code> instead of <code class="codehilite">problem</code>).</p>
+<p>For the specialist, one key guideline is that FreeFem++ rarely generates an internal finite element array, this was adopted for speed and consequently FreeFem++ could be hard to beat in terms of execution speed, except for the time lost in the interpretation of the language (which can be reduced by a systematic usage of <code class="codehilite"><span class="kt">varf</span></code> and <code class="codehilite"><span class="kt">matrix</span></code> instead of <code class="codehilite"><span class="kt">problem</span></code>).</p>
 <h2 id="the-development-cycle-edit-runvisualize-revise">The Development Cycle: Edit--Run/Visualize--Revise<a class="headerlink" href="#the-development-cycle-edit-runvisualize-revise" title="Permanent link">#</a></h2>
 <p>Many examples and tutorials are given thereafter and in the <a href="../examples">examples part</a>. It is better to study them and learn by example.</p>
 <p>If you are a beginner in the finite element method, you may also have to read a book on variational formulations.</p>
@@ -1400,8 +1400,8 @@ That can also be done in terminal mode by :
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>FreeFem++ mycode.edp
 </pre></div>
 </td></tr></table></p>
-<p><strong>Visualization:</strong> Use the keyword <code class="codehilite">plot</code> directly in <code>mycode.edp</code> to display functions while FreeFem++ is running. Use the plot-parameter <code class="codehilite">wait=1</code> to stop the program at each plot.</p>
-<p><strong>Debugging:</strong> A global variable <code>debug</code> (for example) can help as in <code class="codehilite">wait=true</code> to <code class="codehilite">wait=false</code>.
+<p><strong>Visualization:</strong> Use the keyword <code class="codehilite"><span class="nf">plot</span></code> directly in <code>mycode.edp</code> to display functions while FreeFem++ is running. Use the plot-parameter <code class="codehilite"><span class="kp">wait</span><span class="o">=</span><span class="mi">1</span></code> to stop the program at each plot.</p>
+<p><strong>Debugging:</strong> A global variable <code>debug</code> (for example) can help as in <code class="codehilite"><span class="kp">wait</span><span class="o">=</span><span class="kr">true</span></code> to <code class="codehilite"><span class="kp">wait</span><span class="o">=</span><span class="kr">false</span></code>.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1419,24 +1419,24 @@ That can also be done in terminal mode by :
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool debug = true;
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">debug</span> <span class="o">=</span> <span class="kr">true</span><span class="p">;</span>
 
-border a(t=0, 2.*pi){x=cos(t); y=sin(t); label=1;};
-border b(t=0, 2.*pi){x=0.8+0.3*cos(t); y=0.3*sin(t); label=2;};
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.8</span><span class="o">+</span><span class="mf">0.3</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.3</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;};</span>
 
-plot(a(50) + b(-30), wait=debug); //plot the borders to see the intersection
-//so change (0.8 in 0.3 in b)
-//if debug == true, press Enter to continue
+<span class="nf">plot</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">),</span> <span class="kp">wait</span><span class="o">=</span><span class="n">debug</span><span class="p">);</span> <span class="c1">//plot the borders to see the intersection</span>
+<span class="c1">//so change (0.8 in 0.3 in b)</span>
+<span class="c1">//if debug == true, press Enter to continue</span>
 
-mesh Th = buildmesh(a(50) + b(-30));
-plot(Th, wait=debug); //plot Th then press Enter
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="n">debug</span><span class="p">);</span> <span class="c1">//plot Th then press Enter</span>
 
-fespace Vh(Th,P2);
-Vh f = sin(pi*x)*cos(pi*y);
-Vh g = sin(pi*x + cos(pi*y));
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P2</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">f</span> <span class="o">=</span> <span class="nf">sin</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">y</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">g</span> <span class="o">=</span> <span class="nf">sin</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span> <span class="o">+</span> <span class="nf">cos</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">y</span><span class="p">));</span>
 
-plot(f, wait=debug); //plot the function f
-plot(g, wait=debug); //plot the function g
+<span class="nf">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="n">debug</span><span class="p">);</span> <span class="c1">//plot the function f</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="n">debug</span><span class="p">);</span> <span class="c1">//plot the function g</span>
 </pre></div>
 </td></tr></table>
 Changing debug to false will make the plots flow continuously. Watching the flow of graphs on the screen (while drinking coffee) can then become a pleasant experience.</p>
@@ -1444,9 +1444,9 @@ Changing debug to false will make the plots flow continuously. Watching the flow
 <p>Error messages are displayed in the console window. They are not always very explicit because of the template structure of the C++ code (we did our best!). Nevertheless they are displayed at the right place. For example, if you forget parenthesis as in:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool debug = true;
-mesh Th = square(10,10;
-plot(Th);
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">debug</span> <span class="o">=</span> <span class="kr">true</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 then you will get the following message from FreeFem++:
@@ -1471,8 +1471,8 @@ error Compile error : parse error
 </td></tr></table></p>
 <p>If you use the same symbol twice as in:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real aaa = 1;
-real aaa;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">aaa</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">aaa</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 then you will get the message:
@@ -1483,27 +1483,27 @@ then you will get the message:
           the new  <span class="nb">type</span> is &lt;Pd&gt;
 </pre></div>
 </td></tr></table></p>
-<p>If you find that the program isn't doing what you want you may also use <code class="codehilite">cout</code> to display in text format on the console window the value of variables, just as you would do in C++.</p>
+<p>If you find that the program isn't doing what you want you may also use <code class="codehilite"><span class="kr">cout</span></code> to display in text format on the console window the value of variables, just as you would do in C++.</p>
 <p>The following example works:</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>...
-fespace Vh(Th, P1);
-Vh u;
-cout &lt;&lt; u;
-matrix A = a(Vh, Vh);
-cout &lt;&lt; A;
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">...</span>
+<span class="kt">fespace</span> <span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">;</span>
+<span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="kp">A</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 <!--- > -->
-Another trick is to <em>comment in and out</em> by using <code class="codehilite">//</code> as in C++.
+Another trick is to <em>comment in and out</em> by using <code class="codehilite"><span class="c1">//</span></code> as in C++.
 For example</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real aaa =1;
-// real aaa;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">aaa</span> <span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="c1">// real aaa;</span>
 </pre></div>
 </td></tr></table>
                 

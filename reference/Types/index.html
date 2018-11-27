@@ -2009,32 +2009,32 @@
                 <h2 id="standard-types">Standard types<a class="headerlink" href="#standard-types" title="Permanent link">#</a></h2>
 <h3 id="int">int<a class="headerlink" href="#int" title="Permanent link">#</a></h3>
 <p>Integer value (equivalent to <code class="codehilite"><span class="kt">long</span></code> in <code>C++</code>).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i = 0;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="bool">bool<a class="headerlink" href="#bool" title="Permanent link">#</a></h3>
 <p>Boolean value.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = true;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="kr">true</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition example">
 <p class="admonition-title">The result of a comparison is a boolean</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>bool b = (1 &lt; 2);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 </div>
 <h3 id="real">real<a class="headerlink" href="#real" title="Permanent link">#</a></h3>
 <p>Real value (equivalent to <code class="codehilite"><span class="kt">double</span></code> in <code>C++</code>).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real r = 0.;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="complex">complex<a class="headerlink" href="#complex" title="Permanent link">#</a></h3>
 <p>Complex value (equivalent to two <code class="codehilite"><span class="kt">double</span></code> or <code class="codehilite"><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span></code> in <code>C++</code>).</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>complex c = 0. + 1i;
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">complex</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">0.</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 The imaginary number <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is defined as <code>1i</code></p>
@@ -2044,11 +2044,11 @@ The imaginary number <span><span class="MathJax_Preview">i</span><script type="m
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>complex a = 1i, b = 2 + 3i;
-cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; a + b &lt;&lt; endl;
-cout &lt;&lt; &quot;a - b = &quot; &lt;&lt; a - b &lt;&lt; endl;
-cout &lt;&lt; &quot;a*b = &quot; &lt;&lt; a*b &lt;&lt; endl;
-cout &lt;&lt; &quot;a/b = &quot; &lt;&lt; a/b &lt;&lt; endl;
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">complex</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">i</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a + b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a - b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a*b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a/b = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -2069,169 +2069,169 @@ a/b <span class="o">=</span> <span class="o">(</span><span class="m">0</span>.23
 </div>
 <h3 id="string">string<a class="headerlink" href="#string" title="Permanent link">#</a></h3>
 <p>String value.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>string s = &quot;this is a string&quot;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;this is a string&quot;</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="codehilite">string</code> value is enclosed within double quotes.</p>
+<p><code class="codehilite"><span class="kt">string</span></code> value is enclosed within double quotes.</p>
 </div>
 <p>Other types can be concatenate to a string, like:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int i = 1;
-real r = 1.;
-string s = &quot;the int i = &quot; + i +&quot;, the real r = &quot; + r + &quot;, the complex z = &quot; + (1. + 1i);
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;the int i = &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s">&quot;, the real r = &quot;</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="s">&quot;, the complex z = &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <p>To append a string in a string at position 4:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>s(4:3) = &quot;+++&quot;;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">4</span><span class="o">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;+++&quot;</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <p>To copy a substring in an other string:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>string s2 = s1(5:10);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">(</span><span class="mi">5</span><span class="o">:</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <p>See <a href="../examples/#string">String Example</a> for a complete example.</p>
 <h2 id="mesh-design">Mesh design<a class="headerlink" href="#mesh-design" title="Permanent link">#</a></h2>
 <h3 id="border">border<a class="headerlink" href="#border" title="Permanent link">#</a></h3>
 <p>Border type.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border b(t=0., 1.){x=cos(2.*pi*t); y=sin(2.*pi*t);}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="kp">t</span><span class="p">);}</span>
 </pre></div>
 </td></tr></table>
 Define the 2D geometrical border in parametric coordinates.</p>
 <div class="admonition note">
 <p class="admonition-title">Label</p>
 <p>A label can be defined with the border:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border b(t=0., 1.){x=cos(2.*pi*t); y=sin(2.*pi*t); label=1;}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
 </pre></div>
 </td></tr></table></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Inner variable</p>
 <p>An inner variable can be defined inside a border:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border b(t=0., 1.){real tt=2.*pi*t; x=cos(tt); y=sin(tt);}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kt">real</span> <span class="n">tt</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="n">tt</span><span class="p">);}</span>
 </pre></div>
 </td></tr></table></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">From vector</p>
 <p>A border can be defined from two vectors using <code>P.x</code> and <code>P.y</code>:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border b(t=0, vectorX.n-1){x=vectorX[t]; P.x=vectorY[t];}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vectorX</span><span class="p">.</span><span class="kr">n</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">vectorX</span><span class="p">[</span><span class="kp">t</span><span class="p">];</span> <span class="kr">P</span><span class="p">.</span><span class="kr">x</span><span class="o">=</span><span class="n">vectorY</span><span class="p">[</span><span class="kp">t</span><span class="p">];}</span>
 </pre></div>
 </td></tr></table></p>
 </div>
 <h3 id="mesh">mesh<a class="headerlink" href="#mesh" title="Permanent link">#</a></h3>
 <p>2D Mesh type (see <a href="../documentation/MeshGeneration/">Mesh Generation</a>).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="mesh3">mesh3<a class="headerlink" href="#mesh3" title="Permanent link">#</a></h3>
 <p>3D mesh type (see <a href="../documentation/MeshGeneration/">Mesh Generation</a>).
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh3 Th;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="finite-element-space-design">Finite element space design<a class="headerlink" href="#finite-element-space-design" title="Permanent link">#</a></h2>
 <h3 id="fespace">fespace<a class="headerlink" href="#fespace" title="Permanent link">#</a></h3>
 <p>Finite element space type (see <a href="../documentation/FiniteElement/">Finite Element</a>).</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Uh(Th, P1);
-fespace UPh(Th, [P2, P2, P1]);
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="kt">fespace</span> <span class="nf">UPh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
 </pre></div>
 </td></tr></table>
-A finite element space is based on a mesh (<code>Th</code>) with an element definition, scalar (<code class="codehilite">P1</code>) or vector (<code class="codehilite">[P2, P2, P1]</code>).</p>
+A finite element space is based on a mesh (<code>Th</code>) with an element definition, scalar (<code class="codehilite"><span class="nc">P1</span></code>) or vector (<code class="codehilite"><span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]</span></code>).</p>
 <p><strong>Available finite element space:</strong></p>
 <p>Generic:</p>
 <ul>
-<li><code class="codehilite">P0 / P03d</code></li>
-<li><code class="codehilite">P0Edge</code></li>
-<li><code class="codehilite">P1 / P13d</code></li>
-<li><code class="codehilite">P1dc</code></li>
-<li><code class="codehilite">P1b / P1b3d</code></li>
-<li><code class="codehilite">P1bl / P1bl3d</code></li>
-<li><code class="codehilite">P1nc</code></li>
-<li><code class="codehilite">P2 / P23d</code></li>
-<li><code class="codehilite">P2b</code></li>
-<li><code class="codehilite">P2dc</code></li>
-<li><code class="codehilite">P2h</code></li>
-<li><code class="codehilite">RT0 / RT03d</code></li>
-<li><code class="codehilite">RT0Ortho</code></li>
-<li><code class="codehilite">Edge03d</code></li>
+<li><code class="codehilite"><span class="nc">P0</span> <span class="o">/</span> <span class="nc">P03d</span></code></li>
+<li><code class="codehilite"><span class="nc">P0Edge</span></code></li>
+<li><code class="codehilite"><span class="nc">P1</span> <span class="o">/</span> <span class="nc">P13d</span></code></li>
+<li><code class="codehilite"><span class="nc">P1dc</span></code></li>
+<li><code class="codehilite"><span class="nc">P1b</span> <span class="o">/</span> <span class="nc">P1b3d</span></code></li>
+<li><code class="codehilite"><span class="nc">P1bl</span> <span class="o">/</span> <span class="nc">P1bl3d</span></code></li>
+<li><code class="codehilite"><span class="nc">P1nc</span></code></li>
+<li><code class="codehilite"><span class="nc">P2</span> <span class="o">/</span> <span class="nc">P23d</span></code></li>
+<li><code class="codehilite"><span class="nc">P2b</span></code></li>
+<li><code class="codehilite"><span class="nc">P2dc</span></code></li>
+<li><code class="codehilite"><span class="nc">P2h</span></code></li>
+<li><code class="codehilite"><span class="nc">RT0</span> <span class="o">/</span> <span class="nc">RT03d</span></code></li>
+<li><code class="codehilite"><span class="nc">RT0Ortho</span></code></li>
+<li><code class="codehilite"><span class="nc">Edge03d</span></code></li>
 </ul>
 <p>Using <em>Element_P3</em>:</p>
 <ul>
-<li><code class="codehilite">P3</code></li>
+<li><code class="codehilite"><span class="nc">P3</span></code></li>
 </ul>
 <p>Using <em>Element_P3dc</em>:</p>
 <ul>
-<li><code class="codehilite">P3dc</code></li>
+<li><code class="codehilite"><span class="nc">P3dc</span></code></li>
 </ul>
 <p>Using <em>Element_P4</em>:</p>
 <ul>
-<li><code class="codehilite">P4</code></li>
+<li><code class="codehilite"><span class="nc">P4</span></code></li>
 </ul>
 <p>Using <em>Element_P4dc</em>:</p>
 <ul>
-<li><code class="codehilite">P4dc</code></li>
+<li><code class="codehilite"><span class="nc">P4dc</span></code></li>
 </ul>
 <p>Using <em>Element_PkEdge</em>:</p>
 <ul>
-<li><code class="codehilite">P1Edge</code></li>
-<li><code class="codehilite">P2Edge</code></li>
-<li><code class="codehilite">P3Edge</code></li>
-<li><code class="codehilite">P4Edge</code></li>
-<li><code class="codehilite">P5Edge</code></li>
+<li><code class="codehilite"><span class="nc">P1Edge</span></code></li>
+<li><code class="codehilite"><span class="nc">P2Edge</span></code></li>
+<li><code class="codehilite"><span class="nc">P3Edge</span></code></li>
+<li><code class="codehilite"><span class="nc">P4Edge</span></code></li>
+<li><code class="codehilite"><span class="nc">P5Edge</span></code></li>
 </ul>
 <p>Using <em>Morlay</em>:</p>
 <ul>
-<li><code class="codehilite">P2Morley</code></li>
+<li><code class="codehilite"><span class="nc">P2Morley</span></code></li>
 </ul>
 <p>Using <em>HCT</em>:</p>
 <ul>
-<li><code class="codehilite">HCT</code></li>
+<li><code class="codehilite"><span class="nc">HCT</span></code></li>
 </ul>
 <p>Using <em>BernardiRaugel</em>:</p>
 <ul>
-<li><code class="codehilite">P2BR</code></li>
+<li><code class="codehilite"><span class="nc">P2BR</span></code></li>
 </ul>
 <p>Using <em>Element_Mixte</em>:</p>
 <ul>
-<li><code class="codehilite">RT1</code></li>
-<li><code class="codehilite">RT1Ortho</code></li>
-<li><code class="codehilite">RT2</code></li>
-<li><code class="codehilite">RT2Ortho</code></li>
-<li><code class="codehilite">BDM1</code></li>
-<li><code class="codehilite">BDM1Ortho</code></li>
+<li><code class="codehilite"><span class="nc">RT1</span></code></li>
+<li><code class="codehilite"><span class="nc">RT1Ortho</span></code></li>
+<li><code class="codehilite"><span class="nc">RT2</span></code></li>
+<li><code class="codehilite"><span class="nc">RT2Ortho</span></code></li>
+<li><code class="codehilite"><span class="nc">BDM1</span></code></li>
+<li><code class="codehilite"><span class="nc">BDM1Ortho</span></code></li>
 </ul>
 <p>Using <em>Element_Mixte3d</em>:</p>
 <ul>
-<li><code class="codehilite">Edge13d</code></li>
-<li><code class="codehilite">Edge23d</code></li>
+<li><code class="codehilite"><span class="nc">Edge13d</span></code></li>
+<li><code class="codehilite"><span class="nc">Edge23d</span></code></li>
 </ul>
 <p>Using <em>Element_QF</em>:</p>
 <ul>
-<li><code class="codehilite">FEQF</code></li>
+<li><code class="codehilite"><span class="nc">FEQF</span></code></li>
 </ul>
 <p>A finite element function is defined as follow:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fespace Uh(Th, P1);
-Uh u;
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Uh</span> <span class="n">u</span><span class="p">;</span>
 
-fespace UPh(Th, [P2, P2, P1]);
-UPh [Ux, Uy, p];
+<span class="kt">fespace</span> <span class="nf">UPh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
+<span class="n">UPh</span> <span class="p">[</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">,</span> <span class="n">p</span><span class="p">];</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="macro-design">Macro design<a class="headerlink" href="#macro-design" title="Permanent link">#</a></h2>
 <h3 id="macro">macro<a class="headerlink" href="#macro" title="Permanent link">#</a></h3>
 <p>Macro type.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>macro vU() [Ux, Uy] //
-macro grad(u) [dx(u), dy(u)] //
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">macro</span> <span class="n">vU</span><span class="p">()</span> <span class="p">[</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">]</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="c1">//</span>
 </pre></div>
 </td></tr></table>
 Macro ends with <code>//</code>.</p>
@@ -2239,7 +2239,7 @@ Macro ends with <code>//</code>.</p>
 <p class="admonition-title">Macro concatenation</p>
 <p>You can use the C concatenation operator ## inside a macro using #.</p>
 <p>If <code>Ux</code> and <code>Uy</code> are defined as finite element function, you can define:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>macro Grad(U) [grad(U#x), grad(U#y)] //
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">macro</span> <span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">[</span><span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">y</span><span class="p">)]</span> <span class="c1">//</span>
 </pre></div>
 </td></tr></table></p>
 </div>
@@ -2250,7 +2250,7 @@ Macro ends with <code>//</code>.</p>
 <p>In developement - Not tested</p>
 </div>
 <p>Set and end a macro</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>NewMacro grad(u) [dx(u), dy(u)] EndMacro
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">NewMacro</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="kt">EndMacro</span>
 </pre></div>
 </td></tr></table>
 
@@ -2262,13 +2262,13 @@ Macro ends with <code>//</code>.</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>IFMACRO(AA) //check if macro AA exists
-...
-ENDIFMACRO
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">IFMACRO</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span> <span class="c1">//check if macro AA exists</span>
+<span class="p">...</span>
+<span class="cp">ENDIFMACRO</span>
 
-IFMACRO(AA, tt) //check if amcro exists and is equall to tt
-...
-ENDIFMACRO
+<span class="cp">IFMACRO</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="n">tt</span><span class="p">)</span> <span class="c1">//check if amcro exists and is equall to tt</span>
+<span class="p">...</span>
+<span class="cp">ENDIFMACRO</span>
 </pre></div>
 </td></tr></table>
 
@@ -2277,7 +2277,7 @@ ENDIFMACRO
 <h3 id="func">func<a class="headerlink" href="#func" title="Permanent link">#</a></h3>
 <p>Function type.</p>
 <p>Function without parameters (<span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> and <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> are implicitly considered):
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func f = x^2 + y^2;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">f</span> <span class="o">=</span> <span class="kr">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
@@ -2287,9 +2287,9 @@ ENDIFMACRO
 <p>Function with parameters:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func real f (real var){
-    return x^2 + y^2 + var^2;
-}
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="kt">real</span> <span class="nf">f</span> <span class="p">(</span><span class="kt">real</span> <span class="n">var</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kr">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">var</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="elementary-functions">Elementary functions<a class="headerlink" href="#elementary-functions" title="Permanent link">#</a></h3>
@@ -2302,13 +2302,13 @@ and by composition <span><span class="MathJax_Preview">f(g(x))</span><script typ
 <p>See <a href="../examples/#elementary-function">Elementary function example</a> for a complete example.</p>
 <h3 id="random-functions">Random functions<a class="headerlink" href="#random-functions" title="Permanent link">#</a></h3>
 <p><strong><code>FreeFem++</code></strong> includes the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">Mersenne Twister</a> random number generator. It is a very fast and accurate random number generator of period <span><span class="MathJax_Preview">2^{219937}-1</span><script type="math/tex">2^{219937}-1</script></span>.</p>
-<p>See <a href="Functions/#randint32"><code class="codehilite">randint32()</code></a>, <a href="Functions/#randint31"><code class="codehilite">randint31()</code></a>, <a href="Functions/#randreal1"><code class="codehilite">randreal1()</code></a>, <a href="Functions/#randreal2"><code class="codehilite">randreal2()</code></a>, <a href="Functions/#randreal3"><code class="codehilite">randreal3()</code></a>, <a href="Functions/#randres53"><code class="codehilite">randres53()</code></a>, <a href="Functions/#randinit"><code class="codehilite">randinit(seed)</code></a>.</p>
-<p>In addition, the <code>ffrandom</code> plugin interface <code class="codehilite">random</code>, <code class="codehilite">srandom</code> and <code class="codehilite">srandomdev</code> functions of the unix <code>libc</code> library. The range is <span><span class="MathJax_Preview">0 -- 2^{31}-1</span><script type="math/tex">0 -- 2^{31}-1</script></span>.</p>
+<p>See <a href="Functions/#randint32"><code class="codehilite"><span class="nf">randint32</span><span class="p">()</span></code></a>, <a href="Functions/#randint31"><code class="codehilite"><span class="nf">randint31</span><span class="p">()</span></code></a>, <a href="Functions/#randreal1"><code class="codehilite"><span class="nf">randreal1</span><span class="p">()</span></code></a>, <a href="Functions/#randreal2"><code class="codehilite"><span class="nf">randreal2</span><span class="p">()</span></code></a>, <a href="Functions/#randreal3"><code class="codehilite"><span class="nf">randreal3</span><span class="p">()</span></code></a>, <a href="Functions/#randres53"><code class="codehilite"><span class="nf">randres53</span><span class="p">()</span></code></a>, <a href="Functions/#randinit"><code class="codehilite"><span class="nf">randinit</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code></a>.</p>
+<p>In addition, the <code>ffrandom</code> plugin interface <code class="codehilite"><span class="nf">random</span></code>, <code class="codehilite"><span class="nf">srandom</span></code> and <code class="codehilite"><span class="nf">srandomdev</span></code> functions of the unix <code>libc</code> library. The range is <span><span class="MathJax_Preview">0 -- 2^{31}-1</span><script type="math/tex">0 -- 2^{31}-1</script></span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If <code class="codehilite">srandomdev</code> is not defined, a seed based on the current time is used.</p>
+<p>If <code class="codehilite"><span class="nf">srandomdev</span></code> is not defined, a seed based on the current time is used.</p>
 </div>
-<p><code class="codehilite">gsl</code> plugin equally allows usage of all random functions of the <code>gsllib</code>, see <a href="ExternalLibraries/#ff_gsl_awk">gsl external library</a>.</p>
+<p><code class="codehilite"><span class="n">gsl</span></code> plugin equally allows usage of all random functions of the <code>gsllib</code>, see <a href="ExternalLibraries/#ff_gsl_awk">gsl external library</a>.</p>
 <h3 id="fe-functions">FE-functions<a class="headerlink" href="#fe-functions" title="Permanent link">#</a></h3>
 <p>Finite element functions are also constructed like elementary functions by an arithmetic formula involving elementary functions.</p>
 <p>The difference is that they are evaluated at declaration time and <strong><code>FreeFem++</code></strong> stores the array of its values at the places associated with he degree of freedom of the finite element type. By opposition, elementary functions are evaluated only when needed. Hence FE-functions are not defined only by their formula but also by the mesh and the finite element which enter in their definitions.</p>
@@ -2318,44 +2318,44 @@ and by composition <span><span class="MathJax_Preview">f(g(x))</span><script typ
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func f = x^2*(1+y)^3 + y^2;
-mesh Th = square(20, 20, [-2+4*x, -2+4*y]); // ]-2, 2[^2
-fespace Vh(Th, P1);
-Vh fh=f; //fh is the projection of f to Vh (real value)
-func zf = (x^2*(1+y)^3 + y^2)*exp(x + 1i*y);
-Vh&lt;complex&gt; zh = zf; //zh is the projection of zf to complex value Vh space
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">f</span> <span class="o">=</span> <span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kr">y</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="kr">y</span><span class="p">]);</span> <span class="c1">// ]-2, 2[^2</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">fh</span><span class="o">=</span><span class="n">f</span><span class="p">;</span> <span class="c1">//fh is the projection of f to Vh (real value)</span>
+<span class="kt">func</span> <span class="n">zf</span> <span class="o">=</span> <span class="p">(</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kr">y</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nf">exp</span><span class="p">(</span><span class="kr">x</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="kr">y</span><span class="p">);</span>
+<span class="n">Vh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">zh</span> <span class="o">=</span> <span class="n">zf</span><span class="p">;</span> <span class="c1">//zh is the projection of zf to complex value Vh space</span>
 </pre></div>
 </td></tr></table>
 
-<p>The construction of <code class="codehilite">fh = f</code> is explained in <a href="../documentation/FiniteElement/">Finite Element</a>.</p>
+<p>The construction of <code class="codehilite"><span class="n">fh</span> <span class="o">=</span> <span class="n">f</span></code> is explained in <a href="../documentation/FiniteElement/">Finite Element</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code class="codehilite">plot</code> command only works for real or complex FE-functions, not for elementary functions.</p>
+<p>The <code class="codehilite"><span class="nf">plot</span></code> command only works for real or complex FE-functions, not for elementary functions.</p>
 </div>
 <h2 id="problem-design">Problem design<a class="headerlink" href="#problem-design" title="Permanent link">#</a></h2>
 <h3 id="problem">problem<a class="headerlink" href="#problem" title="Permanent link">#</a></h3>
 <p>Problem type.</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian (u, uh) = ...
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 <strong><code>FreeFem++</code></strong> needs the variational form in the problem definition.</p>
 <p>In order to solve the problem, just call:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Laplacian;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Laplacian</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">Solver</p>
 <p>A solver can be specified in the problem definition:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, solver=CG) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table></p>
-<p>The default solver is <code class="codehilite">sparsesolver</code> or <code class="codehilite">LU</code> if any direct sparse solver is available.</p>
+<p>The default solver is <code class="codehilite"><span class="kr">sparsesolver</span></code> or <code class="codehilite"><span class="kr">LU</span></code> if any direct sparse solver is available.</p>
 <p>Solvers are listed in the <a href="GlobalVariables">Global variables</a> section.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Stop test</p>
 <p>A criterion <span><span class="MathJax_Preview">\varepsilon</span><script type="math/tex">\varepsilon</script></span> can be defined for iterative methods, like CG for example:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, solver=CG, eps=1.e-6) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="mf">1.e-6</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table></p>
 <p>If <span><span class="MathJax_Preview">\varepsilon&gt;0</span><script type="math/tex">\varepsilon>0</script></span>, the stop test is:
@@ -2370,9 +2370,9 @@ Else, the stop test is:
 </div>
 <div class="admonition note">
 <p class="admonition-title">Reconstruction</p>
-<p>The keyword <code class="codehilite">init</code> controls the reconstruction of the internal problem matrix.</p>
-<p>If <code class="codehilite">init</code> is set to <code class="codehilite">false</code> or <code class="codehilite">0</code>, the matrix is reconstructed et each problem calls (or after a mesh modification), else the previously constructed matrix is used.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, init=1) = ...
+<p>The keyword <code class="codehilite"><span class="kp">init</span></code> controls the reconstruction of the internal problem matrix.</p>
+<p>If <code class="codehilite"><span class="kp">init</span></code> is set to <code class="codehilite"><span class="kr">false</span></code> or <code class="codehilite"><span class="mi">0</span></code>, the matrix is reconstructed et each problem calls (or after a mesh modification), else the previously constructed matrix is used.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
@@ -2380,20 +2380,20 @@ Else, the stop test is:
 <div class="admonition note">
 <p class="admonition-title">Preconditioning</p>
 <p>A preconditioner can be specified in the problem definition:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, precon=P) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">precon</span><span class="o">=</span><span class="kr">P</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
 <p>The preconditioning function must have a prototype like:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>func real[int] P(real[int] &amp;xx);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kr">P</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">xx</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 </div>
 <div class="admonition note">
 <p class="admonition-title"><em>Très grande valeur</em></p>
-<p>The "<em>Très grand valeur</em>" <code class="codehilite">tgv</code> (or <em>Terrible giant value</em>) used to implement the Dirichlet conditions can be modified in the problem definition:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, tgv=1e30) = ...
+<p>The "<em>Très grand valeur</em>" <code class="codehilite"><span class="kp">tgv</span></code> (or <em>Terrible giant value</em>) used to implement the Dirichlet conditions can be modified in the problem definition:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">tgv</span><span class="o">=</span><span class="mf">1e30</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
@@ -2401,43 +2401,43 @@ Else, the stop test is:
 </div>
 <div class="admonition note">
 <p class="admonition-title">Pivot tolerance</p>
-<p>The tolerance of the pivot in <code class="codehilite">UMFPACK</code>, <code class="codehilite">LU</code>, <code class="codehilite">Crout</code>, <code class="codehilite">Cholesky</code> factorization can be modified in the problem definition:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, solver=LU, tolpivot=1e-20) = ...
+<p>The tolerance of the pivot in <code class="codehilite"><span class="kr">UMFPACK</span></code>, <code class="codehilite"><span class="kr">LU</span></code>, <code class="codehilite"><span class="kr">Crout</span></code>, <code class="codehilite"><span class="kr">Cholesky</span></code> factorization can be modified in the problem definition:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">,</span> <span class="kp">tolpivot</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">UMFPACK</code></p>
-<p>Two specific parameters for the <code class="codehilite">UMFPACK</code> can be modifed:</p>
+<p class="admonition-title"><code class="codehilite"><span class="kr">UMFPACK</span></code></p>
+<p>Two specific parameters for the <code class="codehilite"><span class="kr">UMFPACK</span></code> can be modifed:</p>
 <ul>
 <li>Tolerance of the pivot sym</li>
 <li>strategy</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem Laplacian(u, uh, solver=LU, tolpivotsym=1e-1, strategy=0) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="n">Laplacian</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">,</span> <span class="kp">tolpivotsym</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="kp">strategy</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
 <p>Refer to the <a href="http://faculty.cse.tamu.edu/davis/research.html">UMFPACK website</a> for more informations.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">dimKrylov</code></p>
+<p class="admonition-title"><code class="codehilite"><span class="nf">dimKrylov</span></code></p>
 <p>Dimension of the Krylov space</p>
 </div>
-<p>Usage of <code class="codehilite">problem</code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">problem</span></code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
 <h3 id="solve">solve<a class="headerlink" href="#solve" title="Permanent link">#</a></h3>
 <p>Solve type.</p>
 <p>Identical to <a href="#problem">problem</a> but automatically solved.</p>
-<p>Usage of <code class="codehilite">solve</code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">solve</span></code> is detailled in the <a href="../tutorials">tutorial</a>.</p>
 <h3 id="varf">varf<a class="headerlink" href="#varf" title="Permanent link">#</a></h3>
 <p>Variational form type.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf vLaplacian (u, uh) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">varf</span> <span class="n">vLaplacian</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uh</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
 <p>Directly define a variational form.</p>
 <p>This is the other way to define a problem in order to directly manage matrix and right hang side.</p>
-<p>Usage of <code class="codehilite">varf</code> is detailed in the <a href="../tutorials">tutorial</a>.</p>
+<p>Usage of <code class="codehilite"><span class="kt">varf</span></code> is detailed in the <a href="../tutorials">tutorial</a>.</p>
 <h2 id="array">Array<a class="headerlink" href="#array" title="Permanent link">#</a></h2>
 <p>An array stores multiple objects, and there are 2 kinds of arrays:</p>
 <ul>
@@ -2446,26 +2446,26 @@ Else, the stop test is:
 </ul>
 <p>In the first case, the size of the array must be known at execution time, and implementation is done with the <code class="codehilite"><span class="n">KN</span><span class="o">&lt;&gt;</span></code> class and all the vector operator of <code class="codehilite"><span class="n">KN</span><span class="o">&lt;&gt;</span></code> are implemented.</p>
 <p>Arrays can be set like in Matlab or Scilab with the operator <code>::</code>, the array generator of <code>a:c</code> is equivalent to <code>a:1:c</code>, and the array set by <code>a:b:c</code> is set to size <span><span class="MathJax_Preview">\lfloor |(b-a)/c|+1 \rfloor</span><script type="math/tex">\lfloor |(b-a)/c|+1 \rfloor</script></span> and the value <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is set by <span><span class="MathJax_Preview">a + i (b-a)/c</span><script type="math/tex">a + i (b-a)/c</script></span>.</p>
-<p>There are <code class="codehilite">int,real, complex</code> array with, in the third case, two operators (<code class="codehilite">.im</code>, <code class="codehilite">.re</code>) to generate the real and imaginary real array from the complex array (without copy).</p>
+<p>There are <code class="codehilite"><span class="kt">int</span><span class="p">,</span><span class="kt">real</span><span class="p">,</span> <span class="kt">complex</span></code> array with, in the third case, two operators (<code class="codehilite"><span class="p">.</span><span class="kr">im</span></code>, <code class="codehilite"><span class="p">.</span><span class="kr">re</span></code>) to generate the real and imaginary real array from the complex array (without copy).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Quantiles are points taken at regular intervals from the cumulative distribution function of a random variable. Here the array values are random.</p>
-<p>This statistical function <code class="codehilite">a.quantile(q)</code> computes <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> from an array <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> for a given number <span><span class="MathJax_Preview">q\in ]0,1[</span><script type="math/tex">q\in ]0,1[</script></span> such that:
+<p>This statistical function <code class="codehilite"><span class="n">a</span><span class="p">.</span><span class="kr">quantile</span><span class="p">(</span><span class="n">q</span><span class="p">)</span></code> computes <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> from an array <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> of size <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> for a given number <span><span class="MathJax_Preview">q\in ]0,1[</span><script type="math/tex">q\in ]0,1[</script></span> such that:
 <script type="math/tex; mode=display">
 \#\{ i / a[i] < v \} \sim q*n
 </script>
 it is equivalent to <span><span class="MathJax_Preview">v = a[q*n]</span><script type="math/tex">v = a[q*n]</script></span> when the array <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> is sorted.</p>
 </div>
-<p>For example, to declare, fill and display an array of <code class="codehilite">real</code> of size <code>n</code>:
+<p>For example, to declare, fill and display an array of <code class="codehilite"><span class="kt">real</span></code> of size <code>n</code>:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int n = 5;
-real[int] Ai(n);
-for (int i = 0; i &lt; n; i++)
-    Ai[i] = i;
-cout &lt;&lt; Ai &lt;&lt; endl;
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Ai</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">Ai</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Ai</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <p>The output of this script is:
@@ -2478,37 +2478,37 @@ cout &lt;&lt; Ai &lt;&lt; endl;
 <h3 id="array-index">Array index<a class="headerlink" href="#array-index" title="Permanent link">#</a></h3>
 <p>Array index can be int or string:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] Ai = [1, 1, 0, 0];
-real[string] As = [1, 1, 0, 0];
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Ai</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+<span class="kt">real</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span> <span class="n">As</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="array-size">Array size<a class="headerlink" href="#array-size" title="Permanent link">#</a></h3>
 <p>The size of an array is obtained using the keyword <code>n</code>:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int ArraySize = Ai.n;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">ArraySize</span> <span class="o">=</span> <span class="n">Ai</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="array-sort">Array sort<a class="headerlink" href="#array-sort" title="Permanent link">#</a></h3>
 <p>To sort an array:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Ai.sort;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Ai</span><span class="p">.</span><span class="nf">sort</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="double-array">Double array<a class="headerlink" href="#double-array" title="Permanent link">#</a></h3>
 <p>A double array (matrix) can be defined using two indexes:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int, int] Aii = [[1, 1], [0, 0]];
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">]</span> <span class="n">Aii</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]];</span>
 </pre></div>
 </td></tr></table>
 
 <p>The two sizes are obtained using the keywords <code>n</code> and <code>m</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int ArraySize1 = Aii.n;
-int ArraySize2 = Aii.m;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">ArraySize1</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">ArraySize2</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">m</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <p>The minimum and maximum values of an array (simple or double) can be obtained using:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real ArrayMin = Aii.min;
-real ArrayMax = Aii.max;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">ArrayMin</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">min</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">ArrayMax</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">max</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <p>Th minimum and maximum position of an array can be obtained using:
@@ -2516,21 +2516,21 @@ real ArrayMax = Aii.max;
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int mini = Aii.imin;
-int minj = Aii.jmin;
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">mini</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">imin</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">minj</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="n">jmin</span><span class="p">;</span>
 
-int maxi = Aii.imax;
-int maxj = Aii.jmax;
+<span class="kt">int</span> <span class="n">maxi</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="kr">imax</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">maxj</span> <span class="o">=</span> <span class="n">Aii</span><span class="p">.</span><span class="n">jmax</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>An array can be obtained from a finite element function using:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] aU = U[];
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">aU</span> <span class="o">=</span> <span class="n">U</span><span class="p">[];</span>
 </pre></div>
 </td></tr></table>
 
-<p>where <code class="codehilite">U</code> is a finite element function.</p>
+<p>where <code class="codehilite"><span class="n">U</span></code> is a finite element function.</p>
 </div>
 <h3 id="array-of-fe-functions">Array of FE functions<a class="headerlink" href="#array-of-fe-functions" title="Permanent link">#</a></h3>
 <p>It is also possible to make an array of FE functions, with the same syntax, and we can treat them as vector valued function if we need them.</p>
@@ -2545,17 +2545,17 @@ int maxj = Aii.jmax;
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int n = 100; //size of the array.
-Vh[int] wh(n); //real scalar case
-Wh[int] [uh,vh](n); //real vectorial case
-Vh&lt;complex&gt;[int] cwh(n); //complex scalar case
-Wh&lt;complex&gt;[int] [cuh, cvh](n); //complex vectorial case
-[cuh[2], cvh[2]] = [x, y]; //set interpolation of index 2
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">//size of the array.</span>
+<span class="n">Vh</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">wh</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//real scalar case</span>
+<span class="n">Wh</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="p">[</span><span class="n">uh</span><span class="p">,</span><span class="n">vh</span><span class="p">](</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//real vectorial case</span>
+<span class="n">Vh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">cwh</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//complex scalar case</span>
+<span class="n">Wh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="p">[</span><span class="n">cuh</span><span class="p">,</span> <span class="n">cvh</span><span class="p">](</span><span class="kr">n</span><span class="p">);</span> <span class="c1">//complex vectorial case</span>
+<span class="p">[</span><span class="n">cuh</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">cvh</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="p">];</span> <span class="c1">//set interpolation of index 2</span>
 
-// Array of Array
-real [int][int] V(10);
-matrix[int] B(10);
-real [int, int][int] A(10);
+<span class="c1">// Array of Array</span>
+<span class="kt">real</span> <span class="p">[</span><span class="kt">int</span><span class="p">][</span><span class="kt">int</span><span class="p">]</span> <span class="n">V</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="kt">matrix</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kp">B</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="kt">real</span> <span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">][</span><span class="kt">int</span><span class="p">]</span> <span class="kp">A</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition example">
@@ -2596,42 +2596,42 @@ real [int, int][int] A(10);
 33
 34
 35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
-mesh Th = square(20, 20, [2*x, 2*y]);
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="p">]);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u, v, f;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
 
-// Problem
-problem Poisson (u, v)
-    = int2d(Th)(
-          dx(u)*dx(v)
-        + dy(u)*dy(v)
-    )
-    + int2d(Th)(
-        - f*v
-    )
-    + on(1, 2, 3, 4, u=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">Poisson</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">f</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-Vh[int] uu(3); //an array of FE function
-// Solve problem 1
-f = 1;
-Poisson;
-uu[0] = u;
-// Solve problem 2
-f = sin(pi*x)*cos(pi*y);
-Poisson;
-uu[1] = u;
-// Solve problem 3
-f = abs(x-1)*abs(y-1);
-Poisson;
-uu[2] = u;
+<span class="n">Vh</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">uu</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">//an array of FE function</span>
+<span class="c1">// Solve problem 1</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">Poisson</span><span class="p">;</span>
+<span class="n">uu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+<span class="c1">// Solve problem 2</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nf">sin</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">y</span><span class="p">);</span>
+<span class="n">Poisson</span><span class="p">;</span>
+<span class="n">uu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+<span class="c1">// Solve problem 3</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Poisson</span><span class="p">;</span>
+<span class="n">uu</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
 
-// Plot
-for (int i = 0; i &lt; 3; i++)
-    plot(uu[i], wait=true);
+<span class="c1">// Plot</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">uu</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <p>See <a href="../examples/#fe-array">FE array example</a>.</p>
@@ -2643,13 +2643,13 @@ for (int i = 0; i &lt; 3; i++)
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[string] map; //a dynamic array
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span> <span class="n">map</span><span class="p">;</span> <span class="c1">//a dynamic array</span>
 
-map[&quot;1&quot;] = 2.0;
-map[2] = 3.0; //2 is automatically cast to the string &quot;2&quot;
+<span class="n">map</span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+<span class="n">map</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">;</span> <span class="c1">//2 is automatically cast to the string &quot;2&quot;</span>
 
-cout &lt;&lt; &quot;map[\&quot;1\&quot;] = &quot; &lt;&lt; map[&quot;1&quot;] &lt;&lt; endl;
-cout &lt;&lt; &quot;map[2] = &quot; &lt;&lt; map[2] &lt;&lt; endl;
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;map[</span><span class="se">\&quot;</span><span class="s">1</span><span class="se">\&quot;</span><span class="s">] = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">map</span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;map[2] = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">map</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -2659,90 +2659,90 @@ cout &lt;&lt; &quot;map[2] = &quot; &lt;&lt; map[2] &lt;&lt; endl;
 <p>Matrices can be defined like vectors:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = [[1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9]];
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]];</span>
 </pre></div>
 </td></tr></table>
 
 <p>or using a variational form type (see <a href="../documentation/FiniteElement/#variational-form-sparse-matrix-pde-data-vector">Finite Element</a>):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix Laplacian = vLaplacian(Uh, Uh);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="n">Laplacian</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>or from block of matrices:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A1, ..., An;
-matrix A = [[A1, ...], ..., [..., An]];
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A1</span><span class="p">,</span> <span class="p">...,</span> <span class="n">An</span><span class="p">;</span>
+<span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="p">[[</span><span class="kp">A1</span><span class="p">,</span> <span class="p">...],</span> <span class="p">...,</span> <span class="p">[...,</span> <span class="n">An</span><span class="p">]];</span>
 </pre></div>
 </td></tr></table></p>
 <p>or using sparse matrix set:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>A = [I, J, C];
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kp">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">C</span><span class="p">];</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>I</code> and <code>J</code> are <code class="codehilite">int[int]</code> and <code>C</code> is <code class="codehilite">real[int]</code>. The matrix is defined as:
+<p><code>I</code> and <code>J</code> are <code class="codehilite"><span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code> and <code>C</code> is <code class="codehilite"><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span></code>. The matrix is defined as:
 <script type="math/tex; mode=display">
 A = \sum_k{C[k]M_{I[k], J[k]}}
 </script>
 where <span><span class="MathJax_Preview">M_{a, b} = \left(\delta_{ia}\delta_{jb}\right)_{ij}</span><script type="math/tex">M_{a, b} = \left(\delta_{ia}\delta_{jb}\right)_{ij}</script></span> <!--- __ ---></p>
 <p><code>I</code>, <code>J</code> and <code>C</code> can be retrieved using <code>[I, J, C] = A</code> (arrays are automatically resized).</p>
-<p>The size of the matrix is <code class="codehilite">n = I.max;</code>, <code class="codehilite">m = J.max;</code>.</p>
+<p>The size of the matrix is <code class="codehilite"><span class="kr">n</span> <span class="o">=</span> <span class="n">I</span><span class="p">.</span><span class="kr">max</span><span class="p">;</span></code>, <code class="codehilite"><span class="kr">m</span> <span class="o">=</span> <span class="n">J</span><span class="p">.</span><span class="kr">max</span><span class="p">;</span></code>.</p>
 </div>
 <p>Matrices are designed using templates, so they can be real or complex:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix&lt;real&gt; A = ...
-matrix&lt;complex&gt; Ai = ...
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span><span class="o">&lt;</span><span class="kt">real</span><span class="o">&gt;</span> <span class="kp">A</span> <span class="o">=</span> <span class="p">...</span>
+<span class="kt">matrix</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">Ai</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Solver</p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
-<p>The default solver is <a href="GlobalVariables/#gmres"><code class="codehilite">GMRES</code></a>.</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=sparsesolver);
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
+<p>The default solver is <a href="GlobalVariables/#gmres"><code class="codehilite"><span class="kr">GMRES</span></code></a>.</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">sparsesolver</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 or
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>set(A , solver=sparsesolver);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">set</span><span class="p">(</span><span class="kp">A</span> <span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">sparsesolver</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Factorize</p>
-<p>If <code class="codehilite">true</code>, the factorization is done for <code class="codehilite">LU</code>, <code class="codehilite">Cholesky</code> or <code class="codehilite">Crout</code>.</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix A = vLaplacian(Uh, Uh, solver=LU, factorize=1);
+<p>If <code class="codehilite"><span class="kr">true</span></code>, the factorization is done for <code class="codehilite"><span class="kr">LU</span></code>, <code class="codehilite"><span class="kr">Cholesky</span></code> or <code class="codehilite"><span class="kr">Crout</span></code>.</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">,</span> <span class="kp">factorize</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 or
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>set(A , solver=LU, factorize=1);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">set</span><span class="p">(</span><span class="kp">A</span> <span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">,</span> <span class="kp">factorize</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Stop test</p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><em>Très grande valeur</em></p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Preconditioning</p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Pivot tolerance</p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">UMFPACK</code></p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p class="admonition-title"><code class="codehilite"><span class="kr">UMFPACK</span></code></p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">dimKrylov</code></p>
-<p>See <a href="#problem"><code class="codehilite">problem</code></a>.</p>
+<p class="admonition-title"><code class="codehilite"><span class="nf">dimKrylov</span></code></p>
+<p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">datafilename</p>
@@ -2762,19 +2762,19 @@ or
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To modify the <code class="codehilite">solver</code>, the stop test,... after the matrix construction, use the <a href="functions/#set"><code class="codehilite">set</code> keyword</a>.</p>
+<p>To modify the <code class="codehilite"><span class="kp">solver</span></code>, the stop test,... after the matrix construction, use the <a href="functions/#set"><code class="codehilite"><span class="nf">set</span></code> keyword</a>.</p>
 </div>
 <h3 id="matrix-size">Matrix size<a class="headerlink" href="#matrix-size" title="Permanent link">#</a></h3>
 <p>The size of a matrix is obtain using:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int NRows = A.n;
-int NColumns = A.m;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">NRows</span> <span class="o">=</span> <span class="kp">A</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">NColumns</span> <span class="o">=</span> <span class="kp">A</span><span class="p">.</span><span class="kr">m</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="matrix-resize">Matrix resize<a class="headerlink" href="#matrix-resize" title="Permanent link">#</a></h3>
 <p>To resize a matrix, use:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>A.resize(n, m);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kp">A</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kr">m</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition warning">
@@ -2783,7 +2783,7 @@ int NColumns = A.m;
 <p>When resizing, all new terms are set to zero.</p>
 <h3 id="matrix-diagonal">Matrix diagonal<a class="headerlink" href="#matrix-diagonal" title="Permanent link">#</a></h3>
 <p>The diagonal of the matrix is obtained using:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] Aii = A.diag;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Aii</span> <span class="o">=</span> <span class="kp">A</span><span class="p">.</span><span class="kr">diag</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
@@ -2791,10 +2791,10 @@ int NColumns = A.m;
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int[int] I(15, J(15);
-matrix B = A;
-B = A(I, J);
-B = A(I^-1, J^-1);
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">I</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">J</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="kp">B</span> <span class="o">=</span> <span class="kp">A</span><span class="p">;</span>
+<span class="kp">B</span> <span class="o">=</span> <span class="kp">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">);</span>
+<span class="kp">B</span> <span class="o">=</span> <span class="kp">A</span><span class="p">(</span><span class="n">I</span><span class="o">^-</span><span class="mi">1</span><span class="p">,</span> <span class="n">J</span><span class="o">^-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -2802,18 +2802,18 @@ B = A(I^-1, J^-1);
 <p>Use <code>.im</code> and <code>.re</code> to get the imaginary and real part of a complex matrix, respectively:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix&lt;complex&gt; C = ...
-matrix R = C.re;
-matrix I = C.im;
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">C</span> <span class="o">=</span> <span class="p">...</span>
+<span class="kt">matrix</span> <span class="n">R</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="kr">re</span><span class="p">;</span>
+<span class="kt">matrix</span> <span class="n">I</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="kr">im</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="dot-product-outer-product">Dot product / Outer product<a class="headerlink" href="#dot-product-outer-product" title="Permanent link">#</a></h3>
 <p>The dot product of two matrices is realized using:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real d = A&#39; * B;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="nf">d</span> <span class="o">=</span> <span class="kp">A</span><span class="o">&#39;</span> <span class="o">*</span> <span class="kp">B</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <p>The outer product of two matrices is realized using:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>matrix C = A * B&#39;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="n">C</span> <span class="o">=</span> <span class="kp">A</span> <span class="o">*</span> <span class="kp">B</span><span class="o">&#39;</span>
 </pre></div>
 </td></tr></table></p>
 <p>See <a href="./example/#matrix-operations">Matrix operations example</a> for a complete example.</p>

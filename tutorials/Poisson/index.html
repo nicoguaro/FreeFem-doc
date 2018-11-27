@@ -1404,48 +1404,48 @@ C=\{(x,y)|\; x=\cos(t),\, y=\sin(t),\, 0\le t\le 2\pi\}
 29
 30
 31
-32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Define mesh boundary
-border C(t=0, 2*pi){x=cos(t); y=sin(t);}
+32</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Define mesh boundary</span>
+<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
 
-// The triangulated domain Th is on the left side of its boundary
-mesh Th = buildmesh(C(50));
+<span class="c1">// The triangulated domain Th is on the left side of its boundary</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
 
-// The finite element space defined over Th is called here Vh
-fespace Vh(Th, P1);
-Vh u, v;// Define u and v as piecewise-P1 continuous functions
+<span class="c1">// The finite element space defined over Th is called here Vh</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span><span class="c1">// Define u and v as piecewise-P1 continuous functions</span>
 
-// Define a function f
-func f= x*y;
+<span class="c1">// Define a function f</span>
+<span class="kt">func</span> <span class="n">f</span><span class="o">=</span> <span class="kr">x</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-// Get the clock in second
-real cpu=clock();
+<span class="c1">// Get the clock in second</span>
+<span class="kt">real</span> <span class="n">cpu</span><span class="o">=</span><span class="nf">clock</span><span class="p">();</span>
 
-// Define the PDE
-solve Poisson(u, v, solver=LU)
-    = int2d(Th)(    // The bilinear part
-          dx(u)*dx(v)
-        + dy(u)*dy(v)
-    )
-    - int2d(Th)(    // The right hand side
-          f*v
-    )
-    + on(C, u=0);   // The Dirichlet boundary condition
+<span class="c1">// Define the PDE</span>
+<span class="kt">solve</span> <span class="nf">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>    <span class="c1">// The bilinear part</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>    <span class="c1">// The right hand side</span>
+          <span class="n">f</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>   <span class="c1">// The Dirichlet boundary condition</span>
 
-// Plot the result
-plot(u);
+<span class="c1">// Plot the result</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
 
-// Display the total computational time
-cout &lt;&lt; &quot;CPU time = &quot; &lt;&lt; (clock()-cpu) &lt;&lt; endl;
+<span class="c1">// Display the total computational time</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;CPU time = &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nf">clock</span><span class="p">()</span><span class="o">-</span><span class="n">cpu</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 <!--- > -->
-As illustrated in <a href="#Fig1.2">figure 1.2</a>, we can see the isovalue of <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> by using Freefem++ <code class="codehilite">plot</code> command (see line 29
+As illustrated in <a href="#Fig1.2">figure 1.2</a>, we can see the isovalue of <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> by using Freefem++ <code class="codehilite"><span class="nf">plot</span></code> command (see line 29
 above).</p>
 <table>
 <thead>
 <tr>
-<th align="center"><a name="Fig1.1">Figure 1.1</a> - Mesh Th by <code class="codehilite">buildmesh(C(50))</code></th>
-<th align="center"><a name="Fig1.2">Figure 1.2</a> - isovalue by <code class="codehilite">plot(u)</code></th>
+<th align="center"><a name="Fig1.1">Figure 1.1</a> - Mesh Th by <code class="codehilite"><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code></th>
+<th align="center"><a name="Fig1.2">Figure 1.2</a> - isovalue by <code class="codehilite"><span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code></th>
 </tr>
 </thead>
 <tbody>
@@ -1457,8 +1457,8 @@ above).</p>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The qualifier <code class="codehilite">solver=LU</code> (line 18) is not required and by default a multi-frontal <code class="codehilite">LU</code> is used.</p>
-<p>The lines containing <code class="codehilite">clock</code> are equally not required.</p>
+<p>The qualifier <code class="codehilite"><span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span></code> (line 18) is not required and by default a multi-frontal <code class="codehilite"><span class="kr">LU</span></code> is used.</p>
+<p>The lines containing <code class="codehilite"><span class="nf">clock</span></code> are equally not required.</p>
 </div>
 <div class="admonition success">
 <p>Note how close to the mathematics FreeFem++ language is. Lines 19 to 24 correspond to the mathematical variational equation:
@@ -1474,46 +1474,46 @@ for all <span><span class="MathJax_Preview">v</span><script type="math/tex">v</s
 </div>
 <div class="admonition example">
 <p class="admonition-title">Exercise:</p>
-<p>Change <code class="codehilite">P1</code> into <code class="codehilite">P2</code> and run the program.</p>
+<p>Change <code class="codehilite"><span class="nc">P1</span></code> into <code class="codehilite"><span class="nc">P2</span></code> and run the program.</p>
 </div>
 <p>This first example shows how FreeFem++ executes with no effort all the usual steps required by the finite element method (FEM). Let's
 go through them one by one.</p>
 <p><strong>On the line 2</strong>:</p>
 <p>The boundary <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> is described analytically by a parametric equation for <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and for <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>. When <span><span class="MathJax_Preview">\Gamma=\sum_{j=0}^J \Gamma_j</span><script type="math/tex">\Gamma=\sum_{j=0}^J \Gamma_j</script></span> then each curve <span><span class="MathJax_Preview">\Gamma_j</span><script type="math/tex">\Gamma_j</script></span> must be specified and crossings of <span><span class="MathJax_Preview">\Gamma_j</span><script type="math/tex">\Gamma_j</script></span> are not allowed except at end points .</p>
-<p>The keyword <code class="codehilite">label</code> can be added to define a group of boundaries for later use (boundary conditions for instance). Hence the circle could also have been described as two half circle with the same label:
+<p>The keyword <code class="codehilite"><span class="kr">label</span></code> can be added to define a group of boundaries for later use (boundary conditions for instance). Hence the circle could also have been described as two half circle with the same label:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border Gamma1(t=0, pi){x=cos(t); y=sin(t); label=C};
-border Gamma2(t=pi, 2.*pi){x=cos(t); y=sin(t); label=C};
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">Gamma1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">C</span><span class="p">};</span>
+<span class="kt">border</span> <span class="nf">Gamma2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="kr">pi</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">C</span><span class="p">};</span>
 </pre></div>
 </td></tr></table></p>
 <p>Boundaries can be referred to either by name (<code>Gamma1</code> for example) or by label (<code>C</code> here) or even by its internal number here 1 for the first half circle and 2 for the second (more examples are in <span><span class="MathJax_Preview">\ref{Meshing Examples}</span><script type="math/tex">\ref{Meshing Examples}</script></span>).</p>
 <p><strong>On the line 5</strong></p>
-<p>The triangulation <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is automatically generated by <code class="codehilite">buildmesh(C(50))</code> using 50 points on <code>C</code> as in <a href="#Fig1.1">figure 1.1</a>.</p>
+<p>The triangulation <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is automatically generated by <code class="codehilite"><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span></code> using 50 points on <code>C</code> as in <a href="#Fig1.1">figure 1.1</a>.</p>
 <p>The domain is assumed to be on the left side of the boundary which is implicitly oriented by the parametrization. So an elliptic hole can be added by typing:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border C(t=2.*pi, 0){x=0.1+0.3*cos(t); y=0.5*sin(t);};
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.3</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
 </pre></div>
 </td></tr></table></p>
 <p>If by mistake one had written
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>border C(t=0, 2.*pi){x=0.1+0.3*cos(t); y=0.5*sin(t);};
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.3</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);};</span>
 </pre></div>
 </td></tr></table>
 then the inside of the ellipse would be triangulated as well as the outside.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Automatic mesh generation is based on the Delaunay-Voronoi algorithm. Refinement of the mesh are done by increasing the number of points on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>, for example <code class="codehilite">buildmesh(C(100))</code>, because inner vertices are determined by the density of points on the boundary.</p>
-<p>Mesh adaptation can be performed also against a given function <code>f</code> by calling <code class="codehilite">adaptmesh(Th,f)</code>.</p>
+<p>Automatic mesh generation is based on the Delaunay-Voronoi algorithm. Refinement of the mesh are done by increasing the number of points on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>, for example <code class="codehilite"><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span></code>, because inner vertices are determined by the density of points on the boundary.</p>
+<p>Mesh adaptation can be performed also against a given function <code>f</code> by calling <code class="codehilite"><span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="n">f</span><span class="p">)</span></code>.</p>
 </div>
-<p>Now the name <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> (<code class="codehilite">Th</code> in FreeFem++) refers to the family <span><span class="MathJax_Preview">\{T_k\}_{k=1,\cdots,n_t}</span><script type="math/tex">\{T_k\}_{k=1,\cdots,n_t}</script></span> of triangles shown in <a href="#Fig1.1">figure 1.1</a>.</p>
+<p>Now the name <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> (<code class="codehilite"><span class="n">Th</span></code> in FreeFem++) refers to the family <span><span class="MathJax_Preview">\{T_k\}_{k=1,\cdots,n_t}</span><script type="math/tex">\{T_k\}_{k=1,\cdots,n_t}</script></span> of triangles shown in <a href="#Fig1.1">figure 1.1</a>.</p>
 <p>Traditionally <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> refers to the mesh size, <span><span class="MathJax_Preview">n_t</span><script type="math/tex">n_t</script></span> to the number of triangles in <span><span class="MathJax_Preview">\mathcal{T}_h</span><script type="math/tex">\mathcal{T}_h</script></span> and <span><span class="MathJax_Preview">n_v</span><script type="math/tex">n_v</script></span> to the number of vertices, but it is seldom that we will have to use them explicitly.</p>
 <p>If <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is not a polygonal domain, a "skin" remains between the exact domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> and its approximation <span><span class="MathJax_Preview">\Omega_h=\cup_{k=1}^{n_t}T_k</span><script type="math/tex">\Omega_h=\cup_{k=1}^{n_t}T_k</script></span>. However, we notice that all corners of <span><span class="MathJax_Preview">\Gamma_h = \p\Omega_h</span><script type="math/tex">\Gamma_h = \p\Omega_h</script></span> are on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>.</p>
 <p><strong>On line 8:</strong></p>
 <p>A finite element space is, usually, a space of polynomial functions on elements, triangles here only, with certain matching properties
-at edges, vertices etc. Here <code class="codehilite">fespace Vh(Th, P1)</code> defines <span><span class="MathJax_Preview">V_h</span><script type="math/tex">V_h</script></span> to be the space of continuous functions which are affine in <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span> on each triangle of <span><span class="MathJax_Preview">T_h</span><script type="math/tex">T_h</script></span>.</p>
+at edges, vertices etc. Here <code class="codehilite"><span class="kt">fespace</span> <span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code> defines <span><span class="MathJax_Preview">V_h</span><script type="math/tex">V_h</script></span> to be the space of continuous functions which are affine in <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span> on each triangle of <span><span class="MathJax_Preview">T_h</span><script type="math/tex">T_h</script></span>.</p>
 <p>As it is a linear vector space of finite dimension, basis can be found. The canonical basis is made of functions, called the <em>hat function</em> <span><span class="MathJax_Preview">\phi_k</span><script type="math/tex">\phi_k</script></span> which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a href="#Fig2.2">figure 2.2</a>.</p>
 <table>
 <thead>
 <tr>
-<th align="center"><a name="Fig2.1">Figure 2.1</a>: <code class="codehilite">mesh Th</code></th>
+<th align="center"><a name="Fig2.1">Figure 2.1</a>: <code class="codehilite"><span class="kt">mesh</span> <span class="n">Th</span></code></th>
 <th align="center"><a name="Fig2.2">Figure 2.2</a>: Graph of <span><span class="MathJax_Preview">\phi_1</span><script type="math/tex">\phi_1</script></span> (left) and <span><span class="MathJax_Preview">\phi_6</span><script type="math/tex">\phi_6</script></span></th>
 </tr>
 </thead>
@@ -1536,12 +1536,12 @@ V_h(\mathcal{T}_h,P_1)=\left\{w(x,y)\left|\; w(x,y)=\sum_{k=1}^{M}w_k\phi_k(x,y)
 <p>where <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the dimension of <span><span class="MathJax_Preview">V_h</span><script type="math/tex">V_h</script></span>, i.e. the number of vertices. The <span><span class="MathJax_Preview">w_k</span><script type="math/tex">w_k</script></span> are called the <em>degree of freedom</em> of <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> and <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> the number of degree of freedom.</p>
 <p>It is said also that the <em>nodes</em> of this finite element method are the vertices.</p>
 <p><strong>Setting the problem</strong></p>
-<p>On line 9, <code class="codehilite">Vh u,v</code> declares that <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> and <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> are approximated as above, namely
+<p>On line 9, <code class="codehilite"><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span></code> declares that <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> and <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> are approximated as above, namely
 <script type="math/tex; mode=display">\begin{equation}\label{defu}
 u(x,y)\simeq u_h(x,y)=\sum_{k=0}^{M-1} u_k\phi_k(x,y)
 \end{equation}</script>
 </p>
-<p>On the line 12, the right hand side <code>f</code> is defined analytically using the keyword <code class="codehilite">func</code>.</p>
+<p>On the line 12, the right hand side <code>f</code> is defined analytically using the keyword <code class="codehilite"><span class="kt">func</span></code>.</p>
 <p>Line 18 to 26 define the bilinear form of equation (\ref{eqn:Poisson}) and its Dirichlet boundary conditions (\ref{eqn:Dirichlet}).</p>
 <p>This <em>variational formulation</em> is derived by multiplying (\ref{eqn:Poisson}) by <span><span class="MathJax_Preview">v(x,y)</span><script type="math/tex">v(x,y)</script></span> and integrating the result over <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>:
 <script type="math/tex; mode=display">
@@ -1568,20 +1568,20 @@ u(x,y)\simeq u_h(x,y)=\sum_{k=0}^{M-1} u_k\phi_k(x,y)
 \end{eqnarray}</script>
 </div>
 <p>In FreeFem++ the <strong>Poisson</strong> problem can be declared only as in
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh u,v; problem Poisson(u,v) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span> <span class="kt">problem</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
 and solved later as in
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Poisson; //the problem is solved here
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Poisson</span><span class="p">;</span> <span class="c1">//the problem is solved here</span>
 </pre></div>
 </td></tr></table>
 or declared and solved at the same time as in
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh u,v; solve Poisson(u,v) = ...
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span> <span class="kt">solve</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="p">...</span>
 </pre></div>
 </td></tr></table>
-and (\ref{eqn:weakform}) is written with <code class="codehilite">dx(u)</code> <span><span class="MathJax_Preview">=\p u/\p x</span><script type="math/tex">=\p u/\p x</script></span>, <code class="codehilite">dy(u)</code> <span><span class="MathJax_Preview">=\p u/\p y</span><script type="math/tex">=\p u/\p y</script></span> and</p>
-<p><span><span class="MathJax_Preview">\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \d x\d y \longrightarrow}</span><script type="math/tex">\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \d x\d y \longrightarrow}</script></span> <code class="codehilite">int2d(Th)( dx(u)*dx(v) + dy(u)*dy(v) )</code></p>
-<p><span><span class="MathJax_Preview">\displaystyle{\int_{\Omega}fv\, \d x\d y \longrightarrow}</span><script type="math/tex">\displaystyle{\int_{\Omega}fv\, \d x\d y \longrightarrow}</script></span> <code class="codehilite">int2d(Th)( f*v )</code> (Notice here, <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> is unused)</p>
+and (\ref{eqn:weakform}) is written with <code class="codehilite"><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span><span class="MathJax_Preview">=\p u/\p x</span><script type="math/tex">=\p u/\p x</script></span>, <code class="codehilite"><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></code> <span><span class="MathJax_Preview">=\p u/\p y</span><script type="math/tex">=\p u/\p y</script></span> and</p>
+<p><span><span class="MathJax_Preview">\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \d x\d y \longrightarrow}</span><script type="math/tex">\displaystyle{\int_{\Omega}\nabla u\cdot \nabla v\, \d x\d y \longrightarrow}</script></span> <code class="codehilite"><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">)</span></code></p>
+<p><span><span class="MathJax_Preview">\displaystyle{\int_{\Omega}fv\, \d x\d y \longrightarrow}</span><script type="math/tex">\displaystyle{\int_{\Omega}fv\, \d x\d y \longrightarrow}</script></span> <code class="codehilite"><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span> <span class="n">f</span><span class="o">*</span><span class="n">v</span> <span class="p">)</span></code> (Notice here, <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> is unused)</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In FreeFem++ <strong>bilinear terms and linear terms should not be under the same integral</strong> indeed to construct the linear systems FreeFem++ finds out which integral contributes to the bilinear form by checking if both terms, the unknown (here <code>u</code>) and test functions (here <code>v</code>) are present.</p>
@@ -1610,7 +1610,7 @@ F_i=\int_{\Omega}f\phi_i\, \d x\d y
 The Dirichlet conditions are implemented by penalty, namely by setting <span><span class="MathJax_Preview">A_{ii}=10^{30}</span><script type="math/tex">A_{ii}=10^{30}</script></span> and <span><span class="MathJax_Preview">F_i=10^{30}*0</span><script type="math/tex">F_i=10^{30}*0</script></span> if <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is a boundary degree of freedom.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The number <span><span class="MathJax_Preview">10^{30}</span><script type="math/tex">10^{30}</script></span> is called <code class="codehilite">tgv</code> (<em>très grande valeur</em> or <em>very high value</em> in english) and it is generally possible to change this value, see the item <code class="codehilite">solve, tgv=</code></p>
+<p>The number <span><span class="MathJax_Preview">10^{30}</span><script type="math/tex">10^{30}</script></span> is called <code class="codehilite"><span class="kp">tgv</span></code> (<em>très grande valeur</em> or <em>very high value</em> in english) and it is generally possible to change this value, see the item <code class="codehilite"><span class="kt">solve</span><span class="p">,</span> <span class="kp">tgv</span><span class="o">=</span></code></p>
 </div>
 <p>The matrix <span><span class="MathJax_Preview">A=(A_{ij})</span><script type="math/tex">A=(A_{ij})</script></span> is called <em>stiffness matrix</em>. If the user wants to access <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> directly he can do so by using (see section \ref{matrix-varf} page \pageref{matrix-varf} for details).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1620,14 +1620,14 @@ The Dirichlet conditions are implemented by penalty, namely by setting <span><sp
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf a(u,v)
-    = int2d(Th)(
-          dx(u)*dx(v)
-        + dy(u)*dy(v)
-    )
-    + on(C, u=0)
-    ;
-matrix A = a(Vh, Vh); //stiffness matrix
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">varf</span> <span class="nf">a</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
+<span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span> <span class="c1">//stiffness matrix</span>
 </pre></div>
 </td></tr></table>
 
@@ -1639,18 +1639,18 @@ matrix A = a(Vh, Vh); //stiffness matrix
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>varf l(unused,v)
-    = int2d(Th)(
-          f*v
-    )
-    + on(C, unused=0)
-    ;
-Vh F;
-F[] = l(0,Vh); //F[] is the vector associated to the function F
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">varf</span> <span class="nf">l</span><span class="p">(</span><span class="kr">unused</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">f</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="kr">unused</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
+<span class="n">Vh</span> <span class="n">F</span><span class="p">;</span>
+<span class="n">F</span><span class="p">[]</span> <span class="o">=</span> <span class="n">l</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Vh</span><span class="p">);</span> <span class="c1">//F[] is the vector associated to the function F</span>
 </pre></div>
 </td></tr></table></p>
 <p>The problem can then be solved by
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>u[] = A^-1*F[]; //u[] is the vector associated to the function u
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">u</span><span class="p">[]</span> <span class="o">=</span> <span class="kp">A</span><span class="o">^-</span><span class="mi">1</span><span class="o">*</span><span class="n">F</span><span class="p">[];</span> <span class="c1">//u[] is the vector associated to the function u</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition info">
@@ -1663,10 +1663,10 @@ F[] = l(0,Vh); //F[] is the vector associated to the function F
 </script>
 where <span><span class="MathJax_Preview">\phi_i, i=0...,,M-1</span><script type="math/tex">\phi_i, i=0...,,M-1</script></span> are the basis functions of <code>Vh</code> like in equation (\ref{equation3}), and <span><span class="MathJax_Preview">M = \mathtt{Vh.ndof}</span><script type="math/tex">M = \mathtt{Vh.ndof}</script></span> is the number of degree of freedom (i.e. the dimension of the space <code>Vh</code>).</p>
 </div>
-<p>The linear system (\ref{eqn:Equation}) is solved by <code class="codehilite">UMFPACK</code> unless another option is mentioned specifically as in
+<p>The linear system (\ref{eqn:Equation}) is solved by <code class="codehilite"><span class="kr">UMFPACK</span></code> unless another option is mentioned specifically as in
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Vh u, v;
-problem Poisson(u, v, solver=CG) = int2d(...
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="kt">problem</span> <span class="n">Poisson</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(...</span>
 </pre></div>
 </td></tr></table>
 meaning that <code>Poisson</code> is declared only here and when it is called (by simply writing <code>Poisson;</code>) then (\ref{eqn:Equation}) will be solved by the Conjugate Gradient method.</p>

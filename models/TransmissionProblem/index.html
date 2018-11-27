@@ -1350,32 +1350,32 @@
 16
 17
 18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
-border a(t=0, 1){x=t; y=0;};
-border b(t=0, 0.5){x=1; y=t;};
-border c(t=0, 0.5){x=1-t; y=0.5;};
-border d(t=0.5, 1){x=0.5; y=t;};
-border e(t=0.5, 1){x=1-t; y=1;};
-border f(t=0, 1){x=0; y=1-t;};
-border i1(t=0, 0.5){x=t; y=1-t;};
-border i2(t=0, 0.5){x=t; y=t;};
-border i3(t=0, 0.5){x=1-t; y=t;};
-mesh th = buildmesh(a(6) + b(4) + c(4) +d(4) + e(4)
-    + f(6) + i1(6) + i2(6) + i3(6));
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">c</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">e</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">f</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">i1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">i2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">i3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;};</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span><span class="nf">d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">i1</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">i2</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">i3</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
 
-// Fespace
-fespace Ph(th, P0); //constant discontinuous functions / element
-Ph reg=region; //defined the P0 function associated to region number
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Ph</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="nc">P0</span><span class="p">);</span> <span class="c1">//constant discontinuous functions / element</span>
+<span class="n">Ph</span> <span class="n">reg</span><span class="o">=</span><span class="kr">region</span><span class="p">;</span> <span class="c1">//defined the P0 function associated to region number</span>
 
-// Plot
-plot(reg, fill=true, wait=true, value=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <table>
 <thead>
 <tr>
-<th align="center"><a name="Fig30">Fig. 30</a>: The function <code class="codehilite">reg</code></th>
+<th align="center"><a name="Fig30">Fig. 30</a>: The function <code class="codehilite"><span class="n">reg</span></code></th>
 </tr>
 </thead>
 <tbody>
@@ -1384,7 +1384,7 @@ plot(reg, fill=true, wait=true, value=true);
 </tr>
 </tbody>
 </table>
-<p><code class="codehilite">region</code> is a keyword of FreeFem++ which is in fact a variable depending of the current position (is not a function today, use <code class="codehilite">Ph reg=region;</code> to set a function). This variable value returned is the number of the sub-domain of the current position. This number is defined by <code class="codehilite">buildmesh</code> which scans while building the mesh all its connected component.</p>
+<p><code class="codehilite"><span class="kr">region</span></code> is a keyword of FreeFem++ which is in fact a variable depending of the current position (is not a function today, use <code class="codehilite"><span class="n">Ph</span> <span class="n">reg</span><span class="o">=</span><span class="kr">region</span><span class="p">;</span></code> to set a function). This variable value returned is the number of the sub-domain of the current position. This number is defined by <code class="codehilite"><span class="nf">buildmesh</span></code> which scans while building the mesh all its connected component.</p>
 <p>So to get the number of a region containing a particular point one does:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -1393,21 +1393,21 @@ plot(reg, fill=true, wait=true, value=true);
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Characteristic function
-int nupper = reg(0.4, 0.9); //get the region number of point (0.4,0.9)
-int nlower = reg(0.9, 0.1); //get the region number of point (0.4,0.1)
-cout &lt;&lt; &quot;nlower = &quot; &lt;&lt;  nlower &lt;&lt; &quot;, nupper = &quot; &lt;&lt; nupper&lt;&lt; endl;
-Ph nu = 1 + 5*(region==nlower) + 10*(region==nupper);
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Characteristic function</span>
+<span class="kt">int</span> <span class="n">nupper</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">);</span> <span class="c1">//get the region number of point (0.4,0.9)</span>
+<span class="kt">int</span> <span class="n">nlower</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span> <span class="c1">//get the region number of point (0.4,0.1)</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;nlower = &quot;</span> <span class="o">&lt;&lt;</span>  <span class="n">nlower</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, nupper = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">nupper</span><span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="n">Ph</span> <span class="n">nu</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">nlower</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">nupper</span><span class="p">);</span>
 
-// Plot
-plot(nu, fill=true,wait=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span><span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <table>
 <thead>
 <tr>
-<th align="center"><a name"=Fig31">Fig. 31</a>: The function <code class="codehilite">nu</code></th>
+<th align="center"><a name"=Fig31">Fig. 31</a>: The function <code class="codehilite"><span class="n">nu</span></code></th>
 </tr>
 </thead>
 <tbody>
@@ -1430,19 +1430,19 @@ plot(nu, fill=true,wait=true);
 10
 11
 12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Problem
-solve lap (u, v)
-    = int2d(th)(
-          nu*(dx(u)*dx(v) + dy(u)*dy(v))
-    )
-    + int2d(th)(
-        - 1*v
-    )
-    + on(a, b, c, d, e, f, u=0)
-    ;
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Problem</span>
+<span class="kt">solve</span> <span class="nf">lap</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="n">nu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="nf">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-plot(u);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

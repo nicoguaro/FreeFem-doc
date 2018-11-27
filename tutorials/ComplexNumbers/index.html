@@ -1404,77 +1404,77 @@ in the object (<span><span class="MathJax_Preview">i=\sqrt{-1}</span><script typ
 68
 69
 70
-71</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int nn = 2;
-real a = 20.;
-real b = 20.;
-real c = 15.;
-real d = 8.;
-real e = 2.;
-real l = 12.;
-real f = 2.;
-real g = 2.;
+71</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="n">nn</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">20.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">20.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">15.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="nf">d</span> <span class="o">=</span> <span class="mf">8.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">e</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">l</span> <span class="o">=</span> <span class="mf">12.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">;</span>
 
-// Mesh
-border a0(t=0, 1){x=a*t; y=0; label=1;}
-border a1(t=1, 2){x=a; y=b*(t-1); label=1;}
-border a2(t=2, 3){ x=a*(3-t); y=b; label=1;}
-border a3(t=3, 4){x=0; y=b-(b-c)*(t-3); label=1;}
-border a4(t=4, 5){x=0; y=c-(c-d)*(t-4); label=2;}
-border a5(t=5, 6){x=0; y=d*(6-t); label=1;}
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a0</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">b</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">3</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a4</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">c</span><span class="o">-</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">4</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a5</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="nf">d</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
 
-border b0(t=0, 1){x=a-f+e*(t-1); y=g; label=3;}
-border b1(t=1, 4){x=a-f; y=g+l*(t-1)/3; label=3;}
-border b2(t=4, 5){x=a-f-e*(t-4); y=l+g; label=3;}
-border b3(t=5, 8){x=a-e-f; y=l+g-l*(t-5)/3; label=3;}
+<span class="kt">border</span> <span class="nf">b0</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">f</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">g</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">f</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">g</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">f</span><span class="o">-</span><span class="n">e</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">4</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="n">g</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">e</span><span class="o">-</span><span class="n">f</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="n">g</span><span class="o">-</span><span class="n">l</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
 
-mesh Th = buildmesh(a0(10*nn) + a1(10*nn) + a2(10*nn) + a3(10*nn) +a4(10*nn) + a5(10*nn)
-        + b0(5*nn) + b1(10*nn) + b2(5*nn) + b3(10*nn));
-real meat = Th(a-f-e/2, g+l/2).region;
-real air= Th(0.01,0.01).region;
-plot(Th, wait=1);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a0</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a1</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a2</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a3</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span><span class="n">a4</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a5</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b0</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">b1</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">b3</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">meat</span> <span class="o">=</span> <span class="n">Th</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">f</span><span class="o">-</span><span class="n">e</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">g</span><span class="o">+</span><span class="n">l</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="kr">region</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">air</span><span class="o">=</span> <span class="n">Th</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.01</span><span class="p">).</span><span class="kr">region</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh R=(region-air)/(meat-air);
-Vh&lt;complex&gt; v, w;
-Vh vr, vi;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">R</span><span class="o">=</span><span class="p">(</span><span class="kr">region</span><span class="o">-</span><span class="n">air</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">meat</span><span class="o">-</span><span class="n">air</span><span class="p">);</span>
+<span class="n">Vh</span><span class="o">&lt;</span><span class="kt">complex</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">vr</span><span class="p">,</span> <span class="n">vi</span><span class="p">;</span>
 
-fespace Uh(Th, P1);
-Uh u, uu, ff;
+<span class="kt">fespace</span> <span class="nf">Uh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Uh</span> <span class="n">u</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">ff</span><span class="p">;</span>
 
-// Problem
-solve muwave(v, w)
-    = int2d(Th)(
-          v*w*(1+R)
-        - (dx(v)*dx(w) + dy(v)*dy(w))*(1 - 0.5i)
-    )
-    + on(1, v=0)
-    + on(2, v=sin(pi*(y-c)/(c-d)))
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">solve</span> <span class="nf">muwave</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">v</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">R</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.5</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="nf">sin</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="nf">d</span><span class="p">)))</span>
+    <span class="p">;</span>
 
-vr = real(v);
-vi = imag(v);
+<span class="n">vr</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="n">vi</span> <span class="o">=</span> <span class="nf">imag</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
 
-// Plot
-plot(vr, wait=1, ps=&quot;rmuonde.ps&quot;, fill=true);
-plot(vi, wait=1, ps=&quot;imuonde.ps&quot;, fill=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">vr</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;rmuonde.ps&quot;</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">vi</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;imuonde.ps&quot;</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Problem (temperature)
-ff=1e5*(vr^2 + vi^2)*R;
+<span class="c1">// Problem (temperature)</span>
+<span class="n">ff</span><span class="o">=</span><span class="mf">1e5</span><span class="o">*</span><span class="p">(</span><span class="n">vr</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vi</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">R</span><span class="p">;</span>
 
-solve temperature(u, uu)
-    = int2d(Th)(
-          dx(u)* dx(uu)+ dy(u)* dy(uu)
-    )
-    - int2d(Th)(
-          ff*uu
-    )
-    + on(1, 2, u=0)
-    ;
+<span class="kt">solve</span> <span class="nf">temperature</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">uu</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span> <span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span><span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span> <span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">ff</span><span class="o">*</span><span class="n">uu</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-plot(u, wait=1, ps=&quot;tempmuonde.ps&quot;, fill=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;tempmuonde.ps&quot;</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

@@ -1559,49 +1559,49 @@ u_i=0~~\textrm{on }\Gamma_D\times ]-h,h[,\quad i=1,2,3
 40
 41
 42
-43</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real E = 21.5;
-real sigma = 0.29;
-real gravity = -0.05;
+43</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">21.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span> <span class="mf">0.29</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">gravity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">;</span>
 
-// Mesh
-border a(t=2, 0){x=0; y=t; label=1;}
-border b(t=0, 10){x=t; y=0; label=2;}
-border c(t=0, 2){ x=10; y=t; label=1;}
-border d(t=0, 10){ x=10-t; y=2; label=3;}
-mesh th = buildmesh(b(20) + c(5) + d(20) + a(5));
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">c</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">d</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="mi">10</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="nf">d</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
 
-// Fespace
-fespace Vh(th, [P1, P1]);
-Vh [uu, vv];
-Vh [w, s];
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">];</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">];</span>
 
-// Macro
-real sqrt2 = sqrt(2.);
-macro epsilon(u1, u2) [dx(u1), dy(u2), (dy(u1)+dx(u2))/sqrt2] //
-macro div(u,v) (dx(u) + dy(v)) //
+<span class="c1">// Macro</span>
+<span class="kt">real</span> <span class="n">sqrt2</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">);</span>
+<span class="kt">macro</span> <span class="nf">epsilon</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">),</span> <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span><span class="o">+</span><span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt2</span><span class="p">]</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">div</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="c1">//</span>
 
-// Problem
-real mu = E/(2*(1+sigma));
-real lambda = E*sigma/((1+sigma)*(1-2*sigma));
-solve Elasticity ([uu, vv], [w, s])
-    = int2d(th)(
-          lambda*div(w,s)*div(uu,vv)
-        + 2.*mu*( epsilon(w,s)&#39;*epsilon(uu,vv) )
-    )
-    + int2d(th)(
-        - gravity*s
-    )
-    + on(1, uu=0, vv=0)
-;
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="kp">sigma</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">solve</span> <span class="nf">Elasticity</span> <span class="p">([</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+          <span class="n">lambda</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span><span class="n">vv</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="p">(</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">epsilon</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span><span class="n">vv</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">gravity</span><span class="o">*</span><span class="n">s</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">uu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vv</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">;</span>
 
-// Plot
-plot([uu, vv], wait=true);
-plot([uu,vv], wait=true, bb=[[-0.5, 2.5], [2.5, -0.5]]);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">uu</span><span class="p">,</span><span class="n">vv</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">bb</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]]);</span>
 
-// Movemesh
-mesh th1 = movemesh(th, [x+uu, y+vv]);
-plot(th1, wait=true);
+<span class="c1">// Movemesh</span>
+<span class="kt">mesh</span> <span class="n">th1</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">uu</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">vv</span><span class="p">]);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1662,60 +1662,60 @@ plot(th1, wait=true);
 51
 52
 53
-54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>include &quot;cube.idp&quot;
+54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">include</span> <span class="s">&quot;cube.idp&quot;</span>
 
-// Parameters
-int[int] Nxyz = [20, 5, 5];
-real [int, int] Bxyz = [[0., 5.], [0., 1.], [0., 1.]];
-int [int, int] Lxyz = [[1, 2], [2, 2], [2, 2]];
+<span class="c1">// Parameters</span>
+<span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Nxyz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kt">real</span> <span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">]</span> <span class="n">Bxyz</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]];</span>
+<span class="kt">int</span> <span class="p">[</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">]</span> <span class="n">Lxyz</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]];</span>
 
-real E = 21.5e4;
-real sigma = 0.29;
-real gravity = -0.05;
+<span class="kt">real</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">21.5e4</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span> <span class="mf">0.29</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">gravity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">;</span>
 
-// Mesh
-mesh3 Th = Cube(Nxyz, Bxyz, Lxyz);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="n">Nxyz</span><span class="p">,</span> <span class="n">Bxyz</span><span class="p">,</span> <span class="n">Lxyz</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, [P1, P1, P1]);
-Vh [u1, u2, u3], [v1, v2, v3];
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">];</span>
 
-// Macro
-real sqrt2 = sqrt(2.);
-macro epsilon(u1, u2, u3) [
-    dx(u1), dy(u2), dz(u3),
-    (dz(u2) + dy(u3))/sqrt2,
-    (dz(u1) + dx(u3))/sqrt2,
-    (dy(u1) + dx(u2))/sqrt2] //
-macro div(u1, u2, u3) (dx(u1) + dy(u2) + dz(u3)) //
+<span class="c1">// Macro</span>
+<span class="kt">real</span> <span class="n">sqrt2</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">);</span>
+<span class="kt">macro</span> <span class="nf">epsilon</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span> <span class="p">[</span>
+    <span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">),</span> <span class="nf">dz</span><span class="p">(</span><span class="n">u3</span><span class="p">),</span>
+    <span class="p">(</span><span class="nf">dz</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u3</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt2</span><span class="p">,</span>
+    <span class="p">(</span><span class="nf">dz</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u3</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt2</span><span class="p">,</span>
+    <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u2</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt2</span><span class="p">]</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">div</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dz</span><span class="p">(</span><span class="n">u3</span><span class="p">))</span> <span class="c1">//</span>
 
-// Problem
-real mu = E/(2*(1+sigma));
-real lambda = E*sigma/((1+sigma)*(1-2*sigma));
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="kp">sigma</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="kp">sigma</span><span class="p">));</span>
 
-solve Lame ([u1, u2, u3], [v1, v2, v3])
-    = int3d(Th)(
-          lambda*div(u1, u2, u3)*div(v1, v2, v3)
-        + 2.*mu*( epsilon(u1, u2, u3)&#39;*epsilon(v1, v2, v3) )
-    )
-    - int3d(Th)(
-          gravity*v3
-    )
-    + on(1, u1=0, u2=0, u3=0)
-    ;
+<span class="kt">solve</span> <span class="nf">Lame</span> <span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int3d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">lambda</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span><span class="o">*</span><span class="n">div</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="p">(</span> <span class="n">epsilon</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">epsilon</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int3d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">gravity</span><span class="o">*</span><span class="n">v3</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">u1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u3</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Display
-real dmax = u1[].max;
-cout &lt;&lt; &quot;max displacement = &quot; &lt;&lt; dmax &lt;&lt; endl;
+<span class="c1">// Display</span>
+<span class="kt">real</span> <span class="n">dmax</span> <span class="o">=</span> <span class="n">u1</span><span class="p">[].</span><span class="kr">max</span><span class="p">;</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;max displacement = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">dmax</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-// Movemesh
-real coef = 0.1/dmax;
-int[int] ref2 = [1, 0, 2, 0];
-mesh3 Thm = movemesh3(Th, transfo=[x+u1*coef, y+u2*coef, z+u3*coef], label=ref2);
-Thm = change(Thm, label=ref2);
+<span class="c1">// Movemesh</span>
+<span class="kt">real</span> <span class="kp">coef</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">/</span><span class="n">dmax</span><span class="p">;</span>
+<span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">ref2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+<span class="kt">mesh3</span> <span class="n">Thm</span> <span class="o">=</span> <span class="n">movemesh3</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">transfo</span><span class="o">=</span><span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u1</span><span class="o">*</span><span class="kp">coef</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">u2</span><span class="o">*</span><span class="kp">coef</span><span class="p">,</span> <span class="kr">z</span><span class="o">+</span><span class="n">u3</span><span class="o">*</span><span class="kp">coef</span><span class="p">],</span> <span class="kr">label</span><span class="o">=</span><span class="n">ref2</span><span class="p">);</span>
+<span class="n">Thm</span> <span class="o">=</span> <span class="nf">change</span><span class="p">(</span><span class="n">Thm</span><span class="p">,</span> <span class="kr">label</span><span class="o">=</span><span class="n">ref2</span><span class="p">);</span>
 
-// Plot
-plot(Th, Thm, wait=true, cmm=&quot;coef amplification = &quot;+coef);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">Thm</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;coef amplification = &quot;</span><span class="o">+</span><span class="kp">coef</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1848,17 +1848,17 @@ V(\Omega_{\Sigma})
 &&\cup\{(x,y):\; -10*d\le x\le 0, -d+0.1*x\le y\le d-0.1*x\}
 \end{eqnarray*}</script>
 </div>
-<p>and <span><span class="MathJax_Preview">\Gamma_D=</span><script type="math/tex">\Gamma_D=</script></span><code class="codehilite">R</code> in <a href="../documentation/MeshGeneration/#Fig30">U-shape figure</a>.</p>
+<p>and <span><span class="MathJax_Preview">\Gamma_D=</span><script type="math/tex">\Gamma_D=</script></span><code class="codehilite"><span class="n">R</span></code> in <a href="../documentation/MeshGeneration/#Fig30">U-shape figure</a>.</p>
 <p>In this example, we use three technique:</p>
 <ul>
 <li>
-<p>Fast Finite Element Interpolator from the mesh <code class="codehilite">Th</code> to <code class="codehilite">Zoom</code> for the scale-up of near <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>.</p>
+<p>Fast Finite Element Interpolator from the mesh <code class="codehilite"><span class="n">Th</span></code> to <code class="codehilite"><span class="n">Zoom</span></code> for the scale-up of near <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>.</p>
 </li>
 <li>
 <p>After obtaining the displacement vector <span><span class="MathJax_Preview">\mathbf{u}=(u,v)</span><script type="math/tex">\mathbf{u}=(u,v)</script></span>, we shall watch the deformation of the crack near <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> as follows,</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Plate = movemesh(Zoom, [x+u, y+v]);
-plot(Plate);
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh</span> <span class="n">Plate</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">v</span><span class="p">]);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Plate</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1867,7 +1867,7 @@ plot(Plate);
 <p>Adaptivity is an important technique here, because a large singularity occurs at <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> as shown in \eqref{eqn::SIF}.</p>
 </li>
 </ul>
-<p>The first example creates mode I deformation by the opposed surface force on <code class="codehilite">B</code> and <code class="codehilite">T</code> in the vertical direction of <span><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span>, and the displacement is fixed on <code class="codehilite">R</code>.</p>
+<p>The first example creates mode I deformation by the opposed surface force on <code class="codehilite"><span class="kp">B</span></code> and <code class="codehilite"><span class="n">T</span></code> in the vertical direction of <span><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span>, and the displacement is fixed on <code class="codehilite"><span class="n">R</span></code>.</p>
 <p>In a laboratory, fracture engineers use photoelasticity to make stress field visible, which shows the principal stress difference</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray}
@@ -1956,82 +1956,82 @@ plot(Plate);
 73
 74
 75
-76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real d = 0.0001;
-int n = 5;
-real cb = 1, ca = 1, tip = 0.0;
+76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="nf">d</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">;</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">cb</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ca</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tip</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
 
-real E = 21.5;
-real sigma = 0.29;
+<span class="kt">real</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">21.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span> <span class="mf">0.29</span><span class="p">;</span>
 
-// Mesh
-border L1(t=0, ca-d){x=-cb; y=-d-t;}
-border L2(t=0, ca-d){x=-cb; y=ca-t;}
-border B(t=0, 2){x=cb*(t-1); y=-ca;}
-border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
-border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
-border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
-border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
-border C4(t=0, 2*d){x=-ca; y=-d+t;}
-border R(t=0, 2){x=cb; y=cb*(t-1);}
-border T(t=0, 2){x=cb*(1-t); y=ca;}
-mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
-    + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-plot(Th, wait=true);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">L1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ca</span><span class="o">-</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">-</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">L2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ca</span><span class="o">-</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">ca</span><span class="o">-</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="kp">B</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="kr">y</span><span class="o">=-</span><span class="n">ca</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">ca</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="nf">d</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C21</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">+</span><span class="n">tip</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="nf">d</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);}</span>
+<span class="kt">border</span> <span class="nf">C22</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="o">+</span><span class="n">tip</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">*</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">-</span><span class="n">ca</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C4</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">ca</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">+</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">R</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);}</span>
+<span class="kt">border</span> <span class="nf">T</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">ca</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">L1</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">L2</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="kp">B</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C1</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C22</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C3</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">T</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-cb=0.1; ca=0.1;
-mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
-    + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-plot(Zoom, wait=true);
+<span class="n">cb</span><span class="o">=</span><span class="mf">0.1</span><span class="p">;</span> <span class="n">ca</span><span class="o">=</span><span class="mf">0.1</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Zoom</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">L1</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">L2</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="kp">B</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">C1</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C22</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C3</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">T</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, [P2, P2]);
-Vh [u, v];
-Vh [w, s];
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">];</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">];</span>
 
-fespace zVh(Zoom, P2);
-zVh Sx, Sy, Sxy, N;
+<span class="kt">fespace</span> <span class="nf">zVh</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">zVh</span> <span class="n">Sx</span><span class="p">,</span> <span class="n">Sy</span><span class="p">,</span> <span class="n">Sxy</span><span class="p">,</span> <span class="kr">N</span><span class="p">;</span>
 
-// Problem
-real mu = E/(2*(1+sigma));
-real lambda = E*sigma/((1+sigma)*(1-2*sigma));
-solve Problem ([u, v], [w, s])
-    = int2d(Th)(
-          2*mu*(dx(u)*dx(w) + ((dx(v)+dy(u))*(dx(s)+dy(w)))/4)
-        + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
-    )
-    -int1d(Th, T)(
-          0.1*(1-x)*s
-    )
-    +int1d(Th, B)(
-          0.1*(1-x)*s
-    )
-    +on(R, u=0, v=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="kp">sigma</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">solve</span> <span class="nf">Problem</span> <span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="o">-</span><span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">T</span><span class="p">)(</span>
+          <span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="n">s</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">B</span><span class="p">)(</span>
+          <span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">x</span><span class="p">)</span><span class="o">*</span><span class="n">s</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Loop
-for (int i = 1; i &lt;= 5; i++){
-    mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
-    Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
-    Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
-    Sxy = mu*(dy(u) + dx(v));
-    N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
-    if (i == 1){
-        plot(Plate, bw=1);
-        plot(N, bw=1);
-    }
-    else if (i == 5){
-        plot(Plate, bw=1);
-        plot(N, bw=1);
-        break;
-    }
+<span class="c1">// Loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kt">mesh</span> <span class="n">Plate</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">v</span><span class="p">]);</span> <span class="c1">//deformation near gamma</span>
+    <span class="n">Sx</span> <span class="o">=</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+    <span class="n">Sy</span> <span class="o">=</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">Sxy</span> <span class="o">=</span> <span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="kr">N</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">((</span><span class="n">Sx</span><span class="o">-</span><span class="n">Sy</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">Sxy</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//principal stress difference</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">Plate</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">){</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">Plate</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // Adaptmesh
-    Th = adaptmesh(Th, [u, v]);
+    <span class="c1">// Adaptmesh</span>
+    <span class="n">Th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]);</span>
 
-    // Solve
-    Problem;
-}
+    <span class="c1">// Solve</span>
+    <span class="n">Problem</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -2050,7 +2050,7 @@ for (int i = 1; i &lt;= 5; i++){
 </tbody>
 </table>
 </div>
-<p>It is difficult to create mode II deformation by the opposed shear force on <code class="codehilite">B</code> and <code class="codehilite">T</code> that is observed in a laboratory. So we use the body shear force along <span><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span>, that is, the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-component <span><span class="MathJax_Preview">f_1</span><script type="math/tex">f_1</script></span> of the body force <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> is given by</p>
+<p>It is difficult to create mode II deformation by the opposed shear force on <code class="codehilite"><span class="kp">B</span></code> and <code class="codehilite"><span class="n">T</span></code> that is observed in a laboratory. So we use the body shear force along <span><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span>, that is, the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>-component <span><span class="MathJax_Preview">f_1</span><script type="math/tex">f_1</script></span> of the body force <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> is given by</p>
 <div>
 <div class="MathJax_Preview">
 f_1(x,y)=H(y-0.001)*H(0.1-y)-H(-y-0.001)*H(y+0.1)
@@ -2139,82 +2139,82 @@ f_1(x,y)=H(y-0.001)*H(0.1-y)-H(-y-0.001)*H(y+0.1)
 73
 74
 75
-76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-real d = 0.0001;
-int n = 5;
-real cb = 1, ca = 1, tip = 0.0;
+76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="nf">d</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">;</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">cb</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ca</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tip</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
 
-real E = 21.5;
-real sigma = 0.29;
+<span class="kt">real</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">21.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">sigma</span> <span class="o">=</span> <span class="mf">0.29</span><span class="p">;</span>
 
-// Mesh
-border L1(t=0, ca-d){x=-cb; y=-d-t;}
-border L2(t=0, ca-d){x=-cb; y=ca-t;}
-border B(t=0, 2){x=cb*(t-1); y=-ca;}
-border C1(t=0, 1){x=-ca*(1-t)+(tip-10*d)*t; y=d;}
-border C21(t=0, 1){x=(tip-10*d)*(1-t)+tip*t; y=d*(1-t);}
-border C22(t=0, 1){x=(tip-10*d)*t+tip*(1-t); y=-d*t;}
-border C3(t=0, 1){x=(tip-10*d)*(1-t)-ca*t; y=-d;}
-border C4(t=0, 2*d){x=-ca; y=-d+t;}
-border R(t=0, 2){x=cb; y=cb*(t-1);}
-border T(t=0, 2){x=cb*(1-t); y=ca;}
-mesh Th = buildmesh(L1(n/2) + L2(n/2) + B(n)
-    + C1(n) + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-plot(Th, wait=true);
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">L1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ca</span><span class="o">-</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">-</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">L2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ca</span><span class="o">-</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">ca</span><span class="o">-</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="kp">B</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="kr">y</span><span class="o">=-</span><span class="n">ca</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">ca</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="nf">d</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C21</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">+</span><span class="n">tip</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="nf">d</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);}</span>
+<span class="kt">border</span> <span class="nf">C22</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="o">+</span><span class="n">tip</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">*</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="n">tip</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="nf">d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">)</span><span class="o">-</span><span class="n">ca</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C4</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nf">d</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="n">ca</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="nf">d</span><span class="o">+</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">R</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">-</span><span class="mi">1</span><span class="p">);}</span>
+<span class="kt">border</span> <span class="nf">T</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">cb</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="n">ca</span><span class="p">;}</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">L1</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">L2</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="kp">B</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C1</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C22</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C3</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">T</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-cb=0.1; ca=0.1;
-mesh Zoom = buildmesh(L1(n/2) + L2(n/2) + B(n) + C1(n)
-    + C21(3) + C22(3) + C3(n) + R(n) + T(n));
-plot(Zoom, wait=true);
+<span class="n">cb</span><span class="o">=</span><span class="mf">0.1</span><span class="p">;</span> <span class="n">ca</span><span class="o">=</span><span class="mf">0.1</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Zoom</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">L1</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">L2</span><span class="p">(</span><span class="kr">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="kp">B</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">C1</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C22</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">C3</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">T</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, [P2, P2]);
-Vh [u, v];
-Vh [w, s];
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P2</span><span class="p">,</span> <span class="nc">P2</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">];</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">];</span>
 
-fespace zVh(Zoom, P2);
-zVh Sx, Sy, Sxy, N;
+<span class="kt">fespace</span> <span class="nf">zVh</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">zVh</span> <span class="n">Sx</span><span class="p">,</span> <span class="n">Sy</span><span class="p">,</span> <span class="n">Sxy</span><span class="p">,</span> <span class="kr">N</span><span class="p">;</span>
 
-fespace Vh1(Th,P1);
-Vh1 fx = ((y&gt;0.001)*(y&lt;0.1))-((y&lt;-0.001)*(y&gt;-0.1));
+<span class="kt">fespace</span> <span class="nf">Vh1</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh1</span> <span class="n">fx</span> <span class="o">=</span> <span class="p">((</span><span class="kr">y</span><span class="o">&gt;</span><span class="mf">0.001</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">))</span><span class="o">-</span><span class="p">((</span><span class="kr">y</span><span class="o">&lt;-</span><span class="mf">0.001</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&gt;-</span><span class="mf">0.1</span><span class="p">));</span>
 
-// Problem
-real mu = E/(2*(1+sigma));
-real lambda = E*sigma/((1+sigma)*(1-2*sigma));
-solve Problem ([u, v], [w, s])
-    = int2d(Th)(
-          2*mu*(dx(u)*dx(w) + ((dx(v) + dy(u))*(dx(s)+ dy(w)))/4)
-        + lambda*(dx(u) + dy(v))*(dx(w) + dy(s))/2
-    )
-    -int2d(Th)(
-          fx*w
-    )
-    +on(R, u=0, v=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="kp">sigma</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="kp">sigma</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="kp">sigma</span><span class="p">));</span>
+<span class="kt">solve</span> <span class="nf">Problem</span> <span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="o">-</span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">fx</span><span class="o">*</span><span class="n">w</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Loop
-for (int i = 1; i &lt;= 3; i++){
-    mesh Plate = movemesh(Zoom, [x+u, y+v]); //deformation near gamma
-    Sx = lambda*(dx(u) + dy(v)) + 2*mu*dx(u);
-    Sy = lambda*(dx(u) + dy(v)) + 2*mu*dy(v);
-    Sxy = mu*(dy(u) + dx(v));
-    N = 0.1*1*sqrt((Sx-Sy)^2 + 4*Sxy^2); //principal stress difference
-    if (i == 1){
-        plot(Plate, bw=1);
-        plot(N, bw=1);
-    }
-    else if (i == 3) {
-        plot(Plate, bw=1);
-        plot(N, bw=1);
-        break;
-    }
+<span class="c1">// Loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kt">mesh</span> <span class="n">Plate</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Zoom</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">u</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">v</span><span class="p">]);</span> <span class="c1">//deformation near gamma</span>
+    <span class="n">Sx</span> <span class="o">=</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+    <span class="n">Sy</span> <span class="o">=</span> <span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">Sxy</span> <span class="o">=</span> <span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="kr">N</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">((</span><span class="n">Sx</span><span class="o">-</span><span class="n">Sy</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">Sxy</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//principal stress difference</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">Plate</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">Plate</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span> <span class="kp">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // Adaptmesh
-    Th=adaptmesh(Th, [u, v]);
+    <span class="c1">// Adaptmesh</span>
+    <span class="n">Th</span><span class="o">=</span><span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">]);</span>
 
-    // Solve
-    Problem;
-}
+    <span class="c1">// Solve</span>
+    <span class="n">Problem</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 

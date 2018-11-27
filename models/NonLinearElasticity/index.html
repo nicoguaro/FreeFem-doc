@@ -1324,7 +1324,7 @@ D^2F2(\mathbf{u})(\mathbf{v},\mathbf{w}) = 2 \; A(\;D^2E[\mathbf{u}](\mathbf{v},
 </script>
 </p>
 <p>and <span><span class="MathJax_Preview">D^{2}E</span><script type="math/tex">D^{2}E</script></span> is the second differential of <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span>.</p>
-<p>So all notations can be define with <a href="../reference/Types/#macro-design"><code class="codehilite">macro</code></a>:</p>
+<p>So all notations can be define with <a href="../reference/Types/#macro-design"><code class="codehilite"><span class="kt">macro</span></code></a>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1347,29 +1347,29 @@ D^2F2(\mathbf{u})(\mathbf{v},\mathbf{w}) = 2 \; A(\;D^2E[\mathbf{u}](\mathbf{v},
 20
 21
 22
-23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>macro EL(u, v) [dx(u), (dx(v)+dy(u)), dy(v)] //is [epsilon_11, 2epsilon_12, epsilon_22]
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">macro</span> <span class="n">EL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="c1">//is [epsilon_11, 2epsilon_12, epsilon_22]</span>
 
-macro ENL(u, v) [
-    (dx(u)*dx(u) + dx(v)*dx(v))*0.5,
-    (dx(u)*dy(u) + dx(v)*dy(v)),
-    (dy(u)*dy(u) + dy(v)*dy(v))*0.5
-    ] //
+<span class="kt">macro</span> <span class="n">ENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">[</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+    <span class="p">]</span> <span class="c1">//</span>
 
-macro dENL(u, v, uu, vv) [
-    (dx(u)*dx(uu) + dx(v)*dx(vv)),
-    (dx(u)*dy(uu) + dx(v)*dy(vv) + dx(uu)*dy(u) + dx(vv)*dy(v)),
-    (dy(u)*dy(uu) + dy(v)*dy(vv))
-    ] //
+<span class="kt">macro</span> <span class="n">dENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">[</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span>
+    <span class="p">]</span> <span class="c1">//</span>
 
-macro E(u, v) (EL(u,v) + ENL(u,v)) //is [E_11, 2E_12, E_22]
-macro dE(u, v, uu, vv) (EL(uu, vv) + dENL(u, v, uu, vv)) //
-macro ddE(u, v, uu, vv, uuu, vvv) dENL(uuu, vvv, uu, vv) //
-macro F2(u, v) (E(u, v)&#39;*A*E(u, v)) //
-macro dF2(u, v, uu, vv) (E(u, v)&#39;*A*dE(u, v, uu, vv)*2.) //
-macro ddF2(u, v, uu, vv, uuu, vvv) (
-    (dE(u, v, uu, vv)&#39;*A*dE(u, v, uuu, vvv))*2.
-    + (E(u, v)&#39;*A*ddE(u, v, uu, vv, uuu, vvv))*2.
-    ) //
+<span class="kt">macro</span> <span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="n">EL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">ENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">))</span> <span class="c1">//is [E_11, 2E_12, E_22]</span>
+<span class="kt">macro</span> <span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">(</span><span class="n">EL</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="o">+</span> <span class="n">dENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">ddE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">)</span> <span class="n">dENL</span><span class="p">(</span><span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">F2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">dF2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">ddF2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">)</span> <span class="p">(</span>
+    <span class="p">(</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">))</span><span class="o">*</span><span class="mf">2.</span>
+    <span class="o">+</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">ddE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">))</span><span class="o">*</span><span class="mf">2.</span>
+    <span class="p">)</span> <span class="c1">//</span>
 </pre></div>
 </td></tr></table>
 
@@ -1388,7 +1388,7 @@ macro ddF2(u, v, uu, vv, uuu, vvv) (
 </li>
 </ul>
 <p>The way to implement this algorithm in FreeFem++ is use a macro tool to implement <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> and <span><span class="MathJax_Preview">F2</span><script type="math/tex">F2</script></span>, <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, <span><span class="MathJax_Preview">f'</span><script type="math/tex">f'</script></span>,<span><span class="MathJax_Preview">f''</span><script type="math/tex">f''</script></span>.</p>
-<p>A macro is like in <code class="codehilite"><span class="n">ccp</span></code> preprocessor of C++, but this begin by <code class="codehilite">macro</code> and the end of the macro definition is before the comment <code class="codehilite">//</code>. In this case the macro is very useful because the type of parameter can be change. And it is easy to make automatic differentiation.</p>
+<p>A macro is like in <code class="codehilite"><span class="n">ccp</span></code> preprocessor of C++, but this begin by <code class="codehilite"><span class="kt">macro</span></code> and the end of the macro definition is before the comment <code class="codehilite"><span class="c1">//</span></code>. In this case the macro is very useful because the type of parameter can be change. And it is easy to make automatic differentiation.</p>
 <table>
 <thead>
 <tr>
@@ -1538,144 +1538,144 @@ macro ddF2(u, v, uu, vv, uuu, vvv) (
 135
 136
 137
-138</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Macro
-macro EL(u, v) [dx(u), (dx(v)+dy(u)), dy(v)] //is [epsilon_11, 2epsilon_12, epsilon_22]
+138</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Macro</span>
+<span class="kt">macro</span> <span class="nf">EL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span> <span class="c1">//is [epsilon_11, 2epsilon_12, epsilon_22]</span>
 
-macro ENL(u, v) [
-    (dx(u)*dx(u) + dx(v)*dx(v))*0.5,
-    (dx(u)*dy(u) + dx(v)*dy(v)),
-    (dy(u)*dy(u) + dy(v)*dy(v))*0.5
-    ] //
+<span class="kt">macro</span> <span class="n">ENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">[</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+    <span class="p">]</span> <span class="c1">//</span>
 
-macro dENL(u, v, uu, vv) [
-    (dx(u)*dx(uu) + dx(v)*dx(vv)),
-    (dx(u)*dy(uu) + dx(v)*dy(vv) + dx(uu)*dy(u) + dx(vv)*dy(v)),
-    (dy(u)*dy(uu) + dy(v)*dy(vv))
-    ] //
+<span class="kt">macro</span> <span class="n">dENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">[</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span>
+    <span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span>
+    <span class="p">]</span> <span class="c1">//</span>
 
-macro E(u, v) (EL(u,v) + ENL(u,v)) //is [E_11, 2E_12, E_22]
-macro dE(u, v, uu, vv) (EL(uu, vv) + dENL(u, v, uu, vv)) //
-macro ddE(u, v, uu, vv, uuu, vvv) dENL(uuu, vvv, uu, vv) //
-macro F2(u, v) (E(u, v)&#39;*A*E(u, v)) //
-macro dF2(u, v, uu, vv) (E(u, v)&#39;*A*dE(u, v, uu, vv)*2.) //
-macro ddF2(u, v, uu, vv, uuu, vvv) (
-      (dE(u, v, uu, vv)&#39;*A*dE(u, v, uuu, vvv))*2.
-    + (E(u, v)&#39;*A*ddE(u, v, uu, vv, uuu, vvv))*2.
-    ) //
+<span class="kt">macro</span> <span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="n">EL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">ENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">))</span> <span class="c1">//is [E_11, 2E_12, E_22]</span>
+<span class="kt">macro</span> <span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">(</span><span class="n">EL</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="o">+</span> <span class="n">dENL</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">ddE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">)</span> <span class="n">dENL</span><span class="p">(</span><span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">F2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">dF2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">ddF2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">)</span> <span class="p">(</span>
+      <span class="p">(</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">dE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">))</span><span class="o">*</span><span class="mf">2.</span>
+    <span class="o">+</span> <span class="p">(</span><span class="n">E</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="kp">A</span><span class="o">*</span><span class="n">ddE</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">uuu</span><span class="p">,</span> <span class="n">vvv</span><span class="p">))</span><span class="o">*</span><span class="mf">2.</span>
+    <span class="p">)</span> <span class="c1">//</span>
 
-macro f(u) ((u)*(u)*0.25) //
-macro df(u) ((u)*0.5) //
-macro ddf(u) (0.5) //
+<span class="kt">macro</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">((</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">df</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">((</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">ddf</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1">//</span>
 
-// Parameters
-real mu = 0.012e5; //kg/cm^2
-real lambda = 0.4e5; //kg/cm^2
-real Pa = 1e2;
+<span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">0.012e5</span><span class="p">;</span> <span class="c1">//kg/cm^2</span>
+<span class="kt">real</span> <span class="n">lambda</span> <span class="o">=</span> <span class="mf">0.4e5</span><span class="p">;</span> <span class="c1">//kg/cm^2</span>
+<span class="kt">real</span> <span class="n">Pa</span> <span class="o">=</span> <span class="mf">1e2</span><span class="p">;</span>
 
-// sigma = 2 mu E + lambda tr(E) Id
-// A(u,v) = sigma(u):E(v)
-//
-// ( a b )
-// ( b c )
-//
-// tr*Id : (a,b,c) -&gt; (a+c,0,a+c)
-// so the associed matrix is:
-// ( 1 0 1 )
-// ( 0 0 0 )
-// ( 1 0 1 )
+<span class="c1">// sigma = 2 mu E + lambda tr(E) Id</span>
+<span class="c1">// A(u,v) = sigma(u):E(v)</span>
+<span class="c1">//</span>
+<span class="c1">// ( a b )</span>
+<span class="c1">// ( b c )</span>
+<span class="c1">//</span>
+<span class="c1">// tr*Id : (a,b,c) -&gt; (a+c,0,a+c)</span>
+<span class="c1">// so the associed matrix is:</span>
+<span class="c1">// ( 1 0 1 )</span>
+<span class="c1">// ( 0 0 0 )</span>
+<span class="c1">// ( 1 0 1 )</span>
 
-real a11 = 2*mu + lambda;
-real a22 = mu; //because [0, 2*t12, 0]&#39; A [0, 2*s12,0] = 2*mu*(t12*s12 + t21*s21) = 4*mu*t12*s12
-real a33 = 2*mu + lambda;
-real a12 = 0;
-real a13 = lambda;
-real a23 = 0;
-// symetric part
-real a21 = a12;
-real a31 = a13;
-real a32 = a23;
+<span class="kt">real</span> <span class="n">a11</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span> <span class="o">+</span> <span class="n">lambda</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a22</span> <span class="o">=</span> <span class="n">mu</span><span class="p">;</span> <span class="c1">//because [0, 2*t12, 0]&#39; A [0, 2*s12,0] = 2*mu*(t12*s12 + t21*s21) = 4*mu*t12*s12</span>
+<span class="kt">real</span> <span class="n">a33</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mu</span> <span class="o">+</span> <span class="n">lambda</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a12</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a13</span> <span class="o">=</span> <span class="n">lambda</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a23</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// symetric part</span>
+<span class="kt">real</span> <span class="n">a21</span> <span class="o">=</span> <span class="n">a12</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a31</span> <span class="o">=</span> <span class="n">a13</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">a32</span> <span class="o">=</span> <span class="n">a23</span><span class="p">;</span>
 
-//the matrix A
-func A = [[a11, a12, a13], [a21, a22, a23], [a31, a32, a33]];
+<span class="c1">//the matrix A</span>
+<span class="kt">func</span> <span class="kp">A</span> <span class="o">=</span> <span class="p">[[</span><span class="n">a11</span><span class="p">,</span> <span class="n">a12</span><span class="p">,</span> <span class="n">a13</span><span class="p">],</span> <span class="p">[</span><span class="n">a21</span><span class="p">,</span> <span class="n">a22</span><span class="p">,</span> <span class="n">a23</span><span class="p">],</span> <span class="p">[</span><span class="n">a31</span><span class="p">,</span> <span class="n">a32</span><span class="p">,</span> <span class="n">a33</span><span class="p">]];</span>
 
-// Mesh
-int n = 30;
-int m = 10;
-mesh Th = square(n, m, [x, .3*y]); //label: 1 bottom, 2 right, 3 up, 4 left;
-int bottom = 1, right = 2, upper = 3, left = 4;
-plot(Th);
+<span class="c1">// Mesh</span>
+<span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kr">m</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="mf">.3</span><span class="o">*</span><span class="kr">y</span><span class="p">]);</span> <span class="c1">//label: 1 bottom, 2 right, 3 up, 4 left;</span>
+<span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 
-// Fespace
-fespace Wh(Th, P1dc);
-Wh e2, fe2, dfe2, ddfe2;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Wh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1dc</span><span class="p">);</span>
+<span class="n">Wh</span> <span class="n">e2</span><span class="p">,</span> <span class="n">fe2</span><span class="p">,</span> <span class="n">dfe2</span><span class="p">,</span> <span class="n">ddfe2</span><span class="p">;</span>
 
-fespace Vh(Th, [P1, P1]);
-Vh [uu, vv] = [0, 0], [w, s], [un, vn] = [0, 0];
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nc">P1</span><span class="p">,</span> <span class="nc">P1</span><span class="p">]);</span>
+<span class="n">Vh</span> <span class="p">[</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
 
-fespace Sh(Th, P1);
-Sh u1, v1;
+<span class="kt">fespace</span> <span class="nf">Sh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Sh</span> <span class="n">u1</span><span class="p">,</span> <span class="n">v1</span><span class="p">;</span>
 
-// Problem
-varf vmass ([uu, vv], [w, s], solver=CG) = int2d(Th)(uu*w + vv*s);
-matrix M = vmass(Vh, Vh);
-problem NonLin([uu, vv], [w, s], solver=LU)
-    = int2d(Th, qforder=1)( //(D^2 J(un))
-           dF2(un, vn, uu, vv)*dF2(un, vn, w, s)*ddfe2
-        + ddF2(un, vn, uu, vv, w, s)*ddfe2
-    )
-    - int1d(Th, upper)(
-          Pa*s
-    )
-    - int2d(Th, qforder=1)( //(D J(un))
-          dF2(un, vn, w, s)*dfe2
-    )
-    + on(right, left, uu=0, vv=0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">varf</span> <span class="nf">vmass</span> <span class="p">([</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">uu</span><span class="o">*</span><span class="n">w</span> <span class="o">+</span> <span class="n">vv</span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
+<span class="kt">matrix</span> <span class="n">M</span> <span class="o">=</span> <span class="n">vmass</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+<span class="kt">problem</span> <span class="nf">NonLin</span><span class="p">([</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">qforder</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span> <span class="c1">//(D^2 J(un))</span>
+           <span class="n">dF2</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">)</span><span class="o">*</span><span class="n">dF2</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">ddfe2</span>
+        <span class="o">+</span> <span class="n">ddF2</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">,</span> <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">ddfe2</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">upper</span><span class="p">)(</span>
+          <span class="n">Pa</span><span class="o">*</span><span class="n">s</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">qforder</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span> <span class="c1">//(D J(un))</span>
+          <span class="n">dF2</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">dfe2</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">uu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vv</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Newton&#39;s method
-for (int i = 0; i &lt; 10; i++){
-    cout &lt;&lt; &quot;Loop &quot; &lt;&lt; i &lt;&lt; endl;
+<span class="c1">// Newton&#39;s method</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Loop &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-    // Update
-    e2 = F2(un, vn);
-    dfe2 = df(e2) ;
-    ddfe2 = ddf(e2);
-    cout &lt;&lt; &quot;e2 max = &quot; &lt;&lt;e2[].max &lt;&lt; &quot;, min = &quot; &lt;&lt; e2[].min &lt;&lt; endl;
-    cout &lt;&lt; &quot;de2 max = &quot;&lt;&lt; dfe2[].max &lt;&lt; &quot;, min = &quot; &lt;&lt; dfe2[].min &lt;&lt; endl;
-    cout &lt;&lt; &quot;dde2 max = &quot;&lt;&lt; ddfe2[].max &lt;&lt; &quot;, min = &quot; &lt;&lt; ddfe2[].min &lt;&lt; endl;
+    <span class="c1">// Update</span>
+    <span class="n">e2</span> <span class="o">=</span> <span class="n">F2</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">);</span>
+    <span class="n">dfe2</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">e2</span><span class="p">)</span> <span class="p">;</span>
+    <span class="n">ddfe2</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">(</span><span class="n">e2</span><span class="p">);</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;e2 max = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">e2</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, min = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e2</span><span class="p">[].</span><span class="kr">min</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;de2 max = &quot;</span><span class="o">&lt;&lt;</span> <span class="n">dfe2</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, min = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">dfe2</span><span class="p">[].</span><span class="kr">min</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;dde2 max = &quot;</span><span class="o">&lt;&lt;</span> <span class="n">ddfe2</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, min = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ddfe2</span><span class="p">[].</span><span class="kr">min</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-    // Solve
-    NonLin;
-    w[]  = M*uu[];
+    <span class="c1">// Solve</span>
+    <span class="n">NonLin</span><span class="p">;</span>
+    <span class="n">w</span><span class="p">[]</span>  <span class="o">=</span> <span class="n">M</span><span class="o">*</span><span class="n">uu</span><span class="p">[];</span>
 
-    // Residual
-    real res = sqrt(w[]&#39; * uu[]); //L^2 norm of [uu, vv]
-    cout &lt;&lt; &quot; L^2 residual = &quot; &lt;&lt; res &lt;&lt; endl;
+    <span class="c1">// Residual</span>
+    <span class="kt">real</span> <span class="n">res</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">w</span><span class="p">[]</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">uu</span><span class="p">[]);</span> <span class="c1">//L^2 norm of [uu, vv]</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; L^2 residual = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-    // Update
-    v1 = vv;
-    u1 = uu;
-    cout &lt;&lt; &quot;u1 min = &quot; &lt;&lt;u1[].min &lt;&lt; &quot;, u1 max = &quot; &lt;&lt; u1[].max &lt;&lt; endl;
-    cout &lt;&lt; &quot;v1 min = &quot; &lt;&lt;v1[].min &lt;&lt; &quot;, v2 max = &quot; &lt;&lt; v1[].max &lt;&lt; endl;
+    <span class="c1">// Update</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="n">vv</span><span class="p">;</span>
+    <span class="n">u1</span> <span class="o">=</span> <span class="n">uu</span><span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;u1 min = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">u1</span><span class="p">[].</span><span class="kr">min</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, u1 max = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">u1</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;v1 min = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">v1</span><span class="p">[].</span><span class="kr">min</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, v2 max = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">[].</span><span class="kr">max</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-    // Plot
-    plot([uu, vv], wait=true, cmm=&quot;uu, vv&quot;);
+    <span class="c1">// Plot</span>
+    <span class="nf">plot</span><span class="p">([</span><span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;uu, vv&quot;</span><span class="p">);</span>
 
-    // Update
-    un[] -= uu[];
-    plot([un, vn], wait=true, cmm=&quot;displacement&quot;);
+    <span class="c1">// Update</span>
+    <span class="n">un</span><span class="p">[]</span> <span class="o">-=</span> <span class="n">uu</span><span class="p">[];</span>
+    <span class="nf">plot</span><span class="p">([</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;</span><span class="kp">displacement</span><span class="s">&quot;</span><span class="p">);</span>
 
-    if (res &lt; 1e-5) break;
-}
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">&lt;</span> <span class="mf">1e-5</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
 
-// Plot
-plot([un, vn], wait=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">un</span><span class="p">,</span> <span class="n">vn</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-// Movemesh
-mesh th1 = movemesh(Th, [x+un, y+vn]);
+<span class="c1">// Movemesh</span>
+<span class="kt">mesh</span> <span class="n">th1</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="o">+</span><span class="n">un</span><span class="p">,</span> <span class="kr">y</span><span class="o">+</span><span class="n">vn</span><span class="p">]);</span>
 
-// Plot
-plot(th1, wait=true);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
                 

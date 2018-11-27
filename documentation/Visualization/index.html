@@ -1415,20 +1415,20 @@
 <p>There are two ways of visualization in FreeFem++:</p>
 <ul>
 <li>
-<p>One, the default view, which supports the drawing of meshes, isovalues of real FE-functions, and of vector fields, all by the command <code class="codehilite">plot</code> (see <a href="#plot">Plot section</a> below). For publishing purpose, FreeFem++ can store these plots as postscript files.</p>
+<p>One, the default view, which supports the drawing of meshes, isovalues of real FE-functions, and of vector fields, all by the command <code class="codehilite"><span class="nf">plot</span></code> (see <a href="#plot">Plot section</a> below). For publishing purpose, FreeFem++ can store these plots as postscript files.</p>
 </li>
 <li>
-<p>Another method is to use external tools, for example, gnuplot (see <a href="#link-with-gnuplot">Gnuplot section</a>, <a href="#link-with-medit">medit section</a>, <a href="#link-with-paraview">Paraview section</a>) using the command <code class="codehilite">system</code> to launch them and/or to save the data in text files.</p>
+<p>Another method is to use external tools, for example, gnuplot (see <a href="#link-with-gnuplot">Gnuplot section</a>, <a href="#link-with-medit">medit section</a>, <a href="#link-with-paraview">Paraview section</a>) using the command <code class="codehilite"><span class="nf">system</span></code> to launch them and/or to save the data in text files.</p>
 </li>
 </ul>
 <h2 id="plot">Plot<a class="headerlink" href="#plot" title="Permanent link">#</a></h2>
-<p>With the command <code class="codehilite">plot</code>, meshes, isovalues of scalar functions, and vector fields can be displayed.</p>
+<p>With the command <code class="codehilite"><span class="nf">plot</span></code>, meshes, isovalues of scalar functions, and vector fields can be displayed.</p>
 <p>The parameters of the plot command can be meshes, real FE functions, arrays of 2 real FE functions, arrays of two double arrays, to plot respectively a mesh, a function, a vector field, or a curve defined by the two double arrays.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The length of an arrow is always bound to be in [5‰, 5%] of the screen size in order to see something.</p>
 </div>
-<p>The <code class="codehilite">plot</code> command parameters are listed in the <a href="../reference/Functions/#plot">Reference part</a>.</p>
+<p>The <code class="codehilite"><span class="nf">plot</span></code> command parameters are listed in the <a href="../reference/Functions/#plot">Reference part</a>.</p>
 <p>The keyboard shortcuts are :</p>
 <ul>
 <li><strong>enter</strong> tries to show plot</li>
@@ -1487,28 +1487,28 @@
 19
 20
 21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>real[int] xx(10), yy(10);
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">xx</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">yy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 
-mesh Th = square(5,5);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 
-fespace Vh(Th, P1);
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
 
-//plot scalar and vectorial FE function
-Vh uh=x*x+y*y, vh=-y^2+x^2;
-plot(Th, uh, [uh, vh], value=true, ps=&quot;three.eps&quot;, wait=true);
+<span class="c1">//plot scalar and vectorial FE function</span>
+<span class="n">Vh</span> <span class="n">uh</span><span class="o">=</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">+</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">,</span> <span class="n">vh</span><span class="o">=-</span><span class="kr">y</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">uh</span><span class="p">,</span> <span class="p">[</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">],</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;three.eps&quot;</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 
-//zoom on box defined by the two corner points [0.1,0.2] and [0.5,0.6]
-plot(uh, [uh, vh], bb=[[0.1, 0.2], [0.5, 0.6]],
-    wait=true, grey=true, fill=true, value=true, ps=&quot;threeg.eps&quot;);
+<span class="c1">//zoom on box defined by the two corner points [0.1,0.2] and [0.5,0.6]</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="p">[</span><span class="n">uh</span><span class="p">,</span> <span class="n">vh</span><span class="p">],</span> <span class="kp">bb</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]],</span>
+    <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">grey</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;threeg.eps&quot;</span><span class="p">);</span>
 
-//compute a cut
-for (int i = 0; i &lt; 10; i++){
-    x = i/10.;
-    y = i/10.;
-    xx[i] = i;
-    yy[i] = uh; //value of uh at point (i/10., i/10.)
-}
-plot([xx, yy], ps=&quot;likegnu.eps&quot;, wait=true);
+<span class="c1">//compute a cut</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kr">x</span> <span class="o">=</span> <span class="n">i</span><span class="o">/</span><span class="mf">10.</span><span class="p">;</span>
+    <span class="kr">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">/</span><span class="mf">10.</span><span class="p">;</span>
+    <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">uh</span><span class="p">;</span> <span class="c1">//value of uh at point (i/10., i/10.)</span>
+<span class="p">}</span>
+<span class="nf">plot</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">],</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;likegnu.eps&quot;</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1569,35 +1569,35 @@ plot([xx, yy], ps=&quot;likegnu.eps&quot;, wait=true);
 26
 27
 28
-29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// from: \url{http://en.wikipedia.org/wiki/HSV_color_space}
-// The HSV (Hue, Saturation, Value) model defines a color space
-// in terms of three constituent components:
-// HSV color space as a color wheel
-// Hue, the color type (such as red, blue, or yellow):
-// Ranges from 0-360 (but normalized to 0-100% in some applications, like here)
-// Saturation, the &quot;vibrancy&quot; of the color: Ranges from 0-100%
-// The lower the saturation of a color, the more &quot;grayness&quot; is present
-// and the more faded the color will appear.
-// Value, the brightness of the color: Ranges from 0-100%
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// from: \url{http://en.wikipedia.org/wiki/HSV_color_space}</span>
+<span class="c1">// The HSV (Hue, Saturation, Value) model defines a color space</span>
+<span class="c1">// in terms of three constituent components:</span>
+<span class="c1">// HSV color space as a color wheel</span>
+<span class="c1">// Hue, the color type (such as red, blue, or yellow):</span>
+<span class="c1">// Ranges from 0-360 (but normalized to 0-100% in some applications, like here)</span>
+<span class="c1">// Saturation, the &quot;vibrancy&quot; of the color: Ranges from 0-100%</span>
+<span class="c1">// The lower the saturation of a color, the more &quot;grayness&quot; is present</span>
+<span class="c1">// and the more faded the color will appear.</span>
+<span class="c1">// Value, the brightness of the color: Ranges from 0-100%</span>
 
-mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-fespace Vh(Th, P1);
-Vh uh=2-x*x-y*y;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">uh</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-real[int] colorhsv=[ // color hsv model
-    4./6., 1 , 0.5, // dark blue
-    4./6., 1 , 1, // blue
-    5./6., 1 , 1, // magenta
-    1, 1. , 1, // red
-    1, 0.5 , 1 // light red
-    ];
- real[int] viso(31);
+<span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">colorhsv</span><span class="o">=</span><span class="p">[</span> <span class="c1">// color hsv model</span>
+    <span class="mf">4.</span><span class="o">/</span><span class="mf">6.</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1">// dark blue</span>
+    <span class="mf">4.</span><span class="o">/</span><span class="mf">6.</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// blue</span>
+    <span class="mf">5.</span><span class="o">/</span><span class="mf">6.</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// magenta</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// red</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mi">1</span> <span class="c1">// light red</span>
+    <span class="p">];</span>
+ <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="kp">viso</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
 
- for (int i = 0; i &lt; viso.n; i++)
-    viso[i] = i*0.1;
+ <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kp">viso</span><span class="p">.</span><span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="kp">viso</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mf">0.1</span><span class="p">;</span>
 
- plot(uh, viso=viso(0:viso.n-1), value=true, fill=true, wait=true, hsv=colorhsv);
+ <span class="nf">plot</span><span class="p">(</span><span class="n">uh</span><span class="p">,</span> <span class="kp">viso</span><span class="o">=</span><span class="kp">viso</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="kp">viso</span><span class="p">.</span><span class="kr">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">hsv</span><span class="o">=</span><span class="n">colorhsv</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1631,15 +1631,15 @@ real[int] colorhsv=[ // color hsv model
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{// file for gnuplot
-    ofstream gnu(&quot;plot.gp&quot;);
-    for (int i = 0; i &lt; n; i++)
-        gnu &lt;&lt; xx[i] &lt;&lt; &quot; &quot; &lt;&lt; yy[i] &lt;&lt; endl;
-}
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">{</span><span class="c1">// file for gnuplot</span>
+    <span class="kt">ofstream</span> <span class="n">gnu</span><span class="p">(</span><span class="s">&quot;plot.gp&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kr">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">gnu</span> <span class="o">&lt;&lt;</span> <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 
-// to call gnuplot command and wait 5 second (due to the Unix command)
-// and make postscript plot
-exec(&quot;echo &#39;plot \&quot;plot.gp\&quot; w l \n pause 5 \n set term postscript \n set output \&quot;gnuplot.eps\&quot; \n replot \n quit&#39; | gnuplot&quot;);
+<span class="c1">// to call gnuplot command and wait 5 second (due to the Unix command)</span>
+<span class="c1">// and make postscript plot</span>
+<span class="nf">exec</span><span class="p">(</span><span class="s">&quot;echo &#39;plot </span><span class="se">\&quot;</span><span class="s">plot.gp</span><span class="se">\&quot;</span><span class="s"> w l </span><span class="se">\n</span><span class="s"> pause 5 </span><span class="se">\n</span><span class="s"> set term postscript </span><span class="se">\n</span><span class="s"> set output </span><span class="se">\&quot;</span><span class="s">gnuplot.eps</span><span class="se">\&quot;</span><span class="s"> </span><span class="se">\n</span><span class="s"> replot </span><span class="se">\n</span><span class="s"> quit&#39; | gnuplot&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1662,7 +1662,7 @@ exec(&quot;echo &#39;plot \&quot;plot.gp\&quot; w l \n pause 5 \n set term posts
 <h2 id="link-with-medit">Link with medit<a class="headerlink" href="#link-with-medit" title="Permanent link">#</a></h2>
 <p>As said above, <code>medit</code> is a freeware display package by Pascal Frey using OpenGL. Then you may run the following example.</p>
 <p>Now <code>medit</code> software is included in FreeFem++ under <code>ffmedit</code> name.</p>
-<p>The <code class="codehilite">medit</code> command parameters are listed in the <a href="../reference/ExternalLibraries/#medit">Reference part</a>.</p>
+<p>The <code class="codehilite"><span class="nf">medit</span></code> command parameters are listed in the <a href="../reference/ExternalLibraries/#medit">Reference part</a>.</p>
 <p><center></p>
 <table>
 <thead>
@@ -1685,14 +1685,14 @@ exec(&quot;echo &#39;plot \&quot;plot.gp\&quot; w l \n pause 5 \n set term posts
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;medit&quot;
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;</span><span class="nf">medit</span><span class="s">&quot;</span>
 
-mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-fespace Vh(Th, P1);
-Vh u=2-x*x-y*y;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-medit(&quot;u&quot;, Th, u);
+<span class="nf">medit</span><span class="p">(</span><span class="s">&quot;u&quot;</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1713,23 +1713,23 @@ medit(&quot;u&quot;, Th, u);
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-fespace Vh(Th, P1);
-Vh u=2-x*x-y*y;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-savemesh(Th, &quot;u&quot;, [x, y, u*.5]); //save u.points and u.faces file
-// build a u.bb file for medit
-{
-    ofstream file(&quot;u.bb&quot;);
-    file &lt;&lt; &quot;2 1 1 &quot; &lt;&lt; u[].n &lt;&lt; &quot; 2 \n&quot;;
-    for (int j = 0; j &lt; u[].n; j++)
-        file &lt;&lt; u[][j] &lt;&lt; endl;
-}
-//call medit command
-exec(&quot;ffmedit u&quot;);
-//clean files on unix-like OS
-exec(&quot;rm u.bb u.faces u.points&quot;);
+<span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span> <span class="kr">y</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="mf">.5</span><span class="p">]);</span> <span class="c1">//save u.points and u.faces file</span>
+<span class="c1">// build a u.bb file for medit</span>
+<span class="p">{</span>
+    <span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;u.bb&quot;</span><span class="p">);</span>
+    <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;2 1 1 &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[].</span><span class="kr">n</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; 2 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">u</span><span class="p">[].</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//call medit command</span>
+<span class="nf">exec</span><span class="p">(</span><span class="s">&quot;ffmedit u&quot;</span><span class="p">);</span>
+<span class="c1">//clean files on unix-like OS</span>
+<span class="nf">exec</span><span class="p">(</span><span class="s">&quot;rm u.bb u.faces u.points&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1748,16 +1748,16 @@ exec(&quot;rm u.bb u.faces u.points&quot;);
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;iovtk&quot;
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;iovtk&quot;</span>
 
-mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-fespace Vh(Th, P1);
-Vh u=2-x*x-y*y;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-int[int] Order = [1];
-string DataName = &quot;u&quot;;
-savevtk(&quot;u.vtu&quot;, Th, u, dataname=DataName, order=Order);
+<span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="kt">string</span> <span class="n">DataName</span> <span class="o">=</span> <span class="s">&quot;u&quot;</span><span class="p">;</span>
+<span class="nf">savevtk</span><span class="p">(</span><span class="s">&quot;u.vtu&quot;</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="kp">dataname</span><span class="o">=</span><span class="n">DataName</span><span class="p">,</span> <span class="kp">order</span><span class="o">=</span><span class="n">Order</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1788,16 +1788,16 @@ savevtk(&quot;u.vtu&quot;, Th, u, dataname=DataName, order=Order);
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mesh Th = square(10, 10, [2*x-1, 2*y-1]);
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
 
-fespace Vh(Th, P1);
-Vh u=2-x*x-y*y;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="kr">x</span><span class="o">-</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">;</span>
 
-savemesh(Th,&quot;export_mesh.msh&quot;);
+<span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="s">&quot;export_mesh.msh&quot;</span><span class="p">);</span>
 
-ofstream file(&quot;export_data.txt&quot;); 
-for (int j=0; j&lt;u[].n; j++)
-   file &lt;&lt; u[][j] &lt;&lt; endl;
+<span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;export_data.txt&quot;</span><span class="p">);</span> 
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">u</span><span class="p">[].</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+   <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 

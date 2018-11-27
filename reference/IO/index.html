@@ -1646,25 +1646,25 @@
 <p>See <a href="../examples/file-stream">File stream example</a>.</p>
 <h2 id="cout">cout<a class="headerlink" href="#cout" title="Permanent link">#</a></h2>
 <p>Standard C++ output device (default: console).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cout &lt;&lt; &quot;Some text&quot; &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Some text&quot;</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="cin">cin<a class="headerlink" href="#cin" title="Permanent link">#</a></h2>
 <p>Standard C++ input device (default: keyboard).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cin &gt;&gt; var;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">cin</span> <span class="o">&gt;&gt;</span> <span class="n">var</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="endl">endl<a class="headerlink" href="#endl" title="Permanent link">#</a></h2>
 <p>End of line.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cout &lt;&lt; &quot;Some text&quot; &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Some text&quot;</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="ifstream">ifstream<a class="headerlink" href="#ifstream" title="Permanent link">#</a></h2>
 <p>Open a file in read mode.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ifstream file(&quot;file.txt&quot;);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">ifstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
@@ -1673,7 +1673,7 @@
 </div>
 <h2 id="ofstream">ofstream<a class="headerlink" href="#ofstream" title="Permanent link">#</a></h2>
 <p>Open a file in write mode.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ofstream file(&quot;file.txt&quot;);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <div class="admonition note">
@@ -1682,93 +1682,93 @@
 </div>
 <h2 id="append">append<a class="headerlink" href="#append" title="Permanent link">#</a></h2>
 <p>Append data to an existing file.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ofstream file(&quot;file.txt&quot;, append);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">,</span> <span class="kr">append</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="binary">binary<a class="headerlink" href="#binary" title="Permanent link">#</a></h2>
 <p>Write a file in binary.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ofstream file(&quot;file.btxt&quot;, binary);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;file.btxt&quot;</span><span class="p">,</span> <span class="kr">binary</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="seekg">seekg<a class="headerlink" href="#seekg" title="Permanent link">#</a></h2>
 <p>Set the file position.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>file.seekg(Pos);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kp">file</span><span class="p">.</span><span class="nf">seekg</span><span class="p">(</span><span class="n">Pos</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="tellg">tellg<a class="headerlink" href="#tellg" title="Permanent link">#</a></h2>
 <p>Get the file position.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int Pos = file.tellg();
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">Pos</span> <span class="o">=</span> <span class="kp">file</span><span class="p">.</span><span class="nf">tellg</span><span class="p">();</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="flush">flush<a class="headerlink" href="#flush" title="Permanent link">#</a></h2>
 <p>Flush the buffer of the file.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>file.flush
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kp">file</span><span class="p">.</span><span class="kr">flush</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="getline">getline<a class="headerlink" href="#getline" title="Permanent link">#</a></h2>
 <p>Get the current line.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>string s;
-getline(file, s);
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">string</span> <span class="n">s</span><span class="p">;</span>
+<span class="nf">getline</span><span class="p">(</span><span class="kp">file</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></p>
 <h2 id="output-format">Output format<a class="headerlink" href="#output-format" title="Permanent link">#</a></h2>
 <p>In the descriptions below, <code>f</code> is an output stream, for example <code>cout</code> or a <code>ofstream</code>.</p>
 <p>All this methods, excepted the first, return a stream, so they can be chained:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cout.scientific.showpos &lt;&lt; 3 &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">cout</span><span class="p">.</span><span class="kr">scientific</span><span class="p">.</span><span class="kr">showpos</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="precision">precision<a class="headerlink" href="#precision" title="Permanent link">#</a></h3>
-<p>Set the number of digits printed to the right of the decimal point. This applies to all subsequent floating point numbers written to that output stream. However, this won't make floating-point "integers" print with a decimal point. It's necessary to use <code class="codehilite">fixed</code> for that effect.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int np = f.precision(n)
+<p>Set the number of digits printed to the right of the decimal point. This applies to all subsequent floating point numbers written to that output stream. However, this won't make floating-point "integers" print with a decimal point. It's necessary to use <code class="codehilite"><span class="kr">fixed</span></code> for that effect.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">np</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="kr">precision</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="scientific">scientific<a class="headerlink" href="#scientific" title="Permanent link">#</a></h3>
 <p>Formats floating-point numbers in scientific notation</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.scientific
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">scientific</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="fixed">fixed<a class="headerlink" href="#fixed" title="Permanent link">#</a></h3>
 <p>Used fixed point notation for floating-point numbers. Opposite of scientific.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.fixed
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">fixed</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="showbase">showbase<a class="headerlink" href="#showbase" title="Permanent link">#</a></h3>
 <p>Converts insertions to an external form that can be read according to the <code>C++</code> lexical conventions for integral constants. By default, showbase is not set.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.showbase
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">showbase</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="noshowbase">noshowbase<a class="headerlink" href="#noshowbase" title="Permanent link">#</a></h3>
-<p>Unset <code class="codehilite">showbase</code> flags.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.noshowbase
+<p>Unset <code class="codehilite"><span class="kr">showbase</span></code> flags.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">noshowbase</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="showpos">showpos<a class="headerlink" href="#showpos" title="Permanent link">#</a></h3>
 <p>Inserts a plus sign (+) into a decimal conversion of a positive integral value.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.showpos
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">showpos</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="noshowpos">noshowpos<a class="headerlink" href="#noshowpos" title="Permanent link">#</a></h3>
-<p>Unset <code class="codehilite">showpos</code> flags.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.noshowpos
+<p>Unset <code class="codehilite"><span class="kr">showpos</span></code> flags.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">noshowpos</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="default">default<a class="headerlink" href="#default" title="Permanent link">#</a></h3>
 <p>Reset all the previous flags to the default expect precision.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.default
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">default</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="setw">setw<a class="headerlink" href="#setw" title="Permanent link">#</a></h3>
 <p>Behaves as if member width were called with <code>n</code> as argument on the stream on which it is inserted as a manipulator (it can be inserted on output streams).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>f.setw(n)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">f</span><span class="p">.</span><span class="kr">setw</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
                 

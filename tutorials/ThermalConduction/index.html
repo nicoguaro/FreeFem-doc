@@ -1440,50 +1440,50 @@ $</p>
 41
 42
 43
-44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-func u0 = 10. + 90.*x/6.;
-func k = 1.8*(y&lt;0.5) + 0.2;
-real ue = 25.;
-real alpha=0.25;
-real T=5.;
-real dt=0.1 ;
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">func</span> <span class="n">u0</span> <span class="o">=</span> <span class="mf">10.</span> <span class="o">+</span> <span class="mf">90.</span><span class="o">*</span><span class="kr">x</span><span class="o">/</span><span class="mf">6.</span><span class="p">;</span>
+<span class="kt">func</span> <span class="n">k</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">ue</span> <span class="o">=</span> <span class="mf">25.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">T</span><span class="o">=</span><span class="mf">5.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">;</span>
 
-// Mesh
-mesh Th = square(30, 5, [6.*x,y]);
+<span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mf">6.</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">]);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u=u0, v, uold;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">uold</span><span class="p">;</span>
 
-// Problem
-problem thermic(u, v)
-    = int2d(Th)(
-          u*v/dt
-        + k*(
-              dx(u) * dx(v)
-            + dy(u) * dy(v)
-        )
-    )
-    + int1d(Th, 1, 3)(
-          alpha*u*v
-    )
-    - int1d(Th, 1, 3)(
-          alpha*ue*v
-    )
-    - int2d(Th)(
-          uold*v/dt
-    )
-    + on(2, 4, u=u0)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">thermic</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">u</span><span class="o">*</span><span class="n">v</span><span class="o">/</span><span class="n">dt</span>
+        <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span>
+              <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="n">ue</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">uold</span><span class="o">*</span><span class="n">v</span><span class="o">/</span><span class="n">dt</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Time iterations
-ofstream ff(&quot;thermic.dat&quot;);
-for(real t = 0; t &lt; T; t += dt){
-    uold = u; //equivalent to u^{n-1} = u^n
-    thermic; //here the thermic problem is solved
-    ff &lt;&lt; u(3., 0.5) &lt;&lt; endl;
-    plot(u);
-}
+<span class="c1">// Time iterations</span>
+<span class="kt">ofstream</span> <span class="nf">ff</span><span class="p">(</span><span class="s">&quot;thermic.dat&quot;</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kp">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">;</span> <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">){</span>
+    <span class="n">uold</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span> <span class="c1">//equivalent to u^{n-1} = u^n</span>
+    <span class="n">thermic</span><span class="p">;</span> <span class="c1">//here the thermic problem is solved</span>
+    <span class="n">ff</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
@@ -1494,7 +1494,7 @@ for(real t = 0; t &lt; T; t += dt){
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The way we store the temperature at point (3, 0.5) for all times in file <code>thermic.dat</code>. Should a one dimensional plot be required, the same procedure can be used. For instance to print <span><span class="MathJax_Preview">x\mapsto \frac{\p u}{\p y}(x,0.9)</span><script type="math/tex">x\mapsto \frac{\p u}{\p y}(x,0.9)</script></span> one would do
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for(int i = 0; i &lt; 20; i++) cout &lt;&lt; dy(u)(6.0*i/20.0,0.9) &lt;&lt; endl;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)(</span><span class="mf">6.0</span><span class="o">*</span><span class="n">i</span><span class="o">/</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></p>
 </div>
@@ -1526,7 +1526,7 @@ for(real t = 0; t &lt; T; t += dt){
  + \p ^2_{z z}.
 </script>
 </div>
-<p>Symmetry implies that we loose the dependence with respect to <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>; so the domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is again a rectangle <span><span class="MathJax_Preview">]0,R[\times]0,|[</span><script type="math/tex">]0,R[\times]0,|[</script></span> . We take the convention of numbering of the edges as in <code class="codehilite">square()</code> (1 for the bottom horizontal ...); the problem is now:</p>
+<p>Symmetry implies that we loose the dependence with respect to <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>; so the domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is again a rectangle <span><span class="MathJax_Preview">]0,R[\times]0,|[</span><script type="math/tex">]0,R[\times]0,|[</script></span> . We take the convention of numbering of the edges as in <code class="codehilite"><span class="nf">square</span><span class="p">()</span></code> (1 for the bottom horizontal ...); the problem is now:</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray}&amp;&amp;
 r\p_t u-\p _r(r\p _r u) - \p _z(r\p _z u) = 0 \hbox{ in } \Omega,
@@ -1560,20 +1560,20 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>problem thermaxi(u, v)
-    = int2d(Th)(
-          (u*v/dt + dx(u)*dx(v) + dy(u)*dy(v))*x
-    )
-    + int1d(Th, 3)(
-          alpha*x*u*v
-    )
-    - int1d(Th, 3)(
-          alpha*x*ue*v
-    )
-    - int2d(Th)(
-          uold*v*x/dt
-    )
-    + on(2, 4, u=u0);
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">problem</span> <span class="nf">thermaxi</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">v</span><span class="o">/</span><span class="n">dt</span> <span class="o">+</span> <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="kr">x</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">3</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="kr">x</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">3</span><span class="p">)(</span>
+          <span class="n">alpha</span><span class="o">*</span><span class="kr">x</span><span class="o">*</span><span class="n">ue</span><span class="o">*</span><span class="n">v</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">uold</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="kr">x</span><span class="o">/</span><span class="n">dt</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1633,41 +1633,41 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
 32
 33
 34
-35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>...
-// Parameters
-real rad=1e-8;
-real uek=ue+273;
+35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">...</span>
+<span class="c1">// Parameters</span>
+<span class="kt">real</span> <span class="n">rad</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">uek</span><span class="o">=</span><span class="n">ue</span><span class="o">+</span><span class="mi">273</span><span class="p">;</span>
 
-// Mesh
-fespace Vh(Th, P1);
-Vh vold, w, v=u0-ue, b;
+<span class="c1">// Mesh</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">vold</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">u0</span><span class="o">-</span><span class="n">ue</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
 
-// Problem
-problem thermradia(v, w)
-    = int2d(Th)(
-          v*w/dt
-        + k*(dx(v) * dx(w) + dy(v) * dy(w))
-    )
-    + int1d(Th, 1, 3)(
-          b*v*w
-    )
-    - int2d(Th)(
-          vold*w/dt
-    )
-    + on(2, 4, v=u0-ue)
-    ;
+<span class="c1">// Problem</span>
+<span class="kt">problem</span> <span class="nf">thermradia</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">v</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+        <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)(</span>
+          <span class="n">b</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">w</span>
+    <span class="p">)</span>
+    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">vold</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">u0</span><span class="o">-</span><span class="n">ue</span><span class="p">)</span>
+    <span class="p">;</span>
 
-for (real t=0;t&lt;T;t+=dt){
-    vold = v;
-    for (int m = 0; m &lt; 5; m++){
-        b = alpha + rad * (v + 2*uek) * ((v+uek)^2 + uek^2);
-        thermradia;
-    }
-}
-vold = v+ue;
+<span class="k">for</span> <span class="p">(</span><span class="kt">real</span> <span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="kp">t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">;</span><span class="kp">t</span><span class="o">+=</span><span class="n">dt</span><span class="p">){</span>
+    <span class="n">vold</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="kr">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">m</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="kr">m</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">rad</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">uek</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">v</span><span class="o">+</span><span class="n">uek</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">uek</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">thermradia</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">vold</span> <span class="o">=</span> <span class="n">v</span><span class="o">+</span><span class="n">ue</span><span class="p">;</span>
 
-// Plot
-plot(vold);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">vold</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
                 

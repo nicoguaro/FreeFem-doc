@@ -1500,130 +1500,130 @@ and define</p>
 121
 122
 123
-124</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-verbosity = 0;
-int nn = 1;
-real nu = 0.0025;
-real dt = 0.2;
-real epsv = 1e-6;
-real epsu = 1e-6;
-real epsp = 1e-6;
+124</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kr">verbosity</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">nn</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">nu</span> <span class="o">=</span> <span class="mf">0.0025</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">epsv</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">epsu</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">epsp</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">;</span>
 
-// Mesh
-border a0(t=1, 0){x=-2; y=t; label=1;}
-border a1(t=-2, 0){x=t; y=0; label=2;}
-border a2(t=0, -0.5){x=0; y=t; label=2;}
-border a3(t=0, 1){x=18*t^1.2; y=-0.5; label=2;}
-border a4(t=-0.5, 1){x=18; y=t; label=3;}
-border a5(t=1, 0){x=-2+20*t; y=1; label=4;}
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">a0</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mi">2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a1</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a3</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">18</span><span class="o">*</span><span class="kp">t</span><span class="o">^</span><span class="mf">1.2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a4</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">18</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">a5</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mi">2</span><span class="o">+</span><span class="mi">20</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="mi">4</span><span class="p">;}</span>
 
-mesh Th = buildmesh(a0(3*nn) + a1(20*nn) + a2(10*nn) + a3(150*nn) + a4(5*nn) + a5(100*nn));
-plot(Th);
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">a0</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a1</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a2</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a3</span><span class="p">(</span><span class="mi">150</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a4</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">nn</span><span class="p">)</span> <span class="o">+</span> <span class="n">a5</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">nn</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh w;
-Vh u=0, v=0;
-Vh p=0;
-Vh q=0;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">w</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-// Definition of Matrix dtMx and dtMy
-matrix dtM1x, dtM1y;
+<span class="c1">// Definition of Matrix dtMx and dtMy</span>
+<span class="kt">matrix</span> <span class="n">dtM1x</span><span class="p">,</span> <span class="n">dtM1y</span><span class="p">;</span>
 
-// Macro
-macro BuildMat()
-{   /* for memory managenemt */
-    varf vM(unused, v) = int2d(Th)(v);
-    varf vdx(u, v) = int2d(Th)(v*dx(u)*dt);
-    varf vdy(u, v) = int2d(Th)(v*dy(u)*dt);
+<span class="c1">// Macro</span>
+<span class="kt">macro</span> <span class="nf">BuildMat</span><span class="p">()</span>
+<span class="p">{</span>   <span class="cm">/* for memory managenemt */</span>
+    <span class="kt">varf</span> <span class="n">vM</span><span class="p">(</span><span class="kr">unused</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">v</span><span class="p">);</span>
+    <span class="kt">varf</span> <span class="n">vdx</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">v</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
+    <span class="kt">varf</span> <span class="n">vdy</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="n">v</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
 
-    real[int] Mlump = vM(0, Vh);
-    real[int] one(Vh.ndof); one = 1;
-    real[int] M1 = one ./ Mlump;
-    matrix dM1 = M1;
-    matrix Mdx = vdx(Vh, Vh);
-    matrix Mdy = vdy(Vh, Vh);
-    dtM1x = dM1*Mdx;
-    dtM1y = dM1*Mdy;
-} //
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Mlump</span> <span class="o">=</span> <span class="n">vM</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">one</span><span class="p">(</span><span class="n">Vh</span><span class="p">.</span><span class="kr">ndof</span><span class="p">);</span> <span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">M1</span> <span class="o">=</span> <span class="n">one</span> <span class="p">.</span><span class="o">/</span> <span class="n">Mlump</span><span class="p">;</span>
+    <span class="kt">matrix</span> <span class="n">dM1</span> <span class="o">=</span> <span class="n">M1</span><span class="p">;</span>
+    <span class="kt">matrix</span> <span class="n">Mdx</span> <span class="o">=</span> <span class="n">vdx</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+    <span class="kt">matrix</span> <span class="n">Mdy</span> <span class="o">=</span> <span class="n">vdy</span><span class="p">(</span><span class="n">Vh</span><span class="p">,</span> <span class="n">Vh</span><span class="p">);</span>
+    <span class="n">dtM1x</span> <span class="o">=</span> <span class="n">dM1</span><span class="o">*</span><span class="n">Mdx</span><span class="p">;</span>
+    <span class="n">dtM1y</span> <span class="o">=</span> <span class="n">dM1</span><span class="o">*</span><span class="n">Mdy</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">//</span>
 
-// Build matrices
-BuildMat
+<span class="c1">// Build matrices</span>
+<span class="n">BuildMat</span>
 
-// Time iterations
-real err = 1.;
-real outflux = 1.;
-for(int n = 0; n &lt; 300; n++){
-    // Update
-    Vh uold=u, vold=v, pold=p;
+<span class="c1">// Time iterations</span>
+<span class="kt">real</span> <span class="kp">err</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">outflux</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kr">n</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">;</span> <span class="kr">n</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">// Update</span>
+    <span class="n">Vh</span> <span class="n">uold</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">vold</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">pold</span><span class="o">=</span><span class="n">p</span><span class="p">;</span>
 
-    // Solve
-    solve pb4u (u, w, init=n, solver=CG, eps=epsu)
-        = int2d(Th)(
-              u*w/dt
-            + nu*(dx(u)*dx(w) + dy(u)*dy(w))
-        )
-        -int2d(Th)(
-                convect([uold, vold], -dt, uold)/dt*w
-            - dx(p)*w
-        )
-        + on(1, u=4*y*(1-y))
-        + on(2, 4, u=0)
-        ;
+    <span class="c1">// Solve</span>
+    <span class="kt">solve</span> <span class="nf">pb4u</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="kr">n</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="n">epsu</span><span class="p">)</span>
+        <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+              <span class="n">u</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+            <span class="o">+</span> <span class="n">nu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="o">-</span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+                <span class="nf">convect</span><span class="p">([</span><span class="n">uold</span><span class="p">,</span> <span class="n">vold</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">uold</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span><span class="o">*</span><span class="n">w</span>
+            <span class="o">-</span> <span class="nf">dx</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">w</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="kr">y</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">y</span><span class="p">))</span>
+        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span>
 
-    plot(u);
+    <span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
 
-    solve pb4v (v, w, init=n, solver=CG, eps=epsv)
-        = int2d(Th)(
-              v*w/dt
-            + nu*(dx(v)*dx(w) + dy(v)*dy(w))
-        )
-        -int2d(Th)(
-                convect([uold,vold],-dt,vold)/dt*w
-            - dy(p)*w
-        )
-        +on(1, 2, 3, 4, v=0)
-        ;
+    <span class="kt">solve</span> <span class="nf">pb4v</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="kr">n</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="n">epsv</span><span class="p">)</span>
+        <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+              <span class="n">v</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+            <span class="o">+</span> <span class="n">nu</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="o">-</span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+                <span class="nf">convect</span><span class="p">([</span><span class="n">uold</span><span class="p">,</span><span class="n">vold</span><span class="p">],</span><span class="o">-</span><span class="n">dt</span><span class="p">,</span><span class="n">vold</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span><span class="o">*</span><span class="n">w</span>
+            <span class="o">-</span> <span class="nf">dy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">w</span>
+        <span class="p">)</span>
+        <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span>
 
-    solve pb4p (q, w, solver=CG, init=n, eps=epsp)
-        = int2d(Th)(
-              dx(q)*dx(w)+dy(q)*dy(w)
-        )
-        - int2d(Th)(
-              (dx(u)+ dy(v))*w/dt
-        )
-        + on(3, q=0)
-        ;
+    <span class="kt">solve</span> <span class="nf">pb4p</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="kr">n</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="n">epsp</span><span class="p">)</span>
+        <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+              <span class="nf">dx</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+              <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="n">dt</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">;</span>
 
-    //to have absolute epsilon in CG algorithm.
-    epsv = -abs(epsv);
-    epsu = -abs(epsu);
-    epsp = -abs(epsp);
+    <span class="c1">//to have absolute epsilon in CG algorithm.</span>
+    <span class="n">epsv</span> <span class="o">=</span> <span class="o">-</span><span class="nf">abs</span><span class="p">(</span><span class="n">epsv</span><span class="p">);</span>
+    <span class="n">epsu</span> <span class="o">=</span> <span class="o">-</span><span class="nf">abs</span><span class="p">(</span><span class="n">epsu</span><span class="p">);</span>
+    <span class="n">epsp</span> <span class="o">=</span> <span class="o">-</span><span class="nf">abs</span><span class="p">(</span><span class="n">epsp</span><span class="p">);</span>
 
-    p = pold-q;
-    u[] += dtM1x*q[];
-    v[] += dtM1y*q[];
+    <span class="n">p</span> <span class="o">=</span> <span class="n">pold</span><span class="o">-</span><span class="n">q</span><span class="p">;</span>
+    <span class="n">u</span><span class="p">[]</span> <span class="o">+=</span> <span class="n">dtM1x</span><span class="o">*</span><span class="n">q</span><span class="p">[];</span>
+    <span class="n">v</span><span class="p">[]</span> <span class="o">+=</span> <span class="n">dtM1y</span><span class="o">*</span><span class="n">q</span><span class="p">[];</span>
 
-    // Mesh adaptation
-    if (n%50 == 49){
-        Th = adaptmesh(Th, [u, v], q, err=0.04, nbvx=100000);
-        plot(Th, wait=true);
-        BuildMat // Rebuild mat.
-    }
+    <span class="c1">// Mesh adaptation</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kr">n</span><span class="o">%</span><span class="mi">50</span> <span class="o">==</span> <span class="mi">49</span><span class="p">){</span>
+        <span class="n">Th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="n">q</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="kp">nbvx</span><span class="o">=</span><span class="mi">100000</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+        <span class="n">BuildMat</span> <span class="c1">// Rebuild mat.</span>
+    <span class="p">}</span>
 
-    // Error &amp; Outflux
-    err = sqrt(int2d(Th)(square(u-uold)+square(v-vold))/Th.area);
-    outflux = int1d(Th)([u,v]&#39;*[N.x,N.y]);
-    cout &lt;&lt; &quot; iter &quot; &lt;&lt; n &lt;&lt; &quot; Err L2 = &quot; &lt;&lt; err &lt;&lt; &quot; outflux = &quot; &lt;&lt; outflux &lt;&lt; endl;
-    if(err &lt; 1e-3) break;
-}
+    <span class="c1">// Error &amp; Outflux</span>
+    <span class="kp">err</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="nf">square</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">uold</span><span class="p">)</span><span class="o">+</span><span class="nf">square</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="n">vold</span><span class="p">))</span><span class="o">/</span><span class="n">Th</span><span class="p">.</span><span class="kr">area</span><span class="p">);</span>
+    <span class="n">outflux</span> <span class="o">=</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">)([</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">]</span><span class="o">&#39;*</span><span class="p">[</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="p">,</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">]);</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; iter &quot;</span> <span class="o">&lt;&lt;</span> <span class="kr">n</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; Err L2 = &quot;</span> <span class="o">&lt;&lt;</span> <span class="kp">err</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; outflux = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">outflux</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="kp">err</span> <span class="o">&lt;</span> <span class="mf">1e-3</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
 
-// Verification
-assert(abs(outflux)&lt; 2e-3);
+<span class="c1">// Verification</span>
+<span class="nf">assert</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">outflux</span><span class="p">)</span><span class="o">&lt;</span> <span class="mf">2e-3</span><span class="p">);</span>
 
-// Plot
-plot(p, wait=1, ps=&quot;NSprojP.eps&quot;);
-plot(u, wait=1, ps=&quot;NSprojU.eps&quot;);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;NSprojP.eps&quot;</span><span class="p">);</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;NSprojU.eps&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 

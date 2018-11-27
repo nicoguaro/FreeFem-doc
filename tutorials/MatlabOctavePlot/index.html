@@ -1511,48 +1511,48 @@
 39
 40
 41
-42</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int CA=3, CK=4, CB=5;
-real w2=1.0, h=0.4, d2=0.5;
+42</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">CA</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">CK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">CB</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">w2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span>
 
-border bottomA(t=-w2,w2){ x=t; y=d2; label=CA;};
-border rightA(t=d2,d2+h){ x=w2; y=t; label=CA;};
-border topA(t=w2,-w2){ x=t; y=d2+h; label=CA;};
-border leftA(t=d2+h,d2){ x=-w2; y=t; label=CA;};
+<span class="kt">border</span> <span class="nf">bottomA</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="n">w2</span><span class="p">,</span><span class="n">w2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">d2</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CA</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">rightA</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">d2</span><span class="p">,</span><span class="n">d2</span><span class="o">+</span><span class="n">h</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="n">w2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CA</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">topA</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">w2</span><span class="p">,</span><span class="o">-</span><span class="n">w2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">d2</span><span class="o">+</span><span class="n">h</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CA</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">leftA</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">d2</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">d2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=-</span><span class="n">w2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CA</span><span class="p">;};</span>
 
-border bottomK(t=-w2,w2){ x=t; y=-d2-h; label=CK;};
-border rightK(t=-d2-h,-d2){ x=w2; y=t; label=CK;};
-border topK(t=w2,-w2){ x=t; y=-d2; label=CK;};
-border leftK(t=-d2,-d2-h){ x=-w2; y=t; label=CK;};
+<span class="kt">border</span> <span class="nf">bottomK</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="n">w2</span><span class="p">,</span><span class="n">w2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="n">d2</span><span class="o">-</span><span class="n">h</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CK</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">rightK</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="n">d2</span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="o">-</span><span class="n">d2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="n">w2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CK</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">topK</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">w2</span><span class="p">,</span><span class="o">-</span><span class="n">w2</span><span class="p">){</span> <span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="n">d2</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CK</span><span class="p">;};</span>
+<span class="kt">border</span> <span class="nf">leftK</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="n">d2</span><span class="p">,</span><span class="o">-</span><span class="n">d2</span><span class="o">-</span><span class="n">h</span><span class="p">){</span> <span class="kr">x</span><span class="o">=-</span><span class="n">w2</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">CK</span><span class="p">;};</span>
 
-border enclosure(t=0,2*pi){x=5*cos(t); y=5*sin(t); label=CB;}
+<span class="kt">border</span> <span class="nf">enclosure</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">CB</span><span class="p">;}</span>
 
-int n=15;
-mesh Th = buildmesh(enclosure(3*n)+
-             bottomA(-w2*n)+topA(-w2*n)+rightA(-h*n)+leftA(-h*n)+
-             bottomK(-w2*n)+topK(-w2*n)+rightK(-h*n)+leftK(-h*n));
+<span class="kt">int</span> <span class="kr">n</span><span class="o">=</span><span class="mi">15</span><span class="p">;</span>
+<span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">enclosure</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span>
+             <span class="n">bottomA</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">topA</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">rightA</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">leftA</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span>
+             <span class="n">bottomK</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">topK</span><span class="p">(</span><span class="o">-</span><span class="n">w2</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">rightK</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="o">*</span><span class="kr">n</span><span class="p">)</span><span class="o">+</span><span class="n">leftK</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="o">*</span><span class="kr">n</span><span class="p">));</span>
 
-fespace Vh(Th,P1);
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P1</span><span class="p">);</span>
 
-Vh u,v;
-real u0=2.0;
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">u0</span><span class="o">=</span><span class="mf">2.0</span><span class="p">;</span>
 
-problem Laplace(u,v,solver=LU) =
-          int2d(Th)(dx(u)*dx(v) + dy(u)*dy(v))
-        + on(CA,u=u0)+on(CK,u=0);
+<span class="kt">problem</span> <span class="nf">Laplace</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span> <span class="o">=</span>
+          <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">CA</span><span class="p">,</span><span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="p">)</span><span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">CK</span><span class="p">,</span><span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
 
-real error=0.01;
-for (int i=0;i&lt;1;i++){
-   Laplace;
-   Th=adaptmesh(Th,u,err=error);
-   error=error/2.0;
-}
-Laplace;
+<span class="kt">real</span> <span class="n">error</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+   <span class="n">Laplace</span><span class="p">;</span>
+   <span class="n">Th</span><span class="o">=</span><span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="kp">err</span><span class="o">=</span><span class="n">error</span><span class="p">);</span>
+   <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">Laplace</span><span class="p">;</span>
 
-Vh Ex, Ey;
-Ex = -dx(u);
-Ey = -dy(u);
+<span class="n">Vh</span> <span class="n">Ex</span><span class="p">,</span> <span class="n">Ey</span><span class="p">;</span>
+<span class="n">Ex</span> <span class="o">=</span> <span class="o">-</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+<span class="n">Ey</span> <span class="o">=</span> <span class="o">-</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
 
-plot(u,[Ex,Ey],wait=true);
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,[</span><span class="n">Ex</span><span class="p">,</span><span class="n">Ey</span><span class="p">],</span><span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1573,22 +1573,22 @@ plot(u,[Ex,Ey],wait=true);
 13
 14
 15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>//Stores the Mesh
-savemesh(Th,&quot;capacitor.msh&quot;);
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//Stores the Mesh</span>
+<span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="s">&quot;capacitor.msh&quot;</span><span class="p">);</span>
 
-//Stores the potential u
-{
-ofstream file(&quot;capacitor_potential.txt&quot;);
-for (int j=0; j&lt;u[].n; j++)
-   file &lt;&lt; u[][j] &lt;&lt; endl;
-}
+<span class="c1">//Stores the potential u</span>
+<span class="p">{</span>
+<span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;capacitor_potential.txt&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">u</span><span class="p">[].</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+   <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Stores the 2D vector field
-{
-ofstream file(&quot;capacitor_field.txt&quot;);
-for (int j=0; j&lt;Ex[].n; j++)
-   file &lt;&lt; Ex[][j] &lt;&lt; &quot; &quot; &lt;&lt; Ey[][j] &lt;&lt; endl;
-}
+<span class="c1">//Stores the 2D vector field</span>
+<span class="p">{</span>
+<span class="kt">ofstream</span> <span class="kp">file</span><span class="p">(</span><span class="s">&quot;capacitor_field.txt&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">Ex</span><span class="p">[].</span><span class="kr">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+   <span class="kp">file</span> <span class="o">&lt;&lt;</span> <span class="n">Ex</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">Ey</span><span class="p">[][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 

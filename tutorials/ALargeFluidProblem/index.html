@@ -1565,217 +1565,217 @@
 208
 209
 210
-211</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>load &quot;iovtk&quot;
+211</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">load</span> <span class="s">&quot;iovtk&quot;</span>
 
-verbosity=0;
+<span class="kr">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
-// Parameters
-int nn = 15;
-int nnPlus = 5;
-real l = 1.;
-real L = 15.;
-real hSlope = 0.1;
-real H = 6.;
-real h = 0.5;
+<span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="n">nn</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">nnPlus</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">l</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">L</span> <span class="o">=</span> <span class="mf">15.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">hSlope</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">H</span> <span class="o">=</span> <span class="mf">6.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">h</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-real reylnods =500;
-real beta = 0.01;
+<span class="kt">real</span> <span class="n">reylnods</span> <span class="o">=</span><span class="mi">500</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
 
-real eps = 9.81/303.;
-real nu = 1;
-real numu = nu/sqrt(0.09);
-real nuep = pow(nu,1.5)/4.1;
-real dt = 0.;
+<span class="kt">real</span> <span class="kp">eps</span> <span class="o">=</span> <span class="mf">9.81</span><span class="o">/</span><span class="mf">303.</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">nu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">numu</span> <span class="o">=</span> <span class="n">nu</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="mf">0.09</span><span class="p">);</span>
+<span class="kt">real</span> <span class="n">nuep</span> <span class="o">=</span> <span class="nf">pow</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span><span class="o">/</span><span class="mf">4.1</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 
-real Penalty = 1.e-6;
+<span class="kt">real</span> <span class="n">Penalty</span> <span class="o">=</span> <span class="mf">1.e-6</span><span class="p">;</span>
 
-// Mesh
-border b1(t=0, l){x=t; y=0;}
-border b2(t=0, L-l){x=1.+t; y=-hSlope*t;}
-border b3(t=-hSlope*(L-l), H){x=L; y=t;}
-border b4(t=L, 0){x=t; y=H;}
-border b5(t=H, h){x=0; y=t;}
-border b6(t=h, 0){x=0; y=t;}
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">b1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">l</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b2</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="o">-</span><span class="n">l</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="o">+</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="n">hSlope</span><span class="o">*</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b3</span><span class="p">(</span><span class="kp">t</span><span class="o">=-</span><span class="n">hSlope</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">l</span><span class="p">),</span> <span class="n">H</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="n">L</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b4</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">H</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b5</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">H</span><span class="p">,</span> <span class="n">h</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">b6</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="kp">t</span><span class="p">;}</span>
 
-mesh Th=buildmesh(b1(nnPlus*nn*l) + b2(nn*sqrt((L-l)^2+(hSlope*(L-l))^2)) + b3(nn*(H + hSlope*(L-l))) + b4(nn*L) + b5(nn*(H-h)) + b6(nnPlus*nn*h));
-plot(Th);
+<span class="kt">mesh</span> <span class="n">Th</span><span class="o">=</span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">b1</span><span class="p">(</span><span class="n">nnPlus</span><span class="o">*</span><span class="n">nn</span><span class="o">*</span><span class="n">l</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span><span class="p">(</span><span class="n">nn</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">((</span><span class="n">L</span><span class="o">-</span><span class="n">l</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">hSlope</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">l</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">b3</span><span class="p">(</span><span class="n">nn</span><span class="o">*</span><span class="p">(</span><span class="n">H</span> <span class="o">+</span> <span class="n">hSlope</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">l</span><span class="p">)))</span> <span class="o">+</span> <span class="n">b4</span><span class="p">(</span><span class="n">nn</span><span class="o">*</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="n">b5</span><span class="p">(</span><span class="n">nn</span><span class="o">*</span><span class="p">(</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">+</span> <span class="n">b6</span><span class="p">(</span><span class="n">nnPlus</span><span class="o">*</span><span class="n">nn</span><span class="o">*</span><span class="n">h</span><span class="p">));</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 
-// Fespaces
-fespace Vh2(Th, P1b);
-Vh2 Ux, Uy;
-Vh2 Vx, Vy;
-Vh2 Upx, Upy;
+<span class="c1">// Fespaces</span>
+<span class="kt">fespace</span> <span class="nf">Vh2</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1b</span><span class="p">);</span>
+<span class="n">Vh2</span> <span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">;</span>
+<span class="n">Vh2</span> <span class="n">Vx</span><span class="p">,</span> <span class="n">Vy</span><span class="p">;</span>
+<span class="n">Vh2</span> <span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">;</span>
 
-fespace Vh(Th,P1);
-Vh p=0, q;
-Vh Tp, T=35;
-Vh k=0.0001, kp=k;
-Vh ep=0.0001, epp=ep;
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">q</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">35</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">kp</span><span class="o">=</span><span class="n">k</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">ep</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">epp</span><span class="o">=</span><span class="n">ep</span><span class="p">;</span>
 
-fespace V0h(Th,P0);
-V0h muT=1;
-V0h prodk, prode;
-Vh kappa=0.25e-4, stress;
+<span class="kt">fespace</span> <span class="nf">V0h</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="nc">P0</span><span class="p">);</span>
+<span class="n">V0h</span> <span class="n">muT</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">V0h</span> <span class="n">prodk</span><span class="p">,</span> <span class="n">prode</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">kappa</span><span class="o">=</span><span class="mf">0.25e-4</span><span class="p">,</span> <span class="n">stress</span><span class="p">;</span>
 
-// Macro
-macro grad(u) [dx(u), dy(u)] //
-macro Grad(U) [grad(U#x), grad(U#y)] //
-macro Div(U) (dx(U#x) + dy(U#y)) //
+<span class="c1">// Macro</span>
+<span class="kt">macro</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">[</span><span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">y</span><span class="p">)]</span> <span class="c1">//</span>
+<span class="kt">macro</span> <span class="n">Div</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">x</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">y</span><span class="p">))</span> <span class="c1">//</span>
 
-// Functions
-func g = (x) * (1-x) * 4;
+<span class="c1">// Functions</span>
+<span class="kt">func</span> <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="kr">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="kr">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
 
-// Problem
-real alpha = 0.;
+<span class="c1">// Problem</span>
+<span class="kt">real</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 
-problem Temperature(T, q)
-    = int2d(Th)(
-          alpha * T * q
-        + kappa* grad(T)&#39; * grad(q)
-    )
-    + int2d(Th)(
-        - alpha*convect([Upx, Upy], -dt, Tp)*q
-    )
-    + on(b6, T=25)
-    + on(b1, b2, T=30)
-    ;
+<span class="kt">problem</span> <span class="nf">Temperature</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">alpha</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">q</span>
+        <span class="o">+</span> <span class="n">kappa</span><span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+        <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">Tp</span><span class="p">)</span><span class="o">*</span><span class="n">q</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b6</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="p">;</span>
 
-problem KineticTurbulence(k, q)
-    = int2d(Th)(
-          (epp/kp + alpha) * k * q
-        + muT* grad(k)&#39; * grad(q)
-    )
-    + int2d(Th)(
-          prodk * q
-        - alpha*convect([Upx, Upy], -dt, kp)*q
-    )
-    + on(b5, b6, k=0.00001)
-    + on(b1, b2, k=beta*numu*stress)
-    ;
+<span class="kt">problem</span> <span class="nf">KineticTurbulence</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="n">epp</span><span class="o">/</span><span class="n">kp</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">q</span>
+        <span class="o">+</span> <span class="n">muT</span><span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">prodk</span> <span class="o">*</span> <span class="n">q</span>
+        <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">kp</span><span class="p">)</span><span class="o">*</span><span class="n">q</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b5</span><span class="p">,</span> <span class="n">b6</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">beta</span><span class="o">*</span><span class="n">numu</span><span class="o">*</span><span class="n">stress</span><span class="p">)</span>
+    <span class="p">;</span>
 
-problem ViscosityTurbulence(ep, q)
-    = int2d(Th)(
-          (1.92*epp/kp + alpha) * ep * q
-        + muT * grad(ep)&#39; * grad(q)
-    )
-    + int1d(Th, b1, b2)(
-          T * q * 0.001
-    )
-    + int2d(Th)(
-          prode * q
-        - alpha*convect([Upx, Upy], -dt, epp)*q
-    )
-    + on(b5, b6, ep=0.00001)
-    + on(b1, b2, ep=beta*nuep*pow(stress,1.5))
-    ;
+<span class="kt">problem</span> <span class="nf">ViscosityTurbulence</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="p">(</span><span class="mf">1.92</span><span class="o">*</span><span class="n">epp</span><span class="o">/</span><span class="n">kp</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">ep</span> <span class="o">*</span> <span class="n">q</span>
+        <span class="o">+</span> <span class="n">muT</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">ep</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)(</span>
+          <span class="n">T</span> <span class="o">*</span> <span class="n">q</span> <span class="o">*</span> <span class="mf">0.001</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">prode</span> <span class="o">*</span> <span class="n">q</span>
+        <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">epp</span><span class="p">)</span><span class="o">*</span><span class="n">q</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b5</span><span class="p">,</span> <span class="n">b6</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="n">beta</span><span class="o">*</span><span class="n">nuep</span><span class="o">*</span><span class="nf">pow</span><span class="p">(</span><span class="n">stress</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
+    <span class="p">;</span>
 
-// Initialization with stationary solution
-solve NavierStokes ([Ux, Uy, p], [Vx, Vy, q])
-    = int2d(Th)(
-          alpha * [Ux, Uy]&#39; * [Vx, Vy]
-        + muT * (Grad(U) : Grad(V))
-        + p * q * Penalty
-        - p * Div(V)
-        - Div(U) * q
-    )
-    + int1d(Th, b1, b2, b4)(
-          Ux * Vx * 0.1
-    )
-    + int2d(Th)(
-          eps * (T-35) * Vx
-        - alpha*convect([Upx, Upy], -dt, Upx)*Vx
-        - alpha*convect([Upx, Upy], -dt, Upy)*Vy
-    )
-    + on(b6, Ux=3, Uy=0)
-    + on(b5, Ux=0, Uy=0)
-    + on(b1, b4, Uy=0)
-    + on(b2, Uy=-Upx*N.x/N.y)
-    + on(b3, Uy=0)
-    ;
+<span class="c1">// Initialization with stationary solution</span>
+<span class="kt">solve</span> <span class="nf">NavierStokes</span> <span class="p">([</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">,</span> <span class="n">p</span><span class="p">],</span> <span class="p">[</span><span class="n">Vx</span><span class="p">,</span> <span class="n">Vy</span><span class="p">,</span> <span class="n">q</span><span class="p">])</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">alpha</span> <span class="o">*</span> <span class="p">[</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">]</span><span class="o">&#39;</span> <span class="o">*</span> <span class="p">[</span><span class="n">Vx</span><span class="p">,</span> <span class="n">Vy</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">muT</span> <span class="o">*</span> <span class="p">(</span><span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">:</span> <span class="n">Grad</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span> <span class="o">*</span> <span class="n">Penalty</span>
+        <span class="o">-</span> <span class="n">p</span> <span class="o">*</span> <span class="n">Div</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+        <span class="o">-</span> <span class="n">Div</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int1d</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b4</span><span class="p">)(</span>
+          <span class="n">Ux</span> <span class="o">*</span> <span class="n">Vx</span> <span class="o">*</span> <span class="mf">0.1</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="kp">eps</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mi">35</span><span class="p">)</span> <span class="o">*</span> <span class="n">Vx</span>
+        <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">Upx</span><span class="p">)</span><span class="o">*</span><span class="n">Vx</span>
+        <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="nf">convect</span><span class="p">([</span><span class="n">Upx</span><span class="p">,</span> <span class="n">Upy</span><span class="p">],</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="n">Upy</span><span class="p">)</span><span class="o">*</span><span class="n">Vy</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b6</span><span class="p">,</span> <span class="n">Ux</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">Uy</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b5</span><span class="p">,</span> <span class="n">Ux</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Uy</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b4</span><span class="p">,</span> <span class="n">Uy</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">Uy</span><span class="o">=-</span><span class="n">Upx</span><span class="o">*</span><span class="kr">N</span><span class="p">.</span><span class="kr">x</span><span class="o">/</span><span class="kr">N</span><span class="p">.</span><span class="kr">y</span><span class="p">)</span>
+    <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">b3</span><span class="p">,</span> <span class="n">Uy</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">;</span>
 
-plot([Ux, Uy], p, value=true, coef=0.2, cmm=&quot;[Ux, Uy] - p&quot;);
+<span class="nf">plot</span><span class="p">([</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">coef</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;[Ux, Uy] - p&quot;</span><span class="p">);</span>
 
-{
-    real[int] xx(21), yy(21), pp(21);
-    for (int i = 0 ; i &lt; 21; i++){
-        yy[i] = i/20.;
-        xx[i] = Ux(0.5,i/20.);
-        pp[i] = p(i/20.,0.999);
-    }
-    cout &lt;&lt; &quot; &quot; &lt;&lt; yy &lt;&lt; endl;
-    plot([xx, yy], wait=true, cmm=&quot;Ux x=0.5 cup&quot;);
-    plot([yy, pp], wait=true, cmm=&quot;p y=0.999 cup&quot;);
-}
+<span class="p">{</span>
+    <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">xx</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span> <span class="n">yy</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span> <span class="n">pp</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">/</span><span class="mf">20.</span><span class="p">;</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ux</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">i</span><span class="o">/</span><span class="mf">20.</span><span class="p">);</span>
+        <span class="n">pp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mf">20.</span><span class="p">,</span><span class="mf">0.999</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">yy</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="nf">plot</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;Ux x=0.5 cup&quot;</span><span class="p">);</span>
+    <span class="nf">plot</span><span class="p">([</span><span class="n">yy</span><span class="p">,</span> <span class="n">pp</span><span class="p">],</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot;p y=0.999 cup&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-// Initialization
-dt = 0.1; //probably too big
-int nbiter = 3;
-real coefdt = 0.25^(1./nbiter);
-real coefcut = 0.25^(1./nbiter);
-real cut = 0.01;
-real tol = 0.5;
-real coeftol = 0.5^(1./nbiter);
-nu = 1./reylnods;
+<span class="c1">// Initialization</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c1">//probably too big</span>
+<span class="kt">int</span> <span class="kp">nbiter</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">coefdt</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">^</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="kp">nbiter</span><span class="p">);</span>
+<span class="kt">real</span> <span class="n">coefcut</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">^</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="kp">nbiter</span><span class="p">);</span>
+<span class="kt">real</span> <span class="n">cut</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="kt">real</span> <span class="kp">tol</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">coeftol</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">^</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="kp">nbiter</span><span class="p">);</span>
+<span class="n">nu</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">reylnods</span><span class="p">;</span>
 
-T = T - 10*((x&lt;1)*(y&lt;0.5) + (x&gt;=1)*(y+0.1*(x-1)&lt;0.5));
+<span class="n">T</span> <span class="o">=</span> <span class="n">T</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="kr">x</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="kr">x</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">));</span>
 
-// Convergence loop
-real T0 = clock();
-for (int iter = 1; iter &lt;= nbiter; iter++){
-    cout &lt;&lt; &quot;Iteration &quot; &lt;&lt; iter &lt;&lt; &quot; - dt = &quot; &lt;&lt; dt &lt;&lt; endl;
-    alpha = 1/dt;
+<span class="c1">// Convergence loop</span>
+<span class="kt">real</span> <span class="n">T0</span> <span class="o">=</span> <span class="nf">clock</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">iter</span> <span class="o">&lt;=</span> <span class="kp">nbiter</span><span class="p">;</span> <span class="n">iter</span><span class="o">++</span><span class="p">){</span>
+    <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Iteration &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">iter</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - dt = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">dt</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
 
-    // Time loop
-    real t = 0.;
-    for (int i = 0; i &lt;= 500; i++){
-        t += dt;
-        cout &lt;&lt; &quot;Time step &quot; &lt;&lt; i &lt;&lt; &quot; - t = &quot; &lt;&lt; t &lt;&lt; endl;
+    <span class="c1">// Time loop</span>
+    <span class="kt">real</span> <span class="kp">t</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">500</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kp">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
+        <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time step &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; - t = &quot;</span> <span class="o">&lt;&lt;</span> <span class="kp">t</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 
-        // Update
-        Upx = Ux;
-        Upy = Uy;
-        kp = k;
-        epp = ep;
-        Tp = max(T, 25); //for beauty only should be removed
-        Tp = min(Tp, 35); //for security only should be removed
-        kp = max(k, 0.0001); epp = max(ep, 0.0001); // to be secure: should not be active
-        muT = 0.09*kp*kp/epp;
+        <span class="c1">// Update</span>
+        <span class="n">Upx</span> <span class="o">=</span> <span class="n">Ux</span><span class="p">;</span>
+        <span class="n">Upy</span> <span class="o">=</span> <span class="n">Uy</span><span class="p">;</span>
+        <span class="n">kp</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+        <span class="n">epp</span> <span class="o">=</span> <span class="n">ep</span><span class="p">;</span>
+        <span class="n">Tp</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span> <span class="c1">//for beauty only should be removed</span>
+        <span class="n">Tp</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span> <span class="c1">//for security only should be removed</span>
+        <span class="n">kp</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">);</span> <span class="n">epp</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">ep</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">);</span> <span class="c1">// to be secure: should not be active</span>
+        <span class="n">muT</span> <span class="o">=</span> <span class="mf">0.09</span><span class="o">*</span><span class="n">kp</span><span class="o">*</span><span class="n">kp</span><span class="o">/</span><span class="n">epp</span><span class="p">;</span>
 
-        // Solve NS
-        NavierStokes;
+        <span class="c1">// Solve NS</span>
+        <span class="n">NavierStokes</span><span class="p">;</span>
 
-        // Update
-        prode = -0.126*kp*(pow(2*dx(Ux),2)+pow(2*dy(Uy),2)+2*pow(dx(Uy)+dy(Ux),2))/2;
-        prodk = -prode*kp/epp*0.09/0.126;
-        kappa = muT/0.41;
-        stress = abs(dy(Ux));
+        <span class="c1">// Update</span>
+        <span class="n">prode</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.126</span><span class="o">*</span><span class="n">kp</span><span class="o">*</span><span class="p">(</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">Ux</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">Uy</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="nf">pow</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">Uy</span><span class="p">)</span><span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">Ux</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">prodk</span> <span class="o">=</span> <span class="o">-</span><span class="n">prode</span><span class="o">*</span><span class="n">kp</span><span class="o">/</span><span class="n">epp</span><span class="o">*</span><span class="mf">0.09</span><span class="o">/</span><span class="mf">0.126</span><span class="p">;</span>
+        <span class="n">kappa</span> <span class="o">=</span> <span class="n">muT</span><span class="o">/</span><span class="mf">0.41</span><span class="p">;</span>
+        <span class="n">stress</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">dy</span><span class="p">(</span><span class="n">Ux</span><span class="p">));</span>
 
-        // Solve k-eps-T
-        KineticTurbulence;
-        ViscosityTurbulence;
-        Temperature;
+        <span class="c1">// Solve k-eps-T</span>
+        <span class="n">KineticTurbulence</span><span class="p">;</span>
+        <span class="n">ViscosityTurbulence</span><span class="p">;</span>
+        <span class="n">Temperature</span><span class="p">;</span>
 
-        // Plot
-        plot(T, value=true, fill=true);
-        plot([Ux, Uy], p, coef=0.2, cmm=&quot; [Ux, Uy] - p&quot;, WindowIndex=1);
+        <span class="c1">// Plot</span>
+        <span class="nf">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">);</span>
+        <span class="nf">plot</span><span class="p">([</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">],</span> <span class="n">p</span><span class="p">,</span> <span class="kp">coef</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="kp">cmm</span><span class="o">=</span><span class="s">&quot; [Ux, Uy] - p&quot;</span><span class="p">,</span> <span class="kp">WindowIndex</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 
-        // Time
-        cout &lt;&lt; &quot;\tTime = &quot; &lt;&lt; clock()-T0 &lt;&lt; endl;
-    }
+        <span class="c1">// Time</span>
+        <span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">Time = &quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">clock</span><span class="p">()</span><span class="o">-</span><span class="n">T0</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // Check
-    if (iter &gt;= nbiter) break;
+    <span class="c1">// Check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iter</span> <span class="o">&gt;=</span> <span class="kp">nbiter</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
-    // Adaptmesh
-    Th = adaptmesh(Th, [dx(Ux), dy(Ux), dx(Ux), dy(Uy)], splitpbedge=1, abserror=0, cutoff=cut, err=tol, inquire=0, ratio=1.5, hmin=1./1000);
-    plot(Th);
+    <span class="c1">// Adaptmesh</span>
+    <span class="n">Th</span> <span class="o">=</span> <span class="nf">adaptmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">Ux</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Ux</span><span class="p">),</span> <span class="nf">dx</span><span class="p">(</span><span class="n">Ux</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">Uy</span><span class="p">)],</span> <span class="kp">splitpbedge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">abserror</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kp">cutoff</span><span class="o">=</span><span class="n">cut</span><span class="p">,</span> <span class="kp">err</span><span class="o">=</span><span class="kp">tol</span><span class="p">,</span> <span class="kp">inquire</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kp">ratio</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="kp">hmin</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
 
-    // Update
-    dt = dt * coefdt;
-    tol = tol * coeftol;
-    cut = cut * coefcut;
-}
-cout &lt;&lt; &quot;Total Time = &quot; &lt;&lt; clock()-T0 &lt;&lt; endl;
+    <span class="c1">// Update</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">coefdt</span><span class="p">;</span>
+    <span class="kp">tol</span> <span class="o">=</span> <span class="kp">tol</span> <span class="o">*</span> <span class="n">coeftol</span><span class="p">;</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">cut</span> <span class="o">*</span> <span class="n">coefcut</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Total Time = &quot;</span> <span class="o">&lt;&lt;</span> <span class="nf">clock</span><span class="p">()</span><span class="o">-</span><span class="n">T0</span> <span class="o">&lt;&lt;</span> <span class="kr">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 

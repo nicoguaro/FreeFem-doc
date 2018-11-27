@@ -1391,63 +1391,63 @@ $</p>
 44
 45
 46
-47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Parameters
-int C1=99;
-int C2=98; //could be anything such that !=0 and C1!=C2
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span> <span class="n">C1</span><span class="o">=</span><span class="mi">99</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">C2</span><span class="o">=</span><span class="mi">98</span><span class="p">;</span> <span class="c1">//could be anything such that !=0 and C1!=C2</span>
 
-// Mesh
-border C0(t=0., 2.*pi){x=5.*cos(t); y=5.*sin(t);}
+<span class="c1">// Mesh</span>
+<span class="kt">border</span> <span class="nf">C0</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
 
-border C11(t=0., 1.){x=1.+t; y=3.; label=C1;}
-border C12(t=0., 1.){x=2.; y=3.-6.*t; label=C1;}
-border C13(t=0., 1.){x=2.-t; y=-3.; label=C1;}
-border C14(t=0., 1.){x=1.; y=-3.+6.*t; label=C1;}
+<span class="kt">border</span> <span class="nf">C11</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="o">+</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C12</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">2.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="o">-</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C13</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">2.</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">3.</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C14</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
 
-border C21(t=0., 1.){x=-2.+t; y=3.; label=C2;}
-border C22(t=0., 1.){x=-1.; y=3.-6.*t; label=C2;}
-border C23(t=0., 1.){x=-1.-t; y=-3.; label=C2;}
-border C24(t=0., 1.){x=-2.; y=-3.+6.*t; label=C2;}
+<span class="kt">border</span> <span class="nf">C21</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mf">2.</span><span class="o">+</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C22</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mf">1.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="o">-</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C23</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mf">1.</span><span class="o">-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">3.</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C2</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C24</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=-</span><span class="mf">2.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C2</span><span class="p">;}</span>
 
-plot(   C0(50) //to see the border of the domain
-    + C11(5)+C12(20)+C13(5)+C14(20)
-    + C21(-5)+C22(-20)+C23(-5)+C24(-20),
-    wait=true, ps=&quot;heatexb.eps&quot;);
+<span class="nf">plot</span><span class="p">(</span>   <span class="n">C0</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1">//to see the border of the domain</span>
+    <span class="o">+</span> <span class="n">C11</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C12</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">C13</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C14</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C22</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">C23</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C24</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">),</span>
+    <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;heatexb.eps&quot;</span><span class="p">);</span>
 
-mesh Th=buildmesh(C0(50)
-    + C11(5)+C12(20)+C13(5)+C14(20)
-    + C21(-5)+C22(-20)+C23(-5)+C24(-20));
+<span class="kt">mesh</span> <span class="n">Th</span><span class="o">=</span><span class="nf">buildmesh</span><span class="p">(</span><span class="n">C0</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C11</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C12</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">C13</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C14</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">C21</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C22</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">C23</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="n">C24</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">));</span>
 
-plot(Th,wait=1);
+<span class="nf">plot</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span><span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 
-// Fespace
-fespace Vh(Th, P1);
-Vh u, v;
-Vh kappa=1 + 2*(x&lt;-1)*(x&gt;-2)*(y&lt;3)*(y&gt;-3);
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Vh</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">Vh</span> <span class="n">kappa</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">&lt;-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">&gt;-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">y</span><span class="o">&gt;-</span><span class="mi">3</span><span class="p">);</span>
 
-// Solve
-solve a(u, v)
-    = int2d(Th)(
-          kappa*(
-              dx(u)*dx(v)
-            + dy(u)*dy(v)
-        )
-    )
-    +on(C0, u=20)
-    +on(C1, u=60)
-    ;
+<span class="c1">// Solve</span>
+<span class="kt">solve</span> <span class="nf">a</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
+          <span class="n">kappa</span><span class="o">*</span><span class="p">(</span>
+              <span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">C0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-plot(u, wait=true, value=true, fill=true, ps=&quot;HeatExchanger.eps&quot;);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">value</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">fill</span><span class="o">=</span><span class="kr">true</span><span class="p">,</span> <span class="kp">ps</span><span class="o">=</span><span class="s">&quot;HeatExchanger.eps&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
 <p>Note the following:</p>
 <ul>
 <li>
-<p><code>C0</code> is oriented counterclockwise by <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, while <code>C1</code> is oriented clockwise and <code>C2</code> is oriented counterclockwise. This is why <code>C1</code> is viewed as a hole by <code class="codehilite">buildmesh</code>.</p>
+<p><code>C0</code> is oriented counterclockwise by <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, while <code>C1</code> is oriented clockwise and <code>C2</code> is oriented counterclockwise. This is why <code>C1</code> is viewed as a hole by <code class="codehilite"><span class="nf">buildmesh</span></code>.</p>
 </li>
 <li>
-<p><code>C1</code> and <code>C2</code> are built by joining pieces of straight lines. To group them in the same logical unit to input the boundary conditions in a readable way we assigned a label on the boundaries. As said earlier, borders have an internal number corresponding to their order in the program (check it by adding a <code class="codehilite">cout &lt;&lt; C22;</code> above). This is essential to understand how a mesh can be output to a file and re-read (see below).</p>
+<p><code>C1</code> and <code>C2</code> are built by joining pieces of straight lines. To group them in the same logical unit to input the boundary conditions in a readable way we assigned a label on the boundaries. As said earlier, borders have an internal number corresponding to their order in the program (check it by adding a <code class="codehilite"><span class="kr">cout</span> <span class="o">&lt;&lt;</span> <span class="n">C22</span><span class="p">;</span></code> above). This is essential to understand how a mesh can be output to a file and re-read (see below).</p>
 </li>
 <li>
 <p>As usual the mesh density is controlled by the number of vertices assigned to each boundary. It is not possible to change the (uniform) distribution of vertices but a piece of boundary can always be cut in two or more parts, for instance <code>C12</code> could be replaced by <code>C121+C122</code>:
@@ -1455,11 +1455,11 @@ plot(u, wait=true, value=true, fill=true, ps=&quot;HeatExchanger.eps&quot;);
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// border C12(t=0.,1.){x=2.; y=3.-6.*t; label=C1;}
-border C121(t=0.,0.7){x=2.; y=3.-6.*t; label=C1;}
-border C122(t=0.7,1.){x=2.; y=3.-6.*t; label=C1;}
-...
-buildmesh(.../*+ C12(20) */ + C121(12) + C122(8) + ...);
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// border C12(t=0.,1.){x=2.; y=3.-6.*t; label=C1;}</span>
+<span class="kt">border</span> <span class="nf">C121</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.7</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">2.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="o">-</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">C122</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">2.</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">3.</span><span class="o">-</span><span class="mf">6.</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">C1</span><span class="p">;}</span>
+<span class="p">...</span>
+<span class="nf">buildmesh</span><span class="p">(...</span><span class="cm">/*+ C12(20) */</span> <span class="o">+</span> <span class="n">C121</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">C122</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="p">...);</span>
 </pre></div>
 </td></tr></table></p>
 </li>
@@ -1485,7 +1485,7 @@ buildmesh(.../*+ C12(20) */ + C121(12) + C122(8) + ...);
 </div>
 <p><strong>Writing and reading triangulation files</strong>
 Suppose that at the end of the previous program we added the line</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>savemesh(Th, &quot;condensor.msh&quot;);
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">savemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="s">&quot;condensor.msh&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -1509,26 +1509,26 @@ Suppose that at the end of the previous program we added the line</p>
 17
 18
 19
-20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>// Mesh
-mesh Sh = readmesh(&quot;condensor.msh&quot;);
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Mesh</span>
+<span class="kt">mesh</span> <span class="n">Sh</span> <span class="o">=</span> <span class="nf">readmesh</span><span class="p">(</span><span class="s">&quot;condensor.msh&quot;</span><span class="p">);</span>
 
-// Fespace
-fespace Wh(Sh, P1);
-Wh us, vs;
+<span class="c1">// Fespace</span>
+<span class="kt">fespace</span> <span class="nf">Wh</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
+<span class="n">Wh</span> <span class="n">us</span><span class="p">,</span> <span class="n">vs</span><span class="p">;</span>
 
-// Solve
-solve b(us, vs)
-    = int2d(Sh)(
-          dx(us)*dx(vs)
-        + dy(us)*dy(vs)
-    )
-    +on(1, us=0)
-    +on(99, us=1)
-    +on(98, us=-1)
-    ;
+<span class="c1">// Solve</span>
+<span class="kt">solve</span> <span class="nf">b</span><span class="p">(</span><span class="n">us</span><span class="p">,</span> <span class="n">vs</span><span class="p">)</span>
+    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Sh</span><span class="p">)(</span>
+          <span class="nf">dx</span><span class="p">(</span><span class="n">us</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">vs</span><span class="p">)</span>
+        <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">us</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">vs</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">us</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">us</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">+</span><span class="nf">on</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="n">us</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">;</span>
 
-// Plot
-plot(us);
+<span class="c1">// Plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">us</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
 
