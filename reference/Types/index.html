@@ -2302,13 +2302,13 @@ and by composition <span><span class="MathJax_Preview">f(g(x))</span><script typ
 <p>See <a href="/examples/#elementary-function">Elementary function example</a> for a complete example.</p>
 <h3 id="random-functions">Random functions<a class="headerlink" href="#random-functions" title="Permanent link">#</a></h3>
 <p><strong><code>FreeFem++</code></strong> includes the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">Mersenne Twister</a> random number generator. It is a very fast and accurate random number generator of period <span><span class="MathJax_Preview">2^{219937}-1</span><script type="math/tex">2^{219937}-1</script></span>.</p>
-<p>See <a href="Functions/#randint32"><code class="codehilite"><span class="nf">randint32</span><span class="p">()</span></code></a>, <a href="Functions/#randint31"><code class="codehilite"><span class="nf">randint31</span><span class="p">()</span></code></a>, <a href="Functions/#randreal1"><code class="codehilite"><span class="nf">randreal1</span><span class="p">()</span></code></a>, <a href="Functions/#randreal2"><code class="codehilite"><span class="nf">randreal2</span><span class="p">()</span></code></a>, <a href="Functions/#randreal3"><code class="codehilite"><span class="nf">randreal3</span><span class="p">()</span></code></a>, <a href="Functions/#randres53"><code class="codehilite"><span class="nf">randres53</span><span class="p">()</span></code></a>, <a href="Functions/#randinit"><code class="codehilite"><span class="nf">randinit</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code></a>.</p>
+<p>See <a href="../Functions/#randint32"><code class="codehilite"><span class="nf">randint32</span><span class="p">()</span></code></a>, <a href="../Functions/#randint31"><code class="codehilite"><span class="nf">randint31</span><span class="p">()</span></code></a>, <a href="../Functions/#randreal1"><code class="codehilite"><span class="nf">randreal1</span><span class="p">()</span></code></a>, <a href="../Functions/#randreal2"><code class="codehilite"><span class="nf">randreal2</span><span class="p">()</span></code></a>, <a href="../Functions/#randreal3"><code class="codehilite"><span class="nf">randreal3</span><span class="p">()</span></code></a>, <a href="../Functions/#randres53"><code class="codehilite"><span class="nf">randres53</span><span class="p">()</span></code></a>, <a href="../Functions/#randinit"><code class="codehilite"><span class="nf">randinit</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></code></a>.</p>
 <p>In addition, the <code>ffrandom</code> plugin interface <code class="codehilite"><span class="nf">random</span></code>, <code class="codehilite"><span class="nf">srandom</span></code> and <code class="codehilite"><span class="nf">srandomdev</span></code> functions of the unix <code>libc</code> library. The range is <span><span class="MathJax_Preview">0 -- 2^{31}-1</span><script type="math/tex">0 -- 2^{31}-1</script></span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If <code class="codehilite"><span class="nf">srandomdev</span></code> is not defined, a seed based on the current time is used.</p>
 </div>
-<p><code class="codehilite"><span class="n">gsl</span></code> plugin equally allows usage of all random functions of the <code>gsllib</code>, see <a href="ExternalLibraries/#ff_gsl_awk">gsl external library</a>.</p>
+<p><code class="codehilite"><span class="n">gsl</span></code> plugin equally allows usage of all random functions of the <code>gsllib</code>, see <a href="../ExternalLibraries/#ff_gsl_awk">gsl external library</a>.</p>
 <h3 id="fe-functions">FE-functions<a class="headerlink" href="#fe-functions" title="Permanent link">#</a></h3>
 <p>Finite element functions are also constructed like elementary functions by an arithmetic formula involving elementary functions.</p>
 <p>The difference is that they are evaluated at declaration time and <strong><code>FreeFem++</code></strong> stores the array of its values at the places associated with he degree of freedom of the finite element type. By opposition, elementary functions are evaluated only when needed. Hence FE-functions are not defined only by their formula but also by the mesh and the finite element which enter in their definitions.</p>
@@ -2350,7 +2350,7 @@ and by composition <span><span class="MathJax_Preview">f(g(x))</span><script typ
 </pre></div>
 </td></tr></table></p>
 <p>The default solver is <code class="codehilite"><span class="kr">sparsesolver</span></code> or <code class="codehilite"><span class="kr">LU</span></code> if any direct sparse solver is available.</p>
-<p>Solvers are listed in the <a href="GlobalVariables">Global variables</a> section.</p>
+<p>Solvers are listed in the <a href="../GlobalVariables/">Global variables</a> section.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Stop test</p>
@@ -2700,7 +2700,7 @@ where <span><span class="MathJax_Preview">M_{a, b} = \left(\delta_{ia}\delta_{jb
 <div class="admonition note">
 <p class="admonition-title">Solver</p>
 <p>See <a href="#problem"><code class="codehilite"><span class="kt">problem</span></code></a>.</p>
-<p>The default solver is <a href="GlobalVariables/#gmres"><code class="codehilite"><span class="kr">GMRES</span></code></a>.</p>
+<p>The default solver is <a href="../GlobalVariables/#gmres"><code class="codehilite"><span class="kr">GMRES</span></code></a>.</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">matrix</span> <span class="kp">A</span> <span class="o">=</span> <span class="n">vLaplacian</span><span class="p">(</span><span class="n">Uh</span><span class="p">,</span> <span class="n">Uh</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">sparsesolver</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
@@ -2746,23 +2746,23 @@ or
 </div>
 <div class="admonition note">
 <p class="admonition-title">datafilename</p>
-<p>Name of the file containing solver parameters, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Name of the file containing solver parameters, see <a href="/documentation/Parallelization/#ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">lparams</p>
-<p>Vector of integer parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Vector of integer parameters for the solver, see <a href="/documentation/Parallelization/#ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">dparams</p>
-<p>Vector of real parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>Vector of real parameters for the solver, see <a href="/documentation/Parallelization/#ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">sparams</p>
-<p>String parameters for the solver, see <a href="/documentation/ParallelSparseSolvers">Parallel sparse solvers</a></p>
+<p>String parameters for the solver, see <a href="/documentation/Parallelization/#ParallelSparseSolvers">Parallel sparse solvers</a></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To modify the <code class="codehilite"><span class="kp">solver</span></code>, the stop test,... after the matrix construction, use the <a href="functions/#set"><code class="codehilite"><span class="nf">set</span></code> keyword</a>.</p>
+<p>To modify the <code class="codehilite"><span class="kp">solver</span></code>, the stop test,... after the matrix construction, use the <a href="../Functions/#set"><code class="codehilite"><span class="nf">set</span></code> keyword</a>.</p>
 </div>
 <h3 id="matrix-size">Matrix size<a class="headerlink" href="#matrix-size" title="Permanent link">#</a></h3>
 <p>The size of a matrix is obtain using:</p>
