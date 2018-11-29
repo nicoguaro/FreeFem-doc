@@ -1351,7 +1351,7 @@
     p^{m+1} &= 0 &\mbox{ on } \Gamma_{out}
 \end{eqnarray}</script>
 </div>
-<p>where <span><span class="MathJax_Preview">\mathbf{u}o\mathbf{X}(x) = \mathbf{u}(\mathbf{x}-\mathbf{u}(\mathbf{x})\delta t)</span><script type="math/tex">\mathbf{u}o\mathbf{X}(x) = \mathbf{u}(\mathbf{x}-\mathbf{u}(\mathbf{x})\delta t)</script></span> since $\p _t \mathbf{u} + \mathbf{u}\cdot\nabla \mathbf{u} $ is approximated by the method of characteristics, as in the previous section.</p>
+<p>where <span><span class="MathJax_Preview">\mathbf{u}o\mathbf{X}(x) = \mathbf{u}(\mathbf{x}-\mathbf{u}(\mathbf{x})\delta t)</span><script type="math/tex">\mathbf{u}o\mathbf{X}(x) = \mathbf{u}(\mathbf{x}-\mathbf{u}(\mathbf{x})\delta t)</script></span> since <span><span class="MathJax_Preview">\p _t \mathbf{u} + \mathbf{u}\cdot\nabla \mathbf{u}</span><script type="math/tex">\p _t \mathbf{u} + \mathbf{u}\cdot\nabla \mathbf{u}</script></span> is approximated by the method of characteristics, as in the previous section.</p>
 <p>We use the Chorin's algorithm with free boundary condition at outlet (i.e. <span><span class="MathJax_Preview">p=0,\nu \p_n u = 0</span><script type="math/tex">p=0,\nu \p_n u = 0</script></span>), to compute a correction, q, to the pressure.</p>
 <p>
 <script type="math/tex; mode=display">\begin{eqnarray}
@@ -1375,7 +1375,7 @@ and define</p>
 <p>This can only be done if the triangulation is sufficiently fine, or well adapted to the flow.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is a technical difficulty in the example: the output B.C. Here we put <span><span class="MathJax_Preview">p=0</span><script type="math/tex">p=0</script></span> and $ \nu \p_n u = 0$.</p>
+<p>There is a technical difficulty in the example: the output B.C. Here we put <span><span class="MathJax_Preview">p=0</span><script type="math/tex">p=0</script></span> and <span><span class="MathJax_Preview">\nu \p_n u = 0</span><script type="math/tex">\nu \p_n u = 0</script></span>.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
@@ -1728,7 +1728,7 @@ and define</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

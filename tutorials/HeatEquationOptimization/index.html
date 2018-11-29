@@ -1313,18 +1313,22 @@
 <p>First, it is possible to define variational forms, and use this forms to build matrix and vector to make very fast script (4 times faster here).</p>
 <p>For example solve the <a href="../ThermalConduction/">ThermalConduction</a> problem, we must solve the temperature equation in <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> in a time interval (0,T).</p>
 <div>
-<div class="MathJax_Preview">\begin{eqnarray}
+<div class="MathJax_Preview">
+\begin{array}{rcll}
     \p_t u -\nabla\cdot(\kappa\nabla u) &amp;=&amp; 0 &amp;\hbox{ in } \Omega\times(0,T)\\
     u(x,y,0) &amp;=&amp; u_0 + x u_1\\
     u &amp;=&amp; 30 &amp;\hbox{ on } \Gamma_{24}\times(0,T)\\
     \kappa\frac{\p u}{\p n} + \alpha(u-u_e) &amp;=&amp; 0 &amp;\hbox{ on } \Gamma\times(0,T)
-\end{eqnarray}</div>
-<script type="math/tex; mode=display">\begin{eqnarray}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{rcll}
     \p_t u -\nabla\cdot(\kappa\nabla u) &=& 0 &\hbox{ in } \Omega\times(0,T)\\
     u(x,y,0) &=& u_0 + x u_1\\
     u &=& 30 &\hbox{ on } \Gamma_{24}\times(0,T)\\
     \kappa\frac{\p u}{\p n} + \alpha(u-u_e) &=& 0 &\hbox{ on } \Gamma\times(0,T)
-\end{eqnarray}</script>
+\end{array}
+</script>
 </div>
 <p>The variational formulation is in <span><span class="MathJax_Preview">L^2(0,T;H^1(\Omega))</span><script type="math/tex">L^2(0,T;H^1(\Omega))</script></span>; we shall seek <span><span class="MathJax_Preview">u^n</span><script type="math/tex">u^n</script></span> satisfying</p>
 <div>
@@ -1335,7 +1339,7 @@
 \forall w \in V_{0};\ \int_\Omega \frac{u^n-u^{n-1}}{\delta t} w + \kappa\nabla u^n\nabla w) +\int_\Gamma\alpha(u^n-u_{ue})w=0
 \end{equation}</script>
 </div>
-<p>where $ V_0 = {w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0}$.</p>
+<p>where <span><span class="MathJax_Preview">V_0 = \{w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0\}</span><script type="math/tex">V_0 = \{w\in H^1(\Omega)/ w_{|\Gamma_{24}}=0\}</script></span>.</p>
 <p>So, to code the method with the matrices <span><span class="MathJax_Preview">A=(A_{ij})</span><script type="math/tex">A=(A_{ij})</script></span>, <span><span class="MathJax_Preview">M=(M_{ij})</span><script type="math/tex">M=(M_{ij})</script></span>, and the vectors <span><span class="MathJax_Preview">u^n, b^n, b',b", b_{cl}</span><script type="math/tex">u^n, b^n, b',b", b_{cl}</script></span> (notation if <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is a vector then <span><span class="MathJax_Preview">w_i</span><script type="math/tex">w_i</script></span> is a component of the vector).</p>
 <div>
 <div class="MathJax_Preview">
@@ -1562,7 +1566,7 @@ u^n = A^{-1} b^n,
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

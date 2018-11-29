@@ -1394,9 +1394,14 @@ u(x,y,0)=u_0+x u_1
 <p>Here the diffusion <span><span class="MathJax_Preview">\kappa</span><script type="math/tex">\kappa</script></span> will take two values, one below the middle horizontal line and ten times less above, so as to simulate a thermostat.</p>
 <p>The term <span><span class="MathJax_Preview">\alpha(u-u_e)</span><script type="math/tex">\alpha(u-u_e)</script></span> accounts for the loss of temperature by convection in air. Mathematically this boundary condition is of Fourier (or Robin, or mixed) type.</p>
 <p>The variational formulation is in <span><span class="MathJax_Preview">L^2(0,T;H^1(\Omega))</span><script type="math/tex">L^2(0,T;H^1(\Omega))</script></span>; in loose terms and after applying an implicit Euler finite difference approximation in time; we shall seek <span><span class="MathJax_Preview">u^n(x,y)</span><script type="math/tex">u^n(x,y)</script></span> satisfying for all <span><span class="MathJax_Preview">w\in H^1(\Omega)</span><script type="math/tex">w\in H^1(\Omega)</script></span>:</p>
-<p>$
+<div>
+<div class="MathJax_Preview">
 \int_\Omega(\frac{u^n-u^{n-1}}{\delta t} w + \kappa\n u^n\n w) +\int_\Gamma\alpha(u^n-u_ue)w=0
-$</p>
+</div>
+<script type="math/tex; mode=display">
+\int_\Omega(\frac{u^n-u^{n-1}}{\delta t} w + \kappa\n u^n\n w) +\int_\Gamma\alpha(u^n-u_ue)w=0
+</script>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1591,13 +1596,13 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
 \kappa{\p u\over \p n} +\alpha(u-u_e) + c[(u + 273)^4 - (u_e+273)^4] = 0
 </script>
 </div>
-<p>The problem is \x{nonlinear}, and must be solved iteratively. If <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> denotes the iteration index, a semi-linearization of the radiation condition gives
+<p>The problem is nonlinear, and must be solved iteratively. If <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> denotes the iteration index, a semi-linearization of the radiation condition gives
 <script type="math/tex; mode=display">
 {\p u^{m+1}\over \p n} + \alpha(u^{m+1}-u_e)+ c(u^{m+1}-u_e)
 (u^m+u_e +546) ((u^m + 273)^2 + (u_e+273)^2) = 0,
 </script>
 </p>
-<p>because we have the identity $ a^4 - b^4 = (a-b)(a+b)(a^2+b^2)$.</p>
+<p>because we have the identity <span><span class="MathJax_Preview">a^4 - b^4 = (a-b)(a+b)(a^2+b^2)</span><script type="math/tex">a^4 - b^4 = (a-b)(a+b)(a^2+b^2)</script></span>.</p>
 <p>The iterative process will work with <span><span class="MathJax_Preview">v=u-u_e</span><script type="math/tex">v=u-u_e</script></span>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -1752,7 +1757,7 @@ u|_{\Gamma_4} = u_0,\quad u|_{\Gamma_2} = u_1,
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

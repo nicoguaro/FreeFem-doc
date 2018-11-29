@@ -1391,11 +1391,14 @@ application to the equilibrium of a membrane under load. We shall also check the
 <!--- TODO check ref-->
 
 <p>With such <em>"mixed boundary conditions"</em> the problem has a unique solution (<strong>see (1987)</strong>, Dautray-Lions (1988), Strang (1986) and Raviart-Thomas (1983)). The easiest proof is to notice that <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> is the state of least energy, i.e.</p>
-<p>
+<div>
+<div class="MathJax_Preview">
+E(\phi) =\min_{\varphi-z\in V} E(v) ,\quad \mbox{with} \quad E(v)=\int_\Omega(\frac12|\n v|^2-fv )
+</div>
 <script type="math/tex; mode=display">
 E(\phi) =\min_{\varphi-z\in V} E(v) ,\quad \mbox{with} \quad E(v)=\int_\Omega(\frac12|\n v|^2-fv )
- </script>
-</p>
+</script>
+</div>
 <p>and where <span><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span> is the subspace of the Sobolev space <span><span class="MathJax_Preview">H^1(\Omega)</span><script type="math/tex">H^1(\Omega)</script></span> of functions which have zero trace on <span><span class="MathJax_Preview">\Gamma_1</span><script type="math/tex">\Gamma_1</script></span>. Recall that (<span><span class="MathJax_Preview">x\in\R^d,~d=2</span><script type="math/tex">x\in\R^d,~d=2</script></span> here)</p>
 <div>
 <div class="MathJax_Preview">
@@ -1518,9 +1521,14 @@ H^1(\Omega)=\{u\in L^2(\Omega)~:~\n u\in (L^2(\Omega))^d\}
 </table>
 <p>Next we would like to check the results !</p>
 <p>One simple way is to adjust the parameters so as to know the solutions. For instance on the unit circle <code>a=1</code>, <span><span class="MathJax_Preview">\varphi_e=\sin(x^2+y^2-1)</span><script type="math/tex">\varphi_e=\sin(x^2+y^2-1)</script></span> solves the problem when</p>
-<p>$
+<div>
+<div class="MathJax_Preview">
 z=0, f=-4(\cos(x^2+y^2-1)-(x^2+y^2)\sin(x^2+y^2-1))
-$</p>
+</div>
+<script type="math/tex; mode=display">
+z=0, f=-4(\cos(x^2+y^2-1)-(x^2+y^2)\sin(x^2+y^2-1))
+</script>
+</div>
 <p>except that on <span><span class="MathJax_Preview">\Gamma_2</span><script type="math/tex">\Gamma_2</script></span> <span><span class="MathJax_Preview">\p_n\varphi=2</span><script type="math/tex">\p_n\varphi=2</script></span> instead of zero. So we will consider a non-homogeneous Neumann condition and solve</p>
 <div>
 <div class="MathJax_Preview">
@@ -1531,9 +1539,14 @@ $</p>
 </script>
 </div>
 <p>We will do that with two triangulations, compute the <span><span class="MathJax_Preview">L^2</span><script type="math/tex">L^2</script></span> error:</p>
-<p>$
+<div>
+<div class="MathJax_Preview">
 \epsilon = \int_\Omega|\varphi-\varphi_e|^2
-$</p>
+</div>
+<script type="math/tex; mode=display">
+\epsilon = \int_\Omega|\varphi-\varphi_e|^2
+</script>
+</div>
 <p>and print the error in both cases as well as the log of their ratio an indication of the rate of convergence.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -1782,7 +1795,7 @@ $</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

@@ -1321,9 +1321,8 @@
     \nabla\cdot \mathbf{u}&=&0
 \end{eqnarray*}</script>
 </div>
-<p>where <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> is the viscosity of the fluid, $\nabla = (\p_i )_{i=1}^d $, the dot product is <span><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span>, and <span><span class="MathJax_Preview">\Delta = \nabla\cdot\nabla</span><script type="math/tex">\Delta = \nabla\cdot\nabla</script></span> with the same boundary conditions ( <span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> is  given on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>)</p>
-<p>The weak form is
-find $\mathbf{u}, p $ such that for <span><span class="MathJax_Preview">\forall \mathbf{v}</span><script type="math/tex">\forall \mathbf{v}</script></span> (zero on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>), and <span><span class="MathJax_Preview">\forall  q</span><script type="math/tex">\forall  q</script></span></p>
+<p>where <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> is the viscosity of the fluid, <span><span class="MathJax_Preview">\nabla = (\p_i )_{i=1}^d</span><script type="math/tex">\nabla = (\p_i )_{i=1}^d</script></span>, the dot product is <span><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span>, and <span><span class="MathJax_Preview">\Delta = \nabla\cdot\nabla</span><script type="math/tex">\Delta = \nabla\cdot\nabla</script></span> with the same boundary conditions (<span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> is  given on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>)</p>
+<p>The weak form is find <span><span class="MathJax_Preview">\mathbf{u}, p</span><script type="math/tex">\mathbf{u}, p</script></span> such that for <span><span class="MathJax_Preview">\forall \mathbf{v}</span><script type="math/tex">\forall \mathbf{v}</script></span> (zero on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>), and <span><span class="MathJax_Preview">\forall  q</span><script type="math/tex">\forall  q</script></span></p>
 <div>
 <div class="MathJax_Preview">\begin{equation}
 \int_\Omega  ((\mathbf{u}\cdot\nabla) \mathbf{u} ). \mathbf{v} + \nu \nabla \mathbf{u}:\nabla \mathbf{v}
@@ -1335,10 +1334,9 @@ find $\mathbf{u}, p $ such that for <span><span class="MathJax_Preview">\forall 
 \end{equation}</script>
 </div>
 <p>The Newton Algorithm to solve nonlinear problem is</p>
-<p>Find <span><span class="MathJax_Preview">u\in V</span><script type="math/tex">u\in V</script></span> such that <span><span class="MathJax_Preview">F(u)=0</span><script type="math/tex">F(u)=0</script></span> where
-$ F : V \mapsto V $.</p>
+<p>Find <span><span class="MathJax_Preview">u\in V</span><script type="math/tex">u\in V</script></span> such that <span><span class="MathJax_Preview">F(u)=0</span><script type="math/tex">F(u)=0</script></span> where <span><span class="MathJax_Preview">F : V \mapsto V</span><script type="math/tex">F : V \mapsto V</script></span>.</p>
 <ol>
-<li>choose $u_0\in \R^n $ , ;</li>
+<li>choose <span><span class="MathJax_Preview">u_0\in \R^n</span><script type="math/tex">u_0\in \R^n</script></span> , ;</li>
 <li>for ( <span><span class="MathJax_Preview">i =0</span><script type="math/tex">i =0</script></span>; <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> &lt; niter; <span><span class="MathJax_Preview">i = i+1</span><script type="math/tex">i = i+1</script></span>)<ol>
 <li>solve <span><span class="MathJax_Preview">DF(u_i) w_i = F(u_i)</span><script type="math/tex">DF(u_i) w_i = F(u_i)</script></span>;</li>
 <li><span><span class="MathJax_Preview">u_{i+1} = u_i - w_i</span><script type="math/tex">u_{i+1} = u_i - w_i</script></span>;</li>
@@ -1347,9 +1345,14 @@ $ F : V \mapsto V $.</p>
 </ol>
 <p>break <span><span class="MathJax_Preview">|| w_i|| &lt; \varepsilon</span><script type="math/tex">|| w_i|| < \varepsilon</script></span>.</p>
 <p>Where <span><span class="MathJax_Preview">DF(u)</span><script type="math/tex">DF(u)</script></span> is the differential of <span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span> at point <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>, this is a linear application such that:</p>
-<p>$
+<div>
+<div class="MathJax_Preview">
 F(u+\delta) = F(u) + DF(u) \delta + o(\delta)
-$</p>
+</div>
+<script type="math/tex; mode=display">
+F(u+\delta) = F(u) + DF(u) \delta + o(\delta)
+</script>
+</div>
 <p>For Navier Stokes, <span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span> and <span><span class="MathJax_Preview">DF</span><script type="math/tex">DF</script></span> are :</p>
 <div>
 <div class="MathJax_Preview">\begin{eqnarray*}
@@ -1697,7 +1700,7 @@ DF(\mathbf{u},p)(\mathbf{\delta u} ,\delta p) = \int_\Omega &&((\mathbf{\delta u
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

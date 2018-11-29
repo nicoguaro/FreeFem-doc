@@ -1424,18 +1424,14 @@
 </div>
 <p>Pure convection by <span><span class="MathJax_Preview">\mathbf{u}</span><script type="math/tex">\mathbf{u}</script></span> is</p>
 <div>
-<div class="MathJax_Preview">
-\begin{eqnarray}
+<div class="MathJax_Preview">\begin{eqnarray}
 \p_t c + \mathbf{u}.\nabla c &amp;= 0 &amp;\hbox{ in } \Omega\times(0,T)\\
 c (t=0) &amp;= c ^0 &amp;\hbox{ in } \Omega.
-\end{eqnarray}
-</div>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
+\end{eqnarray}</div>
+<script type="math/tex; mode=display">\begin{eqnarray}
 \p_t c + \mathbf{u}.\nabla c &= 0 &\hbox{ in } \Omega\times(0,T)\\
 c (t=0) &= c ^0 &\hbox{ in } \Omega.
-\end{eqnarray}
-</script>
+\end{eqnarray}</script>
 </div>
 <p>The exact solution <span><span class="MathJax_Preview">c(x_t,t)</span><script type="math/tex">c(x_t,t)</script></span> at time <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> en point <span><span class="MathJax_Preview">x_t</span><script type="math/tex">x_t</script></span> is given by</p>
 <div>
@@ -1462,7 +1458,7 @@ c(x,t)=c^0(x_{-t},0)
 </script>
 The game consists in solving the equation until <span><span class="MathJax_Preview">T=2\pi</span><script type="math/tex">T=2\pi</script></span>, that is for a full revolution and to compare the final solution with the initial one; they should be equal.</p>
 <h2 id="solution-by-a-characteristics-galerkin-method"><strong>Solution by a Characteristics-Galerkin Method</strong><a class="headerlink" href="#solution-by-a-characteristics-galerkin-method" title="Permanent link">#</a></h2>
-<p>In FreeFem++ there is an operator called <code class="codehilite"><span class="nf">convect</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></code> which compute $ c\circ X$ with <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is the convect field defined by $ X(x)= x_{dt}$ and where <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is particule path in the steady state velocity field <span><span class="MathJax_Preview">\mathbf{u}=[u1,u2]</span><script type="math/tex">\mathbf{u}=[u1,u2]</script></span> starting at point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> at time <span><span class="MathJax_Preview">\tau=0</span><script type="math/tex">\tau=0</script></span>, so <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is solution of the following ODE:</p>
+<p>In FreeFem++ there is an operator called <code class="codehilite"><span class="nf">convect</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></code> which compute <span><span class="MathJax_Preview">c\circ X</span><script type="math/tex">c\circ X</script></span> with <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is the convect field defined by <span><span class="MathJax_Preview">X(x)= x_{dt}</span><script type="math/tex">X(x)= x_{dt}</script></span> and where <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is particule path in the steady state velocity field <span><span class="MathJax_Preview">\mathbf{u}=[u1,u2]</span><script type="math/tex">\mathbf{u}=[u1,u2]</script></span> starting at point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> at time <span><span class="MathJax_Preview">\tau=0</span><script type="math/tex">\tau=0</script></span>, so <span><span class="MathJax_Preview">x_\tau</span><script type="math/tex">x_\tau</script></span> is solution of the following ODE:</p>
 <div>
 <div class="MathJax_Preview">
 \dot{x}_\tau = u(x_\tau), \mathbf{x}_{\tau=0}=x.
@@ -1970,7 +1966,7 @@ The game consists in solving the equation until <span><span class="MathJax_Previ
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       

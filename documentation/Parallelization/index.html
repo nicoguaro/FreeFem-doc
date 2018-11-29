@@ -2177,14 +2177,18 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 <p>This is a explanation of the two examples <a href="/examples/#mpi-gmres-2d">MPI-GMRES 2D</a> and <a href="/examples/#mpi-gmres-3d">MPI-GMRES 3D</a>, a Schwarz parallel with a complexity almost independent of the number of process (with a coarse grid preconditioner).</p>
 <p>To solve the following Poisson problem on domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> with boundary <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> in <span><span class="MathJax_Preview">L^2(\Omega)</span><script type="math/tex">L^2(\Omega)</script></span> :</p>
 <div>
-<div class="MathJax_Preview">\begin{eqnarray}
+<div class="MathJax_Preview">
+\begin{array}{rcll}
     -\Delta u &amp;=&amp; f &amp; \mbox{ in } \Omega\\
     u &amp;=&amp; g &amp; \mbox{ on } \Gamma
-\end{eqnarray}</div>
-<script type="math/tex; mode=display">\begin{eqnarray}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{rcll}
     -\Delta u &=& f & \mbox{ in } \Omega\\
     u &=& g & \mbox{ on } \Gamma
-\end{eqnarray}</script>
+\end{array}
+</script>
 </div>
 <p>where <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> are two given functions of <span><span class="MathJax_Preview">L^2(\Omega)</span><script type="math/tex">L^2(\Omega)</script></span> and of <span><span class="MathJax_Preview">H^{\frac12}(\Gamma)</span><script type="math/tex">H^{\frac12}(\Gamma)</script></span>,</p>
 <p>Lets introduce <span><span class="MathJax_Preview">(\pi_i)_{i=1,.., N_p}</span><script type="math/tex">(\pi_i)_{i=1,.., N_p}</script></span> a regular partition of the unity of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, q-e-d:
@@ -2197,18 +2201,22 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 <p>The parallel Schwarz method is:</p>
 <p>Let <span><span class="MathJax_Preview">\ell=0</span><script type="math/tex">\ell=0</script></span> the iterator and a initial guest <span><span class="MathJax_Preview">u^0</span><script type="math/tex">u^0</script></span> respecting the boundary condition (i.e. <span><span class="MathJax_Preview">u^0_{|\Gamma} = g</span><script type="math/tex">u^0_{|\Gamma} = g</script></span>).</p>
 <div>
-<div class="MathJax_Preview">\begin{eqnarray}
+<div class="MathJax_Preview">
+\begin{array}{rcll}
     \forall i = 1 .., N_p:&amp;\nonumber\\
     \displaystyle -\Delta u_i^\ell &amp;=&amp; f &amp;\mbox{ in } \Omega_i\label{eq:lapl}\\
     u_i^\ell &amp;=&amp; u^\ell &amp; \mbox{ on } \Gamma_i \setminus \Gamma\\
     u_i^\ell &amp;=&amp; g &amp; \mbox{ on } \Gamma_i \cap \Gamma
-\end{eqnarray}</div>
-<script type="math/tex; mode=display">\begin{eqnarray}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{rcll}
     \forall i = 1 .., N_p:&\nonumber\\
     \displaystyle -\Delta u_i^\ell &=& f &\mbox{ in } \Omega_i\label{eq:lapl}\\
     u_i^\ell &=& u^\ell & \mbox{ on } \Gamma_i \setminus \Gamma\\
     u_i^\ell &=& g & \mbox{ on } \Gamma_i \cap \Gamma
-\end{eqnarray}</script>
+\end{array}
+</script>
 </div>
 <div>
 <div class="MathJax_Preview">\begin{equation}
@@ -5388,7 +5396,7 @@ y_i \leftarrow \alpha\,x_i+y_i\,, \forall\ 1\le i \le np\,.
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AMS_CHTML"></script>
       
         <script src="../../mathjax-config.js"></script>
       
