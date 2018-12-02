@@ -3986,7 +3986,7 @@ Return the largest integer value not greater than <code>b</code>.</p>
 <span class="p">)</span>
 </pre></div>
 </td></tr></table>
-Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.</p>
+Used in <a href="../Types/#problem">problem</a>, <a href="../Types/#solve">solve</a> or <a href="../Types/#varf">varf</a> definition to impose a boundary condition only (FreeFem++ does not support 1D simulation), or outside to calculate a quantity.</p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>Th</code> (<code class="codehilite"><span class="kt">mesh</span></code>)<br/>
@@ -3995,9 +3995,9 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
  Label of the 1D border<br/>
  Default: all borders of the mesh</li>
 <li><em><code class="codehilite"><span class="kp">qfe</span><span class="o">=</span></code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
- Quadrature formula, see <a href="QuadratureFormulae/#int1d">quadrature formulae</a></li>
+ Quadrature formula, see <a href="../QuadratureFormulae/#int1d">quadrature formulae</a></li>
 <li><em><code class="codehilite"><span class="kp">qforder</span><span class="o">=</span></code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
- Quadrature order, see <a href="QuadratureFormulae/#int1d">quadrature formulae</a></li>
+ Quadrature order, see <a href="../QuadratureFormulae/#int1d">quadrature formulae</a></li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -4025,7 +4025,7 @@ Or
 <span class="p">)</span>
 </pre></div>
 </td></tr></table>
-Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to:
+Used in <a href="../Types/#problem">problem</a>, <a href="../Types/#solve">solve</a> or <a href="../Types/#varf">varf</a> definition to:
  - Calculate integral in 2D simulation
  - Impose a boundary condition in 3D simulation
 Or outside to calculate a quantity.</p>
@@ -4039,10 +4039,10 @@ Or outside to calculate a quantity.</p>
 <li><code>Label</code> (<code class="codehilite"><span class="kt">int</span></code>) <em>[Optional]</em><br/>
  Label of the 2D border (3D simulation)<br/>
  Default: all borders of the mesh</li>
-<li><em><code class="codehilite"><span class="kp">qfe</span><span class="o">=</span></code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) _[Optional]<br/>
- Quadrature formula, see <a href="QuadratureFormulae/#int2d">quadrature formulae</a></li>
+<li><em><code class="codehilite"><span class="kp">qfe</span><span class="o">=</span></code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature formula, see <a href="../QuadratureFormulae/#int2d">quadrature formulae</a></li>
 <li><em><code class="codehilite"><span class="kp">qforder</span></code>=</em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
- Quadrature order, see <a href="QuadratureFormulae/#int2d">quadrature formulae</a></li>
+ Quadrature order, see <a href="../QuadratureFormulae/#int2d">quadrature formulae</a></li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -4062,7 +4062,7 @@ Or outside to calculate a quantity.</p>
 <span class="p">)</span>
 </pre></div>
 </td></tr></table>
-Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> or <a href="types/#varf">varf</a> definition to calculate integral in 3D simulation, or outside to calculate a quantity.</p>
+Used in <a href="../Types/#problem">problem</a>, <a href="../Types/#solve">solve</a> or <a href="../Types/#varf">varf</a> definition to calculate integral in 3D simulation, or outside to calculate a quantity.</p>
 <p><u>Parameters:</u></p>
 <ul>
 <li><code>Th</code> (<code class="codehilite"><span class="kt">mesh3</span></code>)<br/>
@@ -4070,10 +4070,10 @@ Used in <a href="types/#problem">problem</a>, <a href="types/#solve">solve</a> o
 <li><code>Region</code> (<code class="codehilite"><span class="kt">int</span></code>) <em>[Optional]</em><br/>
  Label of the 3D region<br/>
  Default: all regions of the mesh</li>
-<li><em><code class="codehilite"><span class="kp">qfe</span></code>=</em> (<a href="../QuadratureFormulae">quadrature formula</a>) _[Optional]<br/>
- Quadrature formula, see <a href="QuadratureFormulae/#int3d">quadrature formulae</a></li>
+<li><em><code class="codehilite"><span class="kp">qfe</span></code>=</em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
+ Quadrature formula, see <a href="../QuadratureFormulae/#int3d">quadrature formulae</a></li>
 <li><em><code class="codehilite"><span class="kp">qforder</span><span class="o">=</span></code></em> (<a href="../QuadratureFormulae">quadrature formula</a>) <em>[Optional]</em><br/>
- Quadrature order, see <a href="QuadratureFormulae/#int3d">quadrature formulae</a></li>
+ Quadrature order, see <a href="../QuadratureFormulae/#int3d">quadrature formulae</a></li>
 </ul>
 <p><u>Output:</u></p>
 <ul>
@@ -4725,7 +4725,7 @@ J_n(x) = \sum_{p=0}^{\infty}\frac{(1)^p}{p!(n+p)!}\left(\frac{x}{2}\right)^{2p+n
 <li>None</li>
 </ul>
 <h2 id="set">set<a class="headerlink" href="#set" title="Permanent link">#</a></h2>
-<p>Set a property to a matrix. See <a href="Types/#matrix">matrix</a>.</p>
+<p>Set a property to a matrix. See <a href="../Types/#matrix">matrix</a>.</p>
 <h2 id="sign">sign<a class="headerlink" href="#sign" title="Permanent link">#</a></h2>
 <p>Sign of a value.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="nf">sign</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>

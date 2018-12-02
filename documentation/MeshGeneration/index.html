@@ -2003,7 +2003,7 @@
 <p>where <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span> are positive or negative numbers to indicate how many vertices should be on <span><span class="MathJax_Preview">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</span><script type="math/tex">\Gamma_j,\, \Gamma=\cup_{j=1}^J \Gamma_J</script></span>, and the optional parameter (see also <a href="/reference/Functions/#buildmesh">References</a>), separated with a comma, can be:</p>
 <ul>
 <li><code class="codehilite"><span class="kp">nbvx</span><span class="o">=</span> <span class="kt">int</span></code>, to set the maximum number of vertices in the mesh.</li>
-<li><code class="codehilite"><span class="kp">fixedborder</span><span class="o">=</span> <span class="kt">bool</span></code>, to say if the mesh generator can change the boundary mesh or not (by default the boundary mesh can change; beware that with periodic boundary conditions (see. <a href="./FiniteElement">Finite Element</a>), it can be dangerous.</li>
+<li><code class="codehilite"><span class="kp">fixedborder</span><span class="o">=</span> <span class="kt">bool</span></code>, to say if the mesh generator can change the boundary mesh or not (by default the boundary mesh can change; beware that with periodic boundary conditions (see. <a href="../FiniteElement">Finite Element</a>), it can be dangerous.</li>
 </ul>
 <p>The orientation of boundaries can be changed by changing the sign of <span><span class="MathJax_Preview">m_j</span><script type="math/tex">m_j</script></span>.</p>
 <p>The following example shows how to change the orientation. The example generates the unit disk with a small circular hole, and assigns "1" to the unit disk ("2" to the circle inside). The boundary label <strong>must be non-zero</strong>, but it can also be omitted.</p>
@@ -2187,7 +2187,7 @@
 </tbody>
 </table>
 <p></center></p>
-<p>In FreeFem++ there are many mesh file formats available for communication with other tools such as <code>emc2</code>, <code>modulef</code>, ... (see <a href="./Developers/#mesh-format">Mesh format chapter</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>). The extension of a file implies its format. More details can be found on the file format .msh in the article by F. Hecht "bamg : a bidimensional anisotropic mesh generator" <a href="#refHecht19982">Hecht1998</a>.</p>
+<p>In FreeFem++ there are many mesh file formats available for communication with other tools such as <code>emc2</code>, <code>modulef</code>, ... (see <a href="../Developers/#mesh-format">Mesh format chapter</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>). The extension of a file implies its format. More details can be found on the file format .msh in the article by F. Hecht "bamg : a bidimensional anisotropic mesh generator" <a href="#refHecht19982">Hecht1998</a>.</p>
 <p>A mesh file can be read into FreeFem++ except that the names of the borders are lost and only their reference numbers are kept. So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword <code class="codehilite"><span class="kr">label</span></code>. Here are some examples:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3480,7 +3480,7 @@ default.</p>
 <p><code class="codehilite"><span class="kp">nomeshgeneration</span><span class="o">=</span></code> If true, no adapted mesh is generated (useful to compute only a metric).</p>
 </li>
 <li>
-<p><code class="codehilite"><span class="kp">periodic</span><span class="o">=</span></code> Writing <code class="codehilite"><span class="kp">periodic</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="kr">x</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="kr">x</span><span class="p">]];</span></code> builds an adapted periodic mesh. The sample builds a biperiodic mesh of a square. (see <a href="./FiniteElement">periodic finite element spaces</a>, and see <a href="/examples/#sphere">the Sphere example</a> for a full example)</p>
+<p><code class="codehilite"><span class="kp">periodic</span><span class="o">=</span></code> Writing <code class="codehilite"><span class="kp">periodic</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="kr">y</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="kr">x</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="kr">x</span><span class="p">]];</span></code> builds an adapted periodic mesh. The sample builds a biperiodic mesh of a square. (see <a href="../FiniteElement">periodic finite element spaces</a>, and see <a href="/examples/#sphere">the Sphere example</a> for a full example)</p>
 </li>
 </ul>
 <p>We can use the command <code class="codehilite"><span class="nf">adaptmesh</span></code> to build a uniform mesh with a constant mesh size. To build a mesh with a constant mesh size equal to <span><span class="MathJax_Preview">\frac{1}{30}</span><script type="math/tex">\frac{1}{30}</script></span> try:</p>
@@ -4298,7 +4298,7 @@ In line 17 of the previous file, the method to "gluing" different meshes of the 
 </table>
 <p></center></p>
 <h3 id="readwrite-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D<a class="headerlink" href="#readwrite-statements-for-a-mesh-in-3d" title="Permanent link">#</a></h3>
-<p>In three dimensions, the file mesh format supported for input and output files by FreeFem++ are the extension .msh and .mesh. These formats are described in the <a href="./Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>.</p>
+<p>In three dimensions, the file mesh format supported for input and output files by FreeFem++ are the extension .msh and .mesh. These formats are described in the <a href="../Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>.</p>
 <p><strong>Extension file .msh</strong>
 The structure of the files with extension .msh in 3D is given in <a href="#Tab2">Table 2.</a>.</p>
 <p>In this structure, <span><span class="MathJax_Preview">n_v</span><script type="math/tex">n_v</script></span> denotes the number of vertices, <span><span class="MathJax_Preview">n_{tet}</span><script type="math/tex">n_{tet}</script></span> the number of tetrahedra and <span><span class="MathJax_Preview">n_{tri}</span><script type="math/tex">n_{tri}</script></span> the number of triangles.</p>
@@ -4322,7 +4322,7 @@ The structure of the files with extension .msh in 3D is given in <a href="#Tab2"
 </table>
 <p></center></p>
 <p><strong>extension file .mesh</strong>
-The data structure for a three dimensional mesh is composed of the data structure presented in <a href="./Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span> and a data structure for the tetrahedra. The tetrahedra of a three dimensional mesh are referred using the following field:</p>
+The data structure for a three dimensional mesh is composed of the data structure presented in <a href="../Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span> and a data structure for the tetrahedra. The tetrahedra of a three dimensional mesh are referred using the following field:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -4335,7 +4335,7 @@ Vertex1 Vertex2 Vertex3 Vertex4 Label
 </pre></div>
 </td></tr></table>
 
-<p>This field is express with the notation of <a href="./Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>.</p>
+<p>This field is express with the notation of <a href="../Developers/#mesh-format">Mesh Format section</a> <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span>.</p>
 <h3 id="tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permanent link">#</a></h3>
 <p><strong>TetGen</strong></p>
 <p>TetGen is a software developed by Dr. Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a href="#refHang2006">Hang2006</a>. TetGen is free for research and non-commercial use. For any commercial license utilization, a commercial license is available upon request to Hang Si.</p>
@@ -4784,7 +4784,7 @@ x_{n_v} & y_{n_v} & z_{n_v}
 <p><code class="codehilite"><span class="kr">region</span><span class="o">=</span></code> sets the integer labels of the tetrahedra. 0 by default.</p>
 </li>
 <li>
-<p><code class="codehilite"><span class="kr">label</span><span class="o">=</span></code> sets the labels of the border faces. This parameter is initialized as the label for the keyword <a href="./MeshGeneration/#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite"><span class="nf">change</span></code></a>.</p>
+<p><code class="codehilite"><span class="kr">label</span><span class="o">=</span></code> sets the labels of the border faces. This parameter is initialized as the label for the keyword <a href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh"><code class="codehilite"><span class="nf">change</span></code></a>.</p>
 </li>
 <li>
 <p><code class="codehilite"><span class="kp">facemerge</span><span class="o">=</span></code> An integer expression. When you transform a mesh, some faces can be merged. This parameter equals to one if the merges' faces is considered. Otherwise it equals to zero. By default, this parameter is equal to 1.</p>
