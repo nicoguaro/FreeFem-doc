@@ -1844,8 +1844,8 @@ ENDIFMACRO </p>
 <p>The main ingredient of a two level preconditioner is the so-called 'coarse space' matrix <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span>.<br />
 <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> is a rectangular matrix of size <span><span class="MathJax_Preview">n \times n_c</span><script type="math/tex">n \times n_c</script></span>, where usually <span><span class="MathJax_Preview">n_c \ll n</span><script type="math/tex">n_c \ll n</script></span>.<br />
 <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> is used to build the 'coarse space operator' <span><span class="MathJax_Preview">E = Z^T A Z</span><script type="math/tex">E = Z^T A Z</script></span>, a square matrix of size <span><span class="MathJax_Preview">n_c \times n_c</span><script type="math/tex">n_c \times n_c</script></span>. We can then define the 'coarse space correction operator' <span><span class="MathJax_Preview">Q = Z E^{-1} Z^T = Z (Z^T A Z)^{-1} Z^T</span><script type="math/tex">Q = Z E^{-1} Z^T = Z (Z^T A Z)^{-1} Z^T</script></span>, which can then be used to enrich the one level preconditioner through a correction formula. The simplest one is the <em>additive</em> coarse correction: <span><span class="MathJax_Preview">M^{-1}_2 = M^{-1}_1 + Q</span><script type="math/tex">M^{-1}_2 = M^{-1}_1 + Q</script></span>. See <code>pr#corr</code> below for all other available correction formulas.</p>
-<p>There are multiple ways to define a relevant coarse space <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> for different classes of problems. <strong><a href="#building-the-geneo-coarse-space"><code>ffddmgeneosetup</code></a></strong> defines a coarse space correction operator by building the GenEO coarse space, while <strong><a href="#building-the-coarse-space-from-a-coarse-mesh"><code>ffddmEuansetup</code></a></strong> builds the coarse space using a coarse mesh.<br />
-After a call to either <strong><a href="#building-the-geneo-coarse-space"><code>ffddmgeneosetup</code></a></strong> or <strong><a href="#building-the-coarse-space-from-a-coarse-mesh"><code>ffddmEuansetup</code></a></strong>, the following variables and functions are set up:</p>
+<p>There are multiple ways to define a relevant coarse space <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> for different classes of problems. <strong><a href="#building-the-geneo-coarse-space"><code>ffddmgeneosetup</code></a></strong> defines a coarse space correction operator by building the GenEO coarse space, while <strong><a href="#building-the-coarse-space-from-a-coarse-mesh"><code>ffddmcoarsemeshsetup</code></a></strong> builds the coarse space using a coarse mesh.<br />
+After a call to either <strong><a href="#building-the-geneo-coarse-space"><code>ffddmgeneosetup</code></a></strong> or <strong><a href="#building-the-coarse-space-from-a-coarse-mesh"><code>ffddmcoarsemeshsetup</code></a></strong>, the following variables and functions are set up:</p>
 <ul>
 <li><code>int pr#ncoarsespace</code> the size of the coarse space <span><span class="MathJax_Preview">n_c</span><script type="math/tex">n_c</script></span>.</li>
 <li>
@@ -1871,7 +1871,7 @@ The implementation differs depending on the method used to build the coarse spac
 <li><code>func pr#prfe#K[int] pr#PREC2level(pr#prfe#K[int] &amp;ui)</code> The function <code>pr#PREC2level</code> computes the parallel application of the two level preconditioner <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span>, i.e. the action of <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span> on the local vector <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span>. In the sequential case, it computes the action of <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span> on a global vector. The two level preconditioner depends on the choice of the coarse correction formula which is determined by <code>pr#corr</code>, see above.</li>
 </ul>
 <p><strong><em>For advanced users</em></strong>:</p>
-<p>int pr#bEuan = 0;</p>
+<p>int pr#bCM = 0;</p>
 <h3 id="building-the-geneo-coarse-space">Building the GenEO coarse space<a class="headerlink" href="#building-the-geneo-coarse-space" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmgeneosetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Varf</span><span class="p">)</span>
 </pre></div>
@@ -1896,7 +1896,7 @@ In practice, this builds and factorizes the local Neumann matrices <span><span c
 <p>int[int] pr#sizelgworld(mpiSize(pr#prfe#prmesh#mpicomm)), pr#offsetiworld(mpiSize(pr#prfe#prmesh#mpicomm));</p>
 <p>matrix<pr#prfe#K> pr#matN;</p>
 <h3 id="building-the-coarse-space-from-a-coarse-mesh">Building the coarse space from a coarse mesh<a class="headerlink" href="#building-the-coarse-space-from-a-coarse-mesh" title="Permanent link">#</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmEuansetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Thc</span><span class="p">,</span><span class="n">VarfEprec</span><span class="p">,</span><span class="n">VarfA</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmcoarsemeshsetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Thc</span><span class="p">,</span><span class="n">VarfEprec</span><span class="p">,</span><span class="n">VarfA</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
@@ -1906,9 +1906,9 @@ The coarse space <span><span class="MathJax_Preview">Z</span><script type="math/
 <p>matrix<pr#prfe#K> pr#AglobEprec;</p>
 <p>matrix<pr#prfe#K>[int] pr#aRdEprec(pr#prfe#prmesh#npart);</p>
 <p>func pr#prfe#K[int] pr#AEprec(pr#prfe#K[int] &amp;x)</p>
-<p>matrix<pr#prfe#K> pr#Zeuan</p>
-<p>matrix<pr#prfe#K> pr#Zeuani</p>
-<p>matrix<pr#prfe#K> pr#Eeuan;</p>
+<p>matrix<pr#prfe#K> pr#ZCM</p>
+<p>matrix<pr#prfe#K> pr#ZCMi</p>
+<p>matrix<pr#prfe#K> pr#ECM;</p>
 <h2 id="solving-the-linear-system">Solving the linear system<a class="headerlink" href="#solving-the-linear-system" title="Permanent link">#</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">pr</span><span class="err">#</span><span class="n">fGMRES</span><span class="p">(</span><span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">x0i</span><span class="p">,</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">bi</span><span class="p">,</span> <span class="kt">real</span> <span class="kp">eps</span><span class="p">,</span> <span class="kt">int</span> <span class="kp">nbiter</span><span class="p">,</span> <span class="kt">string</span> <span class="n">sprec</span><span class="p">)</span>
 </pre></div>
