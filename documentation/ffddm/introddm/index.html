@@ -689,6 +689,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optimized-restricted-additive-schwarz-oras" title="Optimized Restricted Additive Schwarz (ORAS)" class="md-nav__link">
+    Optimized Restricted Additive Schwarz (ORAS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#two-level-methods" title="Two level methods" class="md-nav__link">
     Two level methods
   </a>
@@ -1601,6 +1608,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optimized-restricted-additive-schwarz-oras" title="Optimized Restricted Additive Schwarz (ORAS)" class="md-nav__link">
+    Optimized Restricted Additive Schwarz (ORAS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#two-level-methods" title="Two level methods" class="md-nav__link">
     Two level methods
   </a>
@@ -1736,7 +1750,7 @@ was developed.
 A frontal solver builds a <span><span class="MathJax_Preview">LU</span><script type="math/tex">LU</script></span> or Cholesky decomposition of a sparse matrix
 given as the assembly of element matrices by eliminating equations
 only on a subset of elements at a time. This subset is called the <em>front</em> and it is essentially the transition region between the part of the system already finished and the part not touched yet. These methods are basically sequential since the unknowns are processed the one after another or one front after another. In order to benefit from multicore processors, a <a href="http://en.wikipedia.org/wiki/Multifrontal_method">multifrontal solver</a>
- is an improvement of the frontal solver that uses several independent fronts at the same time. The fronts can be worked on by different processors, which enables parallel computing. </p>
+ is an improvement of the frontal solver that uses several independent fronts at the same time. The fronts can be worked on by different processors, which enables parallel computing. <code>ffddm</code> provides an interface to the parallel sparse direct solver <a href="http://mumps.enseeiht.fr/">MUMPS</a>.   </p>
 <h3 id="schwarz-methods">Schwarz methods<a class="headerlink" href="#schwarz-methods" title="Permanent link">#</a></h3>
 <p>We consider the solve of the equation <span><span class="MathJax_Preview">A\, \mathbf{X} = \mathbf{RHS}</span><script type="math/tex">A\, \mathbf{X} = \mathbf{RHS}</script></span> by a flexible GMRES method preconditioned by domain decomposition methods.</p>
 <h4 id="restricted-additive-schwarz-ras">Restricted Additive Schwarz (RAS)<a class="headerlink" href="#restricted-additive-schwarz-ras" title="Permanent link">#</a></h4>
@@ -1770,6 +1784,13 @@ A_{j}\, {\mathbf Y}_j = \mathbf{RHS}_j\,.
 </script>
 </div>
 <p>Each local vector <span><span class="MathJax_Preview">{\mathbf Y}_j</span><script type="math/tex">{\mathbf Y}_j</script></span> is weighted by the partition of unity matrix <span><span class="MathJax_Preview">D_j</span><script type="math/tex">D_j</script></span>. Then data transfers between neighboring subdomains implement the <span><span class="MathJax_Preview">R_i\,R_j^T\,D_j\,{\mathbf Y}_j</span><script type="math/tex">R_i\,R_j^T\,D_j\,{\mathbf Y}_j</script></span> formula. The contribution from neighboring subdomains are summed locally. This pattern is very similar to that of the <a href="#Update">update</a> procedure.</p>
+<h4 id="optimized-restricted-additive-schwarz-oras">Optimized Restricted Additive Schwarz (ORAS)<a class="headerlink" href="#optimized-restricted-additive-schwarz-oras" title="Permanent link">#</a></h4>
+<p>The ORAS preconditioner may be seen as a variant of the RAS preconditioner. It reads:</p>
+<p>
+<script type="math/tex; mode=display">
+M^{-1}_{RAS} := \sum_{j=1}^N R_j^T D_j\, B_j^{-1}\, R_j\,
+</script>
+where <span><span class="MathJax_Preview">B_j</span><script type="math/tex">B_j</script></span> are local matrices of size <span><span class="MathJax_Preview">\#{\mathcal N}_j \times \#{\mathcal N}_j</span><script type="math/tex">\#{\mathcal N}_j \times \#{\mathcal N}_j</script></span> for <span><span class="MathJax_Preview">1\le j \le N</span><script type="math/tex">1\le j \le N</script></span>. This variant is very useful when dealing with wave propagation phenomena such as Helmholtz problems in acoustics or Maxwell system in the frequency domain for electromagnetism. Defining <span><span class="MathJax_Preview">B_j</span><script type="math/tex">B_j</script></span> as the discretization of the physical equation with impedance conditions on the boundary of the subdomain </p>
 <h4 id="two-level-methods">Two level methods<a class="headerlink" href="#two-level-methods" title="Permanent link">#</a></h4>
 <p>The RAS method is called a one-level method in the sense that sub-domains only interact with their direct neighbors. For some problems such as Darcy problems or static elasticiy problems and when the number of subdomains is large, such one-level methods may suffer from a slow convergence. The fix is to add to the preconditioner an auxiliary coarse problem that couples all subdomains at each iteration and is inexpensive to calculate. We consider two ways to build this coarse problem, see below <a href="#coarse-mesh">Coarse Mesh</a> and <a href="#geneo">GenEO</a></p>
 <h5 id="coarse-mesh">Coarse Mesh<a class="headerlink" href="#coarse-mesh" title="Permanent link">#</a></h5>
