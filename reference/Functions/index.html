@@ -3876,27 +3876,27 @@
 </ul>
 <h2 id="eigenvalue">EigenValue<a class="headerlink" href="#eigenvalue" title="Permanent link">#</a></h2>
 <p>Compute the generalized eigenvalue of <span><span class="MathJax_Preview">Au=\lambda Bu</span><script type="math/tex">Au=\lambda Bu</script></span>. The shifted-inverse method
-is used by default with <code>sigma=</code><span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span>, the shift of the method. The function 
-<code>EigenValue</code> can be used for either matrices or functions returing a matrix vector product. 
-The use of the matrix version is shown below. </p>
-<p><code>int k=EigenValue(A,B,nev= , sigma= );</code></p>
-<p><u>Parameters:</u> </p>
+is used by default with <code class="codehilite"><span class="kp">sigma</span><span class="o">=</span></code><span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span>, the shift of the method. The function
+<code class="codehilite"><span class="nf">EigenValue</span></code> can be used for either matrices or functions returning a matrix vector product.
+The use of the matrix version is shown below.</p>
+<p><code class="codehilite"><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="nf">EigenValue</span><span class="p">(</span><span class="kp">A</span><span class="p">,</span><span class="kp">B</span><span class="p">,</span><span class="kp">nev</span><span class="o">=</span> <span class="p">,</span> <span class="kp">sigma</span><span class="o">=</span> <span class="p">);</span></code></p>
+<p><u>Parameters:</u></p>
 <ul>
-<li><code>A</code>, <code>B</code>: matrices of same size <br/></li>
-<li><code>nev=n</code>: number of desired eigenvalues given by an integer <code>n</code></li>
-<li><code>sym=</code>: the problem is symmetric or not</li>
-<li><code>tol=</code>: the relative accuracy to which eigenvalues are to be determined</li>
-<li><code>value=</code>: an array to store the real part of the eigenvalues</li>
-<li><code>ivalue=</code>: an array to store the imaginary part of the eigenvalues</li>
-<li><code>vector=</code>: a Finite Element function array to store the eigenvectors</li>
-<li><code>sigma=</code>: the shift value</li>
-<li>Other parameters are available for more advanced use: see the FreeFem++ manual and the ARPACK 
+<li><code class="codehilite"><span class="kp">A</span></code>, <code class="codehilite"><span class="kp">B</span></code>: matrices of same size <br/></li>
+<li><code class="codehilite"><span class="kp">nev</span><span class="o">=</span><span class="kr">n</span></code>: number of desired eigenvalues given by an integer <code>n</code></li>
+<li><code class="codehilite"><span class="kp">sym</span><span class="o">=</span></code>: the problem is symmetric or not</li>
+<li><code class="codehilite"><span class="kp">tol</span><span class="o">=</span></code>: the relative accuracy to which eigenvalues are to be determined</li>
+<li><code class="codehilite"><span class="kp">value</span><span class="o">=</span></code>: an array to store the real part of the eigenvalues</li>
+<li><code class="codehilite"><span class="kp">ivalue</span><span class="o">=</span></code>: an array to store the imaginary part of the eigenvalues</li>
+<li><code class="codehilite"><span class="kp">vector</span><span class="o">=</span></code>: a Finite Element function array to store the eigenvectors</li>
+<li><code class="codehilite"><span class="kp">sigma</span><span class="o">=</span></code>: the shift value</li>
+<li>Other parameters are available for more advanced use: see the FreeFem++ manual <span><span class="MathJax_Preview">\codered</span><script type="math/tex">\codered</script></span> and the ARPACK
  documentation.</li>
 </ul>
 <p><u>Output:</u>
- The output is the number of converged eigenvalues, which can be different than the 
- number of requested eigenvalues given by <code>nev=</code>. Note that the eigenvalues and the eigenvectors are 
- stored for further purposes using the parameters <code>value=</code> and <code>vector=</code>.</p>
+ The output is the number of converged eigenvalues, which can be different than the
+ number of requested eigenvalues given by <code class="codehilite"><span class="kp">nev</span><span class="o">=</span></code>. Note that the eigenvalues and the eigenvectors are
+ stored for further purposes using the parameters <code class="codehilite"><span class="kp">value</span><span class="o">=</span></code> and <code class="codehilite"><span class="kp">vector</span><span class="o">=</span></code>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">Res</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
