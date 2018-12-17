@@ -2096,7 +2096,7 @@
                 
                 <h2 id="standard-types">Standard types<a class="headerlink" href="#standard-types" title="Permanent link">#</a></h2>
 <h3 id="int">int<a class="headerlink" href="#int" title="Permanent link">#</a></h3>
-<p>Integer value (equivalent to <code class="codehilite"><span class="kt">long</span></code> in <code>C++</code>).</p>
+<p>Integer value (equivalent to <code class="codehilite"><span class="n">long</span></code> in <code>C++</code>).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
@@ -2115,13 +2115,13 @@
 
 </div>
 <h3 id="real">real<a class="headerlink" href="#real" title="Permanent link">#</a></h3>
-<p>Real value (equivalent to <code class="codehilite"><span class="kt">double</span></code> in <code>C++</code>).</p>
+<p>Real value (equivalent to <code class="codehilite"><span class="n">double</span></code> in <code>C++</code>).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
 <h3 id="complex">complex<a class="headerlink" href="#complex" title="Permanent link">#</a></h3>
-<p>Complex value (equivalent to two <code class="codehilite"><span class="kt">double</span></code> or <code class="codehilite"><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span></code> in <code>C++</code>).</p>
+<p>Complex value (equivalent to two <code class="codehilite"><span class="n">double</span></code> or <code class="codehilite"><span class="n">complex</span><span class="p">&lt;</span><span class="n">double</span><span class="p">&gt;</span></code> in <code>C++</code>).</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">complex</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">0.</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
@@ -2532,7 +2532,7 @@ Else, the stop test is:
 <li>the first is similar to vector, i.e. array with integer indices</li>
 <li>the second is array with string indices</li>
 </ul>
-<p>In the first case, the size of the array must be known at execution time, and implementation is done with the <code class="codehilite"><span class="n">KN</span><span class="o">&lt;&gt;</span></code> class and all the vector operator of <code class="codehilite"><span class="n">KN</span><span class="o">&lt;&gt;</span></code> are implemented.</p>
+<p>In the first case, the size of the array must be known at execution time, and implementation is done with the <code class="codehilite"><span class="n">KN</span><span class="p">&lt;&gt;</span></code> class and all the vector operator of <code class="codehilite"><span class="n">KN</span><span class="p">&lt;&gt;</span></code> are implemented.</p>
 <p>Arrays can be set like in Matlab or Scilab with the operator <code>::</code>, the array generator of <code>a:c</code> is equivalent to <code>a:1:c</code>, and the array set by <code>a:b:c</code> is set to size <span><span class="MathJax_Preview">\lfloor |(b-a)/c|+1 \rfloor</span><script type="math/tex">\lfloor |(b-a)/c|+1 \rfloor</script></span> and the value <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> is set by <span><span class="MathJax_Preview">a + i (b-a)/c</span><script type="math/tex">a + i (b-a)/c</script></span>.</p>
 <p>There are <code class="codehilite"><span class="kt">int</span><span class="p">,</span><span class="kt">real</span><span class="p">,</span> <span class="kt">complex</span></code> array with, in the third case, two operators (<code class="codehilite"><span class="p">.</span><span class="kr">im</span></code>, <code class="codehilite"><span class="p">.</span><span class="kr">re</span></code>) to generate the real and imaginary real array from the complex array (without copy).</p>
 <div class="admonition note">
