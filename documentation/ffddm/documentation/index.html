@@ -1672,30 +1672,42 @@ The label of the new border of the submeshes (the interface between the subdomai
 <li><code>mpiComm pr#commCS</code> mpi communicator for ranks participating in the assembly and resolution of the coarse problem for two-level preconditioners (ranks 0 to <code>pr#pCS</code> - 1 in <strong>comm</strong>)</li>
 <li><code>mpiComm pr#commself</code> self mpi communicator (this mpi rank only), used for factorizing local matrices</li>
 </ul>
-<p><strong><em>For advanced users</em></strong>:</p>
-<ul>
-<li><code>int pr#binexactCS</code> </li>
-<li><code>int pr#inexactCSsplit</code></li>
-<li><code>int pr#isincomm</code></li>
-<li><code>meshN[int] pr#aThborder</code></li>
-</ul>
+<!--
+***For advanced users***:
+
+- `int pr#binexactCS` 
+- `int pr#inexactCSsplit`
+- `int pr#isincomm`
+- `meshN[int] pr#aThborder`
+-->
+
 <p><strong><em>Remark for sequential use</em></strong> (see <a href="../parameters/#command-line-arguments"><code>-seqddm</code></a>):
 - <code>meshN[int] pr#aTh</code> array (size <code>pr#npart</code>) of local meshes of the subdomains</p>
-<p>!int pr#binexactgeneoCS</p>
-<p>!fespace pr#VhiP1(pr#Thi,P1);</p>
-<p>!pr#VhiP1[int] pr#partitionIntersectionbasei(0);</p>
-<p>!meshN pr#Thglob = minimalMesh;</p>
-<p>!matrix[int] pr#RihP1(pr#npart);
-!pr#VhiP1[int] pr#DP1(pr#npart);</p>
-<p>!NewMacro pr#mpicomm()comm EndMacro</p>
-<p><strong><em>depends on</em></strong>:
-- <a href="../parameters/#global-parameters">ffddmpartitioner</a>
-- <a href="../parameters/#global-parameters">ffddmpCS</a>
-- <a href="../parameters/#global-parameters">ffddmexclude</a>
-- <a href="../parameters/#global-parameters">ffddmoverlap</a>
-- <a href="../parameters/#global-parameters">ffddmsplit</a>
-- <a href="../parameters/#global-parameters">ffddminterfacelabel</a></p>
-<p><strong><em>see also</em></strong>:</p>
+<!--
+ int pr#binexactgeneoCS
+
+fespace pr#VhiP1(pr#Thi,P1);
+
+pr#VhiP1[int] pr#partitionIntersectionbasei(0);
+
+meshN pr#Thglob = minimalMesh;
+
+matrix[int] pr#RihP1(pr#npart);
+pr#VhiP1[int] pr#DP1(pr#npart);
+
+NewMacro pr#mpicomm()comm EndMacro
+
+***depends on***:
+- [ffddmpartitioner](parameters.md#global-parameters)
+- [ffddmpCS](parameters.md#global-parameters)
+- [ffddmexclude](parameters.md#global-parameters)
+- [ffddmoverlap](parameters.md#global-parameters)
+- [ffddmsplit](parameters.md#global-parameters)
+- [ffddminterfacelabel](parameters.md#global-parameters)
+
+***see also***:
+-->
+
 <h2 id="local-finite-element-spaces">Local finite element spaces<a class="headerlink" href="#local-finite-element-spaces" title="Permanent link">#</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmbuildDfespace</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">prmesh</span><span class="p">,</span><span class="n">scalar</span><span class="p">,</span><span class="n">def</span><span class="p">,</span><span class="kp">init</span><span class="p">,</span><span class="n">Pk</span><span class="p">)</span>
 </pre></div>
@@ -1740,19 +1752,29 @@ Two macros, <strong>def</strong> and <strong>init</strong>, are needed: <strong>
 <span><span class="MathJax_Preview">u_i = R_i (\sum_{j=1}^N R_j^T u_j)</span><script type="math/tex">u_i = R_i (\sum_{j=1}^N R_j^T u_j)</script></span> when <em>scale</em> is <em>false</em> and <span><span class="MathJax_Preview">u_i = R_i (\sum_{j=1}^N R_j^T D_j u_j)</span><script type="math/tex">u_i = R_i (\sum_{j=1}^N R_j^T D_j u_j)</script></span> when <em>scale</em> is <em>true</em>.</li>
 <li><code>func scalar pr#scalprod(scalar[int] ai, scalar[int] bi)</code> The function <code>pr#scalprod</code> computes the global scalar product of two vectors whose local restriction to the subdomain of this mpi rank are <em>ai</em> and <em>bi</em>. The result is computed as <span><span class="MathJax_Preview">\sum_{j=1}^N (D_j a_j, b_j)</span><script type="math/tex">\sum_{j=1}^N (D_j a_j, b_j)</script></span>.</li>
 </ul>
-<p><strong><em>Remark:</em></strong></p>
-<p><strong><em>For advanced users</em></strong>:</p>
-<p>matrix<pr#K>[int] pr#restrictionIntersection(0);</p>
-<p>NewMacro pr#mdefpart udefpart EndMacro</p>
-<p>NewMacro pr#minitpart uinitpart EndMacro</p>
-<p>func pr#fPkP0 = mPkP0;</p>
-<p>pr#K[int][int] pr#rcv(0);
-pr#K[int][int] pr#snd(0);</p>
-<p><strong><em>depends on</em></strong>:</p>
-<p><strong><em>see also</em></strong>:</p>
-<ul>
-<li><strong><a href="#local-finite-element-spaces"><code>ffddmbuildDfespaceEdge</code></a></strong></li>
-</ul>
+<!--
+***Remark:***
+
+***For advanced users***:
+
+matrix<pr#K>[int] pr#restrictionIntersection(0);
+
+NewMacro pr#mdefpart udefpart EndMacro
+
+NewMacro pr#minitpart uinitpart EndMacro
+
+func pr#fPkP0 = mPkP0;
+
+pr#K[int][int] pr#rcv(0);
+pr#K[int][int] pr#snd(0);
+
+***depends on***:
+
+***see also***:
+
+- **[`ffddmbuildDfespaceEdge`](#local-finite-element-spaces)**
+-->
+
 <h2 id="define-the-problem-to-solve">Define the problem to solve<a class="headerlink" href="#define-the-problem-to-solve" title="Permanent link">#</a></h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">prfe</span><span class="p">,</span><span class="n">Varf</span><span class="p">)</span>
 </pre></div>
@@ -1781,16 +1803,22 @@ At this point, we already have the necessary data to be able to solve the proble
 <li><code>pr#writesummary</code> macro, prints a summary of timings for this problem, such as the time spent to assemble local matrices or solve the linear system.</li>
 <li><code>matrix&lt;prfe#K&gt; pr#Aglobal</code> the global matrix <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> corresponding to the discretization of the variational form given by the macro <strong>Varf</strong> on the global finite element space <code>prfe#Vhglob</code>. Defined only in the sequential case.</li>
 <li><code>matrix&lt;prfe#K&gt;[int] pr#aRd</code> array (size <code>prfe#prmesh#npart</code>) of so-called local 'Dirichlet' matrices in the subdomains; these are the restrictions of the global operator to the subdomains, equivalent to <span><span class="MathJax_Preview">A_i = R_i A R_i^T</span><script type="math/tex">A_i = R_i A R_i^T</script></span> with <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> the global matrix corresponding to the discretization of the variational form given by the macro <strong>Varf</strong> on the global finite element space. In the standard parallel case, only the local matrix for this mpi rank <code>pr#aRd[mpiRank(prmesh#commddm)]</code> is defined (unless this mpi rank is excluded from the spatial domain decomposition, i. e. <code>prmesh#excluded</code> = 1). In the sequential case, all local matrices are defined.</li>
-<li><code>func prfe#K[int] pr#A(prfe#K[int] &amp;ui)</code> The function <code>pr#A</code> computes the parallel matrix-vector product, i.e. the action of the global operator <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> on the local vector <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span>. The computation is equivalent to <span><span class="MathJax_Preview">R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)</span><script type="math/tex">R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)</script></span> and is performed in parallel using local matrices <code>pr#aRd</code> and the function <code>prfe#update</code>. In the sequential case, the global matrix <strong>pr#Aglobal</strong> is used instead.</li>
+<li><code>func prfe#K[int] pr#A(prfe#K[int] &amp;ui)</code> The function <code>pr#A</code> computes the parallel matrix-vector product, i.e. the action of the global operator <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> on the local vector <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span>. The computation is equivalent to <span><span class="MathJax_Preview">R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)</span><script type="math/tex">R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)</script></span> and is performed in parallel using local matrices <code>pr#aRd</code> and the function <code>prfe#update</code>. In the sequential case, the global matrix <code>pr#Aglobal</code> is used instead.</li>
 <li><code>func prfe#K[int] pr#directsolve(prfe#K[int]&amp; rhsi)</code> The function <code>pr#directsolve</code> allows to solve the linear system <span><span class="MathJax_Preview">A x = b</span><script type="math/tex">A x = b</script></span> in parallel using the parallel direct solver <em>MUMPS</em>. The matrix is given to <em>MUMPS</em> in distributed form through the local matrices <code>pr#aRd</code>. The input <em>rhsi</em> is given as a distributed vector (<em>rhsi</em> is the restriction of the global right-hand side <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> to the subdomain of this mpi rank, see <strong><a href="#define-the-problem-to-solve"><code>ffddmbuildrhs</code></a>)</strong> and the returned vector is local as well.</li>
 </ul>
-<p>NewMacro pr#plot(u,s)</p>
-<p><strong><em>For advanced users</em></strong>:</p>
-<p>NewMacro pr#fromVhi(ui,VhName,res)</p>
-<p><strong><em>depends on</em></strong>:</p>
-<ul>
-<li><a href="../parameters/#global-parameters">ffddmverbosity</a></li>
-</ul>
+<!--
+NewMacro pr#plot(u,s)
+
+***For advanced users***:
+
+NewMacro pr#fromVhi(ui,VhName,res)
+
+***depends on***:
+
+- [ffddmverbosity](parameters.md#global-parameters)
+-->
+
+<hr />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmbuildrhs</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Varfrhs</span><span class="p">,</span><span class="n">rhs</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
@@ -1839,11 +1867,15 @@ In practice, this builds and performs the factorization of the local matrices us
 <li><code>func pr#prfe#K[int] pr#PREC(pr#prfe#K[int] &amp;ui)</code> The function <code>pr#PREC</code> corresponds to the action of the preconditioner <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span> for problem <strong>pr</strong>. It coincides with the one level preconditioner <code>pr#PREC1</code> after the call to <strong><a href="#one-level-preconditioners"><code>ffddmsetupPrecond</code></a></strong>. If a second level is subsequently added (see the next section about <strong><a href="#two-level-preconditioners">Two level preconditioners</a></strong>), it will then coincide with the two level preconditioner <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span> (see <code>pr#PREC2level</code>).</li>
 <li><code>func pr#prfe#K[int] pr#fGMRES(pr#prfe#K[int]&amp; x0i, pr#prfe#K[int]&amp; bi, real eps, int nbiter, string sprec)</code> The function <code>pr#fGMRES</code> allows to solve the linear system <span><span class="MathJax_Preview">A x = b</span><script type="math/tex">A x = b</script></span> in parallel using the flexible GMRES method preconditioned by <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span>. The action of the global operator <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is given by <code>pr#A</code>, the action of the preconditioner <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span> is given by <code>pr#PREC</code> and the scalar products are computed by <code>pr#scalprod</code>. More details are given in the section <strong><a href="#solving-the-linear-system">Solving the linear system</a></strong>.</li>
 </ul>
-<p><strong><em>For advanced users</em></strong>:</p>
-<p>NewMacro pr#localmacroaug pr#prfe#prmesh#buildAug EndMacro<br />
-IFMACRO(pr#localmacroaug,1)<br />
-matrix<pr#prfe#K> pr#CSinterp;<br />
-ENDIFMACRO </p>
+<!--
+***For advanced users***:
+
+NewMacro pr#localmacroaug pr#prfe#prmesh#buildAug EndMacro  
+IFMACRO(pr#localmacroaug,1)  
+matrix<pr#prfe#K> pr#CSinterp;  
+ENDIFMACRO
+-->
+
 <h2 id="two-level-preconditioners">Two level preconditioners<a class="headerlink" href="#two-level-preconditioners" title="Permanent link">#</a></h2>
 <p>The main ingredient of a two level preconditioner is the so-called 'coarse space' matrix <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span>.<br />
 <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> is a rectangular matrix of size <span><span class="MathJax_Preview">n \times n_c</span><script type="math/tex">n \times n_c</script></span>, where usually <span><span class="MathJax_Preview">n_c \ll n</span><script type="math/tex">n_c \ll n</script></span>.<br />
@@ -1874,8 +1906,12 @@ The implementation differs depending on the method used to build the coarse spac
 </li>
 <li><code>func pr#prfe#K[int] pr#PREC2level(pr#prfe#K[int] &amp;ui)</code> The function <code>pr#PREC2level</code> computes the parallel application of the two level preconditioner <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span>, i.e. the action of <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span> on the local vector <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span>. In the sequential case, it computes the action of <span><span class="MathJax_Preview">M^{-1}_2</span><script type="math/tex">M^{-1}_2</script></span> on a global vector. The two level preconditioner depends on the choice of the coarse correction formula which is determined by <code>pr#corr</code>, see above.</li>
 </ul>
-<p><strong><em>For advanced users</em></strong>:</p>
-<p>int pr#bCM = 0;</p>
+<!--
+***For advanced users***:
+
+int pr#bCM = 0;
+-->
+
 <h3 id="building-the-geneo-coarse-space">Building the GenEO coarse space<a class="headerlink" href="#building-the-geneo-coarse-space" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmgeneosetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Varf</span><span class="p">)</span>
 </pre></div>
@@ -1894,30 +1930,43 @@ In practice, this builds and factorizes the local Neumann matrices <span><span c
 <p><code>matrix&lt;pr#prfe#K&gt; pr#E</code> the coarse space operator <span><span class="MathJax_Preview">E = Z^T A Z</span><script type="math/tex">E = Z^T A Z</script></span>. The matrix <code>pr#E</code> is assembled in parallel and is factorized by the parallel direct solver <em>MUMPS</em> using the first <code>pr#prfe#prmesh#pCS</code> ranks of the mpi communicator, with mpi rank 0 as the master process. The number of mpi processes dedicated to the coarse problem is set by the underlying mesh decomposition of problem <strong>pr</strong>, which also specifies if these mpi ranks are excluded from the spatial decomposition or not. These parameters are set by <a href="../parameters/#global-parameters">ffddmpCS</a> and <a href="../parameters/#global-parameters">ffddmexclude</a> when calling <strong><a href="#overlapping-mesh-decomposition"><code>ffddmbuildDmesh</code></a></strong> (see <strong><a href="#overlapping-mesh-decomposition"><code>ffddmbuildDmesh</code></a></strong> for more details).</p>
 </li>
 </ul>
-<p><strong><em>For advanced users</em></strong>:</p>
-<p>int pr#si;</p>
-<p>pr#sizelg(pr#prfe#prmesh#npart), pr#offseti(pr#prfe#prmesh#npart);</p>
-<p>int[int] pr#sizelgworld(mpiSize(pr#prfe#prmesh#mpicomm)), pr#offsetiworld(mpiSize(pr#prfe#prmesh#mpicomm));</p>
-<p>matrix<pr#prfe#K> pr#matN;</p>
+<!--
+***For advanced users***:
+
+int pr#si;
+
+pr#sizelg(pr#prfe#prmesh#npart), pr#offseti(pr#prfe#prmesh#npart);
+
+int[int] pr#sizelgworld(mpiSize(pr#prfe#prmesh#mpicomm)), pr#offsetiworld(mpiSize(pr#prfe#prmesh#mpicomm));
+
+matrix<pr#prfe#K> pr#matN;
+-->
+
 <h3 id="building-the-coarse-space-from-a-coarse-mesh">Building the coarse space from a coarse mesh<a class="headerlink" href="#building-the-coarse-space-from-a-coarse-mesh" title="Permanent link">#</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmcoarsemeshsetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Thc</span><span class="p">,</span><span class="n">VarfEprec</span><span class="p">,</span><span class="n">VarfA</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ffddmcoarsemeshsetup</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Thc</span><span class="p">,</span><span class="n">VarfEprec</span><span class="p">,</span><span class="n">VarfAprec</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
-<p>builds the coarse space for problem <strong>pr</strong> from a coarse problem which corresponds to the discretization of a variational form on a coarser mesh <strong>Thc</strong> of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>. This will create and expose variables whose names will be prefixed by <strong>pr</strong>, see below. It is assumed that <strong><a href="#one-level-preconditioners"><code>ffddmsetupPrecond</code></a></strong> has already been called for prefix <strong>pr</strong> in order to define the one level preconditioner for problem <strong>pr</strong>. The abstract variational form for the coarse problem can differ from the original problem <strong>pr</strong> and is given by macro <strong>VarfEprec</strong> (see <strong><a href="#define-the-problem-to-solve"><code>ffddmsetupOperator</code></a></strong> for more details on how to define the abstract variational form as a macro).<br />
-The coarse space <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> corresponds to the interpolation operator from the </p>
+<p>builds the coarse space for problem <strong>pr</strong> from a coarse problem which corresponds to the discretization of a variational form on a coarser mesh <strong>Thc</strong> of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>. This will create and expose variables whose names will be prefixed by <strong>pr</strong>, see below. It is assumed that <strong><a href="#one-level-preconditioners"><code>ffddmsetupPrecond</code></a></strong> has already been called for prefix <strong>pr</strong> in order to define the one level preconditioner for problem <strong>pr</strong>. The abstract variational form for the coarse problem can differ from the original problem <strong>pr</strong> and is given by macro <strong>VarfEprec</strong> (see <strong><a href="#define-the-problem-to-solve"><code>ffddmsetupOperator</code></a></strong> for more details on how to define the abstract variational form as a macro). For example, absorption can be added in the preconditioner for wave propagation problems, see examples for Helmholtz and Maxwell equations in the <a href="../examples/">Examples</a> section.<br />
+The coarse space <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> corresponds to the interpolation operator from the coarse finite element space to the original finite element space of the problem. Thus, the coarse space operator <span><span class="MathJax_Preview">E = Z^T A^{\text{Eprec}} Z</span><script type="math/tex">E = Z^T A^{\text{Eprec}} Z</script></span> corresponds to the matrix of the problem given by <strong>VarfEprec</strong> discretized on the coarse mesh <strong>Thc</strong> and is assembled as such.<br />
+Similarly, <strong>VarfAprec</strong> specifies the global operator involved in multiplicative coarse correction formulas. For example, <span><span class="MathJax_Preview">M^{-1}_{2,\text{ADEF1}} = M^{-1}_1 (I - A^{\text{Aprec}} Q) + Q</span><script type="math/tex">M^{-1}_{2,\text{ADEF1}} = M^{-1}_1 (I - A^{\text{Aprec}} Q) + Q</script></span> (where <span><span class="MathJax_Preview">Q = Z E^{-1} Z^T</span><script type="math/tex">Q = Z E^{-1} Z^T</script></span>). <span><span class="MathJax_Preview">A^{\text{Aprec}}</span><script type="math/tex">A^{\text{Aprec}}</script></span> defaults to <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> if <strong>VarfAprec</strong> is not a valid macro (you can put <em>null</em> for example).</p>
 <p><strong><em>defines</em></strong>:</p>
-<p>matrix<pr#prfe#K> pr#AglobEprec;</p>
-<p>matrix<pr#prfe#K>[int] pr#aRdEprec(pr#prfe#prmesh#npart);</p>
-<p>func pr#prfe#K[int] pr#AEprec(pr#prfe#K[int] &amp;x)</p>
-<p>matrix<pr#prfe#K> pr#ZCM</p>
-<p>matrix<pr#prfe#K> pr#ZCMi</p>
-<p>matrix<pr#prfe#K> pr#ECM;</p>
+<ul>
+<li><code>meshN pr#ThCoarse</code> the coarse mesh <strong>Thc</strong></li>
+<li><code>fespace pr#VhCoarse</code> the coarse finite element space of type <code>pr#prfe#fPk</code> defined on the coarse mesh <code>pr#ThCoarse</code></li>
+<li><code>matrix&lt;pr#prfe#K&gt; pr#AglobEprec</code> the global matrix <span><span class="MathJax_Preview">A^{\text{Aprec}}</span><script type="math/tex">A^{\text{Aprec}}</script></span> corresponding to the discretization of the variational form given by the macro <strong>VarfAprec</strong> on the global finite element space <code>pr#prfe#Vhglob</code>. Defined only in the sequential case. <code>pr#AglobEprec</code> is equal to <code>pr#Aglobal</code> if <strong>VarfAprec</strong> is not a valid macro. </li>
+<li><code>matrix&lt;pr#prfe#K&gt; pr#aRdEprec</code> the local 'Dirichlet' matrix corresponding to <strong>VarfAprec</strong>; it is the local restriction of the global operator <span><span class="MathJax_Preview">A^{\text{Aprec}}</span><script type="math/tex">A^{\text{Aprec}}</script></span> to the subdomain, equivalent to <span><span class="MathJax_Preview">A^{\text{Aprec}}_i = R_i A^{\text{Aprec}} R_i^T</span><script type="math/tex">A^{\text{Aprec}}_i = R_i A^{\text{Aprec}} R_i^T</script></span> with <span><span class="MathJax_Preview">A^{\text{Aprec}}</span><script type="math/tex">A^{\text{Aprec}}</script></span> the global matrix corresponding to the discretization of the variational form given by the macro <strong>VarfAprec</strong> on the global finite element space. Defined only if this mpi rank is not excluded from the spatial domain decomposition, i. e. <code>prmesh#excluded</code> = 0. <code>pr#aRdEprec</code> is equal to <code>pr#aRd[mpiRank(prmesh#commddm)]</code> if <strong>VarfAprec</strong> is not a valid macro.</li>
+<li><code>func pr#prfe#K[int] pr#AEprec(pr#prfe#K[int] &amp;ui)</code> The function <code>pr#AEprec</code> computes the parallel matrix-vector product, i.e. the action of the global operator <span><span class="MathJax_Preview">A^{\text{Aprec}}</span><script type="math/tex">A^{\text{Aprec}}</script></span> on the local vector <span><span class="MathJax_Preview">u_i</span><script type="math/tex">u_i</script></span>. The computation is equivalent to <span><span class="MathJax_Preview">R_i (\sum_{j=1}^N R_j^T D_j A^{\text{Aprec}}_j u_j)</span><script type="math/tex">R_i (\sum_{j=1}^N R_j^T D_j A^{\text{Aprec}}_j u_j)</script></span> and is performed in parallel using local matrices <code>pr#aRdEprec</code> and the function <code>pr#prfe#update</code>. In the sequential case, the global matrix <code>pr#AglobEprec</code> is used instead.</li>
+<li><code>matrix&lt;pr#prfe#K&gt; pr#ZCM</code> the interpolation operator <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> from the coarse finite element space <code>pr#VhCoarse</code> to the global finite element space <code>pr#prfe#Vhglob</code>. Defined only in the sequential case.</li>
+<li><code>matrix&lt;pr#prfe#K&gt; pr#ZCMi</code> the local interpolation operator <span><span class="MathJax_Preview">Z_i</span><script type="math/tex">Z_i</script></span> from the coarse finite element space <code>pr#VhCoarse</code> to the local finite element space <code>pr#prfe#Vhi</code>. Defined only if this mpi rank is not excluded from the spatial domain decomposition, i. e. <code>prmesh#excluded</code> = 0. <code>pr#ZCMi</code> is used for the parallel application of <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> and <span><span class="MathJax_Preview">Z^T</span><script type="math/tex">Z^T</script></span>.</li>
+<li><code>matrix&lt;pr#prfe#K&gt; pr#ECM</code> the coarse space operator <span><span class="MathJax_Preview">E = Z^T A^{\text{Eprec}} Z</span><script type="math/tex">E = Z^T A^{\text{Eprec}} Z</script></span>. The matrix <code>pr#ECM</code> is assembled by discretizing the variational form given by <strong>VarfEprec</strong> on the coarse mesh and factorized by the parallel direct solver <em>MUMPS</em> using the first <code>pr#prfe#prmesh#pCS</code> ranks of the mpi communicator, with mpi rank 0 as the master process. The number of mpi processes dedicated to the coarse problem is set by the underlying mesh decomposition of problem <strong>pr</strong>, which also specifies if these mpi ranks are excluded from the spatial decomposition or not. These parameters are set by <a href="../parameters/#global-parameters">ffddmpCS</a> and <a href="../parameters/#global-parameters">ffddmexclude</a> when calling <strong><a href="#overlapping-mesh-decomposition"><code>ffddmbuildDmesh</code></a></strong> (see <strong><a href="#overlapping-mesh-decomposition"><code>ffddmbuildDmesh</code></a></strong> for more details).</li>
+</ul>
 <h2 id="solving-the-linear-system">Solving the linear system<a class="headerlink" href="#solving-the-linear-system" title="Permanent link">#</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">pr</span><span class="err">#</span><span class="n">fGMRES</span><span class="p">(</span><span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">x0i</span><span class="p">,</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">bi</span><span class="p">,</span> <span class="kt">real</span> <span class="kp">eps</span><span class="p">,</span> <span class="kt">int</span> <span class="kp">nbiter</span><span class="p">,</span> <span class="kt">string</span> <span class="n">sprec</span><span class="p">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">func</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">pr</span><span class="err">#</span><span class="n">fGMRES</span><span class="p">(</span><span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">x0i</span><span class="p">,</span> <span class="n">pr</span><span class="err">#</span><span class="n">prfe</span><span class="err">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="o">&amp;</span> <span class="n">bi</span><span class="p">,</span> <span class="kt">real</span> <span class="kp">eps</span><span class="p">,</span> <span class="kt">int</span> <span class="n">itmax</span><span class="p">,</span> <span class="kt">string</span> <span class="n">sp</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
+<p>solves the linear system for problem <strong>pr</strong> using the flexible GMRES algorithm with preconditioner <span><span class="MathJax_Preview">M^{-1}</span><script type="math/tex">M^{-1}</script></span> (corresponding to <code>pr#PREC</code>). Returns the local vector corresponding to the restriction of the solution to <code>pr#prfe#Vhi</code>. <strong>x0i</strong> and <strong>bi</strong> are local distributed vectors corresponding respectively to the initial guess and the right-hand side (see <strong><a href="#define-the-problem-to-solve"><code>ffddmbuildrhs</code></a></strong>). <strong>eps</strong> is the stopping criterion in terms of the relative decrease in residual norm. If <strong>eps</strong> <span><span class="MathJax_Preview">&lt; 0</span><script type="math/tex">< 0</script></span>, the residual norm itself is used instead. <strong>itmax</strong> sets the maximum number of iterations. <strong>sp</strong> selects between the <code>"left"</code> or <code>"right"</code> preconditioning variants: <em>left</em> preconditioned GMRES solves <span><span class="MathJax_Preview">M^{-1} A x = M^{-1} b</span><script type="math/tex">M^{-1} A x = M^{-1} b</script></span>, while <em>right</em> preconditioned GMRES solves <span><span class="MathJax_Preview">A M^{-1} y = b</span><script type="math/tex">A M^{-1} y = b</script></span> for <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>, with <span><span class="MathJax_Preview">x = M^{-1} y</span><script type="math/tex">x = M^{-1} y</script></span>.</p>
 <h2 id="using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em><a class="headerlink" href="#using-hpddm-within-ffddm" title="Permanent link">#</a></h2>
                 
                   
