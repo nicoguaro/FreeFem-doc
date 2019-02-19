@@ -2322,7 +2322,7 @@ Macro ends with <code>//</code>.</p>
 <p class="admonition-title">Macro concatenation</p>
 <p>You can use the C concatenation operator ## inside a macro using #.</p>
 <p>If <code>Ux</code> and <code>Uy</code> are defined as finite element function, you can define:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">macro</span> <span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">[</span><span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="err">#</span><span class="kr">y</span><span class="p">)]</span> <span class="c1">//</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">macro</span> <span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">[</span><span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="o">#</span><span class="kr">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="o">#</span><span class="kr">y</span><span class="p">)]</span> <span class="c1">//</span>
 </pre></div>
 </td></tr></table></p>
 </div>
